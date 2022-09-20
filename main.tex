@@ -1,0 +1,1796 @@
+
+\documentclass[numbers=enddot,12pt,final,onecolumn,notitlepage]{scrartcl}%
+\usepackage[headsepline,footsepline,manualmark]{scrlayer-scrpage}
+\usepackage[all,cmtip]{xy}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{framed}
+\usepackage{comment}
+\usepackage{ytableau}
+\usepackage{biblatex}
+\addbibresource{hecke.bib}
+\usepackage{color}
+\usepackage[breaklinks=True]{hyperref}
+\usepackage[sc]{mathpazo}
+\usepackage[T1]{fontenc}
+\usepackage{tikz}
+\usepackage{needspace}
+\usepackage{tabls}
+%TCIDATA{OutputFilter=latex2.dll}
+%TCIDATA{Version=5.50.0.2960}
+%TCIDATA{LastRevised=Saturday, September 11, 2021 22:01:11}
+%TCIDATA{SuppressPackageManagement}
+%TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
+%TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
+%TCIDATA{BibliographyScheme=Manual}
+%TCIDATA{Language=American English}
+%BeginMSIPreambleData
+\providecommand{\U}[1]{\protect\rule{.1in}{.1in}}
+%EndMSIPreambleData
+\usetikzlibrary{arrows}
+\newcounter{exer}
+\theoremstyle{definition}
+\newtheorem{theo}{Theorem}[section]
+\newenvironment{theorem}[1][]
+{\begin{theo}[#1]\begin{leftbar}}
+{\end{leftbar}\end{theo}}
+\newtheorem{lem}[theo]{Lemma}
+\newenvironment{lemma}[1][]
+{\begin{lem}[#1]\begin{leftbar}}
+{\end{leftbar}\end{lem}}
+\newtheorem{prop}[theo]{Proposition}
+\newenvironment{proposition}[1][]
+{\begin{prop}[#1]\begin{leftbar}}
+{\end{leftbar}\end{prop}}
+\newtheorem{defi}[theo]{Definition}
+\newenvironment{definition}[1][]
+{\begin{defi}[#1]\begin{leftbar}}
+{\end{leftbar}\end{defi}}
+\newtheorem{remk}[theo]{Remark}
+\newenvironment{remark}[1][]
+{\begin{remk}[#1]\begin{leftbar}}
+{\end{leftbar}\end{remk}}
+\newtheorem{coro}[theo]{Corollary}
+\newenvironment{corollary}[1][]
+{\begin{coro}[#1]\begin{leftbar}}
+{\end{leftbar}\end{coro}}
+\newtheorem{conv}[theo]{Convention}
+\newenvironment{convention}[1][]
+{\begin{conv}[#1]\begin{leftbar}}
+{\end{leftbar}\end{conv}}
+\newtheorem{quest}[theo]{Question}
+\newenvironment{question}[1][]
+{\begin{quest}[#1]\begin{leftbar}}
+{\end{leftbar}\end{quest}}
+\newtheorem{warn}[theo]{Warning}
+\newenvironment{conclusion}[1][]
+{\begin{warn}[#1]\begin{leftbar}}
+{\end{leftbar}\end{warn}}
+\newtheorem{conj}[theo]{Conjecture}
+\newenvironment{conjecture}[1][]
+{\begin{conj}[#1]\begin{leftbar}}
+{\end{leftbar}\end{conj}}
+\newtheorem{exam}[theo]{Example}
+\newenvironment{example}[1][]
+{\begin{exam}[#1]\begin{leftbar}}
+{\end{leftbar}\end{exam}}
+\newtheorem{exmp}[exer]{Exercise}
+\newenvironment{exercise}[1][]
+{\begin{exmp}[#1]\begin{leftbar}}
+{\end{leftbar}\end{exmp}}
+\newenvironment{statement}{\begin{quote}}{\end{quote}}
+\newenvironment{fineprint}{\begin{small}}{\end{small}}
+\iffalse
+\newenvironment{proof}[1][Proof]{\noindent\textbf{#1.} }{\ \rule{0.5em}{0.5em}}
+\newenvironment{convention}[1][Convention]{\noindent\textbf{#1.} }{\ \rule{0.5em}{0.5em}}
+\newenvironment{question}[1][Question]{\noindent\textbf{#1.} }{\ \rule{0.5em}{0.5em}}
+\fi
+\let\sumnonlimits\sum
+\let\prodnonlimits\prod
+\let\cupnonlimits\bigcup
+\let\capnonlimits\bigcap
+\renewcommand{\sum}{\sumnonlimits\limits}
+\renewcommand{\prod}{\prodnonlimits\limits}
+\renewcommand{\bigcup}{\cupnonlimits\limits}
+\renewcommand{\bigcap}{\capnonlimits\limits}
+\setlength\tablinesep{3pt}
+\setlength\arraylinesep{3pt}
+\setlength\extrarulesep{3pt}
+\setlength\textheight{22.5cm}
+\setlength\textwidth{14.8cm}
+\newenvironment{verlong}{}{}
+\newenvironment{vershort}{}{}
+\newenvironment{noncompile}{}{}
+\excludecomment{verlong}
+\includecomment{vershort}
+\excludecomment{noncompile}
+\newcommand{\defn}[1]{{\color{darkred}\emph{#1}}}
+\newcommand{\PER}{\operatorname{PER}}
+\newcommand{\PD}{\operatorname{PD}}
+\newcommand{\proj}{\operatorname{proj}}
+\newcommand{\CC}{\mathbb{C}}
+\newcommand{\RR}{\mathbb{R}}
+\newcommand{\QQ}{\mathbb{Q}}
+\newcommand{\NN}{\mathbb{N}}
+\newcommand{\ZZ}{\mathbb{Z}}
+\newcommand{\KK}{\mathbb{K}}
+\newcommand{\PPos}{\RR_{>0}}
+\newcommand{\set}[1]{\left\{ #1 \right\}}
+\newcommand{\abs}[1]{\left| #1 \right|}
+\newcommand{\tup}[1]{\left( #1 \right)}
+\newcommand{\ive}[1]{\left[ #1 \right]}
+\newcommand{\floor}[1]{\left\lfloor #1 \right\rfloor}
+\newcommand{\calF}{\mathcal{F}}
+\newcommand{\calB}{\mathcal{B}}
+\newcommand{\IN}{\ive{N}}
+\newcommand{\Eh}{\widehat{E}}
+\newcommand{\wh}{\widehat{w}}
+\renewcommand{\dh}{\widehat{d}}
+\newcommand{\Ch}{\widehat{C}}
+\newcommand{\timesu}{\mathbin{\underline{\times}}}
+\newcommand{\verts}[1]{\operatorname{V}\left( #1 \right)}
+\newcommand{\edges}[1]{\operatorname{E}\left( #1 \right)}
+\renewcommand{\leq}{\leqslant}
+\renewcommand{\geq}{\geqslant}
+\renewcommand{\subset}{\subseteq}
+\iffalse
+\NOEXPAND{\timesu}{\mathbin{\underline{\times}}}
+\fi
+\newcommand{\nuo}{\nu^{\circ}}
+\newtheoremstyle{plainsl}
+{8pt plus 2pt minus 4pt}
+{8pt plus 2pt minus 4pt}
+{\slshape}
+{0pt}
+{\bfseries}
+{.}
+{5pt plus 1pt minus 1pt}
+{}
+\theoremstyle{plainsl}
+\ihead{On Multislant matrices and Jacobi-Trudi determinants over finite fields}
+\ohead{page \thepage}
+\cfoot{}
+\begin{document}
+
+\title{On Multislant matrices and Jacobi Trudi determinants over finite fields}
+\author{Omesh Dhar Dwivedi, Jonah Blasiak, Darij Grinberg}
+\date{
+%TCIMACRO{\TeXButton{today}{\today}}%
+%BeginExpansion
+\today
+%EndExpansion
+}
+\maketitle
+
+Given a partition $\lambda$ and a finite field $F_q$,  what is the probability of an evaluation of a Jacobi-Trudi determinant corresponding to $\lambda$ vanishing? For $\lambda$ being a staircase, hook or a rectangle partition, this probability has been studied to be $\frac{1}{q}$. We investigate this probability for  skew partitions such as ribbons as well as more complex partition such as n-staircases and block staircases. In the framework of our proofs, we prove much more general statements that apply to the determinants of a broader class of matrices, which we refer to in this paper as \emph{Multislant matrices}, which are matrices of the form $\left(  A_{1}\mid
+A_{2}\mid\cdots\mid A_{k}\right)  $, where $A_{1},A_{2},\ldots,A_{k}$ are
+pairwise disjoint tall toeplitz matrices with the same number of rows . \\
+
+\section{\label{sec.introduction}Introduction}
+
+Let $\mathbb{F}_q$ be a finite field. We begin by looking at the probability that  
+
+\[\det\left(
+\begin{array}
+[c]{ccc}%
+x_{1} & x_{2} & x_{3}\\
+1 & x_{1} & x_{2}\\
+0 & 1 & x_{1}%
+\end{array}
+\right)  =0
+\]
+
+, where $x_{1},x_{2},x_{3}$ are elements of $\mathbb{F}_{q}$ chosen
+at random (uniformly \& independently). This probability is $\dfrac{1}{q}$, and is one of the main results of \cite{Anzis18} (along with similar claims for similarly structured $n\times
+n$-matrices). This matrix can be seen as a special case of a Jacobi-Trudi matrix corresponding to a rectangle partition as well as particular case of a Hankel matrix. We previously provided a Hankel matrix generalization of this and similarly structured matrices in \cite{dwivedi2021rank}. In this paper we study matrices of similar kind as a particular cases of Jacobi Trudi matrices.  \\
+
+For our Jacobi-Trudi matrix generalization, we consider  \\
+
+$\det \left(  x_{u_{i}-j}\right) = \det \begin{pmatrix}
+x_{u_1 - 1} & x_{u_1 - 2} & \cdots & x_{u_1 - n} \\
+x_{u_2 - 1} & x_{u_2 - 2} & \cdots & x_{u_2 - n} \\
+\vdots & \vdots & \ddots & \vdots \\
+x_{u_n - 1} & x_{u_n - 2} & \cdots & x_{u_n - n}
+\end{pmatrix}$ \\
+where
+$u_{1}>u_{2}>\cdots>u_{n}>0$, with $x_{0}=1$,
+$x_{i}=0$ for $i<0$ and $x_{i}$ being uniformly random over $\mathbb{F}%
+_{q}$ for $i>0$. Such a
+matrix is called a \emph{Jacobi--Trudi matrix}. Computing the
+probability that its determinant vanishes was the main goal of
+\cite{Anzis18}, which was achieved for certain families of
+$u_i$'s. In particular they prove that the probability of the Jacobi-Trudi determinant vanishing is precisely $\dfrac{1}{q}$ in the following cases (see \cite[specific results]{Anzis18}):
+\begin{itemize}
+\item the ``\emph{rectangle case}'': $u_i = m - i$ for each $i = 1, 2,
+\ldots, n$;
+\item the ``\emph{staircase case}'': $u_i = n-2i+2j+1 $ for each $i,j = 1, 2,
+\ldots, n$;
+\item the ``\emph{hook case}'': $u_1$ arbitrary; $u_i = 1 - i$ for
+each $i = 2, 3, \ldots, k$; finally, $u_i = -i$ for each $i > k$.
+\end{itemize}
+In more complicated situations, the probability can be less well-behaved.
+
+
+
+
+%in the case of determinants corresponding to staircase, hook and rectangle-shaped partition shapes.\\
+
+In addition they also provide conjectures on a few more specific miscellaneous partitions. We add a few more cases and generalize and prove some of these conjectures. In particular, Conjecture 10.1 in \cite{Anzis18} states the probability of a determinant corresponding to a 2-staircase vanishing. We not only prove the 2-staircase result, but we generalize and prove the result for any arbitrary n-staircase and show that this probability, mysteriously, takes the form of that of a completely random generic $(n-1)\times (n-1)$ matrix vanishing (as discussed in the very beginning of the text). We will in fact prove much more general statements that apply to a broader class of determinants with similar structures. One important result that we prove is given as follows:
+\begin{theorem}
+Multislant Placeholder
+\end{theorem}
+Schur Polynomials provide an important motivation to study the determinants of these Jacobi-Trudi matrices, since if we replace the $x_{i}$ by the generators $h_{i}$ of the
+ring of symmetric functions (see \S 2.2 for a detailed definition and further exploration), then the determinant of
+the Jacobi-Trudi matrix $\left(  x_{u_{i}-j}\right)  $ becomes a Schur
+function, and thus its probability of vanishing is ... %ask Darij about what did he mean to put here? Just the general description of significance of vanishing Schur polynomials or something specific intended here
+This is the approach taken by \cite{Anzis18} when studying these determinants. 
+Another way to look at our results could be interpreting it as counting $\mathbb{F}_{q}%
+$-valued points on schemes as studied by Stanley, Weil, Kontsevich and likewise. \cite{RPStan} \cite{Hayes} \cite{Kontsevich} .
+
+One notable result of \cite{Anzis18} is that $\dfrac{1}{q}$ is the lower bound of these probabilities and is obtained in the case of hooks, staircases and rectangles. Contrary to intuition, this value does not imply an equidistribution of the probabilities. An obvious example is comparing hook partitions (see Corollary 9.2 of \cite{Anzis18}) which exhibit this behavior with rectangle partitions (see Lemma 9.3 of \cite{Anzis18}) which do not. We however, obtain this expression of probability and prove this equidistribution does exist for a particular case of skew partitions i.e. ribbons.
+
+\section{Background and Statements of the Theorems}
+
+
+\subsubsection{Mathematical Background and Schur Functions}
+
+
+Fix a finite field $\mathbb{F}_{q}$. Consider the polynomial ring 
+
+\[\mathcal{P}:=\mathbb{Z}\left[  h_{1},h_{2}%
+,h_{3},\ldots\right]  \]
+
+in countably many indeterminates $h_{1},h_{2}%
+,h_{3},\ldots$.
+\begin{definition}
+\label{def.mapstozero}
+
+For any $f\in\mathcal{P}$ and $a\in\mathbb{F}_{q}$, let $N\in\mathbb{N}$ such that $f$ only
+involves the indeterminates $h_{1},h_{2},\ldots,h_{N}$. Define
+
+\[
+P\left(  f\mapsto a\right)  :=\dfrac{\left(  \text{\# of }\left(  x_{1}%
+,x_{2},\ldots,x_{N}\right)  \in\mathbb{F}_{q}^{N} \mid f\left(
+x_{1},x_{2},\ldots,x_{N}\right)  =0\right)  }{\left(  \text{\# of all }\left(
+x_{1},x_{2},\ldots,x_{N}\right)  \in\mathbb{F}_{q}^{N}\right)  },
+\]
+\end{definition}
+
+This is independent on the choice of $N$
+because increasing $N$ by $1$
+merely multiplies the numerator and the denominator by $q$.
+
+% \begin{remark}
+% Roughly speaking, $P\left(  f\mapsto0\right)  $ is the probability that
+% $f\left(  x_{1},x_{2},x_{3},\ldots\right)  =0$ when $x_{1},x_{2},x_{3},\ldots$
+% are random elements of $\mathbb{F}_{q}$ (chosen uniformly at random and
+% independently). (One does not need to literally choose infinitely many random
+% $x_{i}$'s, since $f$ involves only finitely many $x_{i}$'s, and clearly
+% choosing any more does not affect the probability.)
+% \end{remark}
+
+% $P\left(  f\mapsto a\right)$ can be similarly defined for any given $a\in \mathbb{F}_{q}.$\\
+
+We can view the polynomial ring $\mathcal{P}=\mathbb{Z}\left[  h_{1}%
+,h_{2},h_{3},\ldots\right]  $ as a ring of \textquotedblleft symmetric
+functions\textquotedblright\, which are in fact symmetric bounded degree Formal Power Series, in
+countably many indeterminate $\xi_{1},\xi_{2},\xi_{3},\ldots$ by identifying
+each $h_{i}$ with the standard sum. For the contents of the paper, we don't actually work with the $\xi_{i}$ (in
+particular, we will not substitute anything for them). However, this background is important since we will consider some standard symmetric functions as elements of this polynomial ring $\mathcal{P}$. Surveys of symmetric functions can be found in \cite{Macdonald} and \cite{EC2}.
+
+\begin{definition}
+A partition of a positive integer $n$ is a  weakly decreasing sequence of positive integers $(\lambda_1, \lambda_2, \cdots ,\lambda_k)$, with  $\lambda_1 \geq \lambda_2 \geq \cdots \lambda_k$, that sum to $n$.
+\end{definition}
+
+There are two important terms associated with a partition. 
+\begin{definition}
+
+The size of a partition is often denoted by $\ell(\lambda)$ or $|\lambda|$ and denotes the cardinality of a partition. For a partition $\lambda = (\lambda_1, \lambda_2, \cdots ,\lambda_k)$ and nonzero $\lambda_i's$, $\ell(\lambda) =k$
+
+\end{definition}. The second term is called the conjugate (or sometimes the transpose) of a partition and is represented by $\lambda'$ or $\lambda^t$. To properly understand the meaning of the conjugate of a partition, let us first take a look at Young Diagrams.
+
+
+Every partition can be represented in the form of a Young diagram which is a combinatorial object that helps us better understand the intuition of partitions. 
+
+
+\begin{definition}
+A Young diagram is a finite collection of boxes, or cells, arranged in left-justified rows, with the row lengths in non-increasing order. Listing the number of boxes in each row gives a partition $\lambda$ of a non-negative integer $n$, the total number of boxes of the diagram.
+\end{definition}
+
+Figure 1 shows the construction of a Young diagram for the partition $\lambda = (6,5,4,3,2,1)$ where each row has the same number of boxes as each part of the partition. Since a partition is a weakly decreasing sequence, the number of boxes in a row decreases as we go down the diagram.
+
+\begin{definition}
+The conjugate of a  partition is defined with respect to these Young diagrams and can be determined by constructing the Young diagram of a partition and then writing down the number of boxes in each column from left to right.
+\end{definition} 
+
+\begin{example}
+The conjugate $\lambda^t$ of $\lambda = (6,5,4,3,2,1)$ is $(6,5,4,3,2,1)$ because of the symmetry in the diagram, while, the conjugate of $(4,1,1)$ is $(3,1,1,1)$. 
+\end{example}
+
+\begin{align*}
+\ydiagram{6,5,4,3,2,1} 
+\end{align*}
+\[
+\text{Figure 1. A Young diagram for $\lambda = (6,5,4,3,2,1)$}
+\]
+
+There are a few important families of partitions that will be studied in this paper so we name and define them appropriately as is done in mathematical literature. 
+
+
+\begin{definition}
+\begin{enumerate}
+    \item A rectangle partition is a partition of the form 
+\[\lambda = (a^n) = (a,a, \ldots a)\]
+    \item A staircase is a partition of the form 
+\[\lambda = (k, k-1, k-2, \ldots 1)\]
+    \item An $n$-staircase is a partition of the form 
+\[\lambda = (kn, (k-1)n, \ldots, 2n,  n)\]
+\end{enumerate}
+
+
+where $a,k,n>0$.  
+
+\end{definition}
+
+It should be easy to see that the families of partition are named after the shape of the corresponding Young diagrams of that particular family.\\
+
+There also exists the notion of skew partitions which are a generalization of partitions to set theoretic differences of two partitions. A skew partition is a pair of partitions $(\lambda, \mu)$ such that the Young diagram of $\lambda$ contains the Young diagram of $\mu$; it is denoted by $\lambda / \mu$. If $\lambda= (\lambda_1, \lambda_2, \cdots)$  and $\mu =(\mu_1, \mu_2, \cdots)$, then the containment of diagrams means that $\mu_i \leq \lambda_i$ for all $i$. In this paper, two partitions which exhibit this property will be represented by $\mu \subseteq \lambda$. The skew diagram of a skew partition $\lambda / \mu$ is the set-theoretic difference of the Young diagrams of $\lambda$ and $\mu$: the set of boxes that belong to the diagram of $\lambda$ but not to that of $\mu$. 
+
+
+We now state the Jacobi-Trudi Identity for different partitions.  The Jacobi-Trudi identity allows an easy method to calculate the Schur polynomials in term of elementary symmetric and complete homogeneous symmetric polynomials. \cite{Anzis18}
+\begin{definition}[Jacobi-Trudi Identity]
+\label{Jacobi-Trudi Identity}
+Let $\lambda = (\lambda_1, \lambda_2, \ldots, \lambda_k)$ and $\mu = (\mu_1, \mu_2, \ldots, \mu_k) \subseteq \lambda$. Define \emph{Jacobi-Trudi matrix} of $\lambda/\mu$ to be the  $k \times k$ matrix 
+
+\[
+J(\lambda/\mu) = \left[ h_{\lambda_i-\mu_j - i + j} \right]^k_{i,j=1}.
+\]
+where $h_0 = 1$ and $h_m = 0$ for all $m < 0$. \\
+
+The \emph{skew Schur function} of $\lambda/\mu$ is defined to be \begin{align*}
+   s_{\lambda/\mu} = \det(J(\lambda/\mu)) \  \in \mathcal{P}
+\end{align*}
+
+When $\lambda/\mu = \lambda/\varnothing$ is a straight partition, we write $J(\lambda)$ in place of  $J(\lambda/\mu)$ and $s_{\lambda}$ in place of $s_{\lambda/\mu}$. 
+
+\end{definition}
+
+
+\begin{remark}
+\label{flushremark}
+If $\mathcal{P}$ is viewed as the ring of the symmetric functions, then the skew Schur function $s_{\lambda/\mu}$ is often defined as a sum of monomials, one corresponding to each filling of the diagram of $\lambda/\mu$ by positive integers which weakly increase down the rows and strictly increase down the columns. With this definition, then %cite s_\lambda
+ is a theorem. However, we will only need this connection to symmetric functions in a minor way and take the % same citation as above
+ as the definition of $s_{\lambda/\mu}$.
+\end{remark}
+
+An example computation can help elucidate this identity. Consider the partition in Figure 1. Using the Jacobi-Trudi Identity, we can write the corresponding Schur Polynomial using the determinant 
+
+ \begin{align*}
+s_{(6,5,4,3,2,1)} =
+\begin{vmatrix}
+h_6 & h_7 & h_8 & h_{9} & h_{10}& h_{11} \\ 
+h_4 & h_5 & h_6 & h_{7} & h_{8}& h_{9} \\
+h_2 & h_3 & h_4 & h_{5} & h_{6}& h_{7} \\
+1 & h_1 & h_2 & h_{3} & h_{4}& h_{5} \\
+0 & 0 & 1 & h_{1} & h_{2}& h_{3} \\
+0 & 0 & 0 & 0 & 1 & h_{1} \\
+\end{vmatrix}\\
+\end{align*}
+
+% A notable observation to make while observing the Jacobi-Trudi Identity is that for any fixed partition, the corresponding Schur polynomial can be expressed using finitely many $h_i's$.\\
+
+
+
+
+
+
+\subsubsection{Statement of the Theorems}
+We now give the statements of the general results that will be discussed in this paper. \\
+
+We first begin with multislant matrices. 
+
+
+
+\section{Multislant Matrices and $n$-Staircase Partitions}
+The first type of partition that we would study are n-staircases. 
+\begin{definition}
+\label{nstaircasedef}
+Fix $n,k \in \NN$.
+We define a $n$-staircase of length $k$ to be a partition of the form 
+\[\lambda = (nk, n(k-1), n(k-2), \ldots,2n, n) \] 
+
+\end{definition}
+Anzis et al \cite{Anzis18} conjectured that for a $2$-staircase (i.e. $n=2$),  $P(s_{\lambda} \longmapsto 0) = \dfrac{q^2+q -1}{q^3}$. We prove this result and generalize it to arbitrary $n$.
+
+\begin{theorem}
+\label{thm.n.staircase}
+Let $\lambda$ be a $n$-staircase with $\ell(\lambda) \geq n+1 $ (see Remark \ref{rem.sizenstairs}). Then,
+\[
+P(s_{\lambda} \longmapsto 0) =1- \prod_{i=1}^{n} \left(  1-\dfrac{1}{q^{i}}\right)
+\]
+
+\end{theorem}
+
+% \begin{remark}
+% \label{sufflarge}
+% By sufficiently large, we mean $\ell(\lambda) \geq (n+1)$. For smaller  $\ell(\lambda)$, $J(\lambda)$ is not large enough to exhibit the full structure of a $n-$staircase and exhibits properties of smaller staircases. This is discussed further in Remark \ref{rem.sizenstairs} once we gain a better understanding of the structure of $J(\lambda)$ for these partitions.
+% \end{remark}
+
+The right hand side of Theorem (\ref{thm.n.staircase} and later \ref{thm.multislant.prob}) is the probability of a random matrix of size $n-1$ being singular in $\mathbb{F}_q$. To prove this result, we prove a more general result which encompasses this one by setting up the machinery for a new type of matrix that is given by the evaluation of Jacobi-Trudi determinants for n-staircase partitions.
+
+
+\subsection{Multislant Matrices}
+We let $\mathbb{N}$ denote the set $\left\{  0,1,2,\ldots\right\}  $. We let
+$\left[  n\right]  =\left\{  1,2,\ldots,n\right\}  $ for each $n\in\mathbb{N}$.
+
+We fix a finite field $F$. We let $q=\left\vert F\right\vert $. All matrices
+appearing in the following are over $F$ or over polynomial rings over $F$.
+
+% \begin{noncompile}
+% If $A$ is a $u\times v$-matrix, then $\operatorname{col}_{i}A$ shall denote
+% the $i$-th column of $A$ for each $i\in\left[  u\right]  $.
+
+% Let $A_{1},A_{2},\ldots,A_{k}$ be finitely many matrices with the same number
+% of rows. Then, $\left(  A_{1}\mid A_{2}\mid\cdots\mid A_{k}\right)  $ shall
+% denote the matrix obtained by gluing these matrices $A_{1},A_{2},\ldots,A_{k}$
+% together along their vertical boundaries. To be more precise: If the matrices
+% $A_{1},A_{2},\ldots,A_{k}$ have $m_{1},m_{2},\ldots,m_{k}$ columns,
+% respectively, then $\left(  A_{1}\mid A_{2}\mid\cdots\mid A_{k}\right)  $ is
+% the matrix whose columns are
+% \begin{align*}
+% &  \operatorname{col}_{1}\left(  A_{1}\right)  ,\operatorname{col}_{2}\left(
+% A_{1}\right)  ,\ldots,\operatorname{col}_{m_{1}}\left(  A_{1}\right)  ,\\
+% &  \operatorname{col}_{1}\left(  A_{2}\right)  ,\operatorname{col}_{2}\left(
+% A_{2}\right)  ,\ldots,\operatorname{col}_{m_{2}}\left(  A_{2}\right)  ,\\
+% &  \ldots,\\
+% &  \operatorname{col}_{1}\left(  A_{k}\right)  ,\operatorname{col}_{2}\left(
+% A_{k}\right)  ,\ldots,\operatorname{col}_{m_{k}}\left(  A_{k}\right)
+% \end{align*}
+% (from left to right).
+% \end{noncompile}
+
+\begin{definition}
+Let $A_{1},A_{2},\ldots,A_{k}$ be finitely many matrices with the same number
+of rows. Then, $\left(  A_{1}\mid A_{2}\mid\cdots\mid A_{k}\right)  $ shall
+denote the block matrix whose blocks are $A_{1},A_{2},\ldots,A_{k}$, arranged
+horizontally from left to right.
+\end{definition}
+
+For example, if $A_{1}=\left(
+\begin{array}
+[c]{cc}%
+a & b\\
+c & d
+\end{array}
+\right)  $ and $A_{2}=\left(
+\begin{array}
+[c]{c}%
+e\\
+f
+\end{array}
+\right)  $ and $A_{3}=\left(
+\begin{array}
+[c]{cc}%
+g & h\\
+i & j
+\end{array}
+\right)  $, then $\left(  A_{1}\mid A_{2}\mid A_{3}\right)  =\left(
+\begin{array}
+[c]{ccccc}%
+a & b & e & g & h\\
+c & d & f & i & j
+\end{array}
+\right)  $.
+
+In the following, an empty box in a matrix is always understood to be filled
+with zero. For example, $\left(
+\begin{array}
+[c]{ccc}%
+1 &  & \\
+2 & 3 & \\
+& 4 & 5
+\end{array}
+\right)  $ means the $3\times3$-matrix $\left(
+\begin{array}
+[c]{ccc}%
+1 & 0 & 0\\
+2 & 3 & 0\\
+0 & 4 & 5
+\end{array}
+\right)  $.
+
+\begin{definition}
+A $u\times v$-matrix is said to be \emph{tall} if $u\geq v$.
+\end{definition}
+
+\begin{definition}
+Let $A=\left(  a_{i,j}\right)  _{1\leq i\leq u,\ 1\leq j\leq v}$ be a $u\times
+v$-matrix.
+
+\textbf{(a)} For each $k\in\mathbb{Z}$, the $k$\emph{-th paradiagonal} of $A$
+will mean the list of all entries $a_{i,j}$ of $A$ with $i-j=k$. (These
+entries are listed in the order of increasing $i$, or, equivalently, in the
+order of increasing $j$.)
+
+For example, the nonempty paradiagonals of the matrix $\left(
+\begin{array}
+[c]{cc}%
+a & b\\
+c & d\\
+e & f
+\end{array}
+\right)  $ are%
+\[
+\underbrace{\left(  b\right)  }_{\left(  -1\right)  \text{-st paradiagonal}%
+},\ \underbrace{\left(  a,d\right)  }_{0\text{-th paradiagonal}}%
+,\ \underbrace{\left(  c,f\right)  }_{1\text{-th paradiagonal}}%
+,\ \underbrace{\left(  e\right)  }_{2\text{-nd paradiagonal}}.
+\]
+
+
+\textbf{(b)} A paradiagonal of $A$ is said to be \emph{full} if it has $v$ entries.
+
+For example, the full paradiagonals of the matrix $\left(
+\begin{array}
+[c]{cc}%
+a & b\\
+c & d\\
+e & f
+\end{array}
+\right)  $ are $\left(  a,d\right)  $ and $\left(  c,f\right)  $. Note that a
+matrix that is not tall does not have any full paradiagonals.
+
+\textbf{(c)} If $u\geq v$, then the $\left(  u-v\right)  $-th paradiagonal of
+a $u\times v$-matrix $A$ will also be called the \emph{bottommost full
+paradiagonal} of $A$. (It is indeed full and is indeed the bottommost of the
+full paradiagonals of $A$.)
+
+\textbf{(d)} The matrix $A$ is said to be \emph{Toeplitz} if each of its
+paradiagonals consists of equal entries (i.e., if any two entries that belong
+to the same paradiagonal are equal).
+
+For example, a $4\times3$-matrix is Toeplitz if and only if it has the form
+$\left(
+\begin{array}
+[c]{ccc}%
+c & b & a\\
+d & c & b\\
+e & d & c\\
+f & e & d
+\end{array}
+\right)  $ for some $a,b,c,d,e,f$.
+
+\textbf{(e)} The entries $a_{i,j}$ of $A$ will $i<j$ will be called the
+\emph{attic entries} of $A$. For example, the only attic entry of the matrix
+$\left(
+\begin{array}
+[c]{cc}%
+a & b\\
+c & d\\
+e & f
+\end{array}
+\right)  $ is $b$.
+
+\textbf{(f)} The entries $a_{i,j}$ of $A$ will $i>j+u-v$ will be called the
+\emph{basement entries} of $A$. For example, the only basement entry of the
+matrix $\left(
+\begin{array}
+[c]{cc}%
+a & b\\
+c & d\\
+e & f
+\end{array}
+\right)  $ is $e$.
+\end{definition}
+
+\begin{definition}
+\label{def.slant}
+A \emph{slant matrix} means a tall Toeplitz matrix of the form%
+\[
+\left(
+\begin{array}
+[c]{cccc}%
+u_{m} & \ast & \ast & \ast\\
+\vdots & \ddots & \vdots & \vdots\\
+u_{2} & \ddots & u_{m} & \ast\\
+u_{1} & \ddots & \vdots & u_{m}\\
+u_{0} & \ddots & u_{2} & \vdots\\
+& \ddots & u_{1} & u_{2}\\
+&  & u_{0} & u_{1}\\
+&  &  & u_{0}%
+\end{array}
+\right)  ,
+\]
+where
+
+\begin{itemize}
+\item each asterisk (\textquotedblleft$\ast$\textquotedblright) is an element
+of $F$;
+
+\item $u_{1},u_{2},\ldots,u_{m}$ are $m$ distinct indeterminates; and
+
+\item $u_{0}$ is either an indeterminate distinct from $u_{1},u_{2}%
+,\ldots,u_{m}$ or an element of $F$.
+\end{itemize}
+
+We require $m\geq0$, and we require that the matrix have at least one column.
+
+We say that the slant matrix shown above has \emph{type X} if $u_{0}$ is an
+indeterminate; we say that it has \emph{type 0} if $u_{0}=0$; we say that it
+has \emph{type 1} if $u_{0}\in F\setminus\left\{  0\right\}  $.
+\end{definition}
+
+Thus, in a slant matrix,
+
+\begin{itemize}
+\item all attic entries are elements of $F$ and are equal along each
+paradiagonal (but can differ between different paradiagonals);
+
+\item all basement entries are $0$;
+
+\item each paradiagonal is constant (i.e., any two entries lying on the same
+paradiagonal are equal);
+
+\item the (equal) entries on each full paradiagonal are indeterminates, except
+possibly on the bottommost full paradiagonal, whose entry can also be an
+element of $F$;
+
+\item indeterminates on distinct full paradiagonals are distinct.
+\end{itemize}
+
+For example, the matrices%
+\[
+\left(
+\begin{array}
+[c]{ccc}%
+z & 2 & 7\\
+y & z & 2\\
+x & y & z\\
+& x & y\\
+&  & x
+\end{array}
+\right)  ,\ \ \ \left(
+\begin{array}
+[c]{cc}%
+z & 4\\
+y & z\\
+0 & y\\
+& 0
+\end{array}
+\right)  ,\ \ \ \left(
+\begin{array}
+[c]{cccc}%
+z & 3 & 1 & 2\\
+y & z & 3 & 1\\
+4 & y & z & 3\\
+& 4 & y & z\\
+&  & 4 & y\\
+&  &  & 4
+\end{array}
+\right)
+\]
+(where $x,y,z$ are three distinct indeterminates) are slant matrices of type
+X, type 0 and type 1, respectively (assuming that $4\neq0$ in $F$).
+
+\begin{definition}
+Two slant matrices are said to be \emph{disjoint} if there is no indeterminate
+that appears in both of them.
+\end{definition}
+
+For example, the slant matrices $\left(
+\begin{array}
+[c]{cc}%
+z & 3\\
+y & z\\
+0 & y\\
+& 0
+\end{array}
+\right)  $ and $\left(
+\begin{array}
+[c]{cc}%
+w & 3\\
+x & w\\
+0 & x\\
+& 0
+\end{array}
+\right)  $ are disjoint (where $x,y,z,w$ are four distinct indeterminates),
+whereas the slant matrices $\left(
+\begin{array}
+[c]{cc}%
+z & 0\\
+y & z\\
+0 & y\\
+& 0
+\end{array}
+\right)  $ and $\left(
+\begin{array}
+[c]{cc}%
+z & 2\\
+x & z\\
+0 & x\\
+& 0
+\end{array}
+\right)  $ are not.
+
+\begin{definition}
+A \emph{multislant matrix} means a matrix $M$ of the form $\left(  A_{1}\mid
+A_{2}\mid\cdots\mid A_{k}\right)  $, where $A_{1},A_{2},\ldots,A_{k}$ are
+pairwise disjoint slant matrices with the same number of rows. In this case,
+the slant matrices $A_{1},A_{2},\ldots,A_{k}$ are called the \emph{blocks} of
+$M$. Moreover, the \emph{signature} of $M$ is defined to be the triple
+$\left(  i,j,\ell\right)  $, where
+
+\begin{itemize}
+\item $i$ is the number of blocks of $M$ that have type X,
+
+\item $j$ is the number of blocks of $M$ that have type 0, and
+
+\item $\ell$ is the number of blocks of $M$ that have type 1.
+\end{itemize}
+
+\noindent(Of course, $i+j+\ell=k$ in this case.)
+\end{definition}
+
+For example, the matrix%
+\[
+\left(
+\begin{array}
+[c]{ccccccccccccc}%
+z & 1 & 0 & 4 & w & 3 & 3 & e & 0 & t & 3 & 4 & 9\\
+y & z & 1 & 0 & v & w & 3 & d & e & s & t & 3 & 4\\
+0 & y & z & 1 & u & v & w & c & d & 3 & s & t & 3\\
+& 0 & y & z & 1 & u & v & b & c &  & 3 & s & t\\
+&  & 0 & y &  & 1 & u & a & b &  &  & 3 & s\\
+&  &  & 0 &  &  & 1 &  & a &  &  &  & 3
+\end{array}
+\right)
+\]
+(where all letters are distinct indeterminates) is a multislant matrix with
+four blocks. The signature of this multislant matrix is $\left(  1,1,2\right)
+$ if $3\neq0$ in $F$ (since it has $1$ block of type X, $1$ block of type 0
+and $2$ blocks of type 1), and is $\left(  1,2,1\right)  $ if $3=0$ in $F$.
+
+Note that the (empty) $0\times0$-matrix is a multislant matrix (with $0$
+blocks and signature $\left(  0,0,0\right)  $), but not a slant matrix. We
+recall that the determinant of this $0\times0$-matrix is $1$ (by definition).
+
+\begin{definition}
+\label{def.SiPr}Let $M$ be a multislant matrix that is square. The
+\emph{singular probability} of $M$ is defined to be the probability that $\det
+M$ becomes $0$ if we substitute a random element of $F$ for each of the
+indeterminates appearing in $M$. (Here, the random elements of $F$ are meant
+to be chosen uniformly and independently.) The singular probability of $M$
+will be denoted by $\operatorname*{SiPr}M$.
+\end{definition}
+
+For example, if $M$ is the multislant matrix $\left(
+\begin{array}
+[c]{ccc}%
+b & 3 & y\\
+a & b & x\\
+& a & 1
+\end{array}
+\right)  $ (for four distinct indeterminates $a,b,x,y$), then the singular
+probability $\operatorname*{SiPr}M$ of $M$ is the probability that four
+(uniformly and independently) random elements $\alpha,\beta,\xi,\theta$ of $F$
+satisfy $\det\left(
+\begin{array}
+[c]{ccc}%
+\beta & 3 & \theta\\
+\alpha & \beta & \xi\\
+& \alpha & 1
+\end{array}
+\right)  =0$. It turns out that this probability is precisely $\dfrac{1}{q}$.
+More generally, we shall show a formula for the singular probability of any
+multislant matrix.
+
+First, we need a notation:
+
+\begin{definition}
+\label{def.gammak}For each positive integer $k$, we set%
+\[
+\gamma_{k}:=\left(  1-\dfrac{1}{q^{k-1}}\right)  \left(  1-\dfrac{1}{q^{k-2}%
+}\right)  \cdots\left(  1-\dfrac{1}{q^{1}}\right)  .
+\]
+Thus, in particular, $\gamma_{1}=1$ and $\gamma_{2}=1-\dfrac{1}{q}$. We also
+set $\gamma_{0}=1$.
+\end{definition}
+
+It is well-known that $\gamma_{k}=\left\vert \operatorname*{GL}\nolimits_{k-1}%
+\left(  F\right)  \right\vert /\left\vert \operatorname*{M}\nolimits_{k-1}%
+\left(  F\right)  \right\vert $ for every positive integer $k$. (But this will
+actually be a particular case of Theorem \ref{thm.multislant.prob} below.)
+
+Now, we claim the following:
+
+\begin{theorem}
+\label{thm.multislant.prob}Let $M$ be a multislant matrix that is square. Let
+$\left(  i,j,\ell\right)  $ be the signature of $M$, and let $k=i+j+\ell$ be
+the number of blocks of $M$. Then,%
+\begin{equation}
+\operatorname*{SiPr}M=1-\gamma_{k}\left(  1-\dfrac{0^{\ell}}{q^{i}}\right)  .
+\label{eq.thm.multislant.prob.eq}%
+\end{equation}
+
+\end{theorem}
+
+Of course,
+\[
+0^{\ell}=%
+\begin{cases}
+0, & \text{if }\ell>0;\\
+1, & \text{if }\ell=0.
+\end{cases}
+\]
+Thus, (\ref{eq.thm.multislant.prob.eq}) can be restated as follows:
+
+\begin{itemize}
+\item If $\ell>0$ (that is, if $M$ has at least one block of type 1), then
+$\operatorname*{SiPr}M=1-\gamma_{k}$.
+
+\item If $\ell=0$ (that is, if $M$ has no block of type 1), then
+$\operatorname*{SiPr}M=1-\gamma_{k}\left(  1-\dfrac{1}{q^{i}}\right)  $.
+\end{itemize}
+
+Theorem \ref{thm.multislant.prob} is proved by induction, based on a few
+lemmas. We need a notation:
+
+\begin{definition}
+Let $A$ be a slant matrix. Let $u_{0}$ be the bottommost entry in the last
+column of $A$. Thus, $u_{0}$ is either an indeterminate (if $A$ has type X) or
+$0$ (if $A$ has type 0) or a nonzero element of $F$ (if $A$ has type 1).
+Moreover, the bottommost full paradiagonal of $A$ is $\left(  u_{0}%
+,u_{0},\ldots,u_{0}\right)  $.
+
+\textbf{(a)} We call $u_{0}$ the \emph{bottom element} of $A$.
+
+\textbf{(b)} For any $v\in F$, we let $A^{\rightarrow v}$ denote the result of
+replacing all entries on the bottommost full paradiagonal of $A$ by $v$. Thus,
+$A^{\rightarrow v}$ is a slant matrix of type 0 if $v=0$, and otherwise is a
+slant matrix of type 1.
+\end{definition}
+
+For example, if $A=\left(
+\begin{array}
+[c]{ccc}%
+z & 3 & 2\\
+y & z & 3\\
+x & y & z\\
+& x & y\\
+&  & x
+\end{array}
+\right)  $, then the bottom element of $A$ is the indeterminate $x$, and we
+have%
+\[
+A^{\rightarrow0}=\left(
+\begin{array}
+[c]{ccc}%
+z & 3 & 2\\
+y & z & 3\\
+0 & y & z\\
+& 0 & y\\
+&  & 0
+\end{array}
+\right)  \ \ \ \ \ \ \ \ \ \ \text{and}\ \ \ \ \ \ \ \ \ \ A^{\rightarrow
+5}=\left(
+\begin{array}
+[c]{ccc}%
+z & 3 & 2\\
+y & z & 3\\
+5 & y & z\\
+& 5 & y\\
+&  & 5
+\end{array}
+\right)  .
+\]
+
+
+Now, we can state the lemmas that will help us prove Theorem
+\ref{thm.multislant.prob} by induction:
+
+\begin{lemma}
+\label{lem.multislant.red11}Let $M$ be a multislant matrix that is square.
+Assume that $M$ has at least two blocks of type 1. Let $A_{i}$ and $A_{j}$ be
+two blocks of $M$ that have type 1, with $i\neq j$. Assume that the block
+$A_{i}$ has at least as many columns as the block $A_{j}$. Then, there is a
+multislant matrix $M^{\prime}$ with the following properties:
+
+\begin{itemize}
+\item The matrix $M^{\prime}$ is square and has the same size as $M$.
+
+\item It satisfies $\operatorname*{SiPr}M=\operatorname*{SiPr}\left(
+M^{\prime}\right)  $.
+
+\item The matrix $M^{\prime}$ differs from $M$ only in the block $A_{j}$ being
+replaced by a new block, which has type 0.
+\end{itemize}
+\end{lemma}
+
+\begin{proof}
+[Proof idea.]First, we sketch the argument; then, we will track it on an example.
+
+The block $A_{i}$ has at least as many columns as the block $A_{j}$, and thus
+has at most as many full paradiagonals as the block $A_{j}$ (since the two
+blocks have the same height). Thus, the block $A_{i}$ has at most as many
+indeterminates as the block $A_{j}$ (since both blocks have type 1, so their
+number of indeterminates equals their number of full paradiagonals minus $1$).
+Now, from each column of $A_{j}$, we subtract a scalar multiple of the
+corresponding column of $A_{i}$\ \ \ \ \footnote{Here, we are counting the
+columns of a block from the right. That is, the \textquotedblleft
+corresponding column\textquotedblright\ of the $3$-rd-to-last column of
+$A_{j}$ is the $3$-rd-to-last column of $A_{i}$. The reason why this
+\textquotedblleft corresponding column\textquotedblright\ always exists is
+that the block $A_{i}$ has at least as many columns as the block $A_{j}$.}
+(choosing the scalar factor in such a way that the subtraction will turn the
+bottommost full paradiagonal of $A_{j}$ into $\left(  0,0,\ldots,0\right)  $).
+As a result of this subtraction, the indeterminates in $A_{j}$ are replaced by
+\textquotedblleft quasi-indeterminates\textquotedblright\ (i.e., differences
+of the form \textquotedblleft indeterminate minus a scalar\textquotedblright%
+\ or \textquotedblleft indeterminate minus a scalar multiple of another
+indeterminate\textquotedblright). However, these \textquotedblleft
+quasi-indeterminates\textquotedblright\ are still uniformly independently
+distributed over $F$ when we evaluate our probability, and we can apply a
+change of variables to transform them back into distinct indeterminates; as a
+result, the block $A_{j}$ once again becomes a slant matrix, but now one of
+type 0 (since its bottommost full paradiagonal is $\left(  0,0,\ldots
+,0\right)  $). The full matrix obtained is $M^{\prime}$.
+
+Here is an example: Assume that
+\[
+M=\left(
+\begin{array}
+[c]{ccccc}%
+b & 2 & 3 & z & 5\\
+a & b & 2 & y & z\\
+1 & a & b & x & y\\
+& 1 & a & 1 & x\\
+&  & 1 &  & 1
+\end{array}
+\right)  .
+\]
+This multislant matrix has just two blocks:
+\[
+A_{i}=\left(
+\begin{array}
+[c]{ccc}%
+b & 2 & 3\\
+a & b & 2\\
+1 & a & b\\
+& 1 & a\\
+&  & 1
+\end{array}
+\right)  ,\ \ \ \ \ \ \ \ \ \ A_{j}=\left(
+\begin{array}
+[c]{cc}%
+z & 5\\
+y & z\\
+x & y\\
+1 & x\\
+& 1
+\end{array}
+\right)  ,
+\]
+both being of type 1. Now, we do what we said we would do: From each column of
+$A_{j}$, we subtract a scalar multiple of the respective column of $A_{i}$. In
+this case, the necessary scalar factor is $1$ (since both $A_{i}$ and $A_{j}$
+have bottom elements $1$), so we are just subtracting from each column of
+$A_{j}$ the respective column of $A_{i}$. The resulting matrix is%
+\[
+\widetilde{M}=\left(
+\begin{array}
+[c]{ccccc}%
+b & 2 & 3 & z-2 & 5-3\\
+a & b & 2 & y-b & z-2\\
+1 & a & b & x-a & y-b\\
+& 1 & a & 0 & x-a\\
+&  & 1 &  & 0
+\end{array}
+\right)  .
+\]
+If we now perform a change of variables that substitutes $x$, $y$ and $z$ for
+$x-a$, $y-b$ and $z-2$ in this matrix (we can do this without changing the
+singular probability, since these are independent indeterminates), then we
+obtain%
+\[
+\left(
+\begin{array}
+[c]{ccccc}%
+b & 2 & 3 & z & 5-3\\
+a & b & 2 & y & z\\
+1 & a & b & x & y\\
+& 1 & a & 0 & x\\
+&  & 1 &  & 0
+\end{array}
+\right)  ;
+\]
+this is our matrix $M^{\prime}$. It is again a multislant matrix, and it
+differs from $M$ only in that the block $A_{j}$ has been replaced by a block
+of type 0. Since our column operations have left the determinant unchanged, we
+have $\operatorname*{SiPr}M=\operatorname*{SiPr}\left(  M^{\prime}\right)  $.
+
+Note how we used that the block $A_{i}$ has at least as many columns as the
+block $A_{j}$ (indeed, this ensured that each column of $A_{j}$ had a
+corresponding column of $A_{i}$ to subtract from it), and also how we used
+that the block $A_{i}$ has at most as many indeterminates as the block $A_{j}$
+(indeed, this ensured that after the subtraction of columns, the
+indeterminates from $A_{i}$ got subtracted only from indeterminates in $A_{j}%
+$, rather than from the attic entries).
+
+The example we have just analyzed was representative of the general case. If
+$M$ has more blocks besides $A_{i}$ and $A_{j}$, then these extra blocks are
+left untouched by the subtractions and do not interfere with the argument. If
+the bottom elements of $A_{i}$ and $A_{j}$ are not $1$ but other nonzero
+elements of $F$, then we will have to subtract nontrivial scalar multiples of
+columns of $A_{j}$ rather than subtracting these columns directly, but the
+argument will not essentially change.
+\end{proof}
+
+\begin{lemma}
+\label{lem.multislant.redX}Let $M$ be a multislant matrix that is square. Let
+$A_{j}$ be a block of $M$ that has type X. For any $v\in F$, we let
+$M^{j\rightarrow v}$ be the multislant matrix obtained from $M$ by replacing
+the block $A_{j}$ by $A_{j}^{\rightarrow v}$. Then,
+\[
+\operatorname*{SiPr}M=\dfrac{1}{q}\sum_{v\in F}\operatorname*{SiPr}\left(
+M^{j\rightarrow v}\right)  .
+\]
+
+\end{lemma}
+
+\begin{proof}
+[Proof idea.]Consider the bottom element of $A_{j}$; this is an indeterminate
+(since $A_{j}$ has type X). When we substitute a random element of $F$ for
+each of the indeterminates appearing in $M$, this indeterminate becomes an
+element of $F$. More precisely, for each $v\in F$, this indeterminate becomes
+$v$ with probability $\dfrac{1}{q}$. Thus, the claim follows.
+\end{proof}
+
+\begin{lemma}
+\label{lem.multislant.red01}Let $M$ be a multislant matrix that is square and
+has $k$ blocks and signature $\left(  0,k-1,1\right)  $.
+
+Thus, all but one blocks of $M$ have type 0, whereas the remaining block has
+type 1. Let us refer to the latter block as the \textquotedblleft strange
+block\textquotedblright. Let $M^{\prime}$ be the matrix obtained from $M$ by
+removing the bottommost row of $M$ and the rightmost column of the strange
+block. (Note that this will cause the strange block to disappear entirely if
+it had only one column.) Then:
+
+\textbf{(a)} The matrix $M^{\prime}$ is again a multislant matrix of signature
+$\left(  k-1,0,1\right)  $ or $\left(  k-1,0,0\right)  $ (depending on whether
+the strange block had more than one column or not).
+
+\textbf{(b)} We have $\operatorname*{SiPr}M=\operatorname*{SiPr}\left(
+M^{\prime}\right)  $.
+\end{lemma}
+
+\begin{proof}
+[Proof idea.]\textbf{(a)} When we pass from $M$ to $M^{\prime}$, each block of
+type 0 becomes a block of type X (since it loses a row and thus loses its
+bottommost full paradiagonal, which consisted of zeroes). The strange block
+either remains a block of type 1 (if it had more than one column), or
+disappears entirely (if it didn't). These account for all blocks of
+$M^{\prime}$. Thus, the matrix $M^{\prime}$ is a multislant matrix of
+signature $\left(  k-1,0,1\right)  $ or $\left(  k-1,0,0\right)  $ (depending
+on whether the strange block had more than one column or not).
+
+\textbf{(b)} The bottom row of $M$ has only one nonzero entry, which is the
+bottom element of the strange block. Since the strange block has type 1, this
+bottom element must be some nonzero element $v\in F$. Thus, expanding the
+determinant of $M$ along the bottom row yields $\det M=\pm v\det\left(
+M^{\prime}\right)  $ (since $v$ is the only nonzero entry in the bottom row of
+$M$). Since $v$ is nonzero, this yields that $\det M$ vanishes exactly when
+$\det\left(  M^{\prime}\right)  $ vanishes. Hence, $\operatorname*{SiPr}%
+M=\operatorname*{SiPr}\left(  M^{\prime}\right)  $.
+\end{proof}
+
+\begin{proof}
+[Proof for Theorem \ref{thm.multislant.prob}.]Induct on the size of the
+matrix $M$. Inside that induction step, make a strong induction on $2i+\ell$.
+So let us consider a multislant matrix $M$ that is square and has signature
+$\left(  i,j,\ell\right)  $. Let $k=i+j+\ell$ be its number of blocks. We must
+prove the equality (\ref{eq.thm.multislant.prob.eq}). We are in one of the
+following four cases:
+
+\textit{Case 1:} The matrix $M$ has at least one block of type X.
+
+\textit{Case 2:} The matrix $M$ has no block of type X, but has more than $1$
+block of type 1.
+
+\textit{Case 3:} The matrix $M$ has no block of type X, and has exactly one
+block of type 1.
+
+\textit{Case 4:} The matrix $M$ has no block of type X, and has no block of
+type 1.
+
+Let us first consider Case 1. In this case, the matrix $M$ has at least one
+block of type X. Let $A_{j}$ be this block. Thus, Lemma
+\ref{lem.multislant.redX} yields%
+\begin{equation}
+\operatorname*{SiPr}M=\dfrac{1}{q}\sum_{v\in F}\operatorname*{SiPr}\left(
+M^{j\rightarrow v}\right)  , \label{pf.thm.multislant.prob.c1.1}%
+\end{equation}
+where $M^{j\rightarrow v}$ is defined as in Lemma \ref{lem.multislant.redX}.
+Now, for any nonzero $v\in F$, the matrix $M^{j\rightarrow v}$ has signature
+$\left(  i-1,j,\ell+1\right)  $ (since it is obtained from $M$ by replacing
+the type-X block $A_{j}$ by a type-1 block) and still has $k$ blocks, and thus
+satisfies%
+\[
+\operatorname*{SiPr}\left(  M^{j\rightarrow v}\right)  =1-\gamma_{k}\left(
+1-\dfrac{0^{\ell+1}}{q^{i-1}}\right)
+\]
+(by the induction hypothesis of our strong induction, since $2\left(
+i-1\right)  +\left(  \ell+1\right)  <2i+\ell$). Since $0^{\ell+1}=0$, this
+simplifies to%
+\begin{equation}
+\operatorname*{SiPr}\left(  M^{j\rightarrow v}\right)  =1-\gamma_{k}.
+\label{pf.thm.multislant.prob.c1.2}%
+\end{equation}
+On the other hand, the matrix $M^{j\rightarrow0}$ has signature $\left(
+i-1,j+1,\ell\right)  $ (since it is obtained from $M$ by replacing the type-X
+block $A_{j}$ by a type-0 block) and still has $k$ blocks, and thus satisfies%
+\begin{equation}
+\operatorname*{SiPr}\left(  M^{j\rightarrow0}\right)  =1-\gamma_{k}\left(
+1-\dfrac{0^{\ell}}{q^{i-1}}\right)  \label{pf.thm.multislant.prob.c1.3}%
+\end{equation}
+(by the induction hypothesis of our strong induction, since $2\left(
+i-1\right)  +\ell<2i+\ell$). Now, (\ref{pf.thm.multislant.prob.c1.1}) becomes%
+\begin{align*}
+\operatorname*{SiPr}M  &  =\dfrac{1}{q}\sum_{v\in F}\operatorname*{SiPr}%
+\left(  M^{j\rightarrow v}\right)  =\dfrac{1}{q}\left(  \operatorname*{SiPr}%
+\left(  M^{j\rightarrow0}\right)  +\sum_{\substack{v\in F;\\v\neq
+0}}\operatorname*{SiPr}\left(  M^{j\rightarrow v}\right)  \right) \\
+&  =\dfrac{1}{q}\left(  \left(  1-\gamma_{k}\left(  1-\dfrac{0^{\ell}}%
+{q^{i-1}}\right)  \right)  +\sum_{\substack{v\in F;\\v\neq0}}\left(
+1-\gamma_{k}\right)  \right) \\
+&  \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \left(  \text{by
+(\ref{pf.thm.multislant.prob.c1.3}) and (\ref{pf.thm.multislant.prob.c1.2}%
+)}\right) \\
+&  =\dfrac{1}{q}\left(  \left(  1-\gamma_{k}\left(  1-\dfrac{0^{\ell}}%
+{q^{i-1}}\right)  \right)  +\left(  q-1\right)  \left(  1-\gamma_{k}\right)
+\right) \\
+&  \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \left(  \text{since the }\sum\text{
+sum has precisely }q-1\text{ addends}\right) \\
+&  =1-\gamma_{k}\left(  1-\dfrac{0^{\ell}}{q^{i}}\right)
+\ \ \ \ \ \ \ \ \ \ \left(  \text{by a straightforward computation}\right)  .
+\end{align*}
+Thus, (\ref{eq.thm.multislant.prob.eq}) has been proven in Case 1.
+
+Let us next consider Case 2. In this case, the matrix $M$ has no block of type
+X, but has more than $1$ block of type 1. Thus, the signature $\left(
+i,j,\ell\right)  $ of $M$ satisfies $\ell>1$, so that $0^{\ell}=0$ and
+$0^{\ell-1}=0$.
+
+We assumed that $M$ has more than $1$ block of type 1. Thus, $M$ has at least
+two distinct blocks of type 1. Let these two blocks be $A_{i}$ and $A_{j}$,
+labelled in such a way that the block $A_{i}$ has at least as many columns as
+the block $A_{j}$. Thus, Lemma \ref{lem.multislant.red11} yields that there is
+a multislant matrix $M^{\prime}$ with the following properties:
+
+\begin{itemize}
+\item The matrix $M^{\prime}$ is square and has the same size as $M$.
+
+\item It satisfies $\operatorname*{SiPr}M=\operatorname*{SiPr}\left(
+M^{\prime}\right)  $.
+
+\item The matrix $M^{\prime}$ differs from $M$ only in the block $A_{j}$ being
+replaced by a new block, which has type 0.
+\end{itemize}
+
+Consider this matrix $M^{\prime}$. By its third property, this matrix
+$M^{\prime}$ has signature $\left(  i,j+1,\ell-1\right)  $, and thus still has
+$k$ blocks. Hence,%
+\[
+\operatorname*{SiPr}\left(  M^{\prime}\right)  =1-\gamma_{k}\left(
+1-\dfrac{0^{\ell-1}}{q^{i}}\right)
+\]
+(by the induction hypothesis of our strong induction, since $2i+\left(
+\ell-1\right)  <2i+\ell$). In view of $\operatorname*{SiPr}%
+M=\operatorname*{SiPr}\left(  M^{\prime}\right)  $ and $0^{\ell-1}=0=0^{\ell}%
+$, this rewrites as
+\[
+\operatorname*{SiPr}M=1-\gamma_{k}\left(  1-\dfrac{0^{\ell}}{q^{i}}\right)  .
+\]
+Thus, (\ref{eq.thm.multislant.prob.eq}) has been proven in Case 2.
+
+Let us next consider Case 3. In this case, the matrix $M$ has no block of type
+X, and has exactly one block of type 1. Thus, the signature $\left(
+i,j,\ell\right)  $ of $M$ satisfies $i=0$ and $\ell=1$. Hence, from
+$k=\underbrace{i}_{=0}+j+\underbrace{\ell}_{=1}=j+1$, we obtain $j=k-1$ and
+thus $\left(  \underbrace{i}_{=0},\underbrace{j}_{=k-1},\underbrace{\ell}%
+_{=1}\right)  =\left(  0,k-1,1\right)  $. Thus, the matrix $M$ has signature
+$\left(  0,k-1,1\right)  $. Hence, all but one blocks of $M$ have type 0,
+whereas the remaining block has type 1. Let us refer to the latter block as
+the \textquotedblleft strange block\textquotedblright. Let $M^{\prime}$ be the
+matrix obtained from $M$ by removing the bottommost row of $M$ and the
+rightmost column of the strange block. (Note that this will cause the strange
+block to disappear entirely if it had only one column.) Then, Lemma
+\ref{lem.multislant.red01} \textbf{(a)} yields that the matrix $M^{\prime}$ is
+again a multislant matrix of signature $\left(  k-1,0,1\right)  $ or $\left(
+k-1,0,0\right)  $ (depending on whether the strange block had more than one
+column or not). Furthermore, Lemma \ref{lem.multislant.red01} \textbf{(b)}
+yields that $\operatorname*{SiPr}M=\operatorname*{SiPr}\left(  M^{\prime
+}\right)  $.
+
+We WLOG assume that $M$ is not a $1\times1$-matrix (because if $M$ is a
+$1\times1$-matrix, then it is easy to see that $k=1$ and $M=\left(
+\begin{array}
+[c]{c}%
+1
+\end{array}
+\right)  $ and therefore $\operatorname*{SiPr}M=0=1-\gamma_{k}\left(
+1-\dfrac{0^{\ell}}{q^{i}}\right)  $). Thus, if the strange block of $M$ has at
+most one column, then we must have $k>1$ (because otherwise, the strange block
+would be the only block of $M$, and therefore $M$ would be a $1\times
+1$-matrix), and hence we have
+\begin{equation}
+\gamma_{k-1}\left(  1-\dfrac{1}{q^{k-1}}\right)  =\gamma_{k}
+\label{pf.thm.multislant.prob.c3.gamma-rec}%
+\end{equation}
+in this case (by the definitions of $\gamma_{k-1}$ and $\gamma_{k}$). (Note
+that the equality (\ref{pf.thm.multislant.prob.c3.gamma-rec}) would not hold
+for $k=1$; this is why we had to handle the $1\times1$-matrix case separately.)
+
+Now, we have already shown that $M^{\prime}$ is a multislant matrix of
+signature $\left(  k-1,0,1\right)  $ or $\left(  k-1,0,0\right)  $ (depending
+on whether the strange block had more than one column or not). Since this
+matrix $M^{\prime}$ has smaller size than $M$, we can thus use the induction
+hypothesis (of our first induction) to see that%
+\begin{align*}
+\operatorname*{SiPr}\left(  M^{\prime}\right)   &  =%
+\begin{cases}
+1-\gamma_{k}\left(  1-\dfrac{0^{1}}{q^{k-1}}\right)  , & \text{if the strange
+block had more than one column};\\
+1-\gamma_{k-1}\left(  1-\dfrac{0^{0}}{q^{k-1}}\right)  , & \text{otherwise}%
+\end{cases}
+\\
+&  =%
+\begin{cases}
+1-\gamma_{k}, & \text{if the strange block had more than one column};\\
+1-\gamma_{k-1}\left(  1-\dfrac{1}{q^{k-1}}\right)  , & \text{otherwise}%
+\end{cases}
+\\
+&  =1-\gamma_{k}\ \ \ \ \ \ \ \ \ \ \left(  \text{by
+(\ref{pf.thm.multislant.prob.c3.gamma-rec})}\right)  .
+\end{align*}
+Hence,%
+\[
+\operatorname*{SiPr}M=\operatorname*{SiPr}\left(  M^{\prime}\right)
+=1-\gamma_{k}=1-\gamma_{k}\left(  1-\dfrac{0^{\ell}}{q^{i}}\right)
+\ \ \ \ \ \ \ \ \ \ \left(  \text{since }\ell=1\text{ and thus }0^{\ell
+}=0\right)  .
+\]
+Thus, (\ref{eq.thm.multislant.prob.eq}) has been proven in Case 3.
+
+Let us finally consider Case 4. In this case, the matrix $M$ has no block of
+type X, and has no block of type 1. In other words, $i=0$ and $\ell=0$. All
+blocks of $M$ have type 0 (since $M$ has no block of type X and no block of
+type 1). Thus, the bottom row of $M$ is $\left(  0,0,\ldots,0\right)  $.
+Consequently, we have $\det M=0$, so that $\operatorname*{SiPr}M=1$. Comparing
+this with%
+\begin{align*}
+1-\gamma_{k}\left(  1-\dfrac{0^{\ell}}{q^{i}}\right)   &  =1-\gamma
+_{k}\underbrace{\left(  1-\dfrac{0^{0}}{q^{0}}\right)  }_{=0}%
+\ \ \ \ \ \ \ \ \ \ \left(  \text{since }\ell=0\text{ and }i=0\right) \\
+&  =1,
+\end{align*}
+we find $\operatorname*{SiPr}M=1-\gamma_{k}\left(  1-\dfrac{0^{\ell}}{q^{i}%
+}\right)  $. Thus, (\ref{eq.thm.multislant.prob.eq}) has been proven in Case 4.
+
+Hence, we have proved (\ref{eq.thm.multislant.prob.eq}) in all four cases.
+This completes the induction step, and thus Theorem \ref{thm.multislant.prob}
+is proved.
+\end{proof}
+
+
+\subsection{n-staircase partitions}
+We now revisit Theorem 6.1 now that we have proved the more general result for multislant matrices.
+\begin{lemma}
+\label{multistair}
+If $\lambda$ is a shifted $n-$staircase, then there is some matrix $J'$ obtained by permuting the columns of $J(\lambda)$ which is a multislant matrix.
+%$J(\lambda)$ of a n-staircase $\lambda$ is a multislant matrix. 
+\end{lemma}
+\begin{proof}
+
+Let $M=\left(\lambda_{i}-i+j\right)_{i,j \in \ell}$ so that $J(\lambda) = \left( M\right)_{i,j \in \ell}$. For each index $i \leq min(\ell,n)$, the columns $i, i+(n+1), i+2(n+1) + \ldots$ contain exactly the elements of $M$ which are congruent to $M_{i,i}$ mod $n+1$. Thus the submatrix of $J(\lambda)$ consisting of those columns is a slant matrix, and the slant matrices obtained for different indices $i \leq min(\ell,n)$ are disjoint.
+
+
+\\
+
+
+
+
+
+
+
+
+% Fix a column $j \in [k]$. Then for $i\in [k]$
+
+% \[
+% a_{ij} = h_{n(k-i+1) - i +j} = h_{(n(k-i+1) -i +k+1) -(k+1) +j} = h_{(n+1)(k-i+1) + j-(k+1)}.
+% \] 
+
+% Let us call this element $h_t$ with 
+% \[t = (n+1)\cdot(k-i+1) + (j-(k+1)) \cong (j-(k+1)) \emph{ mod (n+1)} \] all $t(i)$ corresponding to indeterminates $h_t$ lie in the same residue class modulo $n+1$. \\
+
+% Now let us vary $j$ itself, the residue class of $t$ is determined by the expression $(j-(k+1))$ which directly varies with $j$ with a phase shift of $k+1$. Thus every different value of $j \in [n+1]$ gives a different residue class of t, and hence that of the indeterminates, with none common to two or more classes. Consequently, for a sufficiently large enough $\ell(\lambda)$ (larger than $n+1$), $J(\lambda)$ has enough columns that we are able to hit every residue class before cycling through them again. Therefore we can group the columns based on the residue class of $t$ into $n+1$ separate blocks by a finite number of column operations, which would not change the singularity of the matrix and hence not affect the probability of $det(J(\lambda))$ going to zero. 
+
+
+% To ensure that each block is a slant matrix by itself, recognize that $ t= (n+1)\cdot(k-i+1) + (j-(k+1))$. This implies that $t$ strictly increases with $j$. Hence we can order columns belonging to the same residue class by strictly increasing $j$ which gives us a slant block for each residue class. $J(\lambda)$ is thus made up of slant blocks and is therefore a multislant matrix.
+\end{proof}
+
+\begin{remark}
+\label{rem.sizenstairs}
+This result holds true only for $\ell(\lambda) \geq n+1$. From our proof of Lemma \ref{multistair}, we can recognize that the columns of $J(\lambda)$ are partitioned via residue classes modulo $n+1$ with columns corresponding to two different residue classes having no mutual indeterminates. It is easy to see that for $\ell(\lambda) < n+1$, $J(\lambda)$ does not achieve columns corresponding to all residue classes thus giving us lesser slant blocks than we would expect.
+
+\end{remark}
+
+\begin{proof}[Proof of Theorem \ref{thm.n.staircase}]
+From the previous lemma, $J(\lambda)$ for a $n-$staircase is a multislant matrix. Hence we can apply Theorem \ref{thm.multislant.prob} here. This gives us  
+\[
+P(s_{\lambda} \longmapsto 0) = \operatorname*{SiPr}M
+\]
+
+Since we have at least one block of type 1 in our multislant matrix (i.e. the block containing $h_0$), 
+
+\[\operatorname*{SiPr}M=1-\gamma_{k} = 1-\prod_{i=1}^{n} \left(  1-\dfrac{1}{q^{i}}\right) 
+\]
+This finishes the proof. 
+\end{proof}
+
+Having proved \ref{thm.n.staircase}, we can see that  for $n=1$
+$P(s_{\lambda} \longmapsto 0) = \dfrac{1}{q}$, and for $n=2$, we have $P(s_{\lambda} \longmapsto 0) = \dfrac{(q^2+q -1)}{q^3}$
+recovering Theorem 6.5 and Conjecture 10.1 from Anzis et al \cite{Anzis18}.
+
+
+\section{Block Staircases}
+In this section, we lay the groundwork for an important theorem that will help us classify a few more partitions from the results that we have already obtained.  
+%maybe add some comments on what we are doing
+
+\begin{theorem}
+\label{thm.transpose}
+Let $\lambda$ be a partition and $\lambda'$ denote its conjugate. Then,
+\[
+P(s_{\lambda} \longmapsto 0) = P(s_{\lambda'} \longmapsto 0)
+\]
+\end{theorem}
+\begin{proof}
+Let $e_i = s_{1^i}$ for $i=\{1,2,\ldots\}$. It is well known from theory of symmetric functions (\cite{ }) that there is an involutive ring automorphism $\omega:p \to p$ defined by $\omega(h_i) =e_i$ and which sends $s_\lambda$ to $s_{\lambda'}$
+
+Fix $N>0$. Consider%
+\begin{align*}
+\Lambda_{\leq N}  & =\left\{  \text{subring of }\Lambda\text{ generated by
+}h_{1},h_{2},\ldots,h_{N}\right\}  \\
+& =\left\{  \text{subring of }\Lambda\text{ generated by }e_{1},e_{2}%
+,\ldots,e_{N}\right\}  .
+\end{align*}
+
+
+Let $\lambda$ be such that $s_{\lambda}\in\Lambda_{\leq N}$.
+
+Now,
+\[
+P\left(  s_{\lambda}\mapsto0\right)  =\dfrac{\left(  \text{\# of ring
+homomorphisms }\Lambda_{\leq N}\rightarrow\mathbb{F}_{q}\text{ that send
+}s_{\lambda}\text{ to }0\right)  }{q^{N}}.
+\]
+
+
+The automorphism $\omega$
+restricts to an involutive ring automorphism $\omega_{N}:\Lambda_{\leq
+N}\rightarrow\Lambda_{\leq N}$ sending each $h_{i}$ to $e_{i}$ and
+$s_{\lambda}$ to $s_{\lambda'}$. Then, there is a bijection%
+\begin{align*}
+& \left\{  \text{ring homomorphisms }\Lambda_{\leq N}\rightarrow\mathbb{F}%
+_{q}\text{ that send }s_{\lambda}\text{ to }0\right\}  \\
+& \rightarrow\left\{  \text{ring homomorphisms }\Lambda_{\leq N}%
+\rightarrow\mathbb{F}_{q}\text{ that send }s_{\lambda'}\text{ to
+}0\right\}  ,\\
+\varphi & \mapsto\varphi\circ\omega_{N}.
+\end{align*}
+Thus, $P\left(  s_{\lambda}\mapsto0\right)  =P\left(  s_{\lambda'}%
+\mapsto0\right)  $.
+\end{proof}
+
+
+%This theorem allows us to return to the partition shapes we have already classified and consider their conjugate partition shapes, which would have the same probability of singularity by the previous theorem. \\
+
+
+\begin{definition}
+
+We define a block staircase partition to be the partition of the form 
+
+\[\lambda = ( \underbrace{i,i,\ldots,i}_{n
+\text{ times}}
+,  \underbrace{i-1,i-1,\ldots,i-1}_{n
+\text{ times}}
+, \cdots,  \underbrace{2,2,\ldots,2}_{n
+\text{ times}}
+, \underbrace{1,1,\ldots,1}_{n
+\text{ times}}
+)
+\]. \end{definition}
+
+
+A block staircase partition is the conjugate of a n-staircase partition. Hence, Theorems (4.1,3.2) have the following corollary:
+
+\begin{corollary}
+Let $\lambda$ be a block staircase partition. Let $\lambda'$ be the corresponding conjugate partition. Then, 
+\[
+P(s_{\lambda} \longmapsto 0) = P(s_{\lambda'} \longmapsto 0) = 1-\prod_{i=1}^{n} \left(  1-\dfrac{1}{q^{i}}\right)
+\]
+\end{corollary}
+
+\section{Skew Partitions and Ribbons}
+
+In this section, we move our attention to a particular class of skew partitions called ribbons. We begin with some general facts about skew partitions.
+
+\begin{definition}[see e.g. {\cite[\S7.17]{EC2}}]
+
+A skew partition $\lambda/\mu$ is \emph{connected} if the interior of the Young Diagram of $\lambda/\mu$, regarded as the union of boxes, is an open set.
+A \emph{ribbon} is a connected skew partition which does not contain any 2$\times$2 block of boxes. 
+
+\end{definition}
+
+
+% \begin{example}
+% Consider the Young diagram $Y$ below. Note that the letters inside the cells are just for illustrative purposes and are not a tableau filling of the diagram.
+% \[
+% \ytableausetup{notabloids}
+% \begin{ytableau}
+% \none & \none & A & B & C \\
+% \none & D & E &F \\
+% G \\
+% H
+% \end{ytableau}
+% \]
+
+% In this example, $Y$ is not connected. If $Y$ had a cell to the immediate left of $D$ and to the immediate top of $G$, this diagram would become connected. It is also easy to see that cells A,B,E,F form a $2$x$2$ block. 
+% \end{example}
+
+
+
+
+
+\begin{example}
+\label{ribbontableaux}
+Of the three skew partitions below, only the first shape is a ribbon since (ii) contains a 2$\times$2 block (shaded), and (iii) is disconnected.
+
+\begin{minipage}[t]{0.30\textwidth}
+\begin{center}
+\ydiagram{5+3,3+3,3+1,4} 
+
+$(i)$
+\end{center}
+\end{minipage}
+\begin{minipage}[t]{0.30\textwidth}
+\begin{center}
+% \ydiagram{5+3,4+3,3+2,4}
+\ydiagram[*(grey!30) ]
+{5+2,5+2}
+*[*(white)]{5+3,4+3,3+2,4}
+
+$(ii)$
+\end{center}
+\end{minipage}
+\begin{minipage}[t]{0.30\textwidth}
+\begin{center}
+% \ydiagram{5+3,3+3,3+1,3}
+\ydiagram[*(grey!30) ]
+{0,0,3+1,2+1}
+*[*(white)]{5+3,3+3,3+1,3}
+
+$(iii)$
+\end{center}
+\end{minipage}
+
+% \emph{(i)}  The Young diagram of a ribbon characterised by $\lambda/\mu= (8,6,4,4)/(5,3,3)$. \\
+% \emph{(ii)}  The Young diagram of a skew partition characterised by $\lambda/\mu= (8,7,5,4)/(5,4,3)$. This is not a ribbon because of the $2$x$2$ block in the first two rows. \\
+% \emph{(iii)}  The Young diagram of a skew partition characterised by $\lambda/\mu= (8,6,4,3)/(5,3,3)$. This is not a ribbon because the third and fourth rows are disconnected. 
+
+\end{example}
+
+
+
+Let us revisit the Jacobi-Trudi Identity. For the ribbon  $\lambda/\mu= (8,6,4,4)/(5,3,3)$ in Example \ref{ribbontableaux} (i), we can write down $J(\lambda/\mu)$ as follows. 
+
+\begin{align*}
+J(\lambda/\mu) = s_{(8,6,4,4/ (5,3,3)} =
+\begin{vmatrix}
+h_4 & h_5 & h_8 & h_{11} \\ 
+1 & h_1 & h_4 & h_7  \\
+0 & 1 & h_3 & h_6 \\
+0 & 0 & 1 & h_3  \\ 
+\end{vmatrix}\\
+\end{align*}
+
+% \begin{remark}
+% \label{rem.flush}
+% Let $\lambda/\mu$ be a skew partition with at least one cell. Let $\alpha/\beta$ be another ribbon with $\beta \subseteq \alpha$,  that is obtained from
+% $\lambda/\mu$ by a parallel translations of the Young diagram upwards and leftwards, and satisfies $\alpha_{1}>\beta_{1}$ and
+% $\ell\left(  \alpha\right)  >\ell\left(  \beta\right) $. Then 
+
+% \[
+% s_{\lambda/\mu}=s_{\alpha/\beta}
+% \]
+
+% This follows from the definition of a of Young diagram since the diagrams of $\alpha/\beta$ and $\lambda/\mu$ differ by only a parallel translation. Thus,
+
+% \[P(s_{\lambda/\mu} \longmapsto 0) =  P(s_{\alpha/\beta} \longmapsto 0)\]
+
+% \end{remark}
+
+% \begin{example}
+% Consider the skew partition $\lambda / \mu$ given by $\lambda =(4,4,4,3,2,1)$ and $\mu = (4,4,2,1,1,1)$.  It is easy to see that this is a ribbon with the Young diagram shown below (with $*$ showing the cells of the ribbon and $-$ representing empty parts of the diagram.
+
+% \[
+% \ytableausetup{notabloids}
+% \begin{ytableau}
+% - & - & - & - \\
+% - & - & - & - \\
+% - & - & \ast & \ast \\
+% - & \ast & \ast \\
+% - & \ast \\
+% - \\
+% \end{ytableau}
+% \]
+
+% We can obtain the partition $\alpha/\beta$, where $\alpha =(3,2,1)$ and $\beta =(1)$, which is also a ribbon, by parallel translation of $\lambda / \mu$, satifying $\beta \subseteq \alpha$, $\alpha_1 =3 > \beta_1 =1$, and $\ell(\alpha) = 3 > \ell(\beta) =1 $.
+% \[
+% \ytableausetup{notabloids}
+% \begin{ytableau}
+% - & \ast & \ast \\
+% \ast & \ast \\
+% \ast \\
+% \end{ytableau}
+% \]
+
+% \end{example}
+
+
+
+
+% \begin{definition}
+% An $n \times n$-matrix $A =
+% \left(a_{i,j}\right)_{1\leq i,j\leq n}$ is said to be
+% \emph{upper-Hessenberg} if it satisfies
+
+% \[
+% a_{i,j} = 0 \qquad \text{for all $i, j$ with $i > j+1$}.
+% \]
+
+% \end{definition}
+
+% \begin{example}
+% Consider the matrix 
+% \[
+% \left(
+% \begin{array}
+% [c]{cccc}%
+% x_1 & x_2 & x_3 & x_4 \\
+% 2 & x_1 & x_2 & x_3 \\
+% 0 & 2 & x_1 & x_2\\
+% 0 & 0 & 2 & x_1
+% \end{array}
+% \right)
+% \]
+
+% This is an upper Hessenberg matrix since $a_{1,3},a_{1,4}$ and $a_{2,4}$ are all $0$. 
+% \end{example}
+
+
+
+\begin{lemma}
+\label{lemma.Hessenberg}
+
+
+
+
+
+% Fix phrasing regarding \ell and trailing zeroes appropriately when defining skew-shapes. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Let $\lambda= (\lambda_1, \lambda_2, \ldots, \lambda_{\ell})$  and $\mu= (\mu_1, \mu_2, \ldots, \mu_{\ell}) \subseteq \lambda$, with the skew partition $\lambda/\mu$ being a ribbon. 
+Suppose that $\lambda_1> \mu_1$, $\lambda_\ell> \mu_\ell$, and $\mu_{\ell}=0$.\\
+ 
+The Jacobi-Trudi matrix $J(\lambda/\mu)$ of the ribbon $\lambda/\mu$ has the following properties:
+
+\begin{statement}
+\textit{(i)} $J(\lambda/\mu)_{j+1,j}=1$ for $j \in [\ell-1].$
+\end{statement}
+ 
+\begin{statement}
+\textit{(ii)} $J(\lambda/\mu)_{i,j}=0$ whenever
+$i, j \in [\ell]$ satisfy $i > j+1$.
+\end{statement}
+
+\begin{statement}
+\textit{(iii)} Let $N= \lambda_1 -\mu_l-1+l$. The upper right entry of $J(\lambda/\mu)$ is $h_N$ and the remaining entries of $J(\lambda/\mu)$ lie in $\mathbb{Z}\left[  h_{1},h_{2}%
+,h_{3},\ldots, h_{N-1}\right]$
+\end{statement}
+\end{lemma}
+
+\begin{remark}
+Lemma \ref{lemma.Hessenberg} essentially claims that the subdiagonal of $J(\lambda / \mu)$ is made up of only $1's$ and has the following structure. 
+\[
+J(\lambda / \mu) = \left(  h_{\lambda_{i}-\mu_{j}-i+j}\right)  _{i,j\in\left[  \ell\right]
+}=\left(
+\begin{array}
+[c]{ccccc}%
+\ast & \ast & \ast & \ast & h_{N}\\
+1 & \ast & \ast & \ast & \ast\\
+0 & 1 & \ast & \ast & \ast\\
+0 & 0 & 1 & \ast & \ast\\
+0 & 0 & 0 & 1 & \ast
+\end{array}
+\right)   
+\]
+\end{remark}
+
+\begin{proof}
+
+
+
+
+We can set $\ell=\ell\left(\lambda\right)$. To show (i) we need to show $\lambda_{j+1}=\mu_{j}+1$. Let us call the westernmost box in the $j+1$st row of $\lambda/\mu$ as $b$; it lies in the column $\mu_{j+1}$. We know that there is a box directly south of $b$ in $\lambda/\mu$, because it is connected. Let us call this box $b'$. Now $\lambda/\mu$ cannot have a box directly east of $b$ as well as a box directly east of $b'$ since a ribbon does not contain a $2\times2$ block of boxes. In addition, $\lambda/\mu$ having a box directly east of $b'$ and no box directly east of $b$ is also impossible since $\lambda$ is a partition. This implies that $\lambda/\mu$ has a box $b'$ but no box directly east of $b'$, thus showing $\lambda_{j+1}=\mu_{j}+1$, as desired.\\
+
+
+Statement $(ii)$ is equivalent to showing $\lambda_{i}-\mu_{j}-i+j < 0$ when $i > j+1$. This follows from (i) since the indices $\lambda_{i}-\mu_{j}-i+j$ of the Jacobi-Trudi matrix $J(\lambda / \mu)$  are strictly increasing from left to right across each row. Statement $(iii)$ also follows likewise since these indices strictly increase across rows and strictly decrease down columns making the upper right entry's index uniquely the largest one.\\
+
+% Let $\alpha_{j+1}>\beta_{j}+1$. \\
+
+% This gives us a contradiction, since it implies the existence of a $2\times2$-block
+% in rows $j$ and $j+1$ contradicting the assumption that $\alpha /\beta$ (and therefore $\lambda/\mu)$ is a ribbon.\\
+
+% %Claim 1 will probably need half a page or so. The notion of a "disconnect between rows $j$ and $j+1$" is vague and needs more details (in particular, it should be explained why both the part up until row $j$ and the part from row $j+1$ on are nonempty, and why there is no path between them).
+
+% Now we assume that $\alpha_{j+1}<\beta_{j}+1$ for some $j \in [\ell]$. \\
+
+% However, this implies a disconnect between
+% rows $j$ and $j+1$ since we assumed that $\alpha / \beta$ iis translated as far as possible and so must have at least one cell in row 1 and column 1. By the definition of a ribbon, we also know that $\beta \subseteq \alpha$ and thus $\alpha_p \geq \beta_p,  \forall p \in [\ell]$. Thus $\alpha_j \geq \beta_j$. Also by the definition of Young diagram $\alpha_{j+1}\leq\alpha_{j}$ and $\beta_{j+1}\leq \beta_{j}$ \\
+
+
+% In the young diagram of our ribbon, in row $j$, the first cell is at $\beta_j $ with $\alpha_j -\beta_j$ number of cells in this row and the last cell at $\alpha_j$. \\
+
+% In row $j+1$, the first cell is at $\beta_{j+1} $ with $\alpha_{j+1} -\beta_{j+1}$ number of cells in this row, with last cell at  $\alpha_{j+1}$. However by our assumption we have  $\alpha_{j+1} < \beta_j + 1 \iff \alpha_{j+1} \leq \beta_j  $ (since both are integers).  Thus the two rows wouldn't be able to have any adjacent cells in between them meaning the diagram is not connected.   \\
+
+% Observe that both rows $j$ and $j+1$ have at
+% least one cell since $\alpha/\beta$ has at least one cell in row $1$ (since
+% $\alpha_{1}>\beta_{1}$) and at least one cell in row $\ell$ (since $\ell
+% =\ell\left(  \alpha\right)  >\ell\left(  \beta\right)  $) and thus, by
+% connectedness of ribbons, at least one cell in each row in between).\\
+
+% Thus, $\alpha_{i}=\beta_{j}+1$ finishing up the proof for the claim and the lemma.
+
+\end{proof}
+
+
+%As suggested by statement $(i)$ and $(ii)$, the lower left $\ell - 1 \times \ell - 1$ submatrix of $J(\lambda/\mu)$ is upper triangular.
+
+
+\begin{theorem}
+\label{thm.ribbon}
+
+Let $\lambda/\mu$ be a ribbon and recall that $s_{\lambda/\mu}$ denotes the corresponding skew Schur function. \\
+
+Then for any $a\in \mathbb{F}_{q}$,
+
+\[P(s_{\lambda/\mu} \longmapsto a) = 1/q. \]
+\end{theorem}
+
+
+\begin{proof}
+
+By Remark \ref{flushremark}, the skew Schur function indexed by a skew partition is unchanged by translations of that shape. We can therefore assume that the skew partition $\lambda / \mu$ is translated as far as possible to the northwest i.e., $\lambda_1> \mu_1$, $\lambda_\ell> \mu_\ell$, and $\mu_{\ell}=0$, where $\ell$ is the length of $\lambda$.\\
+
+By Lemma \ref{lemma.Hessenberg} $(i)$ and $(ii)$, the determinant of the submatrix $\break$ $J(\lambda/\mu)_{i=(2,3,\ldots,n), j=(1,2,\ldots,n-1)} $ of $J(\lambda/\mu)$ is 1. Hence by Lemma \ref{lemma.Hessenberg} $(iii)$,
+performing the co-factor expansion along the first row of $J(\lambda/\mu)$, 
+
+\[
+ s_{\lambda / \mu } = det(J(\lambda/\mu))= (-1)^{n+1} h_N + g( h_1, h_2, \cdots h_{N-1})
+\]
+
+From Definition \ref{def.mapstozero}
+
+
+\[
+P\left(  s_{\lambda / \mu }\mapsto a\right)  =\dfrac{\left(  \text{\# of }\left(  h_{1}%
+,h_{2},\ldots,h_{N}\right)  \in\mathbb{F}_{q}^{N}\text{ such that } s_{\lambda / \mu } \left(
+h_{1},h_{2},\ldots,h_{N}\right)  =a\right)  }{\left(  \text{\# of all }\left(
+h_{1},h_{2},\ldots,h_{N}\right)  \in\mathbb{F}_{q}^{N}\right)  }\\
+\]
+\[
+=\dfrac{\left(  \text{\# of }\left(  h_{1}%
+,h_{2},\ldots,h_{N}\right)  \in\mathbb{F}_{q}^{N}\text{ such that } (-1)^{n+1} h_N + g( h_1, h_2, \cdots h_{N-1}) =a\right)  }{\left(  \text{\# of all }\left(
+h_{1},h_{2},\ldots,h_{N}\right)  \in\mathbb{F}_{q}^{N}\right)  } \\
+\]
+\[
+ =\dfrac{\left(  \text{\# of }\left(  h_{1}%
+,h_{2},\ldots,h_{N-1}\right)  \in\mathbb{F}_{q}^{N-1}\right)  }{\left(  \text{\# of all }\left(
+h_{1},h_{2},\ldots,h_{N}\right)  \in\mathbb{F}_{q}^{N}\right)  } =\dfrac{1}{q}
+\]
+where the third equality holds because for any  $\left(  h_{1}%
+,h_{2},\ldots,h_{N-1}\right)  \in\mathbb{F}_{q}^{N-1}$, exactly one value of  $h_N \in\mathbb{F}_{q}$
+makes  $s_{\lambda / \mu }= a$. \\
+
+% And through Remark \ref{rem.flush}, we can conclude that 
+
+% \[P(s_{\lambda/\mu} \longmapsto a) = 1/q\]
+
+% The vanishing case can be recovered from this equidistribution by setting $a=0$
+% \[P(s_{\lambda/\mu} \longmapsto 0) = 1/q\]
+
+\end{proof}
+
+\section{Results and Conjectures for Other Miscellaneous partitions}
+\subsection{Shifted $n$-Staircases}
+Fix $n,p,k \in \NN$. Recall from Definition \ref{nstaircasedef} that a $n$-staircase of size $k$ is a partition of the form,
+\[\lambda = (nk, n(k-1), n(k-2), \ldots,2n, n) \].
+
+\begin{definition}
+\label{shifted}
+A shifted $n$-staircase of size $k$ is a partition of the form, 
+\[\lambda = (p+(k-1)n, p+(k-2)n, \ldots,p+n, p) \].
+
+When $p \leq n$, we call the partition an inward shifted $n-$staircase while when  $p > n$, we call the partition an outward shifted $n-$staircase.
+
+\end{definition}
+
+\begin{remark}
+Note that a shifted $n$-staircase is thus a generalization of a $n$-staircase since setting $p=n$ yields the regular $n$-staircase.
+\end{remark}
+
+Based on our numerical data, we conjecture the following results without proof for the readers' interest. 
+
+\begin{conjecture}
+Let $\lambda$ be a shifted $n$-staircase of size $k\geq n+1$ (see Remark \ref{rem.sizenstairs}). Then 
+
+\begin{statement}
+\textit{(i)} If $\lambda$ is an inward shifted $n$-staircase, P(s_{\lambda} \longmapsto 0) = 1-\prod_{i=1}^{n} \left(  1-\dfrac{1}{q^{i}}\right)
+\end{statement}
+\begin{statement}
+\textit{(ii)} If $\lambda$ is an outward shifted $n$-staircase, P(s_{\lambda} \longmapsto 0) = 1-\prod_{i=1}^{n+1} \left(  1-\dfrac{1}{q^{i}}\right)
+\end{statement}
+
+\end{conjecture}
+\begin{remark}
+As the results imply, for a sufficiently sized inward shifted $n$-staircase, $P(s_{\lambda} \longmapsto 0)$ exhibits the behavior of a regular $n$-staircase. However, in the case of a sufficiently sized outward shifted $n$-staircase, $P(s_{\lambda} \longmapsto 0)$ exhibits the behavior of a $(n+1)$-staircase. This conjecture also generalizes the conjecture in \cite{Anzis18} regarding shifted staircases of size $3$ to any sufficiently sized shifted $n$-staircase.
+\end{remark}
+
+\subsection{Fattened Hooks}
+Anzis et al \cite{Anzis18} explored fattened hooks of the form $\lambda = (a^m,1^n)$. Here we provide another interesting result about a different family of fattened hooks for the interested reader. 
+
+\begin{conjecture}
+For partitions of the form $\lambda = (a, k^n)$ where $a>2$, $a>k>1$, $n\geq1$,
+\[
+P(s_{\lambda} \longmapsto 0) = 1-\prod_{i=1}^{2} \left(  1-\dfrac{1}{q^{i}}\right) = \dfrac{q^2+q-1}{q^3}
+\]
+
+\end{conjecture}
+
+\printbibliography
+\end{document}
+
+
+
+
+
+
+
+
+
+
