@@ -110,14 +110,13 @@
 \newcommand{\QQ}{\mathbb{Q}}
 \newcommand{\NN}{\mathbb{N}}
 \newcommand{\ZZ}{\mathbb{Z}}
-\newcommand{\KK}{\mathbb{K}}
 \newcommand{\set}[1]{\left\{ #1 \right\}}
 \newcommand{\abs}[1]{\left| #1 \right|}
 \newcommand{\tup}[1]{\left( #1 \right)}
 \newcommand{\ive}[1]{\left[ #1 \right]}
 \newcommand{\floor}[1]{\left\lfloor #1 \right\rfloor}
 \newcommand{\calF}{\mathcal{F}}
-\newcommand{\calB}{\mathcal{B}}
+\newcommand{\calP}{\mathcal{P}}
 \newcommand{\Fq}{\mathbb{F}_q}
 \newcommand{\IN}{\ive{N}}
 \renewcommand{\leq}{\leqslant}
@@ -212,13 +211,14 @@ In particular, \cite[Conjecture 10.1]{Anzis18} gives a formula for the probabili
 Multislant Placeholder
 \end{theorem}
 
-Schur polynomials provide an important motivation to study the determinants of these Jacobi--Trudi matrices, since if we replace the $x_{i}$ by the generators $h_{i}$ of the
-ring of symmetric functions (see \S \ref{sec.def} for a detailed definition and further exploration), then the determinant of
-the Jacobi--Trudi matrix $\left(  x_{u_{i}-j}\right)  $ becomes a Schur
-function, and thus its probability of vanishing is ... %ask Darij about what did he mean to put here? Just the general description of significance of vanishing Schur polynomials or something specific intended here
-This is the approach taken by \cite{Anzis18} when studying these determinants. 
-Another way to look at our results could be interpreting it as counting $\mathbb{F}_{q}%
-$-valued points on schemes as studied by Stanley, Weil, Kontsevich and likewise. \cite{RPStan} \cite{Hayes} \cite{Kontsevich} .
+Schur functions provide an important motivation to study the determinants of these Jacobi--Trudi matrices:
+If we replace the $x_{i}$ by the generators $h_{i}$ of the
+ring of symmetric functions (see \S~\ref{sec.def} for a definition), then
+$J_{u_1, u_2, \ldots, u_n}\tup{x_1, x_2, \ldots, x_n}$ becomes a Schur
+function.
+This is the viewpoint taken by \cite{Anzis18} when studying these determinants. 
+Another way to look at our results is geometric: We are counting $\Fq$-valued points on certain affine schemes;
+similar questions have been studied by Weil \cite{Weil}, Kontsevich \cite{Kontsevich, Stembridge, RPStan}, Elkies \cite{Elkies} and many others.
 
 One notable result of \cite{Anzis18} is that $\dfrac{1}{q}$ is the lower bound of these probabilities and is obtained in the case of hooks, staircases and rectangles. Contrary to intuition, this value does not imply an equidistribution of the probabilities. An obvious example is comparing hook partitions (see Corollary 9.2 of \cite{Anzis18}) which exhibit this behavior with rectangle partitions (see Lemma 9.3 of \cite{Anzis18}) which do not. We however, obtain this expression of probability and prove this equidistribution does exist for a particular case of skew partitions i.e. ribbons.
 
@@ -327,7 +327,7 @@ The conjugate $\lambda^t$ of $\lambda = (6,5,4,3,2,1)$ is $(6,5,4,3,2,1)$ becaus
 \ydiagram{6,5,4,3,2,1} 
 \end{align*}
 \[
-\text{Figure 1. A Young diagram for $\lambda = (6,5,4,3,2,1)$}
+\text{Figure 1. The Young diagram of $\lambda = (6,5,4,3,2,1)$}
 \]
 
 Let us name a few special important families of partitions that we will study below.
@@ -397,8 +397,8 @@ If $\mathcal{P}$ is viewed as the ring of the symmetric functions, then the skew
 However, for our purposes, it is most convenient to take \eqref{eq.def-slm} as the definition of $s_{\lambda/\mu}$.
 \end{remark}
 
-For example, if $\lambda$ is the partition in Figure 1, then the Schur polynomial $s_\lambda$ is given by
- \begin{align*}
+For example, if $\lambda$ is the partition in Figure 1, then the Schur function $s_\lambda$ is given by
+\begin{align*}
 s_{(6,5,4,3,2,1)} =
 \det
 \begin{pmatrix}
@@ -412,8 +412,13 @@ h_2 & h_3 & h_4 & h_{5} & h_{6}& h_{7} \\
 \end{align*}
 and the matrix on the right hand side of this equality is $J\tup{\lambda}$.
 
-% A notable observation to make while observing the Jacobi--Trudi Identity is that for any fixed partition, the corresponding Schur polynomial can be expressed using finitely many $h_i's$.\\
+% A notable observation to make while observing the Jacobi--Trudi Identity is that for any fixed partition, the corresponding Schur polynomial can be expressed using finitely many $h_i's$.
 
+We note that the matrix $J_{u_1, u_2, \ldots, u_n}\tup{x_1, x_2, \ldots, x_n}$
+from \S~\ref{sec.introduction} is precisely the matrix
+$J\tup{\lambda}$, where
+$\lambda = \tup{u_1 - n, u_2 - n+1, \ldots, u_n -1}$
+and where we rename each $x_i$ as $h_i$.
 
 
 
@@ -452,7 +457,7 @@ P(s_{\lambda} \longmapsto 0) =1- \prod_{i=1}^{n} \left(  1-\dfrac{1}{q^{i}}\righ
 % By sufficiently large, we mean $\ell(\lambda) \geq (n+1)$. For smaller  $\ell(\lambda)$, $J(\lambda)$ is not large enough to exhibit the full structure of a $n$-staircase and exhibits properties of smaller staircases. This is discussed further in Remark \ref{rem.sizenstairs} once we gain a better understanding of the structure of $J(\lambda)$ for these partitions.
 % \end{remark}
 
-The right hand side of Theorem (\ref{thm.n.staircase} and later \ref{thm.multislant.prob}) is the probability of a random matrix of size $n-1$ being singular in $\mathbb{F}_q$. To prove this result, we prove a more general result which encompasses this one by setting up the machinery for a new type of matrix that is given by the evaluation of Jacobi--Trudi determinants for $n$-staircase partitions.
+The right hand side of Theorem \ref{thm.n.staircase} (and of Theorem \ref{thm.multislant.prob} later on) is the probability of a random $\tup{n-1}\times\tup{n-1}$-matrix being singular over $\mathbb{F}_q$. To prove this result, we prove a more general result which encompasses this one by setting up the machinery for a new type of matrix that is given by the evaluation of Jacobi--Trudi determinants for $n$-staircase partitions.
 
 
 \subsection{Multislant Matrices}
@@ -640,7 +645,7 @@ u_{0} & \ddots & u_{2} & \vdots\\
 where
 
 \begin{itemize}
-\item each asterisk (\textquotedblleft$\ast$\textquotedblright) is an element
+\item each asterisk (``$\ast$'') is an element
 of $F$;
 
 \item $u_{1},u_{2},\ldots,u_{m}$ are $m$ distinct indeterminates; and
@@ -952,19 +957,19 @@ indeterminates as the block $A_{j}$ (since both blocks have type 1, so their
 number of indeterminates equals their number of full paradiagonals minus $1$).
 Now, from each column of $A_{j}$, we subtract a scalar multiple of the
 corresponding column of $A_{i}$\ \ \ \ \footnote{Here, we are counting the
-columns of a block from the right. That is, the \textquotedblleft
-corresponding column\textquotedblright\ of the $3$-rd-to-last column of
+columns of a block from the right. That is, the ``
+corresponding column''\ of the $3$-rd-to-last column of
 $A_{j}$ is the $3$-rd-to-last column of $A_{i}$. The reason why this
-\textquotedblleft corresponding column\textquotedblright\ always exists is
+`` corresponding column''\ always exists is
 that the block $A_{i}$ has at least as many columns as the block $A_{j}$.}
 (choosing the scalar factor in such a way that the subtraction will turn the
 bottommost full paradiagonal of $A_{j}$ into $\left(  0,0,\ldots,0\right)  $).
 As a result of this subtraction, the indeterminates in $A_{j}$ are replaced by
-\textquotedblleft quasi-indeterminates\textquotedblright\ (i.e., differences
-of the form \textquotedblleft indeterminate minus a scalar\textquotedblright%
-\ or \textquotedblleft indeterminate minus a scalar multiple of another
-indeterminate\textquotedblright). However, these \textquotedblleft
-quasi-indeterminates\textquotedblright\ are still uniformly independently
+`` quasi-indeterminates''\ (i.e., differences
+of the form `` indeterminate minus a scalar''%
+\ or `` indeterminate minus a scalar multiple of another
+indeterminate''). However, these ``
+quasi-indeterminates''\ are still uniformly independently
 distributed over $F$ when we evaluate our probability, and we can apply a
 change of variables to transform them back into distinct indeterminates; as a
 result, the block $A_{j}$ once again becomes a slant matrix, but now one of
@@ -1086,8 +1091,8 @@ $v$ with probability $\dfrac{1}{q}$. Thus, the claim follows.
 has $k$ blocks and signature $\left(  0,k-1,1\right)  $.
 
 Thus, all but one blocks of $M$ have type 0, whereas the remaining block has
-type 1. Let us refer to the latter block as the \textquotedblleft strange
-block\textquotedblright. Let $M^{\prime}$ be the matrix obtained from $M$ by
+type 1. Let us refer to the latter block as the `` strange
+block''. Let $M^{\prime}$ be the matrix obtained from $M$ by
 removing the bottommost row of $M$ and the rightmost column of the strange
 block. (Note that this will cause the strange block to disappear entirely if
 it had only one column.) Then:
@@ -1237,7 +1242,7 @@ thus $\left(  \underbrace{i}_{=0},\underbrace{j}_{=k-1},\underbrace{\ell}%
 _{=1}\right)  =\left(  0,k-1,1\right)  $. Thus, the matrix $M$ has signature
 $\left(  0,k-1,1\right)  $. Hence, all but one blocks of $M$ have type 0,
 whereas the remaining block has type 1. Let us refer to the latter block as
-the \textquotedblleft strange block\textquotedblright. Let $M^{\prime}$ be the
+the `` strange block''. Let $M^{\prime}$ be the
 matrix obtained from $M$ by removing the bottommost row of $M$ and the
 rightmost column of the strange block. (Note that this will cause the strange
 block to disappear entirely if it had only one column.) Then, Lemma
