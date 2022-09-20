@@ -196,7 +196,7 @@ $u_i$'s.
 In particular, \cite{Anzis18} proves that this probability is precisely $\dfrac{1}{q}$ in the following cases (see \cite[Corollary 6.4, Theorem 6.5, Proposition 1.2]{Anzis18}):
 \begin{itemize}
 \item the ``\emph{rectangle case}'': $u_i = m - i$ for each $i = 1, 2, \ldots, n$;
-\item the ``\emph{staircase case}'': $u_i = n-2i+2j+1$ for each $i,j = 1, 2, \ldots, n$;
+\item the ``\emph{staircase case}'': $u_i = n - 2i$ for each $i,j = 1, 2, \ldots, n$;
 \item the ``\emph{hook case}'': $u_1$ arbitrary; $u_i = 1 - i$ for
 each $i = 2, 3, \ldots, k$; finally, $u_i = -i$ for each $i > k$.
 \end{itemize}
@@ -213,7 +213,7 @@ Multislant Placeholder
 \end{theorem}
 
 Schur polynomials provide an important motivation to study the determinants of these Jacobi--Trudi matrices, since if we replace the $x_{i}$ by the generators $h_{i}$ of the
-ring of symmetric functions (see \S 2.2 for a detailed definition and further exploration), then the determinant of
+ring of symmetric functions (see \S \ref{sec.def} for a detailed definition and further exploration), then the determinant of
 the Jacobi--Trudi matrix $\left(  x_{u_{i}-j}\right)  $ becomes a Schur
 function, and thus its probability of vanishing is ... %ask Darij about what did he mean to put here? Just the general description of significance of vanishing Schur polynomials or something specific intended here
 This is the approach taken by \cite{Anzis18} when studying these determinants. 
@@ -222,7 +222,7 @@ $-valued points on schemes as studied by Stanley, Weil, Kontsevich and likewise.
 
 One notable result of \cite{Anzis18} is that $\dfrac{1}{q}$ is the lower bound of these probabilities and is obtained in the case of hooks, staircases and rectangles. Contrary to intuition, this value does not imply an equidistribution of the probabilities. An obvious example is comparing hook partitions (see Corollary 9.2 of \cite{Anzis18}) which exhibit this behavior with rectangle partitions (see Lemma 9.3 of \cite{Anzis18}) which do not. We however, obtain this expression of probability and prove this equidistribution does exist for a particular case of skew partitions i.e. ribbons.
 
-\section{Notations and background}
+\section{\label{sec.def}Notations and background}
 
 Fix a finite field $\mathbb{F}_{q}$. Consider the polynomial ring 
 \[
@@ -275,10 +275,14 @@ particular the omega involution $\omega : \Lambda \to \Lambda$
 
 \begin{definition}
 A \emph{partition} is a
-weakly decreasing sequence of positive integers
-$(\lambda_1, \lambda_2, \cdots ,\lambda_k)$, with
+weakly decreasing finite sequence of positive integers
+$\lambda$, with
 $\lambda_1 \geq \lambda_2 \geq \cdots \lambda_k$.
 \end{definition}
+
+% Here and in the following, the notation $\lambda_i$ shall always
+% stand for the $i$-th entry of a (finite or infinite) sequence
+% $\lambda$.
 
 There are several important concepts associated with a partition.
 
@@ -302,6 +306,11 @@ Its boxes (also known as cells) are arranged in
 $k$ left-justified rows, with the $i$-th row (counted from the top)
 having $\lambda_i$ boxes. (Thus, the total number of boxes
 is $\abs{\lambda}$).
+
+Formally, $Y\tup{\lambda}$ is defined as the set of all pairs
+$\tup{i, j}$ of positive integers satisfying $i \leq k$ and
+$j \leq \lambda_i$. The pair $\tup{i, j}$ corresponds to the
+$j$-th box (from the left) in the $i$-th row of the diagram.
 \end{definition}
 
 Figure 1 shows the construction of a Young diagram for the partition $\lambda = (6,5,4,3,2,1)$ where each row has the same number of boxes as each part of the partition. Since a partition is a weakly decreasing sequence, the number of boxes in a row decreases as we go down the diagram.
@@ -351,60 +360,70 @@ whose entries stabilize at $0$.
 
 A generalization of partitions are \emph{skew partitions}.
 
-There also exists the notion of skew partitions which are a generalization of partitions to set theoretic differences of two partitions. A skew partition is a pair of partitions $(\lambda, \mu)$ such that the Young diagram of $\lambda$ contains the Young diagram of $\mu$; it is denoted by $\lambda / \mu$. If $\lambda= (\lambda_1, \lambda_2, \cdots)$  and $\mu =(\mu_1, \mu_2, \cdots)$, then the containment of diagrams means that $\mu_i \leq \lambda_i$ for all $i$. In this paper, two partitions which exhibit this property will be represented by $\mu \subseteq \lambda$. The skew diagram of a skew partition $\lambda / \mu$ is the set-theoretic difference of the Young diagrams of $\lambda$ and $\mu$: the set of boxes that belong to the diagram of $\lambda$ but not to that of $\mu$. 
+\begin{definition}
+A \emph{skew partition} is a pair of partitions $(\lambda, \mu)$ such that $Y\tup{\mu} \subseteq Y\tup{\lambda}$ (or, equivalently, such that $\mu_i \leq \lambda_i$ for each $i \geq 1$); it is denoted by $\lambda / \mu$.
+We shall also use the shorthand $\mu \subseteq \lambda$ for the condition $Y\tup{\mu} \subseteq Y\tup{\lambda}$ here.
 
+The \emph{skew diagram} $Y\tup{\lambda / \mu}$ of a skew partition $\lambda / \mu$ is defined as the set-theoretic difference $Y\tup{\lambda} \setminus Y\tup{\mu}$ of the Young diagrams of $\lambda$ and $\mu$: the set of boxes that belong to the diagram of $\lambda$ but not to that of $\mu$.
 
-We now state the Jacobi--Trudi Identity for different partitions.  The Jacobi--Trudi identity allows an easy method to calculate the Schur polynomials in term of elementary symmetric and complete homogeneous symmetric polynomials. \cite{Anzis18}
-\begin{definition}[Jacobi--Trudi matrix]
+Any partition $\lambda$ is identified with the skew partition $\lambda / \varnothing$, where $\varnothing := \tup{0,0,0,\ldots}$ is the \emph{empty partition}.
+\end{definition}
+
+We shall now define the Jacobi--Trudi matrix of a skew partition. Our definition is more restrictive than \cite[Definition 2.3]{Anzis18}:
+
+\begin{definition}[Jacobi--Trudi matrix; skew Schur function]
 \label{Jacobi--Trudi Identity}
-Let $\lambda = (\lambda_1, \lambda_2, \ldots, \lambda_k)$ and $\mu = (\mu_1, \mu_2, \ldots, \mu_k) \subseteq \lambda$. Define \emph{Jacobi--Trudi matrix} of $\lambda/\mu$ to be the  $k \times k$ matrix 
-
+Let $\lambda / \mu$ be a skew partition, and let $k = \ell\tup{\lambda}$.
+Define the \emph{Jacobi--Trudi matrix} of $\lambda/\mu$ to be the $k \times k$-matrix
 \[
-J(\lambda/\mu) = \left[ h_{\lambda_i-\mu_j - i + j} \right]^k_{i,j=1}.
+J(\lambda/\mu) := \tup{ h_{\lambda_i-\mu_j - i + j} }_{1\leq i\leq k,\ 1\leq j\leq k}
+\in \mathcal{P}^{k\times k} .
 \]
-where $h_0 = 1$ and $h_m = 0$ for all $m < 0$. \\
+Here, we set $h_0 := 1$ and $h_m := 0$ for all $m < 0$.
 
-The \emph{skew Schur function} of $\lambda/\mu$ is defined to be \begin{align*}
-   s_{\lambda/\mu} = \det(J(\lambda/\mu)) \  \in \mathcal{P}
-\end{align*}
+The \emph{skew Schur function} of $\lambda/\mu$ is defined to be
+\begin{align}
+   s_{\lambda/\mu} := \det \tup{ J(\lambda/\mu) } \  \in \mathcal{P} .
+\label{eq.def-slm}
+\end{align}
 
-When $\lambda/\mu = \lambda/\varnothing$ is a straight partition, we write $J(\lambda)$ in place of  $J(\lambda/\mu)$ and $s_{\lambda}$ in place of $s_{\lambda/\mu}$. 
-
+When $\mu = \varnothing$, we denote the matrix $J(\lambda/\mu)$ and the skew Schur function $s_{\lambda/\mu}$ as $J(\lambda)$ and $s_\lambda$, respectively.
 \end{definition}
 
 
 \begin{remark}
 \label{flushremark}
-If $\mathcal{P}$ is viewed as the ring of the symmetric functions, then the skew Schur function $s_{\lambda/\mu}$ is often defined as a sum of monomials, one corresponding to each filling of the diagram of $\lambda/\mu$ by positive integers which weakly increase down the rows and strictly increase down the columns. With this definition, then %cite s_\lambda
- is a theorem. However, we will only need this connection to symmetric functions in a minor way and take the % same citation as above
- as the definition of $s_{\lambda/\mu}$.
+If $\mathcal{P}$ is viewed as the ring of the symmetric functions, then the skew Schur function $s_{\lambda/\mu}$ is often defined as a sum of monomials, one corresponding to each \emph{semistandard tableau} of shape $\lambda / \mu$ (that is, each filling of the diagram of $\lambda/\mu$ by positive integers which weakly increase down the rows and strictly increase down the columns). With this definition, \eqref{eq.def-slm} is a theorem, known as the \emph{first Jacobi--Trudi identity} (see, e.g., \cite[Theorem 7.16.1]{EC2}).
+However, for our purposes, it is most convenient to take \eqref{eq.def-slm} as the definition of $s_{\lambda/\mu}$.
 \end{remark}
 
-An example computation can help elucidate this identity. Consider the partition in Figure 1. Using the Jacobi--Trudi Identity, we can write the corresponding Schur Polynomial using the determinant 
-
+For example, if $\lambda$ is the partition in Figure 1, then the Schur polynomial $s_\lambda$ is given by
  \begin{align*}
 s_{(6,5,4,3,2,1)} =
-\begin{vmatrix}
+\det
+\begin{pmatrix}
 h_6 & h_7 & h_8 & h_{9} & h_{10}& h_{11} \\ 
 h_4 & h_5 & h_6 & h_{7} & h_{8}& h_{9} \\
 h_2 & h_3 & h_4 & h_{5} & h_{6}& h_{7} \\
 1 & h_1 & h_2 & h_{3} & h_{4}& h_{5} \\
 0 & 0 & 1 & h_{1} & h_{2}& h_{3} \\
 0 & 0 & 0 & 0 & 1 & h_{1} \\
-\end{vmatrix}\\
+\end{pmatrix} ,
 \end{align*}
+and the matrix on the right hand side of this equality is $J\tup{\lambda}$.
 
 % A notable observation to make while observing the Jacobi--Trudi Identity is that for any fixed partition, the corresponding Schur polynomial can be expressed using finitely many $h_i's$.\\
 
 
 
 
+\section{The main results}
 
+We are now ready to state the general results that will be discussed in this paper.
 
-\subsubsection{Statement of the Theorems}
-We now give the statements of the general results that will be discussed in this paper. \\
+We begin with multislant matrices.
 
-We first begin with multislant matrices. 
+...
 
 
 
