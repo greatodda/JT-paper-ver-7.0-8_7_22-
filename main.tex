@@ -1,4 +1,3 @@
-
 \documentclass[numbers=enddot,12pt,final,onecolumn,notitlepage]{scrartcl}%
 \usepackage[headsepline,footsepline,manualmark]{scrlayer-scrpage}
 \usepackage[all,cmtip]{xy}
@@ -8,7 +7,7 @@
 \usepackage{framed}
 \usepackage{comment}
 \usepackage{ytableau}
-\usepackage{biblatex}
+\usepackage[backend=bibtex]{biblatex}
 \addbibresource{hecke.bib}
 \usepackage{color}
 \usepackage[breaklinks=True]{hyperref}
@@ -106,16 +105,12 @@
 \includecomment{vershort}
 \excludecomment{noncompile}
 \newcommand{\defn}[1]{{\color{darkred}\emph{#1}}}
-\newcommand{\PER}{\operatorname{PER}}
-\newcommand{\PD}{\operatorname{PD}}
-\newcommand{\proj}{\operatorname{proj}}
 \newcommand{\CC}{\mathbb{C}}
 \newcommand{\RR}{\mathbb{R}}
 \newcommand{\QQ}{\mathbb{Q}}
 \newcommand{\NN}{\mathbb{N}}
 \newcommand{\ZZ}{\mathbb{Z}}
 \newcommand{\KK}{\mathbb{K}}
-\newcommand{\PPos}{\RR_{>0}}
 \newcommand{\set}[1]{\left\{ #1 \right\}}
 \newcommand{\abs}[1]{\left| #1 \right|}
 \newcommand{\tup}[1]{\left( #1 \right)}
@@ -123,21 +118,14 @@
 \newcommand{\floor}[1]{\left\lfloor #1 \right\rfloor}
 \newcommand{\calF}{\mathcal{F}}
 \newcommand{\calB}{\mathcal{B}}
+\newcommand{\Fq}{\mathbb{F}_q}
 \newcommand{\IN}{\ive{N}}
-\newcommand{\Eh}{\widehat{E}}
-\newcommand{\wh}{\widehat{w}}
-\renewcommand{\dh}{\widehat{d}}
-\newcommand{\Ch}{\widehat{C}}
-\newcommand{\timesu}{\mathbin{\underline{\times}}}
-\newcommand{\verts}[1]{\operatorname{V}\left( #1 \right)}
-\newcommand{\edges}[1]{\operatorname{E}\left( #1 \right)}
 \renewcommand{\leq}{\leqslant}
 \renewcommand{\geq}{\geqslant}
 \renewcommand{\subset}{\subseteq}
 \iffalse
-\NOEXPAND{\timesu}{\mathbin{\underline{\times}}}
 \fi
-\newcommand{\nuo}{\nu^{\circ}}
+\definecolor{grey}{rgb}{0.52, 0.52, 0.51}
 \newtheoremstyle{plainsl}
 {8pt plus 2pt minus 4pt}
 {8pt plus 2pt minus 4pt}
@@ -148,12 +136,12 @@
 {5pt plus 1pt minus 1pt}
 {}
 \theoremstyle{plainsl}
-\ihead{On Multislant matrices and Jacobi-Trudi determinants over finite fields}
+\ihead{Multislant matrices and Jacobi--Trudi determinants over finite fields}
 \ohead{page \thepage}
 \cfoot{}
 \begin{document}
 
-\title{On Multislant matrices and Jacobi Trudi determinants over finite fields}
+\title{Multislant matrices and Jacobi--Trudi determinants over finite fields}
 \author{Omesh Dhar Dwivedi, Jonah Blasiak, Darij Grinberg}
 \date{
 %TCIMACRO{\TeXButton{today}{\today}}%
@@ -163,66 +151,70 @@
 }
 \maketitle
 
-Given a partition $\lambda$ and a finite field $F_q$,  what is the probability of an evaluation of a Jacobi-Trudi determinant corresponding to $\lambda$ vanishing? For $\lambda$ being a staircase, hook or a rectangle partition, this probability has been studied to be $\frac{1}{q}$. We investigate this probability for  skew partitions such as ribbons as well as more complex partition such as n-staircases and block staircases. In the framework of our proofs, we prove much more general statements that apply to the determinants of a broader class of matrices, which we refer to in this paper as \emph{Multislant matrices}, which are matrices of the form $\left(  A_{1}\mid
-A_{2}\mid\cdots\mid A_{k}\right)  $, where $A_{1},A_{2},\ldots,A_{k}$ are
-pairwise disjoint tall toeplitz matrices with the same number of rows . \\
+\textbf{Abstract.}
+Given a partition $\lambda$ and a finite field $\mathbb{F}_q$, what is the probability that the Jacobi--Trudi determinant corresponding to $\lambda$ vanishes on a randomly chosen tuple of elements of $\Fq$ ? When $\lambda$ is a staircase, a hook or a rectangle, this probability has been shown to be $\frac{1}{q}$ by Anzis et al in 2018. We investigate this probability for skew partitions such as ribbons, as well as more complex partitions such as $n$-staircases and block staircases. We actually prove much more general statements that apply to the determinants of a broader class of matrices, which we call \emph{multislant matrices} (matrices formed by stringing together several Toeplitz matrices with distinct indeterminate entries).
 
 \section{\label{sec.introduction}Introduction}
 
-Let $\mathbb{F}_q$ be a finite field. We begin by looking at the probability that  
-
-\[\det\left(
-\begin{array}
-[c]{ccc}%
+Let $\mathbb{F}_q$ be a finite field. Consider the probability that  
+\[
+\det \begin{pmatrix}
 x_{1} & x_{2} & x_{3}\\
 1 & x_{1} & x_{2}\\
-0 & 1 & x_{1}%
-\end{array}
-\right)  =0
+0 & 1 & x_{1}
+\end{pmatrix} =0 ,
 \]
+where $x_{1},x_{2},x_{3}$ are elements of $\mathbb{F}_{q}$ chosen
+at random (uniformly and independently).
+This probability is $\dfrac{1}{q}$, as can easily be checked by hand.
+It is less obvious that this property generalizes to $n\times n$-matrices formed like the matrix above (i.e., Toeplitz matrices with distinct indeterminates on and above the main diagonal, $1$s just below the main diagonal, and $0$s further below).
+This result is \cite[Corollary 6.4]{Anzis18} (and has been reproved in \cite[Corollary 5.1]{dwivedi2021rank}).
+This matrix can be seen as a special case of a Jacobi--Trudi matrix corresponding to a rectangle partition (this is how \cite{Anzis18} viewed it), as well as a particular case of a Hankel matrix (with rows or columns reversed; this is the viewpoint taken in \cite{dwivedi2021rank}).
+% We previously provided a Hankel matrix generalization of this and similarly structured matrices in \cite{dwivedi2021rank}.
+In this paper, we take the former perspective, and study some other families of Jacobi--Trudi matrices.
 
-, where $x_{1},x_{2},x_{3}$ are elements of $\mathbb{F}_{q}$ chosen
-at random (uniformly \& independently). This probability is $\dfrac{1}{q}$, and is one of the main results of \cite{Anzis18} (along with similar claims for similarly structured $n\times
-n$-matrices). This matrix can be seen as a special case of a Jacobi-Trudi matrix corresponding to a rectangle partition as well as particular case of a Hankel matrix. We previously provided a Hankel matrix generalization of this and similarly structured matrices in \cite{dwivedi2021rank}. In this paper we study matrices of similar kind as a particular cases of Jacobi Trudi matrices.  \\
-
-For our Jacobi-Trudi matrix generalization, we consider  \\
-
-$\det \left(  x_{u_{i}-j}\right) = \det \begin{pmatrix}
+A general \emph{Jacobi--Trudi matrix} has the form
+\begin{align*}
+J_{u_1, u_2, \ldots, u_n}\tup{x_1, x_2, \ldots, x_n}
+&:=
+\det \left(  x_{u_{i}-j}\right)_{1\leq i\leq n,\ 1\leq j\leq n}
+\\
+&= \det \begin{pmatrix}
 x_{u_1 - 1} & x_{u_1 - 2} & \cdots & x_{u_1 - n} \\
 x_{u_2 - 1} & x_{u_2 - 2} & \cdots & x_{u_2 - n} \\
 \vdots & \vdots & \ddots & \vdots \\
 x_{u_n - 1} & x_{u_n - 2} & \cdots & x_{u_n - n}
-\end{pmatrix}$ \\
-where
-$u_{1}>u_{2}>\cdots>u_{n}>0$, with $x_{0}=1$,
-$x_{i}=0$ for $i<0$ and $x_{i}$ being uniformly random over $\mathbb{F}%
-_{q}$ for $i>0$. Such a
-matrix is called a \emph{Jacobi--Trudi matrix}. Computing the
-probability that its determinant vanishes was the main goal of
-\cite{Anzis18}, which was achieved for certain families of
-$u_i$'s. In particular they prove that the probability of the Jacobi-Trudi determinant vanishing is precisely $\dfrac{1}{q}$ in the following cases (see \cite[specific results]{Anzis18}):
+\end{pmatrix} ,
+\end{align*}
+where $u_{1}>u_{2}>\cdots>u_{n}>0$ are integers.
+Here, $x_1, x_2, x_3, \ldots$ are elements of $\Fq$ chosen at random (uniformly and independently), and we furthermore set $x_{0}=1$ and $x_{i}=0$ for $i<0$.
+Computing the probability that its determinant
+$\det\tup{ J_{u_1, u_2, \ldots, u_n}\tup{x_1, x_2, \ldots, x_n} }$
+vanishes was the main goal of
+\cite{Anzis18}, and was achieved for certain families of
+$u_i$'s.
+In particular, \cite{Anzis18} proves that this probability is precisely $\dfrac{1}{q}$ in the following cases (see \cite[Corollary 6.4, Theorem 6.5, Proposition 1.2]{Anzis18}):
 \begin{itemize}
-\item the ``\emph{rectangle case}'': $u_i = m - i$ for each $i = 1, 2,
-\ldots, n$;
-\item the ``\emph{staircase case}'': $u_i = n-2i+2j+1 $ for each $i,j = 1, 2,
-\ldots, n$;
+\item the ``\emph{rectangle case}'': $u_i = m - i$ for each $i = 1, 2, \ldots, n$;
+\item the ``\emph{staircase case}'': $u_i = n-2i+2j+1$ for each $i,j = 1, 2, \ldots, n$;
 \item the ``\emph{hook case}'': $u_1$ arbitrary; $u_i = 1 - i$ for
 each $i = 2, 3, \ldots, k$; finally, $u_i = -i$ for each $i > k$.
 \end{itemize}
 In more complicated situations, the probability can be less well-behaved.
 
 
+% [DG] edited until here
 
-
-%in the case of determinants corresponding to staircase, hook and rectangle-shaped partition shapes.\\
-
-In addition they also provide conjectures on a few more specific miscellaneous partitions. We add a few more cases and generalize and prove some of these conjectures. In particular, Conjecture 10.1 in \cite{Anzis18} states the probability of a determinant corresponding to a 2-staircase vanishing. We not only prove the 2-staircase result, but we generalize and prove the result for any arbitrary n-staircase and show that this probability, mysteriously, takes the form of that of a completely random generic $(n-1)\times (n-1)$ matrix vanishing (as discussed in the very beginning of the text). We will in fact prove much more general statements that apply to a broader class of determinants with similar structures. One important result that we prove is given as follows:
+In addition, \cite{Anzis18} also states some conjectures on a few more types of partitions.
+We add some more cases and generalize and prove some of these conjectures.
+In particular, \cite[Conjecture 10.1]{Anzis18} gives a formula for the probability of a determinant corresponding to a 2-staircase vanishing. We not only prove this formula, but also generalize it to any $n$-staircase and show that this probability, mysteriously, takes the form of that of a completely random generic $(n-1)\times (n-1)$ matrix vanishing (as discussed in the very beginning of the text). We will in fact prove much more general statements that apply to a broader class of determinants with similar structures. One important result that we prove is given as follows:
 \begin{theorem}
 Multislant Placeholder
 \end{theorem}
-Schur Polynomials provide an important motivation to study the determinants of these Jacobi-Trudi matrices, since if we replace the $x_{i}$ by the generators $h_{i}$ of the
+
+Schur polynomials provide an important motivation to study the determinants of these Jacobi--Trudi matrices, since if we replace the $x_{i}$ by the generators $h_{i}$ of the
 ring of symmetric functions (see \S 2.2 for a detailed definition and further exploration), then the determinant of
-the Jacobi-Trudi matrix $\left(  x_{u_{i}-j}\right)  $ becomes a Schur
+the Jacobi--Trudi matrix $\left(  x_{u_{i}-j}\right)  $ becomes a Schur
 function, and thus its probability of vanishing is ... %ask Darij about what did he mean to put here? Just the general description of significance of vanishing Schur polynomials or something specific intended here
 This is the approach taken by \cite{Anzis18} when studying these determinants. 
 Another way to look at our results could be interpreting it as counting $\mathbb{F}_{q}%
@@ -230,82 +222,96 @@ $-valued points on schemes as studied by Stanley, Weil, Kontsevich and likewise.
 
 One notable result of \cite{Anzis18} is that $\dfrac{1}{q}$ is the lower bound of these probabilities and is obtained in the case of hooks, staircases and rectangles. Contrary to intuition, this value does not imply an equidistribution of the probabilities. An obvious example is comparing hook partitions (see Corollary 9.2 of \cite{Anzis18}) which exhibit this behavior with rectangle partitions (see Lemma 9.3 of \cite{Anzis18}) which do not. We however, obtain this expression of probability and prove this equidistribution does exist for a particular case of skew partitions i.e. ribbons.
 
-\section{Background and Statements of the Theorems}
-
-
-\subsubsection{Mathematical Background and Schur Functions}
-
+\section{Notations and background}
 
 Fix a finite field $\mathbb{F}_{q}$. Consider the polynomial ring 
+\[
+\mathcal{P} := \mathbb{Z}\left[  h_{1},h_{2},h_{3},\ldots\right]
+\]
+in countably many indeterminates $h_{1},h_{2},h_{3},\ldots$.
 
-\[\mathcal{P}:=\mathbb{Z}\left[  h_{1},h_{2}%
-,h_{3},\ldots\right]  \]
-
-in countably many indeterminates $h_{1},h_{2}%
-,h_{3},\ldots$.
 \begin{definition}
 \label{def.mapstozero}
-
-For any $f\in\mathcal{P}$ and $a\in\mathbb{F}_{q}$, let $N\in\mathbb{N}$ such that $f$ only
-involves the indeterminates $h_{1},h_{2},\ldots,h_{N}$. Define
-
+For any $f\in\mathcal{P}$ and $a\in\mathbb{F}_{q}$,
+let $N\in\mathbb{N}$ be such that $f$ only
+involves the indeterminates $h_{1},h_{2},\ldots,h_{N}$.
+Define the \emph{probability of $f$ evaluating to $a$}
+to be the rational number
 \[
 P\left(  f\mapsto a\right)  :=\dfrac{\left(  \text{\# of }\left(  x_{1}%
 ,x_{2},\ldots,x_{N}\right)  \in\mathbb{F}_{q}^{N} \mid f\left(
 x_{1},x_{2},\ldots,x_{N}\right)  =0\right)  }{\left(  \text{\# of all }\left(
-x_{1},x_{2},\ldots,x_{N}\right)  \in\mathbb{F}_{q}^{N}\right)  },
+x_{1},x_{2},\ldots,x_{N}\right)  \in\mathbb{F}_{q}^{N}\right)  }.
 \]
 \end{definition}
 
-This is independent on the choice of $N$
+Note that the right hand side is independent on the choice of $N$
 because increasing $N$ by $1$
 merely multiplies the numerator and the denominator by $q$.
 
-% \begin{remark}
-% Roughly speaking, $P\left(  f\mapsto0\right)  $ is the probability that
-% $f\left(  x_{1},x_{2},x_{3},\ldots\right)  =0$ when $x_{1},x_{2},x_{3},\ldots$
-% are random elements of $\mathbb{F}_{q}$ (chosen uniformly at random and
-% independently). (One does not need to literally choose infinitely many random
-% $x_{i}$'s, since $f$ involves only finitely many $x_{i}$'s, and clearly
-% choosing any more does not affect the probability.)
-% \end{remark}
+As the name suggests, $P\tup{f \mapsto a}$ is the probability that
+$P$ evaluates to $a$ when $h_1, h_2, h_3, \ldots$ are specialized
+to randomly chosen elements of $\Fq$ (chosen uniformly and
+independently). Since $f$ involves only finitely many indeterminates,
+this does not actually require choosing infinitely many random
+elements.
 
-% $P\left(  f\mapsto a\right)$ can be similarly defined for any given $a\in \mathbb{F}_{q}.$\\
-
-We can view the polynomial ring $\mathcal{P}=\mathbb{Z}\left[  h_{1}%
-,h_{2},h_{3},\ldots\right]  $ as a ring of \textquotedblleft symmetric
-functions\textquotedblright\, which are in fact symmetric bounded degree Formal Power Series, in
-countably many indeterminate $\xi_{1},\xi_{2},\xi_{3},\ldots$ by identifying
-each $h_{i}$ with the standard sum. For the contents of the paper, we don't actually work with the $\xi_{i}$ (in
-particular, we will not substitute anything for them). However, this background is important since we will consider some standard symmetric functions as elements of this polynomial ring $\mathcal{P}$. Surveys of symmetric functions can be found in \cite{Macdonald} and \cite{EC2}.
+We can identify the polynomial ring
+$\mathcal{P}=\mathbb{Z}\left[  h_{1},h_{2},h_{3},\ldots\right]  $
+with the ring $\Lambda$ of ``symmetric
+functions'', which are in fact symmetric formal power series in
+countably many indeterminate $\xi_{1},\xi_{2},\xi_{3},\ldots$
+having bounded degree (see \cite[Section 7.1]{EC2} or
+\cite[Section I.2]{Macdonald}).
+To do so, we equate each generator $h_i$ of $\mathcal{P}$
+with the complete homogeneous symmetric function
+$h_i\tup{\xi_1, \xi_2, \xi_3, \ldots}
+= \sum\limits_{j_1 \leq j_2 \leq \ldots \leq j_i}
+\xi_{j_1} \xi_{j_2} \cdots \xi_{j_i} \in \Lambda$.
+In this paper, we will not actually use the $\xi_i$.
+However, we will use some of the structure of $\Lambda$, in
+particular the omega involution $\omega : \Lambda \to \Lambda$
+(see, e.g., \cite[Section 7.6]{EC2} or \cite[(I.2.7)]{Macdonald}).
 
 \begin{definition}
-A partition of a positive integer $n$ is a  weakly decreasing sequence of positive integers $(\lambda_1, \lambda_2, \cdots ,\lambda_k)$, with  $\lambda_1 \geq \lambda_2 \geq \cdots \lambda_k$, that sum to $n$.
+A \emph{partition} is a
+weakly decreasing sequence of positive integers
+$(\lambda_1, \lambda_2, \cdots ,\lambda_k)$, with
+$\lambda_1 \geq \lambda_2 \geq \cdots \lambda_k$.
 \end{definition}
 
-There are two important terms associated with a partition. 
-\begin{definition}
-
-The size of a partition is often denoted by $\ell(\lambda)$ or $|\lambda|$ and denotes the cardinality of a partition. For a partition $\lambda = (\lambda_1, \lambda_2, \cdots ,\lambda_k)$ and nonzero $\lambda_i's$, $\ell(\lambda) =k$
-
-\end{definition}. The second term is called the conjugate (or sometimes the transpose) of a partition and is represented by $\lambda'$ or $\lambda^t$. To properly understand the meaning of the conjugate of a partition, let us first take a look at Young Diagrams.
-
-
-Every partition can be represented in the form of a Young diagram which is a combinatorial object that helps us better understand the intuition of partitions. 
-
+There are several important concepts associated with a partition.
 
 \begin{definition}
-A Young diagram is a finite collection of boxes, or cells, arranged in left-justified rows, with the row lengths in non-increasing order. Listing the number of boxes in each row gives a partition $\lambda$ of a non-negative integer $n$, the total number of boxes of the diagram.
+The \emph{size} of a partition
+$\lambda = \left(\lambda_1, \lambda_2, \ldots, \lambda_k\right)$
+is the sum $\lambda_1 + \lambda_2 + \cdots + \lambda_k$.
+It is denoted by $\abs{\lambda}$.
+
+The \emph{length} of a partition
+$\lambda = \left(\lambda_1, \lambda_2, \ldots, \lambda_k\right)$
+is the number $k$.
+It is denoted by $\ell\tup{\lambda}$.
+\end{definition}
+
+\begin{definition}
+The \emph{Young diagram} $Y\tup{\lambda}$ of a partition
+$\lambda = \left(\lambda_1, \lambda_2, \ldots, \lambda_k\right)$
+is a table of irregular shape.
+Its boxes (also known as cells) are arranged in
+$k$ left-justified rows, with the $i$-th row (counted from the top)
+having $\lambda_i$ boxes. (Thus, the total number of boxes
+is $\abs{\lambda}$).
 \end{definition}
 
 Figure 1 shows the construction of a Young diagram for the partition $\lambda = (6,5,4,3,2,1)$ where each row has the same number of boxes as each part of the partition. Since a partition is a weakly decreasing sequence, the number of boxes in a row decreases as we go down the diagram.
 
 \begin{definition}
-The conjugate of a  partition is defined with respect to these Young diagrams and can be determined by constructing the Young diagram of a partition and then writing down the number of boxes in each column from left to right.
+The \emph{conjugate} $\lambda^t$ of a partition $\lambda$ is defined to be the partition whose Young diagram is obtained from $Y\tup{\lambda}$ by flipping it across the main diagonal (i.e., the length of the $i$-th row of $Y\tup{\lambda^t}$ equals the length of the $i$-th column of $Y\tup{\lambda}$ for each $i$).
 \end{definition} 
 
 \begin{example}
-The conjugate $\lambda^t$ of $\lambda = (6,5,4,3,2,1)$ is $(6,5,4,3,2,1)$ because of the symmetry in the diagram, while, the conjugate of $(4,1,1)$ is $(3,1,1,1)$. 
+The conjugate $\lambda^t$ of $\lambda = (6,5,4,3,2,1)$ is $(6,5,4,3,2,1)$ because of the symmetry in the diagram, while the conjugate of $(4,1,1)$ is $(3,1,1,1)$. 
 \end{example}
 
 \begin{align*}
@@ -315,33 +321,43 @@ The conjugate $\lambda^t$ of $\lambda = (6,5,4,3,2,1)$ is $(6,5,4,3,2,1)$ becaus
 \text{Figure 1. A Young diagram for $\lambda = (6,5,4,3,2,1)$}
 \]
 
-There are a few important families of partitions that will be studied in this paper so we name and define them appropriately as is done in mathematical literature. 
-
+Let us name a few special important families of partitions that we will study below.
 
 \begin{definition}
 \begin{enumerate}
-    \item A rectangle partition is a partition of the form 
+    \item A \emph{rectangle partition} is a partition of the form 
 \[\lambda = (a^n) = (a,a, \ldots a)\]
-    \item A staircase is a partition of the form 
+for a given $a > 0$.
+    \item A \emph{staircase} is a partition of the form 
 \[\lambda = (k, k-1, k-2, \ldots 1)\]
-    \item An $n$-staircase is a partition of the form 
+for a given $k \geq 0$.
+    \item An \emph{$n$-staircase} is a partition of the form 
 \[\lambda = (kn, (k-1)n, \ldots, 2n,  n)\]
+for given $n > 0$ and $k \geq 0$.
 \end{enumerate}
-
-
-where $a,k,n>0$.  
 
 \end{definition}
 
-It should be easy to see that the families of partition are named after the shape of the corresponding Young diagrams of that particular family.\\
+The three names, of course, are related to the shapes of the corresponding Young diagrams.
+
+\begin{definition}
+If $\lambda = \tup{\lambda_1, \lambda_2, \ldots, \lambda_k}$ is
+a partition, then we set $\lambda_i := 0$ for each $i > k$.
+Thus, the partition $\lambda$ is identified with the infinite
+weakly decreasing
+sequence $\tup{\lambda_1, \lambda_2, \lambda_3, \ldots}$
+whose entries stabilize at $0$.
+\end{definition}
+
+A generalization of partitions are \emph{skew partitions}.
 
 There also exists the notion of skew partitions which are a generalization of partitions to set theoretic differences of two partitions. A skew partition is a pair of partitions $(\lambda, \mu)$ such that the Young diagram of $\lambda$ contains the Young diagram of $\mu$; it is denoted by $\lambda / \mu$. If $\lambda= (\lambda_1, \lambda_2, \cdots)$  and $\mu =(\mu_1, \mu_2, \cdots)$, then the containment of diagrams means that $\mu_i \leq \lambda_i$ for all $i$. In this paper, two partitions which exhibit this property will be represented by $\mu \subseteq \lambda$. The skew diagram of a skew partition $\lambda / \mu$ is the set-theoretic difference of the Young diagrams of $\lambda$ and $\mu$: the set of boxes that belong to the diagram of $\lambda$ but not to that of $\mu$. 
 
 
-We now state the Jacobi-Trudi Identity for different partitions.  The Jacobi-Trudi identity allows an easy method to calculate the Schur polynomials in term of elementary symmetric and complete homogeneous symmetric polynomials. \cite{Anzis18}
-\begin{definition}[Jacobi-Trudi Identity]
-\label{Jacobi-Trudi Identity}
-Let $\lambda = (\lambda_1, \lambda_2, \ldots, \lambda_k)$ and $\mu = (\mu_1, \mu_2, \ldots, \mu_k) \subseteq \lambda$. Define \emph{Jacobi-Trudi matrix} of $\lambda/\mu$ to be the  $k \times k$ matrix 
+We now state the Jacobi--Trudi Identity for different partitions.  The Jacobi--Trudi identity allows an easy method to calculate the Schur polynomials in term of elementary symmetric and complete homogeneous symmetric polynomials. \cite{Anzis18}
+\begin{definition}[Jacobi--Trudi matrix]
+\label{Jacobi--Trudi Identity}
+Let $\lambda = (\lambda_1, \lambda_2, \ldots, \lambda_k)$ and $\mu = (\mu_1, \mu_2, \ldots, \mu_k) \subseteq \lambda$. Define \emph{Jacobi--Trudi matrix} of $\lambda/\mu$ to be the  $k \times k$ matrix 
 
 \[
 J(\lambda/\mu) = \left[ h_{\lambda_i-\mu_j - i + j} \right]^k_{i,j=1}.
@@ -364,7 +380,7 @@ If $\mathcal{P}$ is viewed as the ring of the symmetric functions, then the skew
  as the definition of $s_{\lambda/\mu}$.
 \end{remark}
 
-An example computation can help elucidate this identity. Consider the partition in Figure 1. Using the Jacobi-Trudi Identity, we can write the corresponding Schur Polynomial using the determinant 
+An example computation can help elucidate this identity. Consider the partition in Figure 1. Using the Jacobi--Trudi Identity, we can write the corresponding Schur Polynomial using the determinant 
 
  \begin{align*}
 s_{(6,5,4,3,2,1)} =
@@ -378,7 +394,7 @@ h_2 & h_3 & h_4 & h_{5} & h_{6}& h_{7} \\
 \end{vmatrix}\\
 \end{align*}
 
-% A notable observation to make while observing the Jacobi-Trudi Identity is that for any fixed partition, the corresponding Schur polynomial can be expressed using finitely many $h_i's$.\\
+% A notable observation to make while observing the Jacobi--Trudi Identity is that for any fixed partition, the corresponding Schur polynomial can be expressed using finitely many $h_i's$.\\
 
 
 
@@ -393,7 +409,7 @@ We first begin with multislant matrices.
 
 
 \section{Multislant Matrices and $n$-Staircase Partitions}
-The first type of partition that we would study are n-staircases. 
+The first type of partition that we would study are $n$-staircases. 
 \begin{definition}
 \label{nstaircasedef}
 Fix $n,k \in \NN$.
@@ -414,10 +430,10 @@ P(s_{\lambda} \longmapsto 0) =1- \prod_{i=1}^{n} \left(  1-\dfrac{1}{q^{i}}\righ
 
 % \begin{remark}
 % \label{sufflarge}
-% By sufficiently large, we mean $\ell(\lambda) \geq (n+1)$. For smaller  $\ell(\lambda)$, $J(\lambda)$ is not large enough to exhibit the full structure of a $n-$staircase and exhibits properties of smaller staircases. This is discussed further in Remark \ref{rem.sizenstairs} once we gain a better understanding of the structure of $J(\lambda)$ for these partitions.
+% By sufficiently large, we mean $\ell(\lambda) \geq (n+1)$. For smaller  $\ell(\lambda)$, $J(\lambda)$ is not large enough to exhibit the full structure of a $n$-staircase and exhibits properties of smaller staircases. This is discussed further in Remark \ref{rem.sizenstairs} once we gain a better understanding of the structure of $J(\lambda)$ for these partitions.
 % \end{remark}
 
-The right hand side of Theorem (\ref{thm.n.staircase} and later \ref{thm.multislant.prob}) is the probability of a random matrix of size $n-1$ being singular in $\mathbb{F}_q$. To prove this result, we prove a more general result which encompasses this one by setting up the machinery for a new type of matrix that is given by the evaluation of Jacobi-Trudi determinants for n-staircase partitions.
+The right hand side of Theorem (\ref{thm.n.staircase} and later \ref{thm.multislant.prob}) is the probability of a random matrix of size $n-1$ being singular in $\mathbb{F}_q$. To prove this result, we prove a more general result which encompasses this one by setting up the machinery for a new type of matrix that is given by the evaluation of Jacobi--Trudi determinants for $n$-staircase partitions.
 
 
 \subsection{Multislant Matrices}
@@ -1284,19 +1300,19 @@ is proved.
 \end{proof}
 
 
-\subsection{n-staircase partitions}
+\subsection{$n$-staircase partitions}
 We now revisit Theorem 6.1 now that we have proved the more general result for multislant matrices.
 \begin{lemma}
 \label{multistair}
-If $\lambda$ is a shifted $n-$staircase, then there is some matrix $J'$ obtained by permuting the columns of $J(\lambda)$ which is a multislant matrix.
-%$J(\lambda)$ of a n-staircase $\lambda$ is a multislant matrix. 
+If $\lambda$ is a shifted $n$-staircase, then there is some matrix $J'$ obtained by permuting the columns of $J(\lambda)$ which is a multislant matrix.
+%$J(\lambda)$ of a $n$-staircase $\lambda$ is a multislant matrix. 
 \end{lemma}
 \begin{proof}
 
 Let $M=\left(\lambda_{i}-i+j\right)_{i,j \in \ell}$ so that $J(\lambda) = \left( M\right)_{i,j \in \ell}$. For each index $i \leq min(\ell,n)$, the columns $i, i+(n+1), i+2(n+1) + \ldots$ contain exactly the elements of $M$ which are congruent to $M_{i,i}$ mod $n+1$. Thus the submatrix of $J(\lambda)$ consisting of those columns is a slant matrix, and the slant matrices obtained for different indices $i \leq min(\ell,n)$ are disjoint.
 
 
-\\
+%\\
 
 
 
@@ -1327,7 +1343,7 @@ This result holds true only for $\ell(\lambda) \geq n+1$. From our proof of Lemm
 \end{remark}
 
 \begin{proof}[Proof of Theorem \ref{thm.n.staircase}]
-From the previous lemma, $J(\lambda)$ for a $n-$staircase is a multislant matrix. Hence we can apply Theorem \ref{thm.multislant.prob} here. This gives us  
+From the previous lemma, $J(\lambda)$ for a $n$-staircase is a multislant matrix. Hence we can apply Theorem \ref{thm.multislant.prob} here. This gives us  
 \[
 P(s_{\lambda} \longmapsto 0) = \operatorname*{SiPr}M
 \]
@@ -1413,7 +1429,7 @@ We define a block staircase partition to be the partition of the form
 \]. \end{definition}
 
 
-A block staircase partition is the conjugate of a n-staircase partition. Hence, Theorems (4.1,3.2) have the following corollary:
+A block staircase partition is the conjugate of a $n$-staircase partition. Hence, Theorems (4.1,3.2) have the following corollary:
 
 \begin{corollary}
 Let $\lambda$ be a block staircase partition. Let $\lambda'$ be the corresponding conjugate partition. Then, 
@@ -1467,8 +1483,7 @@ $(i)$
 \begin{minipage}[t]{0.30\textwidth}
 \begin{center}
 % \ydiagram{5+3,4+3,3+2,4}
-\ydiagram[*(grey!30) ]
-{5+2,5+2}
+\ydiagram[*(grey!30) ]{5+2,5+2}
 *[*(white)]{5+3,4+3,3+2,4}
 
 $(ii)$
@@ -1477,8 +1492,7 @@ $(ii)$
 \begin{minipage}[t]{0.30\textwidth}
 \begin{center}
 % \ydiagram{5+3,3+3,3+1,3}
-\ydiagram[*(grey!30) ]
-{0,0,3+1,2+1}
+\ydiagram[*(grey!30) ]{0,0,3+1,2+1}
 *[*(white)]{5+3,3+3,3+1,3}
 
 $(iii)$
@@ -1493,7 +1507,7 @@ $(iii)$
 
 
 
-Let us revisit the Jacobi-Trudi Identity. For the ribbon  $\lambda/\mu= (8,6,4,4)/(5,3,3)$ in Example \ref{ribbontableaux} (i), we can write down $J(\lambda/\mu)$ as follows. 
+Let us revisit the Jacobi--Trudi Identity. For the ribbon  $\lambda/\mu= (8,6,4,4)/(5,3,3)$ in Example \ref{ribbontableaux} (i), we can write down $J(\lambda/\mu)$ as follows. 
 
 \begin{align*}
 J(\lambda/\mu) = s_{(8,6,4,4/ (5,3,3)} =
@@ -1607,7 +1621,7 @@ h_4 & h_5 & h_8 & h_{11} \\
 Let $\lambda= (\lambda_1, \lambda_2, \ldots, \lambda_{\ell})$  and $\mu= (\mu_1, \mu_2, \ldots, \mu_{\ell}) \subseteq \lambda$, with the skew partition $\lambda/\mu$ being a ribbon. 
 Suppose that $\lambda_1> \mu_1$, $\lambda_\ell> \mu_\ell$, and $\mu_{\ell}=0$.\\
  
-The Jacobi-Trudi matrix $J(\lambda/\mu)$ of the ribbon $\lambda/\mu$ has the following properties:
+The Jacobi--Trudi matrix $J(\lambda/\mu)$ of the ribbon $\lambda/\mu$ has the following properties:
 
 \begin{statement}
 \textit{(i)} $J(\lambda/\mu)_{j+1,j}=1$ for $j \in [\ell-1].$
@@ -1649,7 +1663,7 @@ J(\lambda / \mu) = \left(  h_{\lambda_{i}-\mu_{j}-i+j}\right)  _{i,j\in\left[  \
 We can set $\ell=\ell\left(\lambda\right)$. To show (i) we need to show $\lambda_{j+1}=\mu_{j}+1$. Let us call the westernmost box in the $j+1$st row of $\lambda/\mu$ as $b$; it lies in the column $\mu_{j+1}$. We know that there is a box directly south of $b$ in $\lambda/\mu$, because it is connected. Let us call this box $b'$. Now $\lambda/\mu$ cannot have a box directly east of $b$ as well as a box directly east of $b'$ since a ribbon does not contain a $2\times2$ block of boxes. In addition, $\lambda/\mu$ having a box directly east of $b'$ and no box directly east of $b$ is also impossible since $\lambda$ is a partition. This implies that $\lambda/\mu$ has a box $b'$ but no box directly east of $b'$, thus showing $\lambda_{j+1}=\mu_{j}+1$, as desired.\\
 
 
-Statement $(ii)$ is equivalent to showing $\lambda_{i}-\mu_{j}-i+j < 0$ when $i > j+1$. This follows from (i) since the indices $\lambda_{i}-\mu_{j}-i+j$ of the Jacobi-Trudi matrix $J(\lambda / \mu)$  are strictly increasing from left to right across each row. Statement $(iii)$ also follows likewise since these indices strictly increase across rows and strictly decrease down columns making the upper right entry's index uniquely the largest one.\\
+Statement $(ii)$ is equivalent to showing $\lambda_{i}-\mu_{j}-i+j < 0$ when $i > j+1$. This follows from (i) since the indices $\lambda_{i}-\mu_{j}-i+j$ of the Jacobi--Trudi matrix $J(\lambda / \mu)$  are strictly increasing from left to right across each row. Statement $(iii)$ also follows likewise since these indices strictly increase across rows and strictly decrease down columns making the upper right entry's index uniquely the largest one.\\
 
 % Let $\alpha_{j+1}>\beta_{j}+1$. \\
 
@@ -1746,7 +1760,7 @@ Fix $n,p,k \in \NN$. Recall from Definition \ref{nstaircasedef} that a $n$-stair
 A shifted $n$-staircase of size $k$ is a partition of the form, 
 \[\lambda = (p+(k-1)n, p+(k-2)n, \ldots,p+n, p) \].
 
-When $p \leq n$, we call the partition an inward shifted $n-$staircase while when  $p > n$, we call the partition an outward shifted $n-$staircase.
+When $p \leq n$, we call the partition an inward shifted $n$-staircase while when  $p > n$, we call the partition an outward shifted $n$-staircase.
 
 \end{definition}
 
@@ -1760,10 +1774,10 @@ Based on our numerical data, we conjecture the following results without proof f
 Let $\lambda$ be a shifted $n$-staircase of size $k\geq n+1$ (see Remark \ref{rem.sizenstairs}). Then 
 
 \begin{statement}
-\textit{(i)} If $\lambda$ is an inward shifted $n$-staircase, P(s_{\lambda} \longmapsto 0) = 1-\prod_{i=1}^{n} \left(  1-\dfrac{1}{q^{i}}\right)
+\textit{(i)} If $\lambda$ is an inward shifted $n$-staircase, then $P(s_{\lambda} \longmapsto 0) = 1-\prod_{i=1}^{n} \left(  1-\dfrac{1}{q^{i}}\right)$.
 \end{statement}
 \begin{statement}
-\textit{(ii)} If $\lambda$ is an outward shifted $n$-staircase, P(s_{\lambda} \longmapsto 0) = 1-\prod_{i=1}^{n+1} \left(  1-\dfrac{1}{q^{i}}\right)
+\textit{(ii)} If $\lambda$ is an outward shifted $n$-staircase, then $P(s_{\lambda} \longmapsto 0) = 1-\prod_{i=1}^{n+1} \left(  1-\dfrac{1}{q^{i}}\right)$.
 \end{statement}
 
 \end{conjecture}
@@ -1784,13 +1798,5 @@ P(s_{\lambda} \longmapsto 0) = 1-\prod_{i=1}^{2} \left(  1-\dfrac{1}{q^{i}}\righ
 
 \printbibliography
 \end{document}
-
-
-
-
-
-
-
-
 
 
