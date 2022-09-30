@@ -437,17 +437,19 @@ The first type of partition that we would study are $n$-staircases.
 \begin{definition}
 \label{nstaircasedef}
 Fix $n,k \in \NN$.
-We define a $n$-staircase of length $k$ to be a partition of the form 
-\[\lambda = (nk, n(k-1), n(k-2), \ldots,2n, n) \] 
+We define the \emph{$n$-staircase} of length $k$ to be the partition
+\[
+\lambda = (nk, n(k-1), n(k-2), \ldots,2n, n) .
+\]
 
 \end{definition}
-Anzis et al \cite{Anzis18} conjectured that for a $2$-staircase (i.e. $n=2$),  $P(s_{\lambda} \longmapsto 0) = \dfrac{q^2+q -1}{q^3}$. We prove this result and generalize it to arbitrary $n$.
+Anzis et al \cite{Anzis18} conjectured that for a $2$-staircase (i.e. $n=2$), we have $P(s_{\lambda} \longmapsto 0) = \dfrac{q^2+q -1}{q^3}$. We prove this result and generalize it to arbitrary $n$.
 
 \begin{theorem}
 \label{thm.n.staircase}
 Let $\lambda$ be a $n$-staircase with $\ell(\lambda) \geq n+1 $ (see Remark \ref{rem.sizenstairs}). Then,
 \[
-P(s_{\lambda} \longmapsto 0) =1- \prod_{i=1}^{n} \left(  1-\dfrac{1}{q^{i}}\right)
+P(s_{\lambda} \longmapsto 0) =1- \prod_{i=1}^{n} \left(  1-\dfrac{1}{q^{i}}\right) .
 \]
 
 \end{theorem}
@@ -457,7 +459,9 @@ P(s_{\lambda} \longmapsto 0) =1- \prod_{i=1}^{n} \left(  1-\dfrac{1}{q^{i}}\righ
 % By sufficiently large, we mean $\ell(\lambda) \geq (n+1)$. For smaller  $\ell(\lambda)$, $J(\lambda)$ is not large enough to exhibit the full structure of a $n$-staircase and exhibits properties of smaller staircases. This is discussed further in Remark \ref{rem.sizenstairs} once we gain a better understanding of the structure of $J(\lambda)$ for these partitions.
 % \end{remark}
 
-The right hand side of Theorem \ref{thm.n.staircase} (and of Theorem \ref{thm.multislant.prob} later on) is the probability of a random $\tup{n-1}\times\tup{n-1}$-matrix being singular over $\mathbb{F}_q$. To prove this result, we prove a more general result which encompasses this one by setting up the machinery for a new type of matrix that is given by the evaluation of Jacobi--Trudi determinants for $n$-staircase partitions.
+The right hand side of Theorem \ref{thm.n.staircase}
+% (and of Theorem \ref{thm.multislant.prob} later on)
+is the probability of a random $n\times n$-matrix being singular over $\mathbb{F}_q$. To prove this result, we prove a more general result which encompasses this one by setting up the machinery for a new type of matrix that is given by the evaluation of Jacobi--Trudi determinants for $n$-staircase partitions.
 
 
 \subsection{Multislant Matrices}
@@ -957,19 +961,19 @@ indeterminates as the block $A_{j}$ (since both blocks have type 1, so their
 number of indeterminates equals their number of full paradiagonals minus $1$).
 Now, from each column of $A_{j}$, we subtract a scalar multiple of the
 corresponding column of $A_{i}$\ \ \ \ \footnote{Here, we are counting the
-columns of a block from the right. That is, the ``
-corresponding column''\ of the $3$-rd-to-last column of
+columns of a block from the right. That is, the ``corresponding column''
+of the $3$-rd-to-last column of
 $A_{j}$ is the $3$-rd-to-last column of $A_{i}$. The reason why this
-`` corresponding column''\ always exists is
+``corresponding column'' always exists is
 that the block $A_{i}$ has at least as many columns as the block $A_{j}$.}
 (choosing the scalar factor in such a way that the subtraction will turn the
 bottommost full paradiagonal of $A_{j}$ into $\left(  0,0,\ldots,0\right)  $).
 As a result of this subtraction, the indeterminates in $A_{j}$ are replaced by
-`` quasi-indeterminates''\ (i.e., differences
-of the form `` indeterminate minus a scalar''%
-\ or `` indeterminate minus a scalar multiple of another
-indeterminate''). However, these ``
-quasi-indeterminates''\ are still uniformly independently
+``quasi-indeterminates'' (i.e., differences
+of the form ``indeterminate minus a scalar'' or
+``indeterminate minus a scalar multiple of another
+indeterminate''). However, these ``quasi-indeterminates'' are still uniformly
+independently
 distributed over $F$ when we evaluate our probability, and we can apply a
 change of variables to transform them back into distinct indeterminates; as a
 result, the block $A_{j}$ once again becomes a slant matrix, but now one of
@@ -1091,7 +1095,7 @@ $v$ with probability $\dfrac{1}{q}$. Thus, the claim follows.
 has $k$ blocks and signature $\left(  0,k-1,1\right)  $.
 
 Thus, all but one blocks of $M$ have type 0, whereas the remaining block has
-type 1. Let us refer to the latter block as the `` strange
+type 1. Let us refer to the latter block as the ``strange
 block''. Let $M^{\prime}$ be the matrix obtained from $M$ by
 removing the bottommost row of $M$ and the rightmost column of the strange
 block. (Note that this will cause the strange block to disappear entirely if
@@ -1242,7 +1246,7 @@ thus $\left(  \underbrace{i}_{=0},\underbrace{j}_{=k-1},\underbrace{\ell}%
 _{=1}\right)  =\left(  0,k-1,1\right)  $. Thus, the matrix $M$ has signature
 $\left(  0,k-1,1\right)  $. Hence, all but one blocks of $M$ have type 0,
 whereas the remaining block has type 1. Let us refer to the latter block as
-the `` strange block''. Let $M^{\prime}$ be the
+the ``strange block''. Let $M^{\prime}$ be the
 matrix obtained from $M$ by removing the bottommost row of $M$ and the
 rightmost column of the strange block. (Note that this will cause the strange
 block to disappear entirely if it had only one column.) Then, Lemma
@@ -1325,7 +1329,9 @@ is proved.
 
 
 \subsection{$n$-staircase partitions}
-We now revisit Theorem 6.1 now that we have proved the more general result for multislant matrices.
+
+We shall now apply Theorem \ref{thm.multislant.prob} to Jacobi--Trudi matrices of $n$-staircases.
+
 \begin{lemma}
 \label{multistair}
 If $\lambda$ is a shifted $n$-staircase, then there is some matrix $J'$ obtained by permuting the columns of $J(\lambda)$ which is a multislant matrix.
@@ -1379,7 +1385,7 @@ Since we have at least one block of type 1 in our multislant matrix (i.e. the bl
 This finishes the proof. 
 \end{proof}
 
-Having proved \ref{thm.n.staircase}, we can see that  for $n=1$
+Having proved Theorem \ref{thm.n.staircase}, we can see that  for $n=1$
 $P(s_{\lambda} \longmapsto 0) = \dfrac{1}{q}$, and for $n=2$, we have $P(s_{\lambda} \longmapsto 0) = \dfrac{(q^2+q -1)}{q^3}$
 recovering Theorem 6.5 and Conjecture 10.1 from Anzis et al \cite{Anzis18}.
 
@@ -1595,8 +1601,8 @@ Using Theorem~\ref{thm.transpose}, we can extend our results on $n$-staircase
 partitions to their conjugates.
 
 \begin{definition}
-
-We define a \emph{block staircase partition} to be a partition of the form 
+Let $n\in \NN$.
+We define a \emph{block $n$-staircase partition} to be a partition of the form 
 
 \[\lambda = ( \underbrace{i,i,\ldots,i}_{n
 \text{ times}}
@@ -1608,7 +1614,7 @@ We define a \emph{block staircase partition} to be a partition of the form
 \text{ times}}
 )
 \]
-for some $i > 0$ and $n \geq 0$.
+for some $i > 0$.
 \end{definition}
 
 
@@ -1617,20 +1623,20 @@ Hence, we can apply Theorem~\ref{thm.transpose} to Theorem~\ref{thm.n.staircase}
 and obtain the following corollary:
 
 \begin{corollary}
-Let $\lambda$ be a block staircase partition. Let $\lambda'$ be the corresponding conjugate partition. Then, 
+Let $\lambda$ be a block $n$-staircase partition. Let $\lambda'$ be the corresponding conjugate partition. Then, 
 \[
-P(s_{\lambda} \longmapsto 0) = P(s_{\lambda'} \longmapsto 0) = 1-\prod_{i=1}^{n} \left(  1-\dfrac{1}{q^{i}}\right)
+P(s_{\lambda} \longmapsto 0) = P(s_{\lambda'} \longmapsto 0) = 1-\prod_{i=1}^{n} \left(  1-\dfrac{1}{q^{i}}\right) .
 \]
 \end{corollary}
 
-\section{Skew Partitions and Ribbons}
+\section{Ribbons}
 
 In this section, we move our attention to a particular class of skew partitions called ribbons. We begin with some general facts about skew partitions.
 
 \begin{definition}[see e.g. {\cite[\S7.17]{EC2}}]
 
-A skew partition $\lambda/\mu$ is \emph{connected} if the interior of the Young Diagram of $\lambda/\mu$, regarded as the union of boxes, is an open set.
-A \emph{ribbon} is a connected skew partition which does not contain any 2$\times$2 block of boxes. 
+A skew partition $\lambda/\mu$ is \emph{connected} if the interior of the Young diagram of $\lambda/\mu$ (regarded as the union of its boxes) is connected.
+A \emph{ribbon} is a connected skew partition which does not contain any $2 \times 2$ block of boxes. 
 
 \end{definition}
 
@@ -1656,13 +1662,13 @@ A \emph{ribbon} is a connected skew partition which does not contain any 2$\time
 
 \begin{example}
 \label{ribbontableaux}
-Of the three skew partitions below, only the first shape is a ribbon since (ii) contains a 2$\times$2 block (shaded), and (iii) is disconnected.
+Of the three skew partitions below, only the first is a ribbon, since (ii) contains a $2\times 2$ block (shaded), and (iii) is disconnected.
 
 \begin{minipage}[t]{0.30\textwidth}
 \begin{center}
 \ydiagram{5+3,3+3,3+1,4} 
 
-$(i)$
+\textbf{(i)}
 \end{center}
 \end{minipage}
 \begin{minipage}[t]{0.30\textwidth}
@@ -1671,7 +1677,7 @@ $(i)$
 \ydiagram[*(grey!30) ]{5+2,5+2}
 *[*(white)]{5+3,4+3,3+2,4}
 
-$(ii)$
+\textbf{(ii)}
 \end{center}
 \end{minipage}
 \begin{minipage}[t]{0.30\textwidth}
@@ -1680,7 +1686,7 @@ $(ii)$
 \ydiagram[*(grey!30) ]{0,0,3+1,2+1}
 *[*(white)]{5+3,3+3,3+1,3}
 
-$(iii)$
+\textbf{(iii)}
 \end{center}
 \end{minipage}
 
@@ -1803,13 +1809,13 @@ h_4 & h_5 & h_8 & h_{11} \\
 
 
 
-Let $\lambda= (\lambda_1, \lambda_2, \ldots, \lambda_{\ell})$  and $\mu= (\mu_1, \mu_2, \ldots, \mu_{\ell}) \subseteq \lambda$, with the skew partition $\lambda/\mu$ being a ribbon. 
+Let $\lambda= (\lambda_1, \lambda_2, \ldots, \lambda_{\ell})$  and $\mu= (\mu_1, \mu_2, \ldots, \mu_{\ell}) \subseteq \lambda$ such that $\lambda/\mu$ is a ribbon. 
 Suppose that $\lambda_1> \mu_1$, $\lambda_\ell> \mu_\ell$, and $\mu_{\ell}=0$.\\
  
 The Jacobi--Trudi matrix $J(\lambda/\mu)$ of the ribbon $\lambda/\mu$ has the following properties:
 
 \begin{statement}
-\textit{(i)} $J(\lambda/\mu)_{j+1,j}=1$ for $j \in [\ell-1].$
+\textit{(i)} $J(\lambda/\mu)_{j+1,j}=1$ for $j \in [\ell-1]$.
 \end{statement}
  
 \begin{statement}
@@ -1848,7 +1854,7 @@ J(\lambda / \mu) = \left(  h_{\lambda_{i}-\mu_{j}-i+j}\right)  _{i,j\in\left[  \
 We can set $\ell=\ell\left(\lambda\right)$. To show (i) we need to show $\lambda_{j+1}=\mu_{j}+1$. Let us call the westernmost box in the $j+1$st row of $\lambda/\mu$ as $b$; it lies in the column $\mu_{j+1}$. We know that there is a box directly south of $b$ in $\lambda/\mu$, because it is connected. Let us call this box $b'$. Now $\lambda/\mu$ cannot have a box directly east of $b$ as well as a box directly east of $b'$ since a ribbon does not contain a $2\times2$ block of boxes. In addition, $\lambda/\mu$ having a box directly east of $b'$ and no box directly east of $b$ is also impossible since $\lambda$ is a partition. This implies that $\lambda/\mu$ has a box $b'$ but no box directly east of $b'$, thus showing $\lambda_{j+1}=\mu_{j}+1$, as desired.\\
 
 
-Statement $(ii)$ is equivalent to showing $\lambda_{i}-\mu_{j}-i+j < 0$ when $i > j+1$. This follows from (i) since the indices $\lambda_{i}-\mu_{j}-i+j$ of the Jacobi--Trudi matrix $J(\lambda / \mu)$  are strictly increasing from left to right across each row. Statement $(iii)$ also follows likewise since these indices strictly increase across rows and strictly decrease down columns making the upper right entry's index uniquely the largest one.\\
+Statement \textbf{(ii)} is equivalent to showing $\lambda_{i}-\mu_{j}-i+j < 0$ when $i > j+1$. This follows from (i) since the indices $\lambda_{i}-\mu_{j}-i+j$ of the Jacobi--Trudi matrix $J(\lambda / \mu)$  are strictly increasing from left to right across each row. Statement \textbf{(iii)} also follows likewise since these indices strictly increase across rows and strictly decrease down columns making the upper right entry's index uniquely the largest one.\\
 
 % Let $\alpha_{j+1}>\beta_{j}+1$. \\
 
@@ -1878,34 +1884,30 @@ Statement $(ii)$ is equivalent to showing $\lambda_{i}-\mu_{j}-i+j < 0$ when $i 
 \end{proof}
 
 
-%As suggested by statement $(i)$ and $(ii)$, the lower left $\ell - 1 \times \ell - 1$ submatrix of $J(\lambda/\mu)$ is upper triangular.
+%As suggested by statement \textbf{(i)} and \textbf{(ii)}, the lower left $\ell - 1 \times \ell - 1$ submatrix of $J(\lambda/\mu)$ is upper triangular.
 
 
 \begin{theorem}
 \label{thm.ribbon}
-
-Let $\lambda/\mu$ be a ribbon and recall that $s_{\lambda/\mu}$ denotes the corresponding skew Schur function. \\
-
-Then for any $a\in \mathbb{F}_{q}$,
-
-\[P(s_{\lambda/\mu} \longmapsto a) = 1/q. \]
+Let $\lambda/\mu$ be a ribbon, and recall that $s_{\lambda/\mu}$ is the corresponding Schur function.
+Let $a\in \mathbb{F}_{q}$.
+Then,
+\[
+P(s_{\lambda/\mu} \longmapsto a) = 1/q.
+\]
 \end{theorem}
 
-
 \begin{proof}
+By Remark \ref{flushremark}, the skew Schur function indexed by a skew partition is unchanged by translations of that shape. We can therefore assume that the skew partition $\lambda / \mu$ is translated as far as possible to the northwest -- i.e., we have $\lambda_1> \mu_1$, $\lambda_\ell> \mu_\ell$, and $\mu_{\ell}=0$, where $\ell$ is the length of $\lambda$.\\
 
-By Remark \ref{flushremark}, the skew Schur function indexed by a skew partition is unchanged by translations of that shape. We can therefore assume that the skew partition $\lambda / \mu$ is translated as far as possible to the northwest i.e., $\lambda_1> \mu_1$, $\lambda_\ell> \mu_\ell$, and $\mu_{\ell}=0$, where $\ell$ is the length of $\lambda$.\\
-
-By Lemma \ref{lemma.Hessenberg} $(i)$ and $(ii)$, the determinant of the submatrix $\break$ $J(\lambda/\mu)_{i=(2,3,\ldots,n), j=(1,2,\ldots,n-1)} $ of $J(\lambda/\mu)$ is 1. Hence by Lemma \ref{lemma.Hessenberg} $(iii)$,
+By Lemma \ref{lemma.Hessenberg} \textbf{(i)} and \textbf{(ii)}, the determinant of the submatrix $\break$ $J(\lambda/\mu)_{i=(2,3,\ldots,n), j=(1,2,\ldots,n-1)} $ of $J(\lambda/\mu)$ is 1. Hence by Lemma \ref{lemma.Hessenberg} \textbf{(iii)},
 performing the co-factor expansion along the first row of $J(\lambda/\mu)$, 
 
 \[
  s_{\lambda / \mu } = det(J(\lambda/\mu))= (-1)^{n+1} h_N + g( h_1, h_2, \cdots h_{N-1})
 \]
 
-From Definition \ref{def.mapstozero}
-
-
+From Definition \ref{def.mapstozero}, we have
 \[
 P\left(  s_{\lambda / \mu }\mapsto a\right)  =\dfrac{\left(  \text{\# of }\left(  h_{1}%
 ,h_{2},\ldots,h_{N}\right)  \in\mathbb{F}_{q}^{N}\text{ such that } s_{\lambda / \mu } \left(
@@ -1974,9 +1976,9 @@ As the results imply, for a sufficiently sized inward shifted $n$-staircase, $P(
 Anzis et al \cite{Anzis18} explored fattened hooks of the form $\lambda = (a^m,1^n)$. Here we provide another interesting result about a different family of fattened hooks for the interested reader. 
 
 \begin{conjecture}
-For partitions of the form $\lambda = (a, k^n)$ where $a>2$, $a>k>1$, $n\geq1$,
+For partitions of the form $\lambda = (a, k^n)$ where $a>2$, $a>k>1$, $n\geq1$, we have
 \[
-P(s_{\lambda} \longmapsto 0) = 1-\prod_{i=1}^{2} \left(  1-\dfrac{1}{q^{i}}\right) = \dfrac{q^2+q-1}{q^3}
+P(s_{\lambda} \longmapsto 0) = 1-\prod_{i=1}^{2} \left(  1-\dfrac{1}{q^{i}}\right) = \dfrac{q^2+q-1}{q^3} .
 \]
 
 \end{conjecture}
