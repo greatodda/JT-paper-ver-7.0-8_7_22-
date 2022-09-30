@@ -434,6 +434,7 @@ We begin with multislant matrices.
 
 \section{Multislant Matrices and $n$-Staircase Partitions}
 The first type of partition that we would study are $n$-staircases. 
+
 \begin{definition}
 \label{nstaircasedef}
 Fix $n,k \in \NN$.
@@ -1603,7 +1604,6 @@ partitions to their conjugates.
 \begin{definition}
 Let $n\in \NN$.
 We define a \emph{block $n$-staircase partition} to be a partition of the form 
-
 \[\lambda = ( \underbrace{i,i,\ldots,i}_{n
 \text{ times}}
 ,  \underbrace{i-1,i-1,\ldots,i-1}_{n
@@ -1618,16 +1618,30 @@ for some $i > 0$.
 \end{definition}
 
 
-A block staircase partition is the conjugate of a $n$-staircase partition.
+A block $n$-staircase partition is the conjugate of a $n$-staircase partition.
 Hence, we can apply Theorem~\ref{thm.transpose} to Theorem~\ref{thm.n.staircase}
 and obtain the following corollary:
 
 \begin{corollary}
-Let $\lambda$ be a block $n$-staircase partition. Let $\lambda'$ be the corresponding conjugate partition. Then, 
+Let $\lambda$ be a block $n$-staircase partition. Then,
 \[
-P(s_{\lambda} \longmapsto 0) = P(s_{\lambda'} \longmapsto 0) = 1-\prod_{i=1}^{n} \left(  1-\dfrac{1}{q^{i}}\right) .
+P(s_{\lambda} \longmapsto 0) = 1-\prod_{i=1}^{n} \left(  1-\dfrac{1}{q^{i}}\right) .
 \]
 \end{corollary}
+
+\begin{proof}
+Theorem~\ref{thm.transpose} (applied to $\mu = \varnothing$
+and $a = 0$) yields
+$P\left(  s_{\lambda}\mapsto 0\right)
+=P\left(  s_{\lambda^{t}}\mapsto 0\right)$.
+However, the conjugate $\lambda^t$ of $\lambda$ is an $n$-staircase partition.
+Thus, Theorem~\ref{thm.n.staircase}
+yields
+\[
+P(s_{\lambda^t} \longmapsto 0) = 1-\prod_{i=1}^{n} \left(  1-\dfrac{1}{q^{i}}\right) .
+\]
+Combining these two equalities, we obtain the corollary.
+\end{proof}
 
 \section{Ribbons}
 
@@ -1830,7 +1844,7 @@ $i, j \in [\ell]$ satisfy $i > j+1$.
 \end{lemma}
 
 \begin{remark}
-Lemma \ref{lemma.Hessenberg} essentially claims that the subdiagonal of $J(\lambda / \mu)$ is made up of only $1's$ and has the following structure. 
+Lemma \ref{lemma.Hessenberg} essentially claims that the subdiagonal of $J(\lambda / \mu)$ is made up of only $1$'s and has the following structure. 
 \[
 J(\lambda / \mu) = \left(  h_{\lambda_{i}-\mu_{j}-i+j}\right)  _{i,j\in\left[  \ell\right]
 }=\left(
