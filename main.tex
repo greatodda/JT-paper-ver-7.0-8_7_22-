@@ -343,11 +343,16 @@ for a given $k \geq 0$.
     \item An \emph{$n$-staircase} is a partition of the form 
 \[\lambda = (kn, (k-1)n, \ldots, 2n,  n)\]
 for given $n > 0$ and $k \geq 0$.
+    \item A \emph{$p$-shifted $n$-staircase} is a partition of the form
+\[\lambda = (p+(k-1)n, p+(k-2)n, \ldots,p+n, p) \].
+When $p \leq n$, we call this partition an \emph{inward-shifted $n$-staircase};
+when $p > n$, we call it an \emph{outward-shifted $n$-staircase}.
 \end{enumerate}
 
 \end{definition}
 
-The three names, of course, are related to the shapes of the corresponding Young diagrams.
+Note that a regular $n$-staircase is an $n$-shifted $n$-staircase.
+The four names, of course, are related to the shapes of the corresponding Young diagrams.
 
 \begin{definition}
 If $\lambda = \tup{\lambda_1, \lambda_2, \ldots, \lambda_k}$ is
@@ -448,24 +453,48 @@ Anzis et al \cite{Anzis18} conjectured that for a $2$-staircase (i.e. $n=2$), we
 
 \begin{theorem}
 \label{thm.n.staircase}
-Let $\lambda$ be a $n$-staircase with $\ell(\lambda) \geq n+1 $ (see Remark \ref{rem.sizenstairs}). Then,
+Let $p \leq n$ and $k \geq n+1$.
+Let $\lambda$ be a $p$-shifted $n$-staircase with
+length $\ell(\lambda) = k$
+(cf. Remark \ref{rem.sizenstairs} for why this condition is needed). Then,
 \[
-P(s_{\lambda} \longmapsto 0) =1- \prod_{i=1}^{n} \left(  1-\dfrac{1}{q^{i}}\right) .
+P(s_{\lambda} \longmapsto 0) = 1- \prod_{i=1}^{n} \left(  1-\dfrac{1}{q^{i}}\right) .
 \]
-
 \end{theorem}
 
-% \begin{remark}
-% \label{sufflarge}
-% By sufficiently large, we mean $\ell(\lambda) \geq (n+1)$. For smaller  $\ell(\lambda)$, $J(\lambda)$ is not large enough to exhibit the full structure of a $n$-staircase and exhibits properties of smaller staircases. This is discussed further in Remark \ref{rem.sizenstairs} once we gain a better understanding of the structure of $J(\lambda)$ for these partitions.
-% \end{remark}
-
-The right hand side of Theorem \ref{thm.n.staircase}
+The right hand side of Theorem~\ref{thm.n.staircase}
 % (and of Theorem \ref{thm.multislant.prob} later on)
 is the probability of a random $n\times n$-matrix being singular over $\mathbb{F}_q$. To prove this result, we prove a more general result which encompasses this one by setting up the machinery for a new type of matrix that is given by the evaluation of Jacobi--Trudi determinants for $n$-staircase partitions.
 
+\begin{remark}
+\label{rem.sizenstairs}
+If we had $k < n+1$ instead of $k \geq n+1$
+in Theorem~\ref{thm.n.staircase}, then the result would instead be
+\[
+P(s_{\lambda} \longmapsto 0) =
+1 -
+\begin{cases}
+\prod_{i=1}^{k-1} \left(  1-\dfrac{1}{q^{i}}\right) ,
+& \text{ if } p \leq k-1; \\
+\tup{1 - \dfrac{1}{q^p}}
+\prod_{i=1}^{k-1} \left(  1-\dfrac{1}{q^{i}}\right) ,
+& \text{ if } p > k-1.
+\end{cases}
+\]
+(TODO: CHECK THIS!)
 
-\subsection{Multislant Matrices}
+This can be proved similarly to our proof of Theorem~\ref{thm.n.staircase} below,
+but is also fairly easy to check directly, since all indeterminates
+in the matrix $J\tup{\lambda}$ are distinct (and all entries of this
+matrix are indeterminates, except for some possible $0$'s and $1$'s
+in the last row).
+
+% From our proof of Lemma \ref{multistair}, we can recognize that the columns of $J(\lambda)$ are partitioned via residue classes modulo $n+1$ with columns corresponding to two different residue classes having no mutual indeterminates. It is easy to see that for $\ell(\lambda) < n+1$, $J(\lambda)$ does not achieve columns corresponding to all residue classes thus giving us lesser slant blocks than we would expect.
+\end{remark}
+
+
+\subsection{Multislant matrices}
+
 We let $\mathbb{N}$ denote the set $\left\{  0,1,2,\ldots\right\}  $. We let
 $\left[  n\right]  =\left\{  1,2,\ldots,n\right\}  $ for each $n\in\mathbb{N}$.
 
@@ -759,6 +788,7 @@ x & z\\
 \right)  $ are not.
 
 \begin{definition}
+\label{def.multislant}
 A \emph{multislant matrix} means a matrix $M$ of the form $\left(  A_{1}\mid
 A_{2}\mid\cdots\mid A_{k}\right)  $, where $A_{1},A_{2},\ldots,A_{k}$ are
 pairwise disjoint slant matrices with the same number of rows. In this case,
@@ -1131,7 +1161,7 @@ M=\operatorname*{SiPr}\left(  M^{\prime}\right)  $.
 \end{proof}
 
 \begin{proof}
-[Proof for Theorem \ref{thm.multislant.prob}.]Induct on the size of the
+[Proof of Theorem \ref{thm.multislant.prob}.]Induct on the size of the
 matrix $M$. Inside that induction step, make a strong induction on $2i+\ell$.
 So let us consider a multislant matrix $M$ that is square and has signature
 $\left(  i,j,\ell\right)  $. Let $k=i+j+\ell$ be its number of blocks. We must
@@ -1335,59 +1365,80 @@ We shall now apply Theorem \ref{thm.multislant.prob} to Jacobi--Trudi matrices o
 
 \begin{lemma}
 \label{multistair}
-If $\lambda$ is a shifted $n$-staircase, then there is some matrix $J'$ obtained by permuting the columns of $J(\lambda)$ which is a multislant matrix.
-%$J(\lambda)$ of a $n$-staircase $\lambda$ is a multislant matrix. 
+Let $p \leq n \leq k-1$.
+Let $\lambda$ be a $p$-shifted $n$-staircase of length $k$.
+Then, there is some matrix $J'$ obtained by permuting the columns of $J(\lambda)$ which is a multislant matrix
+of signature $(p, n-p, 1)$.
+(See Definition~\ref{def.multislant} for the definition of the signature.)
 \end{lemma}
+
+% TODO: Remark on $n > k-1$.
+
 \begin{proof}
+By definition,
+$\lambda = (p+(k-1)n, p+(k-2)n, \ldots, p+n, p)$.
+Thus, $\lambda_i = p + (k-i)n$ for each $i \in [k]$.
 
-Let $M=\left(\lambda_{i}-i+j\right)_{i,j \in \ell}$ so that $J(\lambda) = \left( M\right)_{i,j \in \ell}$. For each index $i \leq min(\ell,n)$, the columns $i, i+(n+1), i+2(n+1) + \ldots$ contain exactly the elements of $M$ which are congruent to $M_{i,i}$ mod $n+1$. Thus the submatrix of $J(\lambda)$ consisting of those columns is a slant matrix, and the slant matrices obtained for different indices $i \leq min(\ell,n)$ are disjoint.
+Define a $k\times k$-matrix $M = \tup{M_{i,j}}_{i,j\in[k]}$
+by
+\[
+M_{i,j} = \lambda_{i}-i+j
+= p + kn - i\tup{n+1} + j
+\qquad \text{for all $i,j\in[k]$.}
+\]
+Thus, $J(\lambda) = \left( h_{M_{i,j}} \right)_{i,j \in [k]}$.
 
+For each index $q \leq n+1$,
+the columns $q,\ q+(n+1),\ q+2(n+1),\ \ldots$ of $M$
+contain exactly the entries of $M$ that are congruent to $M_{q,q} = \lambda_q$ modulo $n+1$.
+Thus, the submatrix of $J(\lambda)$ consisting of
+the corresponding columns is a slant matrix\footnote{The
+assumption $n \leq k-1$ ensures that this submatrix
+is nonempty.}, and the slant matrices obtained for different
+indices $q \leq n+1$ are disjoint.
+The bottom elements of these slant matrices are the last $n+1$
+entries of the last row of $J(\lambda)$; these are
+$h_p, h_{p-1}, \ldots, h_1, 1, 0, 0, \ldots, 0$.
 
-%\\
-
-
-
-
-
-
-
-
+Permuting the columns of $J(\lambda)$ in such a way that
+each of these slant matrices appears as a contiguous block,
+we thus obtain a multislant matrix of signature
+$(p, n-p, 1)$.
+%
 % Fix a column $j \in [k]$. Then for $i\in [k]$
-
+%
 % \[
 % a_{ij} = h_{n(k-i+1) - i +j} = h_{(n(k-i+1) -i +k+1) -(k+1) +j} = h_{(n+1)(k-i+1) + j-(k+1)}.
 % \] 
-
+%
 % Let us call this element $h_t$ with 
 % \[t = (n+1)\cdot(k-i+1) + (j-(k+1)) \cong (j-(k+1)) \emph{ mod (n+1)} \] all $t(i)$ corresponding to indeterminates $h_t$ lie in the same residue class modulo $n+1$. \\
-
+%
 % Now let us vary $j$ itself, the residue class of $t$ is determined by the expression $(j-(k+1))$ which directly varies with $j$ with a phase shift of $k+1$. Thus every different value of $j \in [n+1]$ gives a different residue class of t, and hence that of the indeterminates, with none common to two or more classes. Consequently, for a sufficiently large enough $\ell(\lambda)$ (larger than $n+1$), $J(\lambda)$ has enough columns that we are able to hit every residue class before cycling through them again. Therefore we can group the columns based on the residue class of $t$ into $n+1$ separate blocks by a finite number of column operations, which would not change the singularity of the matrix and hence not affect the probability of $det(J(\lambda))$ going to zero. 
-
-
+%
 % To ensure that each block is a slant matrix by itself, recognize that $ t= (n+1)\cdot(k-i+1) + (j-(k+1))$. This implies that $t$ strictly increases with $j$. Hence we can order columns belonging to the same residue class by strictly increasing $j$ which gives us a slant block for each residue class. $J(\lambda)$ is thus made up of slant blocks and is therefore a multislant matrix.
 \end{proof}
 
-\begin{remark}
-\label{rem.sizenstairs}
-This result holds true only for $\ell(\lambda) \geq n+1$. From our proof of Lemma \ref{multistair}, we can recognize that the columns of $J(\lambda)$ are partitioned via residue classes modulo $n+1$ with columns corresponding to two different residue classes having no mutual indeterminates. It is easy to see that for $\ell(\lambda) < n+1$, $J(\lambda)$ does not achieve columns corresponding to all residue classes thus giving us lesser slant blocks than we would expect.
-
-\end{remark}
-
 \begin{proof}[Proof of Theorem \ref{thm.n.staircase}]
-From the previous lemma, $J(\lambda)$ for a $n$-staircase is a multislant matrix. Hence we can apply Theorem \ref{thm.multislant.prob} here. This gives us  
+Lemma~\ref{multistair} shows that, up to permutation of columns,
+$J(\lambda)$ is a multislant matrix of signature $(p, n-p, 1)$
+(and thus with $n+1$ blocks).
+Hence, Theorem \ref{thm.multislant.prob} yields
 \[
-P(s_{\lambda} \longmapsto 0) = \operatorname*{SiPr}M
+\operatorname*{SiPr}\tup{J\tup{\lambda}}
+= 1 - \gamma_{n+1} \underbrace{\tup{1 - \dfrac{0^1}{q^p}}}_{= 1}
+= 1 - \gamma_{n+1}
+= 1 - \prod_{i=1}^{n} \left(  1-\dfrac{1}{q^{i}}\right)
 \]
-
-Since we have at least one block of type 1 in our multislant matrix (i.e. the block containing $h_0$), 
-
-\[\operatorname*{SiPr}M=1-\gamma_{k} = 1-\prod_{i=1}^{n} \left(  1-\dfrac{1}{q^{i}}\right) 
-\]
-This finishes the proof. 
+(by definition of $\gamma_{n+1}$).
+Since $P(s_{\lambda} \longmapsto 0) = \operatorname*{SiPr}\tup{J\tup{\lambda}}$,
+this is precisely the claim of Theorem~\ref{thm.n.staircase}.
 \end{proof}
 
-Having proved Theorem \ref{thm.n.staircase}, we can see that  for $n=1$
-$P(s_{\lambda} \longmapsto 0) = \dfrac{1}{q}$, and for $n=2$, we have $P(s_{\lambda} \longmapsto 0) = \dfrac{(q^2+q -1)}{q^3}$
+Having proved Theorem~\ref{thm.n.staircase}, we can see that for $n=1$
+we have
+$P(s_{\lambda} \longmapsto 0) = \dfrac{1}{q}$, and for $n=2$ we have
+$P(s_{\lambda} \longmapsto 0) = \dfrac{q^2+q-1}{q^3}$
 recovering Theorem 6.5 and Conjecture 10.1 from Anzis et al \cite{Anzis18}.
 
 
@@ -1676,7 +1727,7 @@ A \emph{ribbon} is a connected skew partition which does not contain any $2 \tim
 
 \begin{example}
 \label{ribbontableaux}
-Of the three skew partitions below, only the first is a ribbon, since (ii) contains a $2\times 2$ block (shaded), and (iii) is disconnected.
+Of the three skew partitions below, only the first is a ribbon, since \textbf{(ii)} contains a $2\times 2$ block (shaded), and \textbf{(iii)} is disconnected.
 
 \begin{minipage}[t]{0.30\textwidth}
 \begin{center}
@@ -1829,16 +1880,16 @@ Suppose that $\lambda_1> \mu_1$, $\lambda_\ell> \mu_\ell$, and $\mu_{\ell}=0$.\\
 The Jacobi--Trudi matrix $J(\lambda/\mu)$ of the ribbon $\lambda/\mu$ has the following properties:
 
 \begin{statement}
-\textit{(i)} $J(\lambda/\mu)_{j+1,j}=1$ for $j \in [\ell-1]$.
+\textbf{(i)} $J(\lambda/\mu)_{j+1,j}=1$ for $j \in [\ell-1]$.
 \end{statement}
  
 \begin{statement}
-\textit{(ii)} $J(\lambda/\mu)_{i,j}=0$ whenever
+\textbf{(ii)} $J(\lambda/\mu)_{i,j}=0$ whenever
 $i, j \in [\ell]$ satisfy $i > j+1$.
 \end{statement}
 
 \begin{statement}
-\textit{(iii)} Let $N= \lambda_1 -\mu_l-1+l$. The upper right entry of $J(\lambda/\mu)$ is $h_N$ and the remaining entries of $J(\lambda/\mu)$ lie in $\mathbb{Z}\left[  h_{1},h_{2}%
+\textbf{(iii)} Let $N= \lambda_1 -\mu_l-1+l$. The upper right entry of $J(\lambda/\mu)$ is $h_N$ and the remaining entries of $J(\lambda/\mu)$ lie in $\mathbb{Z}\left[  h_{1},h_{2}%
 ,h_{3},\ldots, h_{N-1}\right]$
 \end{statement}
 \end{lemma}
@@ -1865,10 +1916,10 @@ J(\lambda / \mu) = \left(  h_{\lambda_{i}-\mu_{j}-i+j}\right)  _{i,j\in\left[  \
 
 
 
-We can set $\ell=\ell\left(\lambda\right)$. To show (i) we need to show $\lambda_{j+1}=\mu_{j}+1$. Let us call the westernmost box in the $j+1$st row of $\lambda/\mu$ as $b$; it lies in the column $\mu_{j+1}$. We know that there is a box directly south of $b$ in $\lambda/\mu$, because it is connected. Let us call this box $b'$. Now $\lambda/\mu$ cannot have a box directly east of $b$ as well as a box directly east of $b'$ since a ribbon does not contain a $2\times2$ block of boxes. In addition, $\lambda/\mu$ having a box directly east of $b'$ and no box directly east of $b$ is also impossible since $\lambda$ is a partition. This implies that $\lambda/\mu$ has a box $b'$ but no box directly east of $b'$, thus showing $\lambda_{j+1}=\mu_{j}+1$, as desired.\\
+We can set $\ell=\ell\left(\lambda\right)$. To show \textbf{(i)} we need to show $\lambda_{j+1}=\mu_{j}+1$. Let us call the westernmost box in the $j+1$st row of $\lambda/\mu$ as $b$; it lies in the column $\mu_{j+1}$. We know that there is a box directly south of $b$ in $\lambda/\mu$, because it is connected. Let us call this box $b'$. Now $\lambda/\mu$ cannot have a box directly east of $b$ as well as a box directly east of $b'$ since a ribbon does not contain a $2\times2$ block of boxes. In addition, $\lambda/\mu$ having a box directly east of $b'$ and no box directly east of $b$ is also impossible since $\lambda$ is a partition. This implies that $\lambda/\mu$ has a box $b'$ but no box directly east of $b'$, thus showing $\lambda_{j+1}=\mu_{j}+1$, as desired.\\
 
 
-Statement \textbf{(ii)} is equivalent to showing $\lambda_{i}-\mu_{j}-i+j < 0$ when $i > j+1$. This follows from (i) since the indices $\lambda_{i}-\mu_{j}-i+j$ of the Jacobi--Trudi matrix $J(\lambda / \mu)$  are strictly increasing from left to right across each row. Statement \textbf{(iii)} also follows likewise since these indices strictly increase across rows and strictly decrease down columns making the upper right entry's index uniquely the largest one.\\
+Statement \textbf{(ii)} is equivalent to showing $\lambda_{i}-\mu_{j}-i+j < 0$ when $i > j+1$. This follows from \textbf{(i)}, since the indices $\lambda_{i}-\mu_{j}-i+j$ of the Jacobi--Trudi matrix $J(\lambda / \mu)$  are strictly increasing from left to right across each row. Statement \textbf{(iii)} also follows likewise since these indices strictly increase across rows and strictly decrease down columns making the upper right entry's index uniquely the largest one.\\
 
 % Let $\alpha_{j+1}>\beta_{j}+1$. \\
 
@@ -1975,10 +2026,10 @@ Based on our numerical data, we conjecture the following results without proof f
 Let $\lambda$ be a shifted $n$-staircase of size $k\geq n+1$ (see Remark \ref{rem.sizenstairs}). Then 
 
 \begin{statement}
-\textit{(i)} If $\lambda$ is an inward shifted $n$-staircase, then $P(s_{\lambda} \longmapsto 0) = 1-\prod_{i=1}^{n} \left(  1-\dfrac{1}{q^{i}}\right)$.
+\textbf{(i)} If $\lambda$ is an inward shifted $n$-staircase, then $P(s_{\lambda} \longmapsto 0) = 1-\prod_{i=1}^{n} \left(  1-\dfrac{1}{q^{i}}\right)$.
 \end{statement}
 \begin{statement}
-\textit{(ii)} If $\lambda$ is an outward shifted $n$-staircase, then $P(s_{\lambda} \longmapsto 0) = 1-\prod_{i=1}^{n+1} \left(  1-\dfrac{1}{q^{i}}\right)$.
+\textbf{(ii)} If $\lambda$ is an outward shifted $n$-staircase, then $P(s_{\lambda} \longmapsto 0) = 1-\prod_{i=1}^{n+1} \left(  1-\dfrac{1}{q^{i}}\right)$.
 \end{statement}
 
 \end{conjecture}
