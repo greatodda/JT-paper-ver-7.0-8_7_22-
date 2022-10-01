@@ -206,7 +206,7 @@ In more complicated situations, the probability can be less well-behaved.
 
 In addition, \cite{Anzis18} also states some conjectures on a few more types of partitions.
 We add some more cases and generalize and prove some of these conjectures.
-In particular, \cite[Conjecture 10.1]{Anzis18} gives a formula for the probability of a determinant corresponding to a 2-staircase vanishing. We not only prove this formula, but also generalize it to any $n$-staircase and show that this probability, mysteriously, takes the form of that of a completely random generic $(n-1)\times (n-1)$ matrix vanishing (as discussed in the very beginning of the text). We will in fact prove much more general statements that apply to a broader class of determinants with similar structures. One important result that we prove is given as follows:
+In particular, \cite[Conjecture 10.1]{Anzis18} gives a formula for the probability of a determinant corresponding to a 2-staircase vanishing. We not only prove this formula, but also generalize it to any $p$-shifted $n$-staircase and show that for $n$-shifted $n$-staircases similar to that proposed in \cite[Conjecture 10.1]{Anzis18}, this probability, mysteriously, takes the form of that of a completely random generic $(n-1)\times (n-1)$ matrix vanishing (as discussed in the very beginning of the text). We will in fact prove much more general statements that apply to a broader class of determinants with similar structures. One important result that we prove is given as follows:
 \begin{theorem}
 Multislant Placeholder
 \end{theorem}
@@ -446,7 +446,7 @@ We begin with multislant matrices.
 
 
 
-\section{Multislant Matrices and $n$-Staircase Partitions}
+\section{Multislant Matrices and $p$-shifted $n$-Staircase Partitions}
 The first type of partition that we would study are $p$-shifted $n$-staircases (which can be more commonly thought of partitions that take the form of an arithmetic progression). \\
 
 % \begin{definition}
@@ -1376,9 +1376,9 @@ is proved.
 \end{proof}
 
 
-\subsection{$n$-staircase partitions}
+\subsection{Revisiting Theorem \ref{thm.n.staircase} (ii)}
 
-We shall now apply Theorem \ref{thm.multislant.prob} to Jacobi--Trudi matrices of $n$-staircases.
+We shall now apply Theorem \ref{thm.multislant.prob} to Jacobi--Trudi matrices of $p$-shifted $n$-staircases.
 
 \begin{lemma}
 \label{multistair}
@@ -1436,7 +1436,7 @@ $(p, n-p, 1)$.
 % To ensure that each block is a slant matrix by itself, recognize that $ t= (n+1)\cdot(k-i+1) + (j-(k+1))$. This implies that $t$ strictly increases with $j$. Hence we can order columns belonging to the same residue class by strictly increasing $j$ which gives us a slant block for each residue class. $J(\lambda)$ is thus made up of slant blocks and is therefore a multislant matrix.
 \end{proof}
 
-\begin{proof}[Proof of Theorem \ref{thm.n.staircase}]
+\begin{proof}[Proof of Theorem \ref{thm.n.staircase} (ii)]
 Lemma~\ref{multistair} shows that, up to permutation of columns,
 $J(\lambda)$ is a multislant matrix of signature $(p, n-p, 1)$
 (and thus with $n+1$ blocks).
