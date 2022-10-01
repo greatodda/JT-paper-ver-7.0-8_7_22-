@@ -438,59 +438,67 @@ We begin with multislant matrices.
 
 
 \section{Multislant Matrices and $n$-Staircase Partitions}
-The first type of partition that we would study are $n$-staircases. 
+The first type of partition that we would study are $p$-shifted $n$-staircases (which can be more commonly thought of partitions that take the form of an arithmetic progression). \\
 
-\begin{definition}
-\label{nstaircasedef}
-Fix $n,k \in \NN$.
-We define the \emph{$n$-staircase} of length $k$ to be the partition
-\[
-\lambda = (nk, n(k-1), n(k-2), \ldots,2n, n) .
-\]
+% \begin{definition}
+% \label{nstaircasedef}
+% Fix $n,k \in \NN$.
+% We define the \emph{$n$-staircase} of length $k$ to be the partition
+% \[
+% \lambda = (nk, n(k-1), n(k-2), \ldots,2n, n) .
+% \]
 
-\end{definition}
-Anzis et al \cite{Anzis18} conjectured that for a $2$-staircase (i.e. $n=2$), we have $P(s_{\lambda} \longmapsto 0) = \dfrac{q^2+q -1}{q^3}$. We prove this result and generalize it to arbitrary $n$.
+%\end{definition}
+Anzis et al \cite{Anzis18} conjectured that for a $2$-staircase (i.e. a $2$-shifted $2$-staircase), we have $P(s_{\lambda} \longmapsto 0) = \dfrac{q^2+q -1}{q^3}$. We prove this result and generalize it to arbitrary $n$ and $p$.
 
 \begin{theorem}
 \label{thm.n.staircase}
-Let $p \leq n$ and $k \geq n+1$.
+
 Let $\lambda$ be a $p$-shifted $n$-staircase with
-length $\ell(\lambda) = k$
-(cf. Remark \ref{rem.sizenstairs} for why this condition is needed). Then,
-\[
-P(s_{\lambda} \longmapsto 0) = 1- \prod_{i=1}^{n} \left(  1-\dfrac{1}{q^{i}}\right) .
-\]
-\end{theorem}
+length $\ell(\lambda) = k$.
 
-The right hand side of Theorem~\ref{thm.n.staircase}
-% (and of Theorem \ref{thm.multislant.prob} later on)
-is the probability of a random $n\times n$-matrix being singular over $\mathbb{F}_q$. To prove this result, we prove a more general result which encompasses this one by setting up the machinery for a new type of matrix that is given by the evaluation of Jacobi--Trudi determinants for $n$-staircase partitions.
-
-\begin{remark}
-\label{rem.sizenstairs}
-If we had $k < n+1$ instead of $k \geq n+1$
-in Theorem~\ref{thm.n.staircase}, then the result would instead be
+\begin{statement}
+\textbf{(i)} Let $k < n+1$ and fix an arbitrary $p$. Then,
 \[
 P(s_{\lambda} \longmapsto 0) =
 1 -
 \begin{cases}
 \prod_{i=1}^{k-1} \left(  1-\dfrac{1}{q^{i}}\right) ,
 & \text{ if } p \leq k-1; \\
-\tup{1 - \dfrac{1}{q^p}}
-\prod_{i=1}^{k-1} \left(  1-\dfrac{1}{q^{i}}\right) ,
+\prod_{i=1}^{k} \left(  1-\dfrac{1}{q^{i}}\right) ,
 & \text{ if } p > k-1.
 \end{cases}
 \]
-(TODO: CHECK THIS!)
+\end{statement}
+ 
+\begin{statement}
+\textbf{(ii)} Let $p \leq n$ and $k \geq n+1$. Then, 
+\[
+P(s_{\lambda} \longmapsto 0) = 1- \prod_{i=1}^{n} \left(  1-\dfrac{1}{q^{i}}\right) .
+\]
+\end{statement}
+\end{theorem}
+\begin{conjecture}
+\label{bigoutwardstaircases}
+Let $\lambda$ be a $p$-shifted $n$-staircase with length $\ell(\lambda) = k \geq n+1$ and $p > n$.  Then,
+\[
+P(s_{\lambda} \longmapsto 0) = 1-\prod_{i=1}^{n+1} \left(  1-\dfrac{1}{q^{i}}\right).
+\]
+\end{conjecture}
 
-This can be proved similarly to our proof of Theorem~\ref{thm.n.staircase} below,
+
+Theorem \ref{thm.n.staircase} and Conjecture \ref{bigoutwardstaircases} together encompass the whole class of $p$-shifted $n$-staircases. One observation to make is that none of the four expressions for $P(s_{\lambda} \longmapsto 0)$ depend on $p$. \\
+
+The right hand side of Theorem~\ref{thm.n.staircase} \textbf{(ii)}
+% (and of Theorem \ref{thm.multislant.prob} later on)
+is the probability of a random $n\times n$-matrix being singular over $\mathbb{F}_q$. To prove this result, we will prove a more general result which encompasses this one by setting up the machinery for a new type of matrix that is given by the evaluation of Jacobi--Trudi determinants for $n$-staircase partitions.  
+Theorem~\ref{thm.n.staircase} \textbf{(i)} can be proved similarly to our proof of Theorem~\ref{thm.n.staircase} \textbf{(ii)} below,
 but is also fairly easy to check directly, since all indeterminates
 in the matrix $J\tup{\lambda}$ are distinct (and all entries of this
 matrix are indeterminates, except for some possible $0$'s and $1$'s
 in the last row).
-
 % From our proof of Lemma \ref{multistair}, we can recognize that the columns of $J(\lambda)$ are partitioned via residue classes modulo $n+1$ with columns corresponding to two different residue classes having no mutual indeterminates. It is easy to see that for $\ell(\lambda) < n+1$, $J(\lambda)$ does not achieve columns corresponding to all residue classes thus giving us lesser slant blocks than we would expect.
-\end{remark}
+
 
 
 \subsection{Multislant matrices}
@@ -2002,41 +2010,9 @@ makes  $s_{\lambda / \mu }= a$. \\
 
 \end{proof}
 
-\section{Results and Conjectures for Other Miscellaneous partitions}
-\subsection{Shifted $n$-Staircases}
-Fix $n,p,k \in \NN$. Recall from Definition \ref{nstaircasedef} that a $n$-staircase of size $k$ is a partition of the form,
-\[\lambda = (nk, n(k-1), n(k-2), \ldots,2n, n) \].
 
-\begin{definition}
-\label{shifted}
-A shifted $n$-staircase of size $k$ is a partition of the form, 
-\[
-\lambda = (p+(k-1)n, p+(k-2)n, \ldots,p+n, p) .
-\]
-When $p \leq n$, we call the partition an inward shifted $n$-staircase while when  $p > n$, we call the partition an outward shifted $n$-staircase.
 
-\end{definition}
 
-\begin{remark}
-Note that a shifted $n$-staircase is thus a generalization of a $n$-staircase since setting $p=n$ yields the regular $n$-staircase.
-\end{remark}
-
-Based on our numerical data, we conjecture the following results without proof for the readers' interest. 
-
-\begin{conjecture}
-Let $\lambda$ be a shifted $n$-staircase of size $k\geq n+1$ (see Remark \ref{rem.sizenstairs}). Then 
-
-\begin{statement}
-\textbf{(i)} If $\lambda$ is an inward shifted $n$-staircase, then $P(s_{\lambda} \longmapsto 0) = 1-\prod_{i=1}^{n} \left(  1-\dfrac{1}{q^{i}}\right)$.
-\end{statement}
-\begin{statement}
-\textbf{(ii)} If $\lambda$ is an outward shifted $n$-staircase, then $P(s_{\lambda} \longmapsto 0) = 1-\prod_{i=1}^{n+1} \left(  1-\dfrac{1}{q^{i}}\right)$.
-\end{statement}
-
-\end{conjecture}
-\begin{remark}
-As the results imply, for a sufficiently sized inward shifted $n$-staircase, $P(s_{\lambda} \longmapsto 0)$ exhibits the behavior of a regular $n$-staircase. However, in the case of a sufficiently sized outward shifted $n$-staircase, $P(s_{\lambda} \longmapsto 0)$ exhibits the behavior of a $(n+1)$-staircase. This conjecture also generalizes the conjecture in \cite{Anzis18} regarding shifted staircases of size $3$ to any sufficiently sized shifted $n$-staircase.
-\end{remark}
 
 \printbibliography
 \end{document}
