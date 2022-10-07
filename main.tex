@@ -274,10 +274,16 @@ particular the omega involution $\omega : \Lambda \to \Lambda$
 (see, e.g., \cite[Section 7.6]{EC2} or \cite[(I.2.7)]{Macdonald}).
 
 \begin{definition}
-A \emph{partition} is a
+A \emph{partition} $\lambda = \left(\lambda_1, \lambda_2, \ldots, \lambda_k\right)$ is a
 weakly decreasing finite sequence of positive integers
 $\lambda$, with
-$\lambda_1 \geq \lambda_2 \geq \cdots \geq \lambda_k$.
+$\lambda_1 \geq \lambda_2 \geq \cdots \geq \lambda_k$. \\
+
+A commonly used notation $\lambda =((\lambda_1)^{a_1}, (\lambda_2)^{a_2}, \ldots, (\lambda_k)^{a_k})$  is sometimes used to imply that $\lambda = ( \underbrace{\lambda_1,\lambda_1,\ldots,\lambda_1}_{a_1
+\text{ times}},  \underbrace{\lambda_2,\lambda_2,\ldots,\lambda_2}_{a_2
+\text{ times}}, \ldots, \underbrace{\lambda_k,\lambda_k,\ldots,\lambda_k}_{a_k
+\text{ times}}
+)$.
 \end{definition}
 
 % Here and in the following, the notation $\lambda_i$ shall always
@@ -441,12 +447,15 @@ and where we rename each $x_i$ as $h_i$.
 We are now ready to state the general results that will be discussed in this paper.
 
 We begin with multislant matrices.
-
+\subsection{Multislant Matrices}
+\subsection{p-shifted n-staircases}
+\subsection{Conjugate of a Skew Partition}
+\subssection{The Ribbon Equidistribution}
 ...
 
 
 
-\section{Multislant Matrices and $p$-shifted $n$-Staircase Partitions}
+\section{Multislant Matrices and $p$-shifted $n$-staircases}
 The first type of partition that we would study are $p$-shifted $n$-staircases (which can be more commonly thought of partitions that take the form of an arithmetic progression). \\
 
 % \begin{definition}
@@ -1459,7 +1468,7 @@ $P(s_{\lambda} \longmapsto 0) = \dfrac{q^2+q-1}{q^3}$
 recovering Theorem 6.5 and Conjecture 10.1 from Anzis et al \cite{Anzis18}.
 
 
-\section{Transposing the skew partition}
+\section{Conjugating the skew partition}
 
 Next, we shall prove a general result that generalizes \cite[Corollary
 3.3]{Anzis18}:\footnote{Recall that $\lambda^{t}$ denotes the conjugate of a
@@ -1666,32 +1675,27 @@ $P\left(  s_{\lambda/\mu}\mapsto a\right)  =P\left(  s_{\lambda^{t}/\mu^{t}%
 
 \section{Block Staircases}
 
-Using Theorem~\ref{thm.transpose}, we can extend our results on $n$-staircase
-partitions to their conjugates.
+Using Theorem~\ref{thm.transpose}, we can extend our results on $p$-shifted $n$-staircases to their conjugates.
 
 \begin{definition}
-Let $n\in \NN$.
-We define a \emph{block $n$-staircase partition} to be a partition of the form 
-\[\lambda = ( \underbrace{i,i,\ldots,i}_{n
-\text{ times}}
-,  \underbrace{i-1,i-1,\ldots,i-1}_{n
-\text{ times}}
-, \cdots,  \underbrace{2,2,\ldots,2}_{n
-\text{ times}}
-, \underbrace{1,1,\ldots,1}_{n
-\text{ times}}
+Let $k,p,n\in \NN$.
+We define a \emph{block staircase partition} to be a partition of the form 
+\[\lambda = ( k^p, (k-1)^n, (k-2)^n, \ldots,  2^n, 1^n
 )
 \]
+with length $\ell(\lambda) = p+(k-1)n$ \footnote{This is the expression for the $k$th term of an arithmetic progression starting with $p$ with a common interval of $n$. }
 for some $i > 0$.
 \end{definition}
 
 
-A block $n$-staircase partition is the conjugate of a $n$-staircase partition.
+It is easy to see that a block staircase is the conjugate of a $p$-shifted $n$-staircase partition.
 Hence, we can apply Theorem~\ref{thm.transpose} to Theorem~\ref{thm.n.staircase}
 and obtain the following corollary:
 
 \begin{corollary}
-Let $\lambda$ be a block $n$-staircase partition. Then,
+TODO: Modify this to include all cases.\\
+
+Let $\lambda$ be a block staircase. Then,
 \[
 P(s_{\lambda} \longmapsto 0) = 1-\prod_{i=1}^{n} \left(  1-\dfrac{1}{q^{i}}\right) .
 \]
@@ -1711,7 +1715,7 @@ P(s_{\lambda^t} \longmapsto 0) = 1-\prod_{i=1}^{n} \left(  1-\dfrac{1}{q^{i}}\ri
 Combining these two equalities, we obtain the corollary.
 \end{proof}
 
-\section{Ribbons}
+\section{The Ribbon Equidistribution}
 
 In this section, we move our attention to a particular class of skew partitions called ribbons. We begin with some general facts about skew partitions.
 
