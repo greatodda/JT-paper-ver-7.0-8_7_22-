@@ -220,7 +220,7 @@ This is the viewpoint taken by \cite{Anzis18} when studying these determinants.
 Another way to look at our results is geometric: We are counting $\Fq$-valued points on certain affine schemes;
 similar questions have been studied by Weil \cite{Weil}, Kontsevich \cite{Kontsevich, Stembridge, RPStan}, Elkies \cite{Elkies} and many others.
 
-One notable result of \cite{Anzis18} is that $\dfrac{1}{q}$ is the lower bound of these probabilities and is obtained in the case of hooks, staircases and rectangles. Contrary to intuition, this value does not imply an equidistribution of the probabilities. An obvious example is comparing hook partitions (see Corollary 9.2 of \cite{Anzis18}) which exhibit this behavior with rectangle partitions (see Lemma 9.3 of \cite{Anzis18}) which do not. We however, obtain this expression of probability and prove this equidistribution does exist for a particular case of skew partitions i.e. ribbons.
+One notable result of \cite{Anzis18} is that $\dfrac{1}{q}$ is the lower bound of these probabilities and is obtained in the case of hooks, staircases and rectangles. Contrary to intuition, this value does not imply an equidistribution of the probabilities. An obvious example is comparing hook partitions (see Corollary 9.2 of \cite{Anzis18}) which exhibit this behavior with rectangle partitions (see Lemma 9.3 of \cite{Anzis18}) which do not. We however, obtain this expression of probability and prove this equidistribution does exist for a particular case of skew partitions -- the \emph{ribbons}.
 
 \section{\label{sec.def}Notations and background}
 
@@ -279,9 +279,9 @@ weakly decreasing finite sequence of positive integers
 $\lambda$, with
 $\lambda_1 \geq \lambda_2 \geq \cdots \geq \lambda_k$. \\
 
-A commonly used notation $\lambda =((\lambda_1)^{a_1}, (\lambda_2)^{a_2}, \ldots, (\lambda_k)^{a_k})$  is sometimes used to imply that $\lambda = ( \underbrace{\lambda_1,\lambda_1,\ldots,\lambda_1}_{a_1
-\text{ times}},  \underbrace{\lambda_2,\lambda_2,\ldots,\lambda_2}_{a_2
-\text{ times}}, \ldots, \underbrace{\lambda_k,\lambda_k,\ldots,\lambda_k}_{a_k
+A commonly used notation $\lambda =((c_1)^{a_1}, (c_2)^{a_2}, \ldots, (c_k)^{a_k})$  is sometimes used to imply that $\lambda = ( \underbrace{c_1,c_1,\ldots,c_1}_{a_1
+\text{ times}},  \underbrace{c_2,c_2,\ldots,c_2}_{a_2
+\text{ times}}, \ldots, \underbrace{c_k,c_k,\ldots,c_k}_{a_k
 \text{ times}}
 )$.
 \end{definition}
@@ -326,25 +326,19 @@ The \emph{conjugate} $\lambda^t$ of a partition $\lambda$ is defined to be the p
 \end{definition} 
 
 \begin{example}
-The conjugate of (i) $\lambda = (7,4,1)$ is (ii) $\lambda^t =(3,2,2,2,1,1,1)$ . \\
-
-\begin{minipage}[t]{0.49\textwidth}
-\begin{center}
-\ydiagram{9,5,1}
-
-\textbf{(i)}
-\end{center}
-\end{minipage}
-\begin{minipage}[t]{0.49\textwidth}
-\begin{center}
+The conjugate of $\lambda = (7,4,1)$ is $\lambda^t =(3,2,2,2,1,1,1)$.
+Here are the Young diagrams of these two partitions:
+\[
+\begin{tabular}{ccc}
+$Y(\lambda)$ & & $Y(\lambda^t)$ \\
+\ydiagram{7,4,1}
+&
+&
 \ydiagram{3,2,2,2,1,1,1}
-\textbf{(ii)}
-\end{center}
-\end{minipage}
-
- 
-
+\end{tabular}
+\]
 \end{example}
+
 Let us name a few special important families of partitions that we will study below.
 
 \begin{definition}
@@ -359,7 +353,8 @@ for a given $k \geq 0$.
 \[\lambda = (kn, (k-1)n, \ldots, 2n,  n)\]
 for given $n > 0$ and $k \geq 0$.
     \item A \emph{$p$-shifted $n$-staircase} is a partition of the form
-\[\lambda = (p+(k-1)n, p+(k-2)n, \ldots,p+n, p) \].
+\[\lambda = (p+(k-1)n, \ p+(k-2)n, \ \ldots, \ p+n, \  p) \]
+for given $p > 0$, $n > 0$ and $k \geq 0$.
 When $p \leq n$, we call this partition an \emph{inward-shifted $n$-staircase};
 when $p > n$, we call it an \emph{outward-shifted $n$-staircase}.
 \end{enumerate}
@@ -450,13 +445,14 @@ We begin with multislant matrices.
 \subsection{Multislant Matrices}
 \subsection{p-shifted n-staircases}
 \subsection{Conjugate of a Skew Partition}
-\subssection{The Ribbon Equidistribution}
+\subsection{The Ribbon Equidistribution}
 ...
 
 
 
-\section{Multislant Matrices and $p$-shifted $n$-staircases}
-The first type of partition that we would study are $p$-shifted $n$-staircases (which can be more commonly thought of partitions that take the form of an arithmetic progression). \\
+\section{Multislant matrices and $p$-shifted $n$-staircases}
+
+The first type of partition that we will study are $p$-shifted $n$-staircases (which can be more commonly thought of partitions whose entries form an arithmetic progression).
 
 % \begin{definition}
 % \label{nstaircasedef}
@@ -467,16 +463,17 @@ The first type of partition that we would study are $p$-shifted $n$-staircases (
 % \]
 
 %\end{definition}
-Anzis et al \cite{Anzis18} conjectured that for a $2$-staircase (i.e. a $2$-shifted $2$-staircase), we have $P(s_{\lambda} \longmapsto 0) = \dfrac{q^2+q -1}{q^3}$. We prove this result and generalize it to arbitrary $n$ and $p$.
+Anzis et al \cite{Anzis18} conjectured that for a $2$-staircase (i.e., a $2$-shifted $2$-staircase), we have $P(s_{\lambda} \longmapsto 0) = \dfrac{q^2+q -1}{q^3}$. We prove this result and generalize it to arbitrary $n$ and $p$.
 
 \begin{theorem}
 \label{thm.n.staircase}
 
 Let $\lambda$ be a $p$-shifted $n$-staircase with
-length $\ell(\lambda) = k$.
+length $\ell(\lambda) = k$. That is, let
+\[\lambda = (p+(k-1)n, \ p+(k-2)n, \ \ldots, \ p+n, \  p) . \]
 
 \begin{statement}
-\textbf{(i)} Let $k < n+1$ and fix an arbitrary $p$. Then,
+\textbf{(i)} Let $k < n+1$ (with $p$ arbitrary). Then,
 \[
 P(s_{\lambda} \longmapsto 0) =
 1 -
@@ -505,7 +502,7 @@ P(s_{\lambda} \longmapsto 0) = 1-\prod_{i=1}^{n+1} \left(  1-\dfrac{1}{q^{i}}\ri
 \end{conjecture}
 
 
-Theorem \ref{thm.n.staircase} and Conjecture \ref{bigoutwardstaircases} together encompass the whole class of $p$-shifted $n$-staircases. One observation to make is that none of the four expressions for $P(s_{\lambda} \longmapsto 0)$ depend on $p$. \\
+Theorem \ref{thm.n.staircase} and Conjecture \ref{bigoutwardstaircases} together encompass the whole class of $p$-shifted $n$-staircases. We note that none of the four expressions for $P(s_{\lambda} \longmapsto 0)$ depend on $p$. \\
 
 The right hand side of Theorem~\ref{thm.n.staircase} \textbf{(ii)}
 % (and of Theorem \ref{thm.multislant.prob} later on)
@@ -1445,7 +1442,7 @@ $(p, n-p, 1)$.
 % To ensure that each block is a slant matrix by itself, recognize that $ t= (n+1)\cdot(k-i+1) + (j-(k+1))$. This implies that $t$ strictly increases with $j$. Hence we can order columns belonging to the same residue class by strictly increasing $j$ which gives us a slant block for each residue class. $J(\lambda)$ is thus made up of slant blocks and is therefore a multislant matrix.
 \end{proof}
 
-\begin{proof}[Proof of Theorem \ref{thm.n.staircase} (ii)]
+\begin{proof}[Proof of Theorem \ref{thm.n.staircase} \textbf{(ii)}]
 Lemma~\ref{multistair} shows that, up to permutation of columns,
 $J(\lambda)$ is a multislant matrix of signature $(p, n-p, 1)$
 (and thus with $n+1$ blocks).
@@ -1458,8 +1455,13 @@ Hence, Theorem \ref{thm.multislant.prob} yields
 \]
 (by definition of $\gamma_{n+1}$).
 Since $P(s_{\lambda} \longmapsto 0) = \operatorname*{SiPr}\tup{J\tup{\lambda}}$,
-this is precisely the claim of Theorem~\ref{thm.n.staircase}.
+this is precisely the claim of Theorem~\ref{thm.n.staircase} \textbf{(ii)}.
 \end{proof}
+
+Theorem~\ref{thm.n.staircase} \textbf{(i)} can be proved similarly
+(but, as mentioned above, also follows from elementary
+spans-and-independence reasoning because of the distinctness of
+all indeterminates in the matrix).
 
 Having proved Theorem~\ref{thm.n.staircase}, we can see that for $n=1$
 we have
@@ -1678,13 +1680,14 @@ $P\left(  s_{\lambda/\mu}\mapsto a\right)  =P\left(  s_{\lambda^{t}/\mu^{t}%
 Using Theorem~\ref{thm.transpose}, we can extend our results on $p$-shifted $n$-staircases to their conjugates.
 
 \begin{definition}
-Let $k,p,n\in \NN$.
+% Let $k,p,n\in \NN$.
 We define a \emph{block staircase partition} to be a partition of the form 
 \[\lambda = ( k^p, (k-1)^n, (k-2)^n, \ldots,  2^n, 1^n
 )
 \]
-with length $\ell(\lambda) = p+(k-1)n$ \footnote{This is the expression for the $k$th term of an arithmetic progression starting with $p$ with a common interval of $n$. }
-for some $i > 0$.
+(with length $\ell(\lambda) = p+(k-1)n$)
+%\footnote{This is the expression for the $k$th term of an arithmetic progression starting with $p$ with a common interval of $n$. }
+for some $k, p, n \in \NN$.
 \end{definition}
 
 
