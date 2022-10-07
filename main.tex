@@ -201,12 +201,9 @@ each $i = 2, 3, \ldots, k$; finally, $u_i = -i$ for each $i > k$.
 \end{itemize}
 In more complicated situations, the probability can be less well-behaved.
 
-
-% [DG] edited until here
-
 In addition, \cite{Anzis18} also states some conjectures on a few more types of partitions.
 We add some more cases and generalize and prove some of these conjectures.
-In particular, \cite[Conjecture 10.1]{Anzis18} gives a formula for the probability of a determinant corresponding to a 2-staircase vanishing. We not only prove this formula, but also generalize it to any $p$-shifted $n$-staircase and show that for $n$-shifted $n$-staircases similar to that proposed in \cite[Conjecture 10.1]{Anzis18}, this probability, mysteriously, takes the form of that of a completely random generic $(n-1)\times (n-1)$ matrix vanishing (as discussed in the very beginning of the text). We will in fact prove much more general statements that apply to a broader class of determinants with similar structures. One important result that we prove is given as follows:
+In particular, \cite[Conjecture 10.1]{Anzis18} gives a formula for the probability of a determinant corresponding to a $2$-staircase vanishing. We not only prove this formula, but also generalize it to any inward-shifted $n$-staircase; we show that if the length of this $n$-staircase is $\geq n+1$, then, mysteriously, this probability equals that of a completely random generic $n\times n$-determinant vanishing.\footnote{Incidentally, this confirms the upper bound conjecture \cite[Conjecture 5.10]{Anzis18} for this class of partitions.} We will in fact prove much more general statements that apply to a broader class of determinants with similar structures. One important result that we prove is given as follows:
 \begin{theorem}
 Multislant Placeholder
 \end{theorem}
@@ -1870,49 +1867,28 @@ h_4 & h_5 & h_8 & h_{11} \\
 
 \begin{lemma}
 \label{lemma.Hessenberg}
-
-
-
-
-
-% Fix phrasing regarding \ell and trailing zeroes appropriately when defining skew-shapes. 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-Let $\lambda= (\lambda_1, \lambda_2, \ldots, \lambda_{\ell})$  and $\mu= (\mu_1, \mu_2, \ldots, \mu_{\ell}) \subseteq \lambda$ such that $\lambda/\mu$ is a ribbon. 
+Let $\lambda= (\lambda_1, \lambda_2, \ldots, \lambda_{\ell})$  and $\mu= (\mu_1, \mu_2, \ldots, \mu_{\ell}) \subseteq \lambda$ be such that $\lambda/\mu$ is a ribbon. 
 Suppose that $\lambda_1> \mu_1$, $\lambda_\ell> \mu_\ell$, and $\mu_{\ell}=0$.\\
  
 The Jacobi--Trudi matrix $J(\lambda/\mu)$ of the ribbon $\lambda/\mu$ has the following properties:
 
 \begin{statement}
-\textbf{(i)} $J(\lambda/\mu)_{j+1,j}=1$ for $j \in [\ell-1]$.
+\textbf{(i)} We have $J(\lambda/\mu)_{j+1,j}=1$ for each $j \in [\ell-1]$.
 \end{statement}
  
 \begin{statement}
-\textbf{(ii)} $J(\lambda/\mu)_{i,j}=0$ whenever
+\textbf{(ii)} We have $J(\lambda/\mu)_{i,j}=0$ whenever
 $i, j \in [\ell]$ satisfy $i > j+1$.
 \end{statement}
 
 \begin{statement}
 \textbf{(iii)} Let $N= \lambda_1 -\mu_l-1+l$. The upper right entry of $J(\lambda/\mu)$ is $h_N$ and the remaining entries of $J(\lambda/\mu)$ lie in $\mathbb{Z}\left[  h_{1},h_{2}%
-,h_{3},\ldots, h_{N-1}\right]$
+,h_{3},\ldots, h_{N-1}\right]$.
 \end{statement}
 \end{lemma}
 
 \begin{remark}
-Lemma \ref{lemma.Hessenberg} essentially claims that the subdiagonal of $J(\lambda / \mu)$ is made up of only $1$'s and has the following structure. 
+Lemma \ref{lemma.Hessenberg} essentially claims that the subdiagonal of $J(\lambda / \mu)$ is made up of only $1$'s and the matrix has the following structure. 
 \[
 J(\lambda / \mu) = \left(  h_{\lambda_{i}-\mu_{j}-i+j}\right)  _{i,j\in\left[  \ell\right]
 }=\left(
@@ -1928,12 +1904,8 @@ J(\lambda / \mu) = \left(  h_{\lambda_{i}-\mu_{j}-i+j}\right)  _{i,j\in\left[  \
 \]
 \end{remark}
 
-\begin{proof}
-
-
-
-
-We can set $\ell=\ell\left(\lambda\right)$. To show \textbf{(i)} we need to show $\lambda_{j+1}=\mu_{j}+1$. Let us call the westernmost box in the $j+1$st row of $\lambda/\mu$ as $b$; it lies in the column $\mu_{j+1}$. We know that there is a box directly south of $b$ in $\lambda/\mu$, because it is connected. Let us call this box $b'$. Now $\lambda/\mu$ cannot have a box directly east of $b$ as well as a box directly east of $b'$ since a ribbon does not contain a $2\times2$ block of boxes. In addition, $\lambda/\mu$ having a box directly east of $b'$ and no box directly east of $b$ is also impossible since $\lambda$ is a partition. This implies that $\lambda/\mu$ has a box $b'$ but no box directly east of $b'$, thus showing $\lambda_{j+1}=\mu_{j}+1$, as desired.\\
+\begin{proof}[Proof of Lemma \ref{lemma.Hessenberg}.]
+From $\lambda_\ell > \mu_\ell = 0$, we obtain $\ell=\ell\left(\lambda\right)$. To show \textbf{(i)} we need to show $\lambda_{j+1}=\mu_{j}+1$. Let us call the westernmost box in the $j+1$st row of $\lambda/\mu$ as $b$; it lies in the column $\mu_{j+1}$. We know that there is a box directly south of $b$ in $\lambda/\mu$, because it is connected. Let us call this box $b'$. Now $\lambda/\mu$ cannot have a box directly east of $b$ as well as a box directly east of $b'$ since a ribbon does not contain a $2\times2$ block of boxes. In addition, $\lambda/\mu$ having a box directly east of $b'$ and no box directly east of $b$ is also impossible since $\lambda$ is a partition. This implies that $\lambda/\mu$ has a box $b'$ but no box directly east of $b'$, thus showing $\lambda_{j+1}=\mu_{j}+1$, as desired.\\
 
 
 Statement \textbf{(ii)} is equivalent to showing $\lambda_{i}-\mu_{j}-i+j < 0$ when $i > j+1$. This follows from \textbf{(i)}, since the indices $\lambda_{i}-\mu_{j}-i+j$ of the Jacobi--Trudi matrix $J(\lambda / \mu)$  are strictly increasing from left to right across each row. Statement \textbf{(iii)} also follows likewise since these indices strictly increase across rows and strictly decrease down columns making the upper right entry's index uniquely the largest one.\\
