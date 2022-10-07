@@ -217,10 +217,12 @@ ring of symmetric functions (see \S~\ref{sec.def} for a definition), then
 $J_{u_1, u_2, \ldots, u_n}\tup{x_1, x_2, \ldots, x_n}$ becomes a Schur
 function.
 This is the viewpoint taken by \cite{Anzis18} when studying these determinants. 
-Another way to look at our results is geometric: We are counting $\Fq$-valued points on certain affine schemes;
-similar questions have been studied by Weil \cite{Weil}, Kontsevich \cite{Kontsevich, Stembridge, RPStan}, Elkies \cite{Elkies} and many others.
 
-One notable result of \cite{Anzis18} is that $\dfrac{1}{q}$ is the lower bound of these probabilities and is obtained in the case of hooks, staircases and rectangles. Contrary to intuition, this value does not imply an equidistribution of the probabilities. An obvious example is comparing hook partitions (see Corollary 9.2 of \cite{Anzis18}) which exhibit this behavior with rectangle partitions (see Lemma 9.3 of \cite{Anzis18}) which do not. We however, obtain this expression of probability and prove this equidistribution does exist for a particular case of skew partitions -- the \emph{ribbons}.
+Another way to look at our results is geometric: We are counting $\Fq$-valued points on certain affine schemes;
+similar questions have been studied by Weil \cite{Weil}, Kontsevich \cite{Kontsevich, Stembridge, RPStan, Belkale2003}, Elkies \cite{Elkies}, Haglund \cite{Haglund} and many others.
+A question often asked is whether the number of $\Fq$-valued points has the form $f\tup{q}$ for some Laurent polynomial $f$; this is not always satisfied for $J_{u_1, u_2, \ldots, u_n}\tup{x_1, x_2, \ldots, x_n}$ (see \cite[Proposition 5.7]{Anzis18}), but is true in surprisingly many situations, including the ones we analyze here. (The same question has been asked by Kontsevich for certain graph-theoretical polynomials, and answered in the negative \cite{Belkale2003}.)
+
+One notable result of \cite{Anzis18} is that $\dfrac{1}{q}$ is the lower bound of these probabilities and is obtained in the case of hooks, staircases and rectangles. Contrary to intuition, this value does not imply an equidistribution of the probabilities. An example is comparing hook partitions (see Corollary 9.2 of \cite{Anzis18}) which exhibit this behavior with rectangle partitions (see Lemma 9.3 of \cite{Anzis18}) which do not. We however obtain this expression of probability and prove this equidistribution does exist for a particular case of skew partitions -- the \emph{ribbons}.
 
 \section{\label{sec.def}Notations and background}
 
@@ -427,7 +429,7 @@ h_2 & h_3 & h_4 & h_{5} & h_{6}& h_{7} \\
 \end{align*}
 and the matrix on the right hand side of this equality is $J\tup{\lambda}$.
 
-% A notable observation to make while observing the Jacobi--Trudi Identity is that for any fixed partition, the corresponding Schur polynomial can be expressed using finitely many $h_i's$.
+% A notable observation to make while observing the Jacobi--Trudi identity is that for any fixed partition, the corresponding Schur polynomial can be expressed using finitely many $h_i's$.
 
 We note that the matrix $J_{u_1, u_2, \ldots, u_n}\tup{x_1, x_2, \ldots, x_n}$
 from \S~\ref{sec.introduction} is precisely the matrix
@@ -1448,7 +1450,11 @@ this is precisely the claim of Theorem~\ref{thm.n.staircase} \textbf{(ii)}.
 Theorem~\ref{thm.n.staircase} \textbf{(i)} can be proved similarly
 (but, as mentioned above, also follows from elementary
 spans-and-independence reasoning because of the distinctness of
-all indeterminates in the matrix).
+all indeterminates in the matrix\footnote{See
+\cite[Theorem 1]{Haglund} for a closely related result with a
+very similar proof. In fact, if not for an entry of $J\tup{\lambda/\mu}$
+being $h_0 = 1$, Theorem~\ref{thm.n.staircase} \textbf{(i)} would be
+a particular case of \cite[Theorem 1]{Haglund}.}).
 
 Having proved Theorem~\ref{thm.n.staircase}, we can see that for $n=1$
 we have
@@ -1705,7 +1711,7 @@ P(s_{\lambda^t} \longmapsto 0) = 1-\prod_{i=1}^{n} \left(  1-\dfrac{1}{q^{i}}\ri
 Combining these two equalities, we obtain the corollary.
 \end{proof}
 
-\section{The Ribbon Equidistribution}
+\section{The ribbon equidistribution}
 
 In this section, we move our attention to a particular class of skew partitions called ribbons. We begin with some general facts about skew partitions.
 
@@ -1774,16 +1780,16 @@ Of the three skew partitions below, only the first is a ribbon, since \textbf{(i
 
 
 
-Let us revisit the Jacobi--Trudi Identity. For the ribbon  $\lambda/\mu= (8,6,4,4)/(5,3,3)$ in Example \ref{ribbontableaux} (i), we can write down $J(\lambda/\mu)$ as follows. 
-
+Let us revisit the Jacobi--Trudi identity. For the ribbon  $\lambda/\mu= (8,6,4,4)/(5,3,3)$ in Example \ref{ribbontableaux} (i), we can write down $J(\lambda/\mu)$ as follows:
 \begin{align*}
-J(\lambda/\mu) = s_{(8,6,4,4/ (5,3,3)} =
-\begin{vmatrix}
+J(\lambda/\mu)
+= % = s_{(8,6,4,4/ (5,3,3)} =
+\begin{pmatrix}
 h_4 & h_5 & h_8 & h_{11} \\ 
 1 & h_1 & h_4 & h_7  \\
 0 & 1 & h_3 & h_6 \\
-0 & 0 & 1 & h_3  \\ 
-\end{vmatrix}\\
+0 & 0 & 1 & h_3
+\end{pmatrix} .
 \end{align*}
 
 % \begin{remark}
