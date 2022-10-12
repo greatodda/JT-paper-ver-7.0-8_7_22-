@@ -151,7 +151,7 @@
 \maketitle
 
 \textbf{Abstract.}
-Given a partition $\lambda$ and a finite field $\mathbb{F}_q$, what is the probability that the Jacobi--Trudi determinant corresponding to $\lambda$ vanishes on a randomly chosen tuple of elements of $\Fq$ ? When $\lambda$ is a staircase, a hook or a rectangle, this probability has been shown to be $\frac{1}{q}$ by Anzis et al in 2018. We investigate this probability for skew partitions such as ribbons, as well as more complex partitions such as $n$-staircases and block staircases. We actually prove much more general statements that apply to the determinants of a broader class of matrices, which we call \emph{multislant matrices} (matrices formed by stringing together several Toeplitz matrices with distinct indeterminate entries).
+Given a partition $\lambda$ and a finite field $\mathbb{F}_q$, what is the probability that the Jacobi--Trudi determinant corresponding to $\lambda$ vanishes on a randomly chosen tuple of elements of $\Fq$ ? When $\lambda$ is a staircase, a hook or a rectangle, this probability has been shown to be $\frac{1}{q}$ by Anzis et al in 2018. We investigate this probability for skew partitions such as ribbons, as well as more complex partitions such as $p$-shifted $n$-staircases and block staircases. We actually prove much more general statements that apply to the determinants of a broader class of matrices, which we call \emph{multislant matrices} (matrices formed by stringing together several Toeplitz matrices with distinct indeterminate entries).
 
 \section{\label{sec.introduction}Introduction}
 
@@ -318,13 +318,14 @@ $j \leq \lambda_i$. The pair $\tup{i, j}$ corresponds to the
 $j$-th box (from the left) in the $i$-th row of the diagram.
 \end{definition}
 
-Figure 1 shows the construction of a Young diagram for the partition $\lambda = (6,5,4,3,2,1)$ where each row has the same number of boxes as each part of the partition. Since a partition is a weakly decreasing sequence, the number of boxes in a row decreases as we go down the diagram.
-
 \begin{definition}
 The \emph{conjugate} $\lambda^t$ of a partition $\lambda$ is defined to be the partition whose Young diagram is obtained from $Y\tup{\lambda}$ by flipping it across the main diagonal (i.e., the length of the $i$-th row of $Y\tup{\lambda^t}$ equals the length of the $i$-th column of $Y\tup{\lambda}$ for each $i$).
 \end{definition} 
 
+Example \ref{ydiagexample} below shows the construction of a Young diagram for the partition $\lambda = (7,4,1)$ and its conjugate. Note that each row has the same number of boxes as each part of the partition. Since a partition is a weakly decreasing sequence, the number of boxes in a row decreases as we go down the diagram.
+
 \begin{example}
+\label{ydiagexample}
 The conjugate of $\lambda = (7,4,1)$ is $\lambda^t =(3,2,2,2,1,1,1)$.
 Here are the Young diagrams of these two partitions:
 \[
@@ -411,17 +412,14 @@ If $\mathcal{P}$ is viewed as the ring of the symmetric functions, then the skew
 However, for our purposes, it is most convenient to take \eqref{eq.def-slm} as the definition of $s_{\lambda/\mu}$.
 \end{remark}
 
-For example, if $\lambda$ is the partition in Figure 1, then the Schur function $s_\lambda$ is given by
+For example, if $\lambda$ is the partition in Example \ref{ydiagexample}, then the Schur function $s_\lambda$ is given by
 \begin{align*}
-s_{(6,5,4,3,2,1)} =
+s_{(7,4,1)} =
 \det
 \begin{pmatrix}
-h_6 & h_7 & h_8 & h_{9} & h_{10}& h_{11} \\ 
-h_4 & h_5 & h_6 & h_{7} & h_{8}& h_{9} \\
-h_2 & h_3 & h_4 & h_{5} & h_{6}& h_{7} \\
-1 & h_1 & h_2 & h_{3} & h_{4}& h_{5} \\
-0 & 0 & 1 & h_{1} & h_{2}& h_{3} \\
-0 & 0 & 0 & 0 & 1 & h_{1} \\
+h_7 & h_8 & h_9 \\ 
+h_3 & h_4 & h_5 \\
+0 & 1 & h_1 \\
 \end{pmatrix} ,
 \end{align*}
 and the matrix on the right hand side of this equality is $J\tup{\lambda}$.
