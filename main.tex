@@ -205,10 +205,8 @@ In more complicated situations, the probability can be less well-behaved,
 although \cite[Corollary 5.2]{Anzis18} shows that it is always greater or
 equal to $\dfrac{1}{q}$.
 
-In addition, \cite{Anzis18} also states some conjectures on a few more types of partitions.
-We add some more cases and generalize and prove some of these conjectures.
-In particular, \cite[Conjecture 10.1]{Anzis18} gives a formula for the probability of a determinant corresponding to a $2$-staircase vanishing. We not only prove this formula, but also generalize it to any inward-shifted $n$-staircase; we show that if the length of this $n$-staircase is $\geq n+1$, then, mysteriously, this probability equals that of a completely random generic $n\times n$-determinant vanishing.\footnote{Incidentally, this confirms the upper bound conjecture \cite[Conjecture 5.10]{Anzis18} for this class of partitions.}
-In other words (Theorem~\ref{thm.n.staircase} \textbf{(ii)}):
+The main result of the present paper is a formula for this probability
+in yet another case:
 \begin{theorem}
 \label{thm.n.staircase-intro}
 Let
@@ -222,10 +220,22 @@ vanishing is
 1- \prod_{i=1}^{n} \left(  1-\dfrac{1}{q^{i}}\right) .
 \]
 \end{theorem}
+Mysteriously, the right hand side here is also the probability of a completely random generic $n\times n$-determinant vanishing.
 
-We will in fact prove much more general statements that apply to a broader class of determinants with similar structures.
+Theorem~\ref{thm.n.staircase-intro} is
+Theorem~\ref{thm.n.staircase} \textbf{(ii)} further below.
+% We will in fact compute the probability of vanishing under somewhat looser
+% conditions on $p, n, k$ (Theorem~\ref{thm.n.staircase}).
+Underlying
+our proof is a much more general statement that applies to a broader
+class of determinants with similar structures (determinants of
+what we call ``multislant matrices'').
 
-Schur functions provide an important motivation to study the determinants of these Jacobi--Trudi matrices:
+Theorem~\ref{thm.n.staircase-intro} proves and generalizes \cite[Conjecture 10.1]{Anzis18} (and also confirms the upper bound conjecture \cite[Conjecture 5.10]{Anzis18} for the class of partitions covered by this theorem).
+\\
+
+A crucial motivation for studying the determinants of these Jacobi--Trudi matrices
+is the theory of \emph{Schur functions}:
 If we replace the $x_{i}$ by the generators $h_{i}$ of the
 ring of symmetric functions (see \S~\ref{sec.def} for a definition), then
 $J_{\lambda_1, \lambda_2, \ldots, \lambda_k}\tup{x_1, x_2, \ldots, x_k}$ becomes a Schur
@@ -235,8 +245,10 @@ This is the viewpoint taken by \cite{Anzis18} when studying these determinants.
 Another way to look at our results is geometric: We are counting $\Fq$-valued points on certain affine schemes;
 similar questions have been studied by Weil \cite{Weil}, Kontsevich \cite{Kontsevich, Stembridge, RPStan, Belkale2003}, Elkies \cite{Elkies}, Haglund \cite{Haglund} and many others.
 A question often asked is whether the number of $\Fq$-valued points has the form $f\tup{q}$ for some Laurent polynomial $f$; this is not always satisfied for $J_{\lambda_1, \lambda_2, \ldots, \lambda_k}\tup{x_1, x_2, \ldots, x_k}$ (see \cite[Proposition 5.7]{Anzis18}), but is true in surprisingly many situations, including the ones we analyze here. (The same question has been asked by Kontsevich for certain graph-theoretical polynomials, and answered in the negative \cite{Belkale2003}.)
+\\
 
 We note that the values of $\det\tup{ J_{\lambda_1, \lambda_2, \ldots, \lambda_k}\tup{x_1, x_2, \ldots, x_k} }$ are not equidistributed in $\Fq$ in general, even when the value $0$ is taken with probability $\dfrac{1}{q}$. For example, equidistribution is satisfied in the hook case (\cite[Proposition 1.2]{Anzis18}) but not in the rectangle case (\cite[Lemma 9.3]{Anzis18}). Generalizing the hook case, we show that equidistribution holds for \emph{ribbons} (a class of skew partitions).
+We also prove a certain symmetry property (Theorem~\ref{thm.transpose}) for the probabilities of our determinants taking certain values.
 
 \section{\label{sec.def}Notations and background}
 
@@ -326,7 +338,7 @@ is a table of irregular shape.
 Its boxes (also known as cells) are arranged in
 $k$ left-justified rows, with the $i$-th row (counted from the top)
 having $\lambda_i$ boxes. (Thus, the total number of boxes
-is $\abs{\lambda}$).
+is $\abs{\lambda}$.)
 
 Formally, $Y\tup{\lambda}$ is defined as the set of all pairs
 $\tup{i, j}$ of positive integers satisfying $i \leq k$ and
@@ -338,7 +350,7 @@ $j$-th box (from the left) in the $i$-th row of the diagram.
 The \emph{conjugate} $\lambda^t$ of a partition $\lambda$ is defined to be the partition whose Young diagram is obtained from $Y\tup{\lambda}$ by flipping it across the main diagonal (i.e., the length of the $i$-th row of $Y\tup{\lambda^t}$ equals the length of the $i$-th column of $Y\tup{\lambda}$ for each $i$).
 \end{definition} 
 
-Example \ref{ydiagexample} below shows the construction of a Young diagram for the partition $\lambda = (7,4,1)$ and its conjugate. Note that each row has the same number of boxes as each part of the partition. Since a partition is a weakly decreasing sequence, the number of boxes in a row decreases as we go down the diagram.
+Example \ref{ydiagexample} below shows the construction of a Young diagram for the partition $\lambda = (7,4,1)$ and its conjugate. Note that the number of boxes in any row is the corresponding part of $\lambda$. Since a partition is a weakly decreasing sequence, the number of boxes in a row decreases as we go down the diagram.
 
 \begin{example}
 \label{ydiagexample}
@@ -1725,12 +1737,12 @@ Combining these two equalities, we obtain the corollary.
 
 \section{The ribbon equidistribution}
 
-In this section, we move our attention to a particular class of skew partitions called ribbons. We begin with their definition (see, e.g., {\cite[\S7.17]{EC2}}).
+In this section, we move our attention to a particular class of skew partitions called ribbons. We begin with their definition (see, e.g., {\cite[\S7.17]{EC2}}):
 
 \begin{definition}
 A skew partition $\lambda/\mu$ is \emph{connected} if the interior of the Young diagram of $\lambda/\mu$ (regarded as the union of its boxes) is connected.
 
-A \emph{ribbon} is a connected skew partition which does not contain any $2 \times 2$ block of boxes. 
+A \emph{ribbon} is a connected skew partition $\lambda/\mu$ whose Young diagram does not contain any $2 \times 2$ block of boxes. 
 \end{definition}
 
 
@@ -1759,9 +1771,9 @@ Of the three skew partitions below, only the first is a ribbon, since \textbf{(i
 
 \begin{minipage}[t]{0.30\textwidth}
 \begin{center}
-\ydiagram{5+3,3+3,3+1,4} 
+\ydiagram{5+3,3+3,3+1,4}
 
-\textbf{(i)}
+\textbf{(i)}\vphantom{$\int^a$}
 \end{center}
 \end{minipage}
 \begin{minipage}[t]{0.30\textwidth}
@@ -1770,7 +1782,7 @@ Of the three skew partitions below, only the first is a ribbon, since \textbf{(i
 \ydiagram[*(grey!30) ]{5+2,5+2}
 *[*(white)]{5+3,4+3,3+2,4}
 
-\textbf{(ii)}
+\textbf{(ii)}\vphantom{$\int^a$}
 \end{center}
 \end{minipage}
 \begin{minipage}[t]{0.30\textwidth}
@@ -1779,7 +1791,7 @@ Of the three skew partitions below, only the first is a ribbon, since \textbf{(i
 \ydiagram[*(grey!30) ]{0,0,3+1,2+1}
 *[*(white)]{5+3,3+3,3+1,3}
 
-\textbf{(iii)}
+\textbf{(iii)}\vphantom{$\int^a$}
 \end{center}
 \end{minipage}
 
@@ -1900,7 +1912,7 @@ $i, j \in [\ell]$ satisfy $i > j+1$.
 \end{lemma}
 
 \begin{remark}
-Lemma \ref{lemma.Hessenberg} essentially claims that the subdiagonal of $J(\lambda / \mu)$ is made up of only $1$'s and the matrix has the following structure:
+Lemma \ref{lemma.Hessenberg} essentially claims that the matrix $J(\lambda / \mu)$ has the following structure (shown here for $\ell = 5$):
 \[
 J(\lambda / \mu) = \left(  h_{\lambda_{i}-\mu_{j}-i+j}\right)  _{i,j\in\left[  \ell\right]
 }=\left(
@@ -1918,36 +1930,18 @@ where each of the asterisks is an element of $\mathbb{Z}\left[  h_{1},h_{2},h_{3
 \end{remark}
 
 \begin{proof}[Proof of Lemma \ref{lemma.Hessenberg}.]
-From $\lambda_\ell > \mu_\ell = 0$, we obtain $\ell=\ell\left(\lambda\right)$. To show \textbf{(i)} we need to show $\lambda_{j+1}=\mu_{j}+1$. Let us call the westernmost box in the $j+1$st row of $\lambda/\mu$ as $b$; it lies in the column $\mu_{j+1}$. We know that there is a box directly south of $b$ in $\lambda/\mu$, because it is connected. Let us call this box $b'$. Now $\lambda/\mu$ cannot have a box directly east of $b$ as well as a box directly east of $b'$ since a ribbon does not contain a $2\times2$ block of boxes. In addition, $\lambda/\mu$ having a box directly east of $b'$ and no box directly east of $b$ is also impossible since $\lambda$ is a partition. This implies that $\lambda/\mu$ has a box $b'$ but no box directly east of $b'$, thus showing $\lambda_{j+1}=\mu_{j}+1$, as desired.\\
+From $\lambda_\ell > \mu_\ell = 0$, we obtain $\ell=\ell\left(\lambda\right)$.
 
+\textbf{(i)} Fix $j \in [\ell-1]$. A box of the skew diagram $Y(\lambda / \mu)$ will be called \emph{high} if it lies in one of rows $1, 2, \ldots, j$, and will be called \emph{low} if it lies in one of rows $j+1, j+2, \ldots, \ell$. Note that the diagram $\lambda / \mu$ contains both high and low boxes (since $\lambda_1> \mu_1$ and $\lambda_\ell > \mu_\ell = 0$). Since it is connected, it must thus contain a high box and a low box that are adjacent to one another. These two boxes thus have the form $(j, p)$ and $(j+1, p)$ for some $p > 0$. This $p$ then satisfies $\mu_j < p$ (since $(j, p) \in Y(\lambda / \mu)$) and $p \leq \lambda_{j+1}$ (since $(j+1, p)\in Y(\lambda / \mu)$). Thus, $\mu_j < p \leq \lambda_{j+1}$.
 
-Statement \textbf{(ii)} is equivalent to showing $\lambda_{i}-\mu_{j}-i+j < 0$ when $i > j+1$. This follows from \textbf{(i)}, since the indices $\lambda_{i}-\mu_{j}-i+j$ of the Jacobi--Trudi matrix $J(\lambda / \mu)$  are strictly increasing from left to right across each row. Statement \textbf{(iii)} also follows likewise since these indices strictly increase across rows and strictly decrease down columns making the upper right entry's index uniquely the largest one.\\
+On the other hand, if we had $\lambda_{j+1}>\mu_{j}+1$, then the diagram $Y(\lambda / \mu)$ would contain a $2 \times 2$ block of boxes, namely the four boxes $(j, \mu_j + 1)$, $(j, \mu_j + 2)$, $(j+1, \mu_j + 1)$ and $(j+1, \mu_j + 2)$ (because $\lambda_j \geq \lambda_{j+1} \geq \mu_j + 2 \geq \mu_j + 1 > \mu_j \geq \mu_{j+1}$). But this would contradict the fact that $\lambda / \mu$ is a ribbon and thus has no such blocks.
 
-% Let $\alpha_{j+1}>\beta_{j}+1$. \\
+Hence, we cannot have $\lambda_{j+1}>\mu_{j}+1$. Therefore, $\lambda_{j+1}\leq \mu_{j}+1$. Combined with $\mu_j < \lambda_{j+1}$, this yields $\lambda_{j+1}=\mu_{j}+1$, as desired.\\
 
-% This gives us a contradiction, since it implies the existence of a $2\times2$-block
-% in rows $j$ and $j+1$ contradicting the assumption that $\alpha /\beta$ (and therefore $\lambda/\mu)$ is a ribbon.\\
+\textbf{(ii)} Statement \textbf{(ii)} is equivalent to showing $\lambda_{i}-\mu_{j}-i+j < 0$ when $i > j+1$. This follows from \textbf{(i)}, since the indices $\lambda_{i}-\mu_{j}-i+j$ in the Jacobi--Trudi matrix $J(\lambda / \mu)$  are strictly increasing from left to right across each row.\\
 
-% %Claim 1 will probably need half a page or so. The notion of a "disconnect between rows $j$ and $j+1$" is vague and needs more details (in particular, it should be explained why both the part up until row $j$ and the part from row $j+1$ on are nonempty, and why there is no path between them).
-
-% Now we assume that $\alpha_{j+1}<\beta_{j}+1$ for some $j \in [\ell]$. \\
-
-% However, this implies a disconnect between
-% rows $j$ and $j+1$ since we assumed that $\alpha / \beta$ iis translated as far as possible and so must have at least one cell in row 1 and column 1. By the definition of a ribbon, we also know that $\beta \subseteq \alpha$ and thus $\alpha_p \geq \beta_p,  \forall p \in [\ell]$. Thus $\alpha_j \geq \beta_j$. Also by the definition of Young diagram $\alpha_{j+1}\leq\alpha_{j}$ and $\beta_{j+1}\leq \beta_{j}$ \\
-
-
-% In the young diagram of our ribbon, in row $j$, the first cell is at $\beta_j $ with $\alpha_j -\beta_j$ number of cells in this row and the last cell at $\alpha_j$. \\
-
-% In row $j+1$, the first cell is at $\beta_{j+1} $ with $\alpha_{j+1} -\beta_{j+1}$ number of cells in this row, with last cell at  $\alpha_{j+1}$. However by our assumption we have  $\alpha_{j+1} < \beta_j + 1 \iff \alpha_{j+1} \leq \beta_j  $ (since both are integers).  Thus the two rows wouldn't be able to have any adjacent cells in between them meaning the diagram is not connected.   \\
-
-% Observe that both rows $j$ and $j+1$ have at
-% least one cell since $\alpha/\beta$ has at least one cell in row $1$ (since
-% $\alpha_{1}>\beta_{1}$) and at least one cell in row $\ell$ (since $\ell
-% =\ell\left(  \alpha\right)  >\ell\left(  \beta\right)  $) and thus, by
-% connectedness of ribbons, at least one cell in each row in between).\\
-
-% Thus, $\alpha_{i}=\beta_{j}+1$ finishing up the proof for the claim and the lemma.
-
+\textbf{(iii)} Statement \textbf{(iii)} also follows likewise since these indices strictly increase across rows and strictly decrease down columns (making the upper right entry's index uniquely the largest one).
+%
 \end{proof}
 
 
@@ -1965,43 +1959,45 @@ P(s_{\lambda/\mu} \longmapsto a) = 1/q.
 \end{theorem}
 
 \begin{proof}
-By Remark \ref{flushremark}, the skew Schur function indexed by a skew partition is unchanged by translations of that shape. We can therefore assume that the skew partition $\lambda / \mu$ is translated as far as possible to the northwest -- i.e., we have $\lambda_1> \mu_1$, $\lambda_\ell> \mu_\ell$, and $\mu_{\ell}=0$, where $\ell$ is the length of $\lambda$.\\
+By Remark \ref{flushremark}, the skew Schur function indexed by a skew partition $\lambda / \mu$ is unchanged when the diagram of $\lambda / \mu$ is translated. We can therefore assume that the diagram of $\lambda / \mu$ has been translated as far as possible to the northwest -- i.e., that we have $\lambda_1> \mu_1$ and $\lambda_\ell > \mu_\ell =0$, where $\ell$ is the length of $\lambda$.\\
 
-By Lemma \ref{lemma.Hessenberg} \textbf{(i)} and \textbf{(ii)}, the determinant of the submatrix $\break$ $J(\lambda/\mu)_{i=(2,3,\ldots,n), j=(1,2,\ldots,n-1)} $ of $J(\lambda/\mu)$ is 1. Hence by Lemma \ref{lemma.Hessenberg} \textbf{(iii)},
-performing the co-factor expansion along the first row of $J(\lambda/\mu)$, 
-
+Consider the submatrix of $J(\lambda/\mu)$ obtained by removing the first row and the last column of the matrix.
+By Lemma \ref{lemma.Hessenberg} \textbf{(i)} and \textbf{(ii)}, this submatrix is upper-triangular with diagonal $1, 1, \ldots, 1$, so that its determinant is $1$.
+Hence, the cofactor expansion of the determinant of $J(\lambda/\mu)$ along the first row has the form
 \[
- s_{\lambda / \mu } = det(J(\lambda/\mu))= (-1)^{n+1} h_N + g( h_1, h_2, \cdots h_{N-1})
+ s_{\lambda / \mu } = \det(J(\lambda/\mu))= (-1)^{\ell+1} h_N + g( h_1, h_2, \ldots,h_{N-1})
+\]
+for some polynomial $g( h_1, h_2, \ldots,h_{N-1}) \in \mathbb{Z}\left[  h_{1},h_{2},h_{3},\ldots, h_{N-1}\right]$,
+by Lemma \ref{lemma.Hessenberg} \textbf{(iii)}.
+
+Thus, an $N$-tuple $\tup{x_1, x_2, \ldots, x_N} \in \Fq^N$
+satisfies
+$s_{\lambda / \mu } \tup{x_1, x_2, \ldots, x_{N}} = a$ if
+and only if
+$(-1)^{\ell+1} x_N + g( x_1, x_2, \ldots,x_{N-1}) = a$.
+Clearly, the latter equality has a unique solution for $x_N$
+if $x_1, x_2, \ldots, x_{N-1}$ are given.
+
+Hence, for any $\tup{x_1, x_2, \ldots, x_{N-1}} \in \Fq^{N-1}$, there is
+exactly one value of $x_N \in \Fq$ that satisfies
+$s_{\lambda / \mu } \tup{x_1, x_2, \ldots, x_{N}} = a$.
+In other words, we have
+\[
+\left(  \text{\# of }\left(  x_{1},x_{2},\ldots,x_{N}\right)  \in\mathbb{F}_{q}^{N}
+\ \mid\ (-1)^{n+1} x_N + g( x_1, x_2, \ldots,x_{N-1}) =a\right)
+= q^{N-1}.
 \]
 
 From Definition \ref{def.mapstozero}, we have
-\[
-P\left(  s_{\lambda / \mu }\mapsto a\right)  =\dfrac{\left(  \text{\# of }\left(  h_{1}%
-,h_{2},\ldots,h_{N}\right)  \in\mathbb{F}_{q}^{N}\text{ such that } s_{\lambda / \mu } \left(
-h_{1},h_{2},\ldots,h_{N}\right)  =a\right)  }{\left(  \text{\# of all }\left(
-h_{1},h_{2},\ldots,h_{N}\right)  \in\mathbb{F}_{q}^{N}\right)  }\\
-\]
-\[
-=\dfrac{\left(  \text{\# of }\left(  h_{1}%
-,h_{2},\ldots,h_{N}\right)  \in\mathbb{F}_{q}^{N}\text{ such that } (-1)^{n+1} h_N + g( h_1, h_2, \cdots h_{N-1}) =a\right)  }{\left(  \text{\# of all }\left(
-h_{1},h_{2},\ldots,h_{N}\right)  \in\mathbb{F}_{q}^{N}\right)  } \\
-\]
-\[
- =\dfrac{\left(  \text{\# of }\left(  h_{1}%
-,h_{2},\ldots,h_{N-1}\right)  \in\mathbb{F}_{q}^{N-1}\right)  }{\left(  \text{\# of all }\left(
-h_{1},h_{2},\ldots,h_{N}\right)  \in\mathbb{F}_{q}^{N}\right)  } =\dfrac{1}{q}
-\]
-where the third equality holds because for any  $\left(  h_{1}%
-,h_{2},\ldots,h_{N-1}\right)  \in\mathbb{F}_{q}^{N-1}$, exactly one value of  $h_N \in\mathbb{F}_{q}$
-makes  $s_{\lambda / \mu }= a$. \\
-
-% And through Remark \ref{rem.flush}, we can conclude that 
-
-% \[P(s_{\lambda/\mu} \longmapsto a) = 1/q\]
-
-% The vanishing case can be recovered from this equidistribution by setting $a=0$
-% \[P(s_{\lambda/\mu} \longmapsto 0) = 1/q\]
-
+\begin{align*}
+P\left(  s_{\lambda / \mu }\mapsto a\right)
+&=\dfrac{\left(  \text{\# of }\left(  x_{1}%
+,x_{2},\ldots,x_{N}\right)  \in\mathbb{F}_{q}^{N}\text{ such that } s_{\lambda / \mu } \left(
+x_{1},x_{2},\ldots,x_{N}\right)  =a\right)  }{\left(  \text{\# of all }\left(
+x_{1},x_{2},\ldots,x_{N}\right)  \in\mathbb{F}_{q}^{N}\right)  }\\
+\\
+&=\dfrac{q^{N-1}}{q^N} =\dfrac{1}{q} .
+\end{align*}
 \end{proof}
 
 
