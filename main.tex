@@ -442,10 +442,10 @@ and the matrix on the right hand side of this equality is $J\tup{\lambda}$.
 
 % A notable observation to make while observing the Jacobi--Trudi identity is that for any fixed partition, the corresponding Schur polynomial can be expressed using finitely many $h_i's$.
 
-We note that the matrix $J_{u_1, u_2, \ldots, u_n}\tup{x_1, x_2, \ldots, x_n}$
+We note that the matrix $J_{\lambda_1, \lambda_2, \ldots, \lambda_k}\tup{x_1, x_2, \ldots, x_k}$
 from \S~\ref{sec.introduction} is precisely the matrix
-$J\tup{\lambda}$, where
-$\lambda = \tup{u_1 - n, u_2 - n+1, \ldots, u_n -1}$
+$J\tup{\lambda}$, where we set $n = k$ and
+$\lambda = \tup{\lambda_1, \lambda_2, \ldots, \lambda_k}$
 and where we rename each $x_i$ as $h_i$.
 
 
@@ -1725,13 +1725,12 @@ Combining these two equalities, we obtain the corollary.
 
 \section{The ribbon equidistribution}
 
-In this section, we move our attention to a particular class of skew partitions called ribbons. We begin with some general facts about skew partitions.
+In this section, we move our attention to a particular class of skew partitions called ribbons. We begin with their definition (see, e.g., {\cite[\S7.17]{EC2}}).
 
-\begin{definition}[see e.g. {\cite[\S7.17]{EC2}}]
-
+\begin{definition}
 A skew partition $\lambda/\mu$ is \emph{connected} if the interior of the Young diagram of $\lambda/\mu$ (regarded as the union of its boxes) is connected.
-A \emph{ribbon} is a connected skew partition which does not contain any $2 \times 2$ block of boxes. 
 
+A \emph{ribbon} is a connected skew partition which does not contain any $2 \times 2$ block of boxes. 
 \end{definition}
 
 
@@ -1882,8 +1881,8 @@ h_4 & h_5 & h_8 & h_{11} \\
 
 \begin{lemma}
 \label{lemma.Hessenberg}
-Let $\lambda= (\lambda_1, \lambda_2, \ldots, \lambda_{\ell})$  and $\mu= (\mu_1, \mu_2, \ldots, \mu_{\ell}) \subseteq \lambda$ be such that $\lambda/\mu$ is a ribbon. 
-Suppose that $\lambda_1> \mu_1$, $\lambda_\ell> \mu_\ell$, and $\mu_{\ell}=0$.\\
+Let $\lambda= (\lambda_1, \lambda_2, \ldots, \lambda_{\ell})$  and $\mu= (\mu_1, \mu_2, \ldots, \mu_{\ell}) \subseteq \lambda$ be two partitions such that $\lambda/\mu$ is a ribbon. 
+Suppose that $\lambda_1> \mu_1$ and $\lambda_\ell> \mu_\ell$, and $\mu_{\ell}=0$.\\
  
 The Jacobi--Trudi matrix $J(\lambda/\mu)$ of the ribbon $\lambda/\mu$ has the following properties:
 
