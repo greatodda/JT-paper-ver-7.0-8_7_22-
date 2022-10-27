@@ -155,24 +155,25 @@ Given a partition $\lambda$ and a finite field $\mathbb{F}_q$, what is the proba
 
 \section{\label{sec.introduction}Introduction}
 
-Let $\mathbb{F}_q$ be a finite field. Consider the probability that  
-\[
-\det \begin{pmatrix}
-x_{1} & x_{2} & x_{3}\\
-1 & x_{1} & x_{2}\\
-0 & 1 & x_{1}
-\end{pmatrix} =0 ,
-\]
-where $x_{1},x_{2},x_{3}$ are elements of $\mathbb{F}_{q}$ chosen
-at random (uniformly and independently).
-This probability is $\dfrac{1}{q}$, as can easily be checked by hand.
-It is less obvious that this property generalizes to $n\times n$-matrices formed like the matrix above (i.e., Toeplitz matrices with distinct indeterminates on and above the main diagonal, $1$s just below the main diagonal, and $0$s further below).
-This result is \cite[Corollary 6.4]{Anzis18} (and has been reproved in \cite[Corollary 5.1]{dwivedi2021rank}).
-This matrix can be seen as a special case of a Jacobi--Trudi matrix corresponding to a rectangle partition (this is how \cite{Anzis18} viewed it), as well as a particular case of a Hankel matrix (with rows or columns reversed; this is the viewpoint taken in \cite{dwivedi2021rank}).
-% We previously provided a Hankel matrix generalization of this and similarly structured matrices in \cite{dwivedi2021rank}.
-In this paper, we take the former perspective, and study some other families of Jacobi--Trudi matrices.
+Let $\mathbb{F}_q$ be a finite field.
+% Consider the probability that  
+% \[
+% \det \begin{pmatrix}
+% x_{1} & x_{2} & x_{3}\\
+% 1 & x_{1} & x_{2}\\
+% 0 & 1 & x_{1}
+% \end{pmatrix} =0 ,
+% \]
+% where $x_{1},x_{2},x_{3}$ are elements of $\mathbb{F}_{q}$ chosen
+% at random (uniformly and independently).
+% This probability is $\dfrac{1}{q}$, as can easily be checked by hand.
+% It is less obvious that this property generalizes to $n\times n$-matrices formed like the matrix above (i.e., Toeplitz matrices with distinct indeterminates on and above the main diagonal, $1$s just below the main diagonal, and $0$s further below).
+% This result is \cite[Corollary 6.4]{Anzis18} (and has been reproved in \cite[Corollary 5.1]{dwivedi2021rank}).
+% This matrix can be seen as a special case of a Jacobi--Trudi matrix corresponding to a rectangle partition (this is how \cite{Anzis18} viewed it), as well as a particular case of a Hankel matrix (with rows or columns reversed; this is the viewpoint taken in \cite{dwivedi2021rank}).
+% % We previously provided a Hankel matrix generalization of this and similarly structured matrices in \cite{dwivedi2021rank}.
+% In this paper, we take the former perspective, and study some other families of Jacobi--Trudi matrices.
 
-A general \emph{Jacobi--Trudi matrix} has the form
+A \emph{Jacobi--Trudi matrix} is a matrix of the form
 \begin{align*}
 J_{u_1, u_2, \ldots, u_n}\tup{x_1, x_2, \ldots, x_n}
 &:=
@@ -187,25 +188,28 @@ x_{u_n - 1} & x_{u_n - 2} & \cdots & x_{u_n - n}
 \end{align*}
 where $u_{1}>u_{2}>\cdots>u_{n}>0$ are integers.
 Here, $x_1, x_2, x_3, \ldots$ are elements of $\Fq$ chosen at random (uniformly and independently), and we furthermore set $x_{0}=1$ and $x_{i}=0$ for $i<0$.
-Computing the probability that its determinant
+
+We study the probability that the determinant
 $\det\tup{ J_{u_1, u_2, \ldots, u_n}\tup{x_1, x_2, \ldots, x_n} }$
-vanishes was the main goal of
-\cite{Anzis18}, and was achieved for certain families of
-$u_i$'s.
-In particular, \cite{Anzis18} proves that this probability is precisely $\dfrac{1}{q}$ in the following cases (see \cite[Corollary 6.4, Theorem 6.5, Proposition 1.2]{Anzis18}):
+of this matrix vanishes.
+This probability was computed in
+\cite{Anzis18} for certain families of $u_i$'s.
+In particular, this probability is $\dfrac{1}{q}$ in the following cases:
 \begin{itemize}
-\item the ``\emph{rectangle case}'': $u_i = m - i$ for each $i = 1, 2, \ldots, n$;
-\item the ``\emph{staircase case}'': $u_i = n - 2i$ for each $i,j = 1, 2, \ldots, n$;
+\item the ``\emph{rectangle case}'': $u_i = m - i$ for each $i$ (see \cite[Corollary 6.4]{Anzis18}, or \cite{dwivedi2021rank} for a generalization);
+\item the ``\emph{staircase case}'': $u_i = n - 2i$ for each $i$ (see \cite[Theorem 6.5]{Anzis18});
 \item the ``\emph{hook case}'': $u_1$ arbitrary; $u_i = 1 - i$ for
-each $i = 2, 3, \ldots, k$; finally, $u_i = -i$ for each $i > k$.
+each $i = 2, 3, \ldots, k$; finally, $u_i = -i$ for each $i > k$ (see \cite[Proposition 1.2]{Anzis18}).
 \end{itemize}
-In more complicated situations, the probability can be less well-behaved.
+In more complicated situations, the probability can be less well-behaved,
+although \cite[Corollary 5.2]{Anzis18} shows that it is always greater or
+equal to $\dfrac{1}{q}$.
 
 In addition, \cite{Anzis18} also states some conjectures on a few more types of partitions.
 We add some more cases and generalize and prove some of these conjectures.
 In particular, \cite[Conjecture 10.1]{Anzis18} gives a formula for the probability of a determinant corresponding to a $2$-staircase vanishing. We not only prove this formula, but also generalize it to any inward-shifted $n$-staircase; we show that if the length of this $n$-staircase is $\geq n+1$, then, mysteriously, this probability equals that of a completely random generic $n\times n$-determinant vanishing.\footnote{Incidentally, this confirms the upper bound conjecture \cite[Conjecture 5.10]{Anzis18} for this class of partitions.} We will in fact prove much more general statements that apply to a broader class of determinants with similar structures. One important result that we prove is given as follows:
 \begin{theorem}
-Multislant Placeholder
+Inward-shifted staircase placeholder
 \end{theorem}
 
 Schur functions provide an important motivation to study the determinants of these Jacobi--Trudi matrices:
@@ -219,7 +223,7 @@ Another way to look at our results is geometric: We are counting $\Fq$-valued po
 similar questions have been studied by Weil \cite{Weil}, Kontsevich \cite{Kontsevich, Stembridge, RPStan, Belkale2003}, Elkies \cite{Elkies}, Haglund \cite{Haglund} and many others.
 A question often asked is whether the number of $\Fq$-valued points has the form $f\tup{q}$ for some Laurent polynomial $f$; this is not always satisfied for $J_{u_1, u_2, \ldots, u_n}\tup{x_1, x_2, \ldots, x_n}$ (see \cite[Proposition 5.7]{Anzis18}), but is true in surprisingly many situations, including the ones we analyze here. (The same question has been asked by Kontsevich for certain graph-theoretical polynomials, and answered in the negative \cite{Belkale2003}.)
 
-One notable result of \cite{Anzis18} is that $\dfrac{1}{q}$ is the lower bound of these probabilities and is obtained in the case of hooks, staircases and rectangles. Contrary to intuition, this value does not imply an equidistribution of the probabilities. An example is comparing hook partitions (see Corollary 9.2 of \cite{Anzis18}) which exhibit this behavior with rectangle partitions (see Lemma 9.3 of \cite{Anzis18}) which do not. We however obtain this expression of probability and prove this equidistribution does exist for a particular case of skew partitions -- the \emph{ribbons}.
+We note that the values of $\det\tup{ J_{u_1, u_2, \ldots, u_n}\tup{x_1, x_2, \ldots, x_n} }$ are not equidistributed in $\Fq$ in general, even when the value $0$ is taken with probability $\dfrac{1}{q}$. For example, equidistribution is satisfied in the hook case (\cite[Proposition 1.2]{Anzis18}) but not in the rectangle case (\cite[Lemma 9.3]{Anzis18}). Generalizing the hook case, we show that equidistribution holds for \emph{ribbons} (a class of skew partitions).
 
 \section{\label{sec.def}Notations and background}
 
