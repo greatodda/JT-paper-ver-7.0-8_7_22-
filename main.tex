@@ -428,7 +428,7 @@ If $\mathcal{P}$ is viewed as the ring of the symmetric functions, then the skew
 However, for our purposes, it is most convenient to take \eqref{eq.def-slm} as the definition of $s_{\lambda/\mu}$.
 \end{remark}
 
-For example, if $\lambda$ is the partition in Example \ref{ydiagexample}, then the Schur function $s_\lambda$ is given by
+For example, if $\lambda$ is the partition $(7,4,1)$ as in Example \ref{ydiagexample}, then the Schur function $s_\lambda$ is given by
 \begin{align*}
 s_{(7,4,1)} =
 \det
@@ -1900,7 +1900,7 @@ $i, j \in [\ell]$ satisfy $i > j+1$.
 \end{lemma}
 
 \begin{remark}
-Lemma \ref{lemma.Hessenberg} essentially claims that the subdiagonal of $J(\lambda / \mu)$ is made up of only $1$'s and the matrix has the following structure. 
+Lemma \ref{lemma.Hessenberg} essentially claims that the subdiagonal of $J(\lambda / \mu)$ is made up of only $1$'s and the matrix has the following structure:
 \[
 J(\lambda / \mu) = \left(  h_{\lambda_{i}-\mu_{j}-i+j}\right)  _{i,j\in\left[  \ell\right]
 }=\left(
@@ -1912,8 +1912,9 @@ J(\lambda / \mu) = \left(  h_{\lambda_{i}-\mu_{j}-i+j}\right)  _{i,j\in\left[  \
 0 & 0 & 1 & \ast & \ast\\
 0 & 0 & 0 & 1 & \ast
 \end{array}
-\right)   
+\right),
 \]
+where each of the asterisks is an element of $\mathbb{Z}\left[  h_{1},h_{2},h_{3},\ldots, h_{N-1}\right]$.
 \end{remark}
 
 \begin{proof}[Proof of Lemma \ref{lemma.Hessenberg}.]
