@@ -202,8 +202,11 @@ In particular, this probability is $\dfrac{1}{q}$ in the following cases:
 each $i = 2, 3, \ldots, k$ (see \cite[Proposition 1.2]{Anzis18}).
 \end{itemize}
 In more complicated situations, the probability can be less well-behaved,
-although \cite[Corollary 5.2]{Anzis18} shows that it is always greater or
-equal to $\dfrac{1}{q}$.
+although Anzis et al. prove \cite[Corollary 5.2]{Anzis18} that it is
+always greater or equal to $\dfrac{1}{q}$ and conjecture
+\cite[Conjecture 5.10]{Anzis18} that it is always less or equal to
+$1 - \abs{\operatorname{GL}_k\tup{\Fq}} / q^{k^2}
+= 1 - \prod_{i=1}^k \tup{1 - \dfrac{1}{q^i}}$.
 
 The main result of the present paper is a formula for this probability
 in yet another case (proved in \S\ \ref{sec.mulslant}):
@@ -244,7 +247,8 @@ $J_{\lambda_1, \lambda_2, \ldots, \lambda_k}\tup{z_1, z_2, z_3, \ldots}$ becomes
 function.
 This is the viewpoint taken by \cite{Anzis18} when studying these determinants. 
 
-Another way to look at our results is geometric: We are counting $\Fq$-valued points on certain affine schemes;
+Our results can also be viewed from a geometric perspective:
+We are counting $\Fq$-valued points on certain affine schemes;
 similar questions have been studied by Weil \cite{Weil}, Kontsevich \cite{Kontsevich, Stembridge, RPStan, Belkale2003}, Elkies \cite{Elkies}, Haglund \cite{Haglund} and many others.
 A question often asked is whether the number of $\Fq$-valued points has the form $f\tup{q}$ for some Laurent polynomial $f$; this is not always satisfied for $J_{\lambda_1, \lambda_2, \ldots, \lambda_k}\tup{z_1, z_2, z_3, \ldots}$ (see \cite[Proposition 5.7]{Anzis18}), but is true in surprisingly many situations, including the ones we analyze here. (The same question has been asked by Kontsevich for certain graph-theoretical polynomials, and answered in the negative \cite{Belkale2003}.)
 \\
@@ -308,7 +312,8 @@ A \emph{partition} $\lambda = \left(\lambda_1, \lambda_2, \ldots, \lambda_k\righ
 weakly decreasing finite sequence of positive integers, with
 $\lambda_1 \geq \lambda_2 \geq \cdots \geq \lambda_k$. \\
 
-A commonly used notation $\lambda =((c_1)^{a_1}, (c_2)^{a_2}, \ldots, (c_k)^{a_k})$  is sometimes used to imply that $\lambda = ( \underbrace{c_1,c_1,\ldots,c_1}_{a_1
+We also write $\lambda =((c_1)^{a_1}, (c_2)^{a_2}, \ldots, (c_k)^{a_k})$
+as a shorthand for $\lambda = ( \underbrace{c_1,c_1,\ldots,c_1}_{a_1
 \text{ times}},  \underbrace{c_2,c_2,\ldots,c_2}_{a_2
 \text{ times}}, \ldots, \underbrace{c_k,c_k,\ldots,c_k}_{a_k
 \text{ times}}
