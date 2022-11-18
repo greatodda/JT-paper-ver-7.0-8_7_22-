@@ -310,14 +310,7 @@ particular the omega involution $\omega : \Lambda \to \Lambda$
 \begin{definition}
 A \emph{partition} $\lambda = \left(\lambda_1, \lambda_2, \ldots, \lambda_k\right)$ is a
 weakly decreasing finite sequence of positive integers, with
-$\lambda_1 \geq \lambda_2 \geq \cdots \geq \lambda_k$. \\
-
-We also write $\lambda =((c_1)^{a_1}, (c_2)^{a_2}, \ldots, (c_k)^{a_k})$
-as a shorthand for $\lambda = ( \underbrace{c_1,c_1,\ldots,c_1}_{a_1
-\text{ times}},  \underbrace{c_2,c_2,\ldots,c_2}_{a_2
-\text{ times}}, \ldots, \underbrace{c_k,c_k,\ldots,c_k}_{a_k
-\text{ times}}
-)$.
+$\lambda_1 \geq \lambda_2 \geq \cdots \geq \lambda_k$.
 \end{definition}
 
 % Here and in the following, the notation $\lambda_i$ shall always
@@ -374,30 +367,19 @@ $Y(\lambda)$ & & $Y(\lambda^t)$ \\
 \]
 \end{example}
 
-Let us name a few special important families of partitions that we will study below.
+% Let us name a few special important families of partitions that we will study below.
 
-\begin{definition}
-\begin{enumerate}
-    \item A \emph{rectangle partition} is a partition of the form 
-\[\lambda = (a^n) = (a,a, \ldots, a)\]
-for a given $a > 0$.
-    \item A \emph{staircase} is a partition of the form 
-\[\lambda = (k, k-1, k-2, \ldots, 1)\]
-for a given $k \geq 0$.
-    \item An \emph{$n$-staircase} is a partition of the form 
-\[\lambda = (kn, (k-1)n, \ldots, 2n,  n)\]
-for given $n > 0$ and $k \geq 0$.
-    \item A \emph{$p$-shifted $n$-staircase} is a partition of the form
-\[\lambda = (p+(k-1)n, \ p+(k-2)n, \ \ldots, \ p+n, \  p) \]
-for given $p > 0$, $n > 0$ and $k \geq 0$.
-When $p \leq n$, we call this partition an \emph{inward-shifted $n$-staircase};
-when $p > n$, we call it an \emph{outward-shifted $n$-staircase}.
-\end{enumerate}
-
-\end{definition}
-
-Note that a regular $n$-staircase is an $n$-shifted $n$-staircase.
-The four names, of course, are related to the shapes of the corresponding Young diagrams.
+% \begin{enumerate}
+    % \item A \emph{rectangle partition} is a partition of the form 
+% \[\lambda = (a^n) = (a,a, \ldots, a)\]
+% for a given $a > 0$.
+    % \item A \emph{staircase} is a partition of the form 
+% \[\lambda = (k, k-1, k-2, \ldots, 1)\]
+% for a given $k \geq 0$.
+    % \item An \emph{$n$-staircase} is a partition of the form 
+% \[\lambda = (kn, (k-1)n, \ldots, 2n,  n)\]
+% for given $n > 0$ and $k \geq 0$.
+% \end{enumerate}
 
 \begin{definition}
 If $\lambda = \tup{\lambda_1, \lambda_2, \ldots, \lambda_k}$ is
@@ -463,7 +445,8 @@ and the matrix on the right hand side of this equality is $J\tup{\lambda}$.
 
 \begin{remark}
 Let
-$\lambda = \tup{\lambda_1, \lambda_2, \ldots, \lambda_k}$.
+$\lambda = \tup{\lambda_1, \lambda_2, \ldots, \lambda_k}$
+be a partition.
 Then, the matrix
 $J_{\lambda_1, \lambda_2, \ldots, \lambda_k}\tup{z_1, z_2, z_3, \ldots}$
 from \S~\ref{sec.introduction} is precisely the matrix
@@ -473,6 +456,21 @@ $J\tup{\lambda}$, after each $h_i$ has been specialized to $z_i$.
 \section{\label{sec.mulslant}Multislant matrices and $p$-shifted $n$-staircases}
 
 The first type of partition that we will study are $p$-shifted $n$-staircases (which can be more commonly thought of partitions whose entries form an arithmetic progression).
+Here is their definition:
+
+\begin{definition}
+Let $p > 0$, $n > 0$ and $k \geq 0$ be integers.
+The \emph{$p$-shifted $n$-staircase of length $k$}
+is the partition
+\[
+\lambda = (p+(k-1)n, \ p+(k-2)n, \ \ldots, \ p+n, \  p) .
+\]
+When $p \leq n$, we call this partition an \emph{inward-shifted $n$-staircase};
+when $p > n$, we call it an \emph{outward-shifted $n$-staircase}.
+
+\end{definition}
+
+The name, of course, refers to the shape of the Young diagram.
 
 % \begin{definition}
 % \label{nstaircasedef}
@@ -483,17 +481,16 @@ The first type of partition that we will study are $p$-shifted $n$-staircases (w
 % \]
 
 %\end{definition}
-Anzis et al \cite{Anzis18} conjectured that for a $2$-staircase (i.e., a $2$-shifted $2$-staircase), we have $P(s_{\lambda} \longmapsto 0) = \dfrac{q^2+q -1}{q^3}$. We prove this result and generalize it to arbitrary $n$ and $p$.
+Anzis et al \cite{Anzis18} conjectured that a $2$-shifted $2$-staircase $\lambda$ satisfies $P(s_{\lambda} \longmapsto 0) = \dfrac{q^2+q -1}{q^3}$. We prove this result and generalize it to arbitrary $n$ and $p$:
 
 \begin{theorem}
 \label{thm.n.staircase}
 
-Let $\lambda$ be a $p$-shifted $n$-staircase with
-length $\ell(\lambda) = k$. That is, let
-\[\lambda = (p+(k-1)n, \ p+(k-2)n, \ \ldots, \ p+n, \  p) . \]
+Let $\lambda$ be the $p$-shifted $n$-staircase of
+length $k$ (for given $p > 0$, $n > 0$ and $k \geq 0$).
 
 \begin{statement}
-\textbf{(i)} Let $k < n+1$ (with $p$ arbitrary). Then,
+\textbf{(i)} Assume that $k < n+1$ (with $p$ arbitrary). Then,
 \[
 P(s_{\lambda} \longmapsto 0) =
 1 -
@@ -507,7 +504,7 @@ P(s_{\lambda} \longmapsto 0) =
 \end{statement}
  
 \begin{statement}
-\textbf{(ii)} Let $p \leq n$ and $k \geq n+1$. Then, 
+\textbf{(ii)} Assume that $p \leq n$ and $k \geq n+1$. Then, 
 \[
 P(s_{\lambda} \longmapsto 0) = 1- \prod_{i=1}^{n} \left(  1-\dfrac{1}{q^{i}}\right) .
 \]
@@ -516,7 +513,8 @@ P(s_{\lambda} \longmapsto 0) = 1- \prod_{i=1}^{n} \left(  1-\dfrac{1}{q^{i}}\rig
 
 \begin{conjecture}
 \label{bigoutwardstaircases}
-Let $\lambda$ be a $p$-shifted $n$-staircase with length $\ell(\lambda) = k \geq n+1$ and $p > n$.  Then,
+Let $\lambda$ be the $p$-shifted $n$-staircase of length
+$k \geq n+1$ and $p > n$.  Then,
 \[
 P(s_{\lambda} \longmapsto 0) = 1-\prod_{i=1}^{n+1} \left(  1-\dfrac{1}{q^{i}}\right).
 \]
@@ -1412,7 +1410,7 @@ We shall now apply Theorem \ref{thm.multislant.prob} to Jacobi--Trudi matrices o
 \begin{lemma}
 \label{multistair}
 Let $p \leq n \leq k-1$.
-Let $\lambda$ be a $p$-shifted $n$-staircase of length $k$.
+Let $\lambda$ be the $p$-shifted $n$-staircase of length $k$.
 Then, there is some matrix $J'$ obtained by permuting the columns of $J(\lambda)$ which is a multislant matrix
 of signature $(p, n-p, 1)$.
 (See Definition~\ref{def.multislant} for the definition of the signature.)
@@ -1704,17 +1702,25 @@ $P\left(  s_{\lambda/\mu}\mapsto a\right)  =P\left(  s_{\lambda^{t}/\mu^{t}%
 
 \section{Block Staircases}
 
-Using Theorem~\ref{thm.transpose}, we can extend our results on $p$-shifted $n$-staircases to their conjugates.
+Using Theorem~\ref{thm.transpose}, we can extend our results on
+$p$-shifted $n$-staircases to their conjugates. These conjugates can
+be described independently.
+We will use the \emph{exponential notation} for partitions, i.e.,
+we will write $\lambda =((c_1)^{a_1}, (c_2)^{a_2}, \ldots, (c_k)^{a_k})$
+as a shorthand for $\lambda = ( \underbrace{c_1,c_1,\ldots,c_1}_{a_1
+\text{ times}},  \underbrace{c_2,c_2,\ldots,c_2}_{a_2
+\text{ times}}, \ldots, \underbrace{c_k,c_k,\ldots,c_k}_{a_k
+\text{ times}})$.
 
 \begin{definition}
-% Let $k,p,n\in \NN$.
-We define a \emph{block staircase partition} to be a partition of the form 
-\[\lambda = ( k^p, (k-1)^n, (k-2)^n, \ldots,  2^n, 1^n
+Let $p > 0$, $n > 0$ and $k \geq 0$ be integers.
+We define the \emph{block staircase partition} to be the partition
+\[
+\lambda = ( k^p, (k-1)^n, (k-2)^n, \ldots,  2^n, 1^n
 )
 \]
-(with length $\ell(\lambda) = p+(k-1)n$)
+(with length $\ell(\lambda) = p+(k-1)n$).
 %\footnote{This is the expression for the $k$th term of an arithmetic progression starting with $p$ with a common interval of $n$. }
-for some $k, p, n \in \NN$.
 \end{definition}
 
 
