@@ -159,12 +159,12 @@ Let $\mathbb{F}_q$ be a finite field.
 % Consider the probability that  
 % \[
 % \det \begin{pmatrix}
-% x_{1} & x_{2} & x_{3}\\
-% 1 & x_{1} & x_{2}\\
-% 0 & 1 & x_{1}
+% z_{1} & z_{2} & z_{3}\\
+% 1 & z_{1} & z_{2}\\
+% 0 & 1 & z_{1}
 % \end{pmatrix} =0 ,
 % \]
-% where $x_{1},x_{2},x_{3}$ are elements of $\mathbb{F}_{q}$ chosen
+% where $z_{1},z_{2},z_{3}$ are elements of $\mathbb{F}_{q}$ chosen
 % at random (uniformly and independently).
 % This probability is $\dfrac{1}{q}$, as can easily be checked by hand.
 % It is less obvious that this property generalizes to $n\times n$-matrices formed like the matrix above (i.e., Toeplitz matrices with distinct indeterminates on and above the main diagonal, $1$s just below the main diagonal, and $0$s further below).
@@ -175,22 +175,22 @@ Let $\mathbb{F}_q$ be a finite field.
 
 A \emph{Jacobi--Trudi matrix} is a matrix of the form
 \begin{align*}
-J_{\lambda_1, \lambda_2, \ldots, \lambda_k}\tup{x_1, x_2, x_3, \ldots}
+J_{\lambda_1, \lambda_2, \ldots, \lambda_k}\tup{z_1, z_2, z_3, \ldots}
 &:=
-\det \left(  x_{\lambda_{i}-i+j}\right)_{1\leq i\leq k,\ 1\leq j\leq k}
+\det \left(  z_{\lambda_{i}-i+j}\right)_{1\leq i\leq k,\ 1\leq j\leq k}
 \\
 &= \det \begin{pmatrix}
-x_{\lambda_1} & x_{\lambda_1 + 1} & \cdots & x_{\lambda_1 + k-1} \\
-x_{\lambda_2 - 1} & x_{\lambda_2} & \cdots & x_{\lambda_2 + k-2} \\
+z_{\lambda_1} & z_{\lambda_1 + 1} & \cdots & z_{\lambda_1 + k-1} \\
+z_{\lambda_2 - 1} & z_{\lambda_2} & \cdots & z_{\lambda_2 + k-2} \\
 \vdots & \vdots & \ddots & \vdots \\
-x_{\lambda_k - k+1} & x_{\lambda_k - k+2} & \cdots & x_{\lambda_k}
+z_{\lambda_k - k+1} & z_{\lambda_k - k+2} & \cdots & z_{\lambda_k}
 \end{pmatrix} ,
 \end{align*}
 where $\lambda_{1} \geq \lambda_{2} \geq \cdots \geq \lambda_{k} \geq 0$ are integers.
-Here, $x_1, x_2, x_3, \ldots$ are elements of $\Fq$ chosen at random (uniformly and independently), and we furthermore set $x_{0}=1$ and $x_{i}=0$ for $i<0$.
+Here, $z_1, z_2, z_3, \ldots$ are elements of $\Fq$ chosen at random (uniformly and independently), and we furthermore set $z_{0}=1$ and $z_{i}=0$ for $i<0$.
 
 We study the probability that the determinant
-$\det\tup{ J_{\lambda_1, \lambda_2, \ldots, \lambda_k}\tup{x_1, x_2, x_3, \ldots} }$
+$\det\tup{ J_{\lambda_1, \lambda_2, \ldots, \lambda_k}\tup{z_1, z_2, z_3, \ldots} }$
 of this matrix vanishes.
 This probability was computed in
 \cite{Anzis18} for certain families of $\lambda_i$'s.
@@ -214,7 +214,7 @@ Let
 = (p+(k-1)n, \ p+(k-2)n, \ \ldots, \ p+n, \  p) , \]
 for some integers $p$, $n$ and $k$ satisfying $0 < p \leq n \leq k-1$.
 Then, the probability of
-$\det\tup{ J_{\lambda_1, \lambda_2, \ldots, \lambda_k}\tup{x_1, x_2, x_3, \ldots} }$
+$\det\tup{ J_{\lambda_1, \lambda_2, \ldots, \lambda_k}\tup{z_1, z_2, z_3, \ldots} }$
 vanishing is
 \[
 1- \prod_{i=1}^{n} \left(  1-\dfrac{1}{q^{i}}\right) .
@@ -236,18 +236,18 @@ Theorem~\ref{thm.n.staircase-intro} proves and generalizes \cite[Conjecture 10.1
 
 A crucial motivation for studying the determinants of these Jacobi--Trudi matrices
 is the theory of \emph{Schur functions}:
-If we replace the $x_{i}$ by the generators $h_{i}$ of the
+If we replace the $z_{i}$ by the generators $h_{i}$ of the
 ring of symmetric functions (see \S~\ref{sec.def} for a definition), then
-$J_{\lambda_1, \lambda_2, \ldots, \lambda_k}\tup{x_1, x_2, x_3, \ldots}$ becomes a Schur
+$J_{\lambda_1, \lambda_2, \ldots, \lambda_k}\tup{z_1, z_2, z_3, \ldots}$ becomes a Schur
 function.
 This is the viewpoint taken by \cite{Anzis18} when studying these determinants. 
 
 Another way to look at our results is geometric: We are counting $\Fq$-valued points on certain affine schemes;
 similar questions have been studied by Weil \cite{Weil}, Kontsevich \cite{Kontsevich, Stembridge, RPStan, Belkale2003}, Elkies \cite{Elkies}, Haglund \cite{Haglund} and many others.
-A question often asked is whether the number of $\Fq$-valued points has the form $f\tup{q}$ for some Laurent polynomial $f$; this is not always satisfied for $J_{\lambda_1, \lambda_2, \ldots, \lambda_k}\tup{x_1, x_2, x_3, \ldots}$ (see \cite[Proposition 5.7]{Anzis18}), but is true in surprisingly many situations, including the ones we analyze here. (The same question has been asked by Kontsevich for certain graph-theoretical polynomials, and answered in the negative \cite{Belkale2003}.)
+A question often asked is whether the number of $\Fq$-valued points has the form $f\tup{q}$ for some Laurent polynomial $f$; this is not always satisfied for $J_{\lambda_1, \lambda_2, \ldots, \lambda_k}\tup{z_1, z_2, z_3, \ldots}$ (see \cite[Proposition 5.7]{Anzis18}), but is true in surprisingly many situations, including the ones we analyze here. (The same question has been asked by Kontsevich for certain graph-theoretical polynomials, and answered in the negative \cite{Belkale2003}.)
 \\
 
-We note that the values of $\det\tup{ J_{\lambda_1, \lambda_2, \ldots, \lambda_k}\tup{x_1, x_2, x_3, \ldots} }$ are not equidistributed in $\Fq$ in general, even when the value $0$ is taken with probability $\dfrac{1}{q}$. For example, equidistribution is satisfied in the hook case (\cite[Proposition 1.2]{Anzis18}) but not in the rectangle case (\cite[Lemma 9.3]{Anzis18}). Generalizing the hook case, we show that equidistribution holds for \emph{ribbons} (a class of skew partitions).
+We note that the values of $\det\tup{ J_{\lambda_1, \lambda_2, \ldots, \lambda_k}\tup{z_1, z_2, z_3, \ldots} }$ are not equidistributed in $\Fq$ in general, even when the value $0$ is taken with probability $\dfrac{1}{q}$. For example, equidistribution is satisfied in the hook case (\cite[Proposition 1.2]{Anzis18}) but not in the rectangle case (\cite[Lemma 9.3]{Anzis18}). Generalizing the hook case, we show that equidistribution holds for \emph{ribbons} (a class of skew partitions).
 We also prove a certain symmetry property (Theorem~\ref{thm.transpose}) for the probabilities of our determinants taking certain values.
 
 \section{\label{sec.def}Notations and background}
@@ -266,10 +266,10 @@ involves the indeterminates $h_{1},h_{2},\ldots,h_{N}$.
 Define the \emph{probability of $f$ evaluating to $a$}
 to be the rational number
 \[
-P\left(  f\mapsto a\right)  :=\dfrac{\left(  \text{\# of }\left(  x_{1}%
-,x_{2},\ldots,x_{N}\right)  \in\mathbb{F}_{q}^{N} \mid f\left(
-x_{1},x_{2},\ldots,x_{N}\right)  =a\right)  }{\left(  \text{\# of all }\left(
-x_{1},x_{2},\ldots,x_{N}\right)  \in\mathbb{F}_{q}^{N}\right)  }.
+P\left(  f\mapsto a\right)  :=\dfrac{\left(  \text{\# of }\left(  z_{1}%
+,z_{2},\ldots,z_{N}\right)  \in\mathbb{F}_{q}^{N} \mid f\left(
+z_{1},z_{2},\ldots,z_{N}\right)  =a\right)  }{\left(  \text{\# of all }\left(
+z_{1},z_{2},\ldots,z_{N}\right)  \in\mathbb{F}_{q}^{N}\right)  }.
 \]
 \end{definition}
 
@@ -288,15 +288,15 @@ We can identify the polynomial ring
 $\mathcal{P}=\mathbb{Z}\left[  h_{1},h_{2},h_{3},\ldots\right]  $
 with the ring $\Lambda$ of ``symmetric
 functions'', which are in fact symmetric formal power series in
-countably many indeterminate $\xi_{1},\xi_{2},\xi_{3},\ldots$
+countably many indeterminate $x_{1},x_{2},x_{3},\ldots$
 having bounded degree (see \cite[Section 7.1]{EC2} or
 \cite[Section I.2]{Macdonald}).
 To do so, we equate each generator $h_i$ of $\mathcal{P}$
 with the complete homogeneous symmetric function
-$h_i\tup{\xi_1, \xi_2, \xi_3, \ldots}
+$h_i\tup{x_1, x_2, x_3, \ldots}
 = \sum\limits_{j_1 \leq j_2 \leq \ldots \leq j_i}
-\xi_{j_1} \xi_{j_2} \cdots \xi_{j_i} \in \Lambda$.
-In this paper, we will not actually use the $\xi_i$.
+x_{j_1} x_{j_2} \cdots x_{j_i} \in \Lambda$.
+In this paper, we will not actually use the $x_i$.
 However, we will use some of the structure of $\Lambda$, in
 particular the omega involution $\omega : \Lambda \to \Lambda$
 (see, e.g., \cite[Section 7.6]{EC2} or \cite[(I.2.7)]{Macdonald}).
@@ -458,9 +458,9 @@ and the matrix on the right hand side of this equality is $J\tup{\lambda}$.
 Let
 $\lambda = \tup{\lambda_1, \lambda_2, \ldots, \lambda_k}$.
 Then, the matrix
-$J_{\lambda_1, \lambda_2, \ldots, \lambda_k}\tup{x_1, x_2, x_3, \ldots}$
+$J_{\lambda_1, \lambda_2, \ldots, \lambda_k}\tup{z_1, z_2, z_3, \ldots}$
 from \S~\ref{sec.introduction} is precisely the matrix
-$J\tup{\lambda}$, after each $h_i$ has been specialized to $x_i$.
+$J\tup{\lambda}$, after each $h_i$ has been specialized to $z_i$.
 \end{remark}
 
 \section{Multislant matrices and $p$-shifted $n$-staircases}
@@ -1532,10 +1532,10 @@ Let $\Lambda_{\leq N}$ be the subring of $\Lambda$ generated by $h_{1}%
 ,h_{2},\ldots,h_{N}$. Hence, our choice of $N$ guarantees that $f\in
 \Lambda_{\leq N}$. The definition of $P\left(  f\mapsto a\right)  $ yields%
 \begin{equation}
-P\left(  f\mapsto a\right)  :=\dfrac{\left(  \text{\# of }\left(  x_{1}%
-,x_{2},\ldots,x_{N}\right)  \in\mathbb{F}_{q}^{N}\mid f\left(  x_{1}%
-,x_{2},\ldots,x_{N}\right)  =a\right)  }{\left(  \text{\# of all }\left(
-x_{1},x_{2},\ldots,x_{N}\right)  \in\mathbb{F}_{q}^{N}\right)  }%
+P\left(  f\mapsto a\right)  :=\dfrac{\left(  \text{\# of }\left(  z_{1}%
+,z_{2},\ldots,z_{N}\right)  \in\mathbb{F}_{q}^{N}\mid f\left(  z_{1}%
+,z_{2},\ldots,z_{N}\right)  =a\right)  }{\left(  \text{\# of all }\left(
+z_{1},z_{2},\ldots,z_{N}\right)  \in\mathbb{F}_{q}^{N}\right)  }%
 .\label{pf.prop.friendly-aut.P1}%
 \end{equation}
 
@@ -1543,11 +1543,11 @@ x_{1},x_{2},\ldots,x_{N}\right)  \in\mathbb{F}_{q}^{N}\right)  }%
 However, $\mathcal{P}_{\leq N}$ is the polynomial ring over $\mathbb{Z}$ in
 the indeterminates $h_{1},h_{2},\ldots,h_{N}$ (since $h_{1},h_{2},\ldots
 ,h_{N}$ are algebraically independent by definition). Hence, by the universal
-property of polynomial rings, for each $N$-tuple $\left(  x_{1},x_{2}%
-,\ldots,x_{N}\right)  \in\mathbb{F}_{q}^{N}$, there exists a unique ring
+property of polynomial rings, for each $N$-tuple $\left(  z_{1},z_{2}%
+,\ldots,z_{N}\right)  \in\mathbb{F}_{q}^{N}$, there exists a unique ring
 homomorphism $\varphi:\mathcal{P}_{\leq N}\rightarrow\mathbb{F}_{q}$ that
-sends these indeterminates $h_{1},h_{2},\ldots,h_{N}$ to $x_{1},x_{2}%
-,\ldots,x_{N}$, respectively. In other words, the map%
+sends these indeterminates $h_{1},h_{2},\ldots,h_{N}$ to $z_{1},z_{2}%
+,\ldots,z_{N}$, respectively. In other words, the map%
 \begin{align*}
 \left\{  \text{ring homomorphisms }\varphi:\mathcal{P}_{\leq N}\rightarrow
 \mathbb{F}_{q}\right\}    & \rightarrow\mathbb{F}_{q}^{N},\\
@@ -1558,8 +1558,8 @@ is a bijection. It restricts to a bijection
 \begin{align*}
 & \text{from }\left\{  \text{ring homomorphisms }\varphi:\mathcal{P}_{\leq
 N}\rightarrow\mathbb{F}_{q}\ \mid\ \varphi\left(  f\right)  =a\right\}  \\
-& \text{to }\left\{  \left(  x_{1},x_{2},\ldots,x_{N}\right)  \in
-\mathbb{F}_{q}^{N}\ \mid\ f\left(  x_{1},x_{2},\ldots,x_{N}\right)
+& \text{to }\left\{  \left(  z_{1},z_{2},\ldots,z_{N}\right)  \in
+\mathbb{F}_{q}^{N}\ \mid\ f\left(  z_{1},z_{2},\ldots,z_{N}\right)
 =a\right\}
 \end{align*}
 (because for any ring homomorphism $\varphi:\mathcal{P}_{\leq N}%
@@ -1571,8 +1571,8 @@ $\varphi\left(  f\right)  =f\left(
 & \left(  \text{\# of ring homomorphisms }\varphi:\mathcal{P}_{\leq
 N}\rightarrow\mathbb{F}_{q}\ \mid\ \varphi\left(  f\right)  =a\right)
 \nonumber\\
-& =\left(  \text{\# of }\left(  x_{1},x_{2},\ldots,x_{N}\right)  \in
-\mathbb{F}_{q}^{N}\mid f\left(  x_{1},x_{2},\ldots,x_{N}\right)  =a\right)
+& =\left(  \text{\# of }\left(  z_{1},z_{2},\ldots,z_{N}\right)  \in
+\mathbb{F}_{q}^{N}\mid f\left(  z_{1},z_{2},\ldots,z_{N}\right)  =a\right)
 .\label{pf.prop.friendly-aut.1}%
 \end{align}
 
@@ -1598,17 +1598,17 @@ yields%
 & \left(  \text{\# of ring homomorphisms }\varphi:\mathcal{P}_{\leq
 N}\rightarrow\mathbb{F}_{q}\ \mid\ \varphi\left(  g\right)  =a\right)
 \nonumber\\
-& =\left(  \text{\# of }\left(  x_{1},x_{2},\ldots,x_{N}\right)  \in
-\mathbb{F}_{q}^{N}\mid g\left(  x_{1},x_{2},\ldots,x_{N}\right)  =a\right)
+& =\left(  \text{\# of }\left(  z_{1},z_{2},\ldots,z_{N}\right)  \in
+\mathbb{F}_{q}^{N}\mid g\left(  z_{1},z_{2},\ldots,z_{N}\right)  =a\right)
 .\label{pf.prop.friendly-aut.2}%
 \end{align}
 Likewise, the same argument that gave us (\ref{pf.prop.friendly-aut.P1})
 yields%
 \begin{equation}
-P\left(  g\mapsto a\right)  :=\dfrac{\left(  \text{\# of }\left(  x_{1}%
-,x_{2},\ldots,x_{N}\right)  \in\mathbb{F}_{q}^{N}\mid g\left(  x_{1}%
-,x_{2},\ldots,x_{N}\right)  =a\right)  }{\left(  \text{\# of all }\left(
-x_{1},x_{2},\ldots,x_{N}\right)  \in\mathbb{F}_{q}^{N}\right)  }%
+P\left(  g\mapsto a\right)  :=\dfrac{\left(  \text{\# of }\left(  z_{1}%
+,z_{2},\ldots,z_{N}\right)  \in\mathbb{F}_{q}^{N}\mid g\left(  z_{1}%
+,z_{2},\ldots,z_{N}\right)  =a\right)  }{\left(  \text{\# of all }\left(
+z_{1},z_{2},\ldots,z_{N}\right)  \in\mathbb{F}_{q}^{N}\right)  }%
 .\label{pf.prop.friendly-aut.P2}%
 \end{equation}
 
@@ -1635,11 +1635,11 @@ In other words, the left hand sides of the equalities
 (\ref{pf.prop.friendly-aut.2}) and (\ref{pf.prop.friendly-aut.1}) are equal.
 Therefore, so are their right hand sides. In other words,%
 \begin{align*}
-& \left(  \text{\# of }\left(  x_{1},x_{2},\ldots,x_{N}\right)  \in
-\mathbb{F}_{q}^{N}\mid g\left(  x_{1},x_{2},\ldots,x_{N}\right)  =a\right)
+& \left(  \text{\# of }\left(  z_{1},z_{2},\ldots,z_{N}\right)  \in
+\mathbb{F}_{q}^{N}\mid g\left(  z_{1},z_{2},\ldots,z_{N}\right)  =a\right)
 \\
-& =\left(  \text{\# of }\left(  x_{1},x_{2},\ldots,x_{N}\right)  \in
-\mathbb{F}_{q}^{N}\mid f\left(  x_{1},x_{2},\ldots,x_{N}\right)  =a\right)  .
+& =\left(  \text{\# of }\left(  z_{1},z_{2},\ldots,z_{N}\right)  \in
+\mathbb{F}_{q}^{N}\mid f\left(  z_{1},z_{2},\ldots,z_{N}\right)  =a\right)  .
 \end{align*}
 Thus, the right hand sides of the equalities (\ref{pf.prop.friendly-aut.P2})
 and (\ref{pf.prop.friendly-aut.P1}) are equal. Hence, so are their left hand
@@ -1890,10 +1890,10 @@ h_3 & h_6 & h_7 & h_{11} \\
 % \left(
 % \begin{array}
 % [c]{cccc}%
-% x_1 & x_2 & x_3 & x_4 \\
-% 2 & x_1 & x_2 & x_3 \\
-% 0 & 2 & x_1 & x_2\\
-% 0 & 0 & 2 & x_1
+% z_1 & z_2 & z_3 & z_4 \\
+% 2 & z_1 & z_2 & z_3 \\
+% 0 & 2 & z_1 & z_2\\
+% 0 & 0 & 2 & z_1
 % \end{array}
 % \right)
 % \]
@@ -1982,31 +1982,31 @@ Hence, the cofactor expansion of the determinant of $J(\lambda/\mu)$ along the f
 for some polynomial $g( h_1, h_2, \ldots,h_{N-1}) \in \mathbb{Z}\left[  h_{1},h_{2},h_{3},\ldots, h_{N-1}\right]$,
 by Lemma \ref{lemma.Hessenberg} \textbf{(iii)}.
 
-Thus, an $N$-tuple $\tup{x_1, x_2, \ldots, x_N} \in \Fq^N$
+Thus, an $N$-tuple $\tup{z_1, z_2, \ldots, z_N} \in \Fq^N$
 satisfies
-$s_{\lambda / \mu } \tup{x_1, x_2, \ldots, x_{N}} = a$ if
+$s_{\lambda / \mu } \tup{z_1, z_2, \ldots, z_{N}} = a$ if
 and only if
-$(-1)^{\ell+1} x_N + g( x_1, x_2, \ldots,x_{N-1}) = a$.
-Clearly, the latter equality has a unique solution for $x_N$
-if $x_1, x_2, \ldots, x_{N-1}$ are given.
+$(-1)^{\ell+1} z_N + g( z_1, z_2, \ldots,z_{N-1}) = a$.
+Clearly, the latter equality has a unique solution for $z_N$
+if $z_1, z_2, \ldots, z_{N-1}$ are given.
 
-Hence, for any $\tup{x_1, x_2, \ldots, x_{N-1}} \in \Fq^{N-1}$, there is
-exactly one value of $x_N \in \Fq$ that satisfies
-$s_{\lambda / \mu } \tup{x_1, x_2, \ldots, x_{N}} = a$.
+Hence, for any $\tup{z_1, z_2, \ldots, z_{N-1}} \in \Fq^{N-1}$, there is
+exactly one value of $z_N \in \Fq$ that satisfies
+$s_{\lambda / \mu } \tup{z_1, z_2, \ldots, z_{N}} = a$.
 In other words, we have
 \[
-\left(  \text{\# of }\left(  x_{1},x_{2},\ldots,x_{N}\right)  \in\mathbb{F}_{q}^{N}
-\ \mid\ (-1)^{n+1} x_N + g( x_1, x_2, \ldots,x_{N-1}) =a\right)
+\left(  \text{\# of }\left(  z_{1},z_{2},\ldots,z_{N}\right)  \in\mathbb{F}_{q}^{N}
+\ \mid\ (-1)^{n+1} z_N + g( z_1, z_2, \ldots,z_{N-1}) =a\right)
 = q^{N-1}.
 \]
 
 From Definition \ref{def.mapstozero}, we have
 \begin{align*}
 P\left(  s_{\lambda / \mu }\mapsto a\right)
-&=\dfrac{\left(  \text{\# of }\left(  x_{1}%
-,x_{2},\ldots,x_{N}\right)  \in\mathbb{F}_{q}^{N}\text{ such that } s_{\lambda / \mu } \left(
-x_{1},x_{2},\ldots,x_{N}\right)  =a\right)  }{\left(  \text{\# of all }\left(
-x_{1},x_{2},\ldots,x_{N}\right)  \in\mathbb{F}_{q}^{N}\right)  }\\
+&=\dfrac{\left(  \text{\# of }\left(  z_{1}%
+,z_{2},\ldots,z_{N}\right)  \in\mathbb{F}_{q}^{N}\text{ such that } s_{\lambda / \mu } \left(
+z_{1},z_{2},\ldots,z_{N}\right)  =a\right)  }{\left(  \text{\# of all }\left(
+z_{1},z_{2},\ldots,z_{N}\right)  \in\mathbb{F}_{q}^{N}\right)  }\\
 \\
 &=\dfrac{q^{N-1}}{q^N} =\dfrac{1}{q} .
 \end{align*}
