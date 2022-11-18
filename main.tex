@@ -535,8 +535,8 @@ in the last row).
 We let $\mathbb{N}$ denote the set $\left\{  0,1,2,\ldots\right\}  $. We let
 $\left[  n\right]  =\left\{  1,2,\ldots,n\right\}  $ for each $n\in\mathbb{N}$.
 
-We fix a finite field $F$. We let $q=\left\vert F\right\vert $. All matrices
-appearing in the following are over $F$ or over polynomial rings over $F$.
+All matrices appearing in the following are over $\Fq$ or over
+polynomial rings over $\Fq$.
 
 % \begin{noncompile}
 % If $A$ is a $u\times v$-matrix, then $\operatorname{col}_{i}A$ shall denote
@@ -717,25 +717,25 @@ where
 
 \begin{itemize}
 \item each asterisk (``$\ast$'') is an element
-of $F$;
+of $\Fq$;
 
 \item $u_{1},u_{2},\ldots,u_{m}$ are $m$ distinct indeterminates; and
 
 \item $u_{0}$ is either an indeterminate distinct from $u_{1},u_{2}%
-,\ldots,u_{m}$ or an element of $F$.
+,\ldots,u_{m}$ or an element of $\Fq$.
 \end{itemize}
 
 We require $m\geq0$, and we require that the matrix have at least one column.
 
 We say that the slant matrix shown above has \emph{type X} if $u_{0}$ is an
 indeterminate; we say that it has \emph{type 0} if $u_{0}=0$; we say that it
-has \emph{type 1} if $u_{0}\in F\setminus\left\{  0\right\}  $.
+has \emph{type 1} if $u_{0}\in \Fq\setminus\left\{  0\right\}  $.
 \end{definition}
 
 Thus, in a slant matrix,
 
 \begin{itemize}
-\item all attic entries are elements of $F$ and are equal along each
+\item all attic entries are elements of $\Fq$ and are equal along each
 paradiagonal (but can differ between different paradiagonals);
 
 \item all basement entries are $0$;
@@ -745,7 +745,7 @@ paradiagonal are equal);
 
 \item the (equal) entries on each full paradiagonal are indeterminates, except
 possibly on the bottommost full paradiagonal, whose entry can also be an
-element of $F$;
+element of $\Fq$;
 
 \item indeterminates on distinct full paradiagonals are distinct.
 \end{itemize}
@@ -782,7 +782,7 @@ y & z & 3 & 1\\
 \right)
 \]
 (where $x,y,z$ are three distinct indeterminates) are slant matrices of type
-X, type 0 and type 1, respectively (assuming that $4\neq0$ in $F$).
+X, type 0 and type 1, respectively (assuming that $4\neq0$ in $\Fq$).
 
 \begin{definition}
 Two slant matrices are said to be \emph{disjoint} if there is no indeterminate
@@ -860,8 +860,8 @@ y & z & 1 & 0 & v & w & 3 & d & e & s & t & 3 & 4\\
 \]
 (where all letters are distinct indeterminates) is a multislant matrix with
 four blocks. The signature of this multislant matrix is $\left(  1,1,2\right)
-$ if $3\neq0$ in $F$ (since it has $1$ block of type X, $1$ block of type 0
-and $2$ blocks of type 1), and is $\left(  1,2,1\right)  $ if $3=0$ in $F$.
+$ if $3\neq0$ in $\Fq$ (since it has $1$ block of type X, $1$ block of type 0
+and $2$ blocks of type 1), and is $\left(  1,2,1\right)  $ if $3=0$ in $\Fq$.
 
 Note that the (empty) $0\times0$-matrix is a multislant matrix (with $0$
 blocks and signature $\left(  0,0,0\right)  $), but not a slant matrix. We
@@ -870,8 +870,8 @@ recall that the determinant of this $0\times0$-matrix is $1$ (by definition).
 \begin{definition}
 \label{def.SiPr}Let $M$ be a multislant matrix that is square. The
 \emph{singular probability} of $M$ is defined to be the probability that $\det
-M$ becomes $0$ if we substitute a random element of $F$ for each of the
-indeterminates appearing in $M$. (Here, the random elements of $F$ are meant
+M$ becomes $0$ if we substitute a random element of $\Fq$ for each of the
+indeterminates appearing in $M$. (Here, the random elements of $\Fq$ are meant
 to be chosen uniformly and independently.) The singular probability of $M$
 will be denoted by $\operatorname*{SiPr}M$.
 \end{definition}
@@ -885,7 +885,7 @@ a & b & x\\
 \end{array}
 \right)  $ (for four distinct indeterminates $a,b,x,y$), then the singular
 probability $\operatorname*{SiPr}M$ of $M$ is the probability that four
-(uniformly and independently) random elements $\alpha,\beta,\xi,\theta$ of $F$
+(uniformly and independently) random elements $\alpha,\beta,\xi,\theta$ of $\Fq$
 satisfy $\det\left(
 \begin{array}
 [c]{ccc}%
@@ -910,8 +910,8 @@ set $\gamma_{0}=1$.
 \end{definition}
 
 It is well-known that $\gamma_{k}=\left\vert \operatorname*{GL}\nolimits_{k-1}%
-\left(  F\right)  \right\vert /\left\vert \operatorname*{M}\nolimits_{k-1}%
-\left(  F\right)  \right\vert $ for every positive integer $k$. (But this will
+\left(  \Fq\right)  \right\vert /\left\vert \operatorname*{M}\nolimits_{k-1}%
+\left(  \Fq\right)  \right\vert $ for every positive integer $k$. (But this will
 actually be a particular case of Theorem \ref{thm.multislant.prob} below.)
 
 Now, we claim the following:
@@ -951,13 +951,13 @@ lemmas. We need a notation:
 \begin{definition}
 Let $A$ be a slant matrix. Let $u_{0}$ be the bottommost entry in the last
 column of $A$. Thus, $u_{0}$ is either an indeterminate (if $A$ has type X) or
-$0$ (if $A$ has type 0) or a nonzero element of $F$ (if $A$ has type 1).
+$0$ (if $A$ has type 0) or a nonzero element of $\Fq$ (if $A$ has type 1).
 Moreover, the bottommost full paradiagonal of $A$ is $\left(  u_{0}%
 ,u_{0},\ldots,u_{0}\right)  $.
 
 \textbf{(a)} We call $u_{0}$ the \emph{bottom element} of $A$.
 
-\textbf{(b)} For any $v\in F$, we let $A^{\rightarrow v}$ denote the result of
+\textbf{(b)} For any $v\in \Fq$, we let $A^{\rightarrow v}$ denote the result of
 replacing all entries on the bottommost full paradiagonal of $A$ by $v$. Thus,
 $A^{\rightarrow v}$ is a slant matrix of type 0 if $v=0$, and otherwise is a
 slant matrix of type 1.
@@ -1042,7 +1042,7 @@ of the form ``indeterminate minus a scalar'' or
 ``indeterminate minus a scalar multiple of another
 indeterminate''). However, these ``quasi-indeterminates'' are still uniformly
 independently
-distributed over $F$ when we evaluate our probability, and we can apply a
+distributed over $\Fq$ when we evaluate our probability, and we can apply a
 change of variables to transform them back into distinct indeterminates; as a
 result, the block $A_{j}$ once again becomes a slant matrix, but now one of
 type 0 (since its bottommost full paradiagonal is $\left(  0,0,\ldots
@@ -1133,18 +1133,18 @@ The example we have just analyzed was representative of the general case. If
 $M$ has more blocks besides $A_{i}$ and $A_{j}$, then these extra blocks are
 left untouched by the subtractions and do not interfere with the argument. If
 the bottom elements of $A_{i}$ and $A_{j}$ are not $1$ but other nonzero
-elements of $F$, then we will have to subtract nontrivial scalar multiples of
+elements of $\Fq$, then we will have to subtract nontrivial scalar multiples of
 columns of $A_{j}$ rather than subtracting these columns directly, but the
 argument will not essentially change.
 \end{proof}
 
 \begin{lemma}
 \label{lem.multislant.redX}Let $M$ be a multislant matrix that is square. Let
-$A_{j}$ be a block of $M$ that has type X. For any $v\in F$, we let
+$A_{j}$ be a block of $M$ that has type X. For any $v\in \Fq$, we let
 $M^{j\rightarrow v}$ be the multislant matrix obtained from $M$ by replacing
 the block $A_{j}$ by $A_{j}^{\rightarrow v}$. Then,
 \[
-\operatorname*{SiPr}M=\dfrac{1}{q}\sum_{v\in F}\operatorname*{SiPr}\left(
+\operatorname*{SiPr}M=\dfrac{1}{q}\sum_{v\in \Fq}\operatorname*{SiPr}\left(
 M^{j\rightarrow v}\right)  .
 \]
 
@@ -1152,9 +1152,9 @@ M^{j\rightarrow v}\right)  .
 
 \begin{proof}
 [Proof idea.]Consider the bottom element of $A_{j}$; this is an indeterminate
-(since $A_{j}$ has type X). When we substitute a random element of $F$ for
+(since $A_{j}$ has type X). When we substitute a random element of $\Fq$ for
 each of the indeterminates appearing in $M$, this indeterminate becomes an
-element of $F$. More precisely, for each $v\in F$, this indeterminate becomes
+element of $\Fq$. More precisely, for each $v\in \Fq$, this indeterminate becomes
 $v$ with probability $\dfrac{1}{q}$. Thus, the claim follows.
 \end{proof}
 
@@ -1189,7 +1189,7 @@ on whether the strange block had more than one column or not).
 
 \textbf{(b)} The bottom row of $M$ has only one nonzero entry, which is the
 bottom element of the strange block. Since the strange block has type 1, this
-bottom element must be some nonzero element $v\in F$. Thus, expanding the
+bottom element must be some nonzero element $v\in \Fq$. Thus, expanding the
 determinant of $M$ along the bottom row yields $\det M=\pm v\det\left(
 M^{\prime}\right)  $ (since $v$ is the only nonzero entry in the bottom row of
 $M$). Since $v$ is nonzero, this yields that $\det M$ vanishes exactly when
@@ -1220,11 +1220,11 @@ Let us first consider Case 1. In this case, the matrix $M$ has at least one
 block of type X. Let $A_{j}$ be this block. Thus, Lemma
 \ref{lem.multislant.redX} yields%
 \begin{equation}
-\operatorname*{SiPr}M=\dfrac{1}{q}\sum_{v\in F}\operatorname*{SiPr}\left(
+\operatorname*{SiPr}M=\dfrac{1}{q}\sum_{v\in \Fq}\operatorname*{SiPr}\left(
 M^{j\rightarrow v}\right)  , \label{pf.thm.multislant.prob.c1.1}%
 \end{equation}
 where $M^{j\rightarrow v}$ is defined as in Lemma \ref{lem.multislant.redX}.
-Now, for any nonzero $v\in F$, the matrix $M^{j\rightarrow v}$ has signature
+Now, for any nonzero $v\in \Fq$, the matrix $M^{j\rightarrow v}$ has signature
 $\left(  i-1,j,\ell+1\right)  $ (since it is obtained from $M$ by replacing
 the type-X block $A_{j}$ by a type-1 block) and still has $k$ blocks, and thus
 satisfies%
@@ -1249,12 +1249,12 @@ block $A_{j}$ by a type-0 block) and still has $k$ blocks, and thus satisfies%
 (by the induction hypothesis of our strong induction, since $2\left(
 i-1\right)  +\ell<2i+\ell$). Now, (\ref{pf.thm.multislant.prob.c1.1}) becomes%
 \begin{align*}
-\operatorname*{SiPr}M  &  =\dfrac{1}{q}\sum_{v\in F}\operatorname*{SiPr}%
+\operatorname*{SiPr}M  &  =\dfrac{1}{q}\sum_{v\in \Fq}\operatorname*{SiPr}%
 \left(  M^{j\rightarrow v}\right)  =\dfrac{1}{q}\left(  \operatorname*{SiPr}%
-\left(  M^{j\rightarrow0}\right)  +\sum_{\substack{v\in F;\\v\neq
+\left(  M^{j\rightarrow0}\right)  +\sum_{\substack{v\in \Fq;\\v\neq
 0}}\operatorname*{SiPr}\left(  M^{j\rightarrow v}\right)  \right) \\
 &  =\dfrac{1}{q}\left(  \left(  1-\gamma_{k}\left(  1-\dfrac{0^{\ell}}%
-{q^{i-1}}\right)  \right)  +\sum_{\substack{v\in F;\\v\neq0}}\left(
+{q^{i-1}}\right)  \right)  +\sum_{\substack{v\in \Fq;\\v\neq0}}\left(
 1-\gamma_{k}\right)  \right) \\
 &  \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \left(  \text{by
 (\ref{pf.thm.multislant.prob.c1.3}) and (\ref{pf.thm.multislant.prob.c1.2}%
