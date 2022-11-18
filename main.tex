@@ -151,7 +151,7 @@
 \maketitle
 
 \textbf{Abstract.}
-Given a partition $\lambda$ and a finite field $\mathbb{F}_q$, what is the probability that the Jacobi--Trudi determinant corresponding to $\lambda$ vanishes on a randomly chosen tuple of elements of $\Fq$ ? When $\lambda$ is a staircase, a hook or a rectangle, this probability has been shown to be $\frac{1}{q}$ by Anzis et al in 2018. We investigate this probability for skew partitions such as ribbons, as well as more complex partitions such as $p$-shifted $n$-staircases and block staircases. We actually prove much more general statements that apply to the determinants of a broader class of matrices, which we call \emph{multislant matrices} (matrices formed by stringing together several Toeplitz matrices with distinct indeterminate entries).
+The expression of the probability of a Jacobi-Trudi Determinant vanishing over a finite field was studied by \emph{Anzis et al.} for various partition shapes such as hooks, staircases and rectangles. We generalize and prove their conjectured formula for a $2-$staircase to any partition that takes the form of an arithmetic progression. In this process, we also generalize the expression of this probability for the determinants of similarly structured slanted toeplitz matrices.  We also generalize their result that this expression of probability stays invariant for the conjugate of the original partition, to skew partitions. Finally, we consider a particular case of skew partitions -- ribbons and show that the evaluations of the Jacobi-Trudi Determinant in this case are equidistributed across the finite field.
 
 \section{\label{sec.introduction}Introduction}
 
@@ -1709,31 +1709,42 @@ for some $k, p, n \in \NN$.
 
 
 It is easy to see that a block staircase is the conjugate of a $p$-shifted $n$-staircase partition.
-Hence, we can apply Theorem~\ref{thm.transpose} to Theorem~\ref{thm.n.staircase}
-and obtain the following corollary:
-
+Hence, we can apply Theorem~\ref{thm.transpose} to Theorem~\ref{thm.n.staircase} and Conjecture~\ref{bigoutwardstaircases}
+and obtain the following corollary and conjecture:
 \begin{corollary}
-TODO: Modify this to include all cases.\\
+\label{crl.n.staircase}
 
-Let $\lambda$ be a block staircase. Then,
+Let $\lambda$ be a block staircase.
+
+\begin{statement}
+\textbf{(i)} Let $k < n+1$ (with $p$ arbitrary). Then,
 \[
-P(s_{\lambda} \longmapsto 0) = 1-\prod_{i=1}^{n} \left(  1-\dfrac{1}{q^{i}}\right) .
+P(s_{\lambda} \longmapsto 0) =
+1 -
+\begin{cases}
+\prod_{i=1}^{k-1} \left(  1-\dfrac{1}{q^{i}}\right) ,
+& \text{ if } p \leq k-1; \\
+\prod_{i=1}^{k} \left(  1-\dfrac{1}{q^{i}}\right) ,
+& \text{ if } p > k-1.
+\end{cases}
 \]
+\end{statement}
+ 
+\begin{statement}
+\textbf{(ii)} Let $p \leq n$ and $k \geq n+1$. Then, 
+\[
+P(s_{\lambda} \longmapsto 0) = 1- \prod_{i=1}^{n} \left(  1-\dfrac{1}{q^{i}}\right) .
+\]
+\end{statement}
 \end{corollary}
 
-\begin{proof}
-Theorem~\ref{thm.transpose} (applied to $\mu = \varnothing$
-and $a = 0$) yields
-$P\left(  s_{\lambda}\mapsto 0\right)
-=P\left(  s_{\lambda^{t}}\mapsto 0\right)$.
-However, the conjugate $\lambda^t$ of $\lambda$ is an $n$-staircase partition.
-Thus, Theorem~\ref{thm.n.staircase}
-yields
+\begin{conjecture}
+\label{bigoutwardblockstaircases}
+Let $\lambda$ be a block staircase with $k \geq n+1$ and $p > n$.  Then,
 \[
-P(s_{\lambda^t} \longmapsto 0) = 1-\prod_{i=1}^{n} \left(  1-\dfrac{1}{q^{i}}\right) .
+P(s_{\lambda} \longmapsto 0) = 1-\prod_{i=1}^{n+1} \left(  1-\dfrac{1}{q^{i}}\right).
 \]
-Combining these two equalities, we obtain the corollary.
-\end{proof}
+\end{conjecture}
 
 \section{The ribbon equidistribution}
 
