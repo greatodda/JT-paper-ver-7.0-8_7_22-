@@ -199,14 +199,15 @@ In particular, this probability is $\dfrac{1}{q}$ in the following cases:
 \item the ``\emph{rectangle case}'': $\lambda_i = m$ for each $i$ (see \cite[Corollary 6.4]{Anzis18}, or \cite{dwivedi2021rank} for a generalization);
 \item the ``\emph{staircase case}'': $\lambda_i = k+1-i$ for each $i$ (see \cite[Theorem 6.5]{Anzis18});
 \item the ``\emph{hook case}'': $\lambda_1$ arbitrary; $\lambda_i = 1$ for
-each $i = 2, 3, \ldots, r$; finally, $\lambda_i = 0$ for each $i > r$ (see \cite[Proposition 1.2]{Anzis18}).
+each $i = 2, 3, \ldots, k$ (see \cite[Proposition 1.2]{Anzis18}).
 \end{itemize}
 In more complicated situations, the probability can be less well-behaved,
 although \cite[Corollary 5.2]{Anzis18} shows that it is always greater or
 equal to $\dfrac{1}{q}$.
 
 The main result of the present paper is a formula for this probability
-in yet another case:
+in yet another case (proved in \S\ \ref{sec.mulslant}):
+
 \begin{theorem}
 \label{thm.n.staircase-intro}
 Let
@@ -222,8 +223,9 @@ vanishing is
 \end{theorem}
 Mysteriously, the right hand side here is also the probability of a completely random generic $n\times n$-determinant vanishing.
 
-Theorem~\ref{thm.n.staircase-intro} is
-Theorem~\ref{thm.n.staircase} \textbf{(ii)} further below.
+% Theorem~\ref{thm.n.staircase-intro} is
+% Theorem~\ref{thm.n.staircase} \textbf{(ii)} further below.
+
 % We will in fact compute the probability of vanishing under somewhat looser
 % conditions on $p, n, k$ (Theorem~\ref{thm.n.staircase}).
 Underlying
@@ -463,7 +465,7 @@ from \S~\ref{sec.introduction} is precisely the matrix
 $J\tup{\lambda}$, after each $h_i$ has been specialized to $z_i$.
 \end{remark}
 
-\section{Multislant matrices and $p$-shifted $n$-staircases}
+\section{\label{sec.mulslant}Multislant matrices and $p$-shifted $n$-staircases}
 
 The first type of partition that we will study are $p$-shifted $n$-staircases (which can be more commonly thought of partitions whose entries form an arithmetic progression).
 
@@ -516,7 +518,8 @@ P(s_{\lambda} \longmapsto 0) = 1-\prod_{i=1}^{n+1} \left(  1-\dfrac{1}{q^{i}}\ri
 \end{conjecture}
 
 
-Theorem \ref{thm.n.staircase} and Conjecture \ref{bigoutwardstaircases} together encompass the whole class of $p$-shifted $n$-staircases. We note that none of the four expressions for $P(s_{\lambda} \longmapsto 0)$ depend on $p$. \\
+Theorem \ref{thm.n.staircase} and Conjecture \ref{bigoutwardstaircases} together encompass the whole class of $p$-shifted $n$-staircases. We note that none of the four expressions for $P(s_{\lambda} \longmapsto 0)$ depend on $p$.
+Theorem \ref{thm.n.staircase} \textbf{(ii)} restates Theorem \ref{thm.n.staircase-intro} from the introduction.
 
 The right hand side of Theorem~\ref{thm.n.staircase} \textbf{(ii)}
 % (and of Theorem \ref{thm.multislant.prob} later on)
@@ -1397,7 +1400,7 @@ is proved.
 \end{proof}
 
 
-\subsection{Revisiting Theorem \ref{thm.n.staircase} (ii)}
+\subsection{Proof of Theorem \ref{thm.n.staircase} (ii)}
 
 We shall now apply Theorem \ref{thm.multislant.prob} to Jacobi--Trudi matrices of $p$-shifted $n$-staircases.
 
