@@ -151,12 +151,31 @@
 \maketitle
 
 \textbf{Abstract.}
-The expression of the probability of a Jacobi-Trudi Determinant vanishing over a finite field was studied by \emph{Anzis et al.} for various partition shapes such as hooks, staircases and rectangles. We generalize and prove their conjectured formula for a $2-$staircase to any partition that takes the form of an arithmetic progression. In this process, we also generalize the expression of this probability for the determinants of similarly structured slanted toeplitz matrices.  We also generalize their result that this expression of probability stays invariant for the conjugate of the original partition, to skew partitions. Finally, we consider a particular case of skew partitions -- ribbons and show that the evaluations of the Jacobi-Trudi Determinant in this case are equidistributed across the finite field.
+%note: remove \cite when pasting abstract into arxiv, but keep in the .tex file
+The problem of counting the number of $\mathbb{F}_q$-valued points of a variety  has been well studied from algebro-geometric, topological, and combinatorial perspectives.  We explore a combinatorially flavored version of this problem studied by Anzis et al. \cite{Anzis18}, which is similar to work of Kontsevich \cite{Kontsevich},  Elkies \cite{Elkies}, and Haglund \cite{Haglund}.
+%Anzis et al. \cite{Anzis18} investigated the problem of counting the number of zeros of the determinant of a Jacobi-Trudi matrix when the variables are taken over  $\mathbb{F}_q$
+%Anzis et al. studied the probability that the determinant of a Jacobi-Trudi matrix vanishes if the variables are chosen uniformly at random from a finite field
+Anzis et al. considered the question ``what is the probability that the determinant of a Jacobi-Trudi matrix vanishes if the variables are chosen uniformly at random from a finite field?''
+They gave a formula for various partitions such as hooks, staircases, and rectangles.
+We give a formula for partitions whose parts form an arithmetic progression,
+verifying and generalizing one of their conjectures.
+We establish this as a special case of a result giving the probability of the determinant vanishing for matrices made by gluing rectangular blocks of certain Toeplitz matrices.
+%
+%\emph{Anzis et al.} \cite{Anzis18} studied the following version of this problem: determine the probability that the determinant of a Jacobi-Trudi matrix vanishes if the variables are chosen uniformly at random from a finite field.
+%
+%We establish our result as part of a a special case of one giving the probability of determinant vanishing for a class of matrices made up of rectangular blocks of Toeplitz matrices.
+%
+%We further explore this problem and generalize and prove their conjectured formula for a $2-$staircase to any partition that takes the form of an arithmetic progression.
+%
+%Building on work of \emph{Anzis et al.} \cite{}, we study the probablility of a
+%we study
+%
+%The expression of the probability of a Jacobi-Trudi Determinant vanishing over a finite field was studied by \emph{Anzis et al.} for various partition shapes such as hooks, staircases and rectangles. We generalize and prove their conjectured formula for a $2-$staircase to any partition that takes the form of an arithmetic progression. In this process, we also generalize the expression of this probability for the determinants of similarly structured slanted toeplitz matrices.  We also generalize their result that this expression of probability stays invariant for the conjugate of the original partition, to skew partitions. Finally, we consider a particular case of skew partitions -- ribbons and show that the evaluations of the Jacobi-Trudi Determinant in this case are equidistributed across the finite field.
 
 \section{\label{sec.introduction}Introduction}
 
 Let $\mathbb{F}_q$ be a finite field.
-% Consider the probability that  
+% Consider the probability that
 % \[
 % \det \begin{pmatrix}
 % z_{1} & z_{2} & z_{3}\\
@@ -177,9 +196,9 @@ A \emph{Jacobi--Trudi matrix} is a matrix of the form
 \begin{align*}
 J_{\lambda_1, \lambda_2, \ldots, \lambda_k}\tup{z_1, z_2, z_3, \ldots}
 &:=
-\det \left(  z_{\lambda_{i}-i+j}\right)_{1\leq i\leq k,\ 1\leq j\leq k}
+\left(  z_{\lambda_{i}-i+j}\right)_{1\leq i\leq k,\ 1\leq j\leq k}
 \\
-&= \det \begin{pmatrix}
+&= \begin{pmatrix}
 z_{\lambda_1} & z_{\lambda_1 + 1} & \cdots & z_{\lambda_1 + k-1} \\
 z_{\lambda_2 - 1} & z_{\lambda_2} & \cdots & z_{\lambda_2 + k-2} \\
 \vdots & \vdots & \ddots & \vdots \\
@@ -245,11 +264,11 @@ If we replace the $z_{i}$ by the generators $h_{i}$ of the
 ring of symmetric functions (see \S~\ref{sec.def} for a definition), then
 $J_{\lambda_1, \lambda_2, \ldots, \lambda_k}\tup{z_1, z_2, z_3, \ldots}$ becomes a Schur
 function.
-This is the viewpoint taken by \cite{Anzis18} when studying these determinants. 
+This is the viewpoint taken by \cite{Anzis18} when studying these determinants.
 
 Our results can also be viewed from a geometric perspective:
 We are counting $\Fq$-valued points on certain affine schemes;
-similar questions have been studied by Weil \cite{Weil}, Kontsevich \cite{Kontsevich, Stembridge, RPStan, Belkale2003}, Elkies \cite{Elkies}, Haglund \cite{Haglund} and many others.
+similar questions have been studied by Weil \cite{Weil}, Kontsevich \cite{Kontsevich}, Stembridge \cite{Stembridge}, Stanley \cite{RPStan}, Belkale-Brosnan \cite{Belkale2003}, Elkies \cite{Elkies}, Haglund \cite{Haglund}, and many others.
 A question often asked is whether the number of $\Fq$-valued points has the form $f\tup{q}$ for some Laurent polynomial $f$; this is not always satisfied for $J_{\lambda_1, \lambda_2, \ldots, \lambda_k}\tup{z_1, z_2, z_3, \ldots}$ (see \cite[Proposition 5.7]{Anzis18}), but is true in surprisingly many situations, including the ones we analyze here. (The same question has been asked by Kontsevich for certain graph-theoretical polynomials, and answered in the negative \cite{Belkale2003}.)
 \\
 
@@ -258,7 +277,7 @@ We also prove a certain symmetry property (Theorem~\ref{thm.transpose}) for the 
 
 \section{\label{sec.def}Notations and background}
 
-Fix a finite field $\mathbb{F}_{q}$. Consider the polynomial ring 
+Fix a finite field $\mathbb{F}_{q}$. Consider the polynomial ring
 \[
 \mathcal{P} := \mathbb{Z}\left[  h_{1},h_{2},h_{3},\ldots\right]
 \]
@@ -294,7 +313,7 @@ We can identify the polynomial ring
 $\mathcal{P}=\mathbb{Z}\left[  h_{1},h_{2},h_{3},\ldots\right]  $
 with the ring $\Lambda$ of ``symmetric
 functions'', which are in fact symmetric formal power series in
-countably many indeterminate $x_{1},x_{2},x_{3},\ldots$
+countably many indeterminates $x_{1},x_{2},x_{3},\ldots$
 having bounded degree (see \cite[Section 7.1]{EC2} or
 \cite[Section I.2]{Macdonald}).
 To do so, we equate each generator $h_i$ of $\mathcal{P}$
@@ -348,7 +367,7 @@ $j$-th box (from the left) in the $i$-th row of the diagram.
 
 \begin{definition}
 The \emph{conjugate} $\lambda^t$ of a partition $\lambda$ is defined to be the partition whose Young diagram is obtained from $Y\tup{\lambda}$ by flipping it across the main diagonal (i.e., the length of the $i$-th row of $Y\tup{\lambda^t}$ equals the length of the $i$-th column of $Y\tup{\lambda}$ for each $i$).
-\end{definition} 
+\end{definition}
 
 Example \ref{ydiagexample} below shows the construction of a Young diagram for the partition $\lambda = (7,4,1)$ and its conjugate. Note that the number of boxes in any row is the corresponding part of $\lambda$. Since a partition is a weakly decreasing sequence, the number of boxes in a row decreases as we go down the diagram.
 
@@ -370,13 +389,13 @@ $Y(\lambda)$ & & $Y(\lambda^t)$ \\
 % Let us name a few special important families of partitions that we will study below.
 
 % \begin{enumerate}
-    % \item A \emph{rectangle partition} is a partition of the form 
+    % \item A \emph{rectangle partition} is a partition of the form
 % \[\lambda = (a^n) = (a,a, \ldots, a)\]
 % for a given $a > 0$.
-    % \item A \emph{staircase} is a partition of the form 
+    % \item A \emph{staircase} is a partition of the form
 % \[\lambda = (k, k-1, k-2, \ldots, 1)\]
 % for a given $k \geq 0$.
-    % \item An \emph{$n$-staircase} is a partition of the form 
+    % \item An \emph{$n$-staircase} is a partition of the form
 % \[\lambda = (kn, (k-1)n, \ldots, 2n,  n)\]
 % for given $n > 0$ and $k \geq 0$.
 % \end{enumerate}
@@ -434,7 +453,7 @@ For example, if $\lambda$ is the partition $(7,4,1)$ as in Example \ref{ydiagexa
 s_{(7,4,1)} =
 \det
 \begin{pmatrix}
-h_7 & h_8 & h_9 \\ 
+h_7 & h_8 & h_9 \\
 h_3 & h_4 & h_5 \\
 0 & 1 & h_1 \\
 \end{pmatrix} ,
@@ -481,7 +500,7 @@ The name, of course, refers to the shape of the Young diagram.
 % \]
 
 %\end{definition}
-Anzis et al \cite{Anzis18} conjectured that a $2$-shifted $2$-staircase $\lambda$ satisfies $P(s_{\lambda} \longmapsto 0) = \dfrac{q^2+q -1}{q^3}$. We prove this result and generalize it to arbitrary $n$ and $p$:
+Anzis et al. \cite{Anzis18} conjectured that a $2$-shifted $2$-staircase $\lambda$ satisfies $P(s_{\lambda} \longmapsto 0) = \dfrac{q^2+q -1}{q^3}$. We prove this result and generalize it to arbitrary $n$ and $p$:
 
 \begin{theorem}
 \label{thm.n.staircase}
@@ -502,9 +521,9 @@ P(s_{\lambda} \longmapsto 0) =
 \end{cases}
 \]
 \end{statement}
- 
+
 \begin{statement}
-\textbf{(ii)} Assume that $p \leq n$ and $k \geq n+1$. Then, 
+\textbf{(ii)} Assume that $p \leq n$ and $k \geq n+1$. Then,
 \[
 P(s_{\lambda} \longmapsto 0) = 1- \prod_{i=1}^{n} \left(  1-\dfrac{1}{q^{i}}\right) .
 \]
@@ -526,7 +545,7 @@ Theorem \ref{thm.n.staircase} \textbf{(ii)} restates Theorem \ref{thm.n.staircas
 
 The right hand side of Theorem~\ref{thm.n.staircase} \textbf{(ii)}
 % (and of Theorem \ref{thm.multislant.prob} later on)
-is the probability of a random $n\times n$-matrix being singular over $\mathbb{F}_q$. To prove this result, we will prove a more general result which encompasses this one by setting up the machinery for a new type of matrix that is given by the evaluation of Jacobi--Trudi determinants for $n$-staircase partitions.  
+is the probability of a random $n\times n$-matrix being singular over $\mathbb{F}_q$. To prove this result, we will prove a more general result which encompasses this one by setting up the machinery for a new type of matrix that is given by the evaluation of Jacobi--Trudi determinants for $n$-staircase partitions.
 Theorem~\ref{thm.n.staircase} \textbf{(i)} can be proved similarly to our proof of Theorem~\ref{thm.n.staircase} \textbf{(ii)} below,
 but is also fairly easy to check directly, since all indeterminates
 in the matrix $J\tup{\lambda}$ are distinct (and all entries of this
@@ -1453,12 +1472,12 @@ $(p, n-p, 1)$.
 %
 % \[
 % a_{ij} = h_{n(k-i+1) - i +j} = h_{(n(k-i+1) -i +k+1) -(k+1) +j} = h_{(n+1)(k-i+1) + j-(k+1)}.
-% \] 
+% \]
 %
-% Let us call this element $h_t$ with 
+% Let us call this element $h_t$ with
 % \[t = (n+1)\cdot(k-i+1) + (j-(k+1)) \cong (j-(k+1)) \emph{ mod (n+1)} \] all $t(i)$ corresponding to indeterminates $h_t$ lie in the same residue class modulo $n+1$. \\
 %
-% Now let us vary $j$ itself, the residue class of $t$ is determined by the expression $(j-(k+1))$ which directly varies with $j$ with a phase shift of $k+1$. Thus every different value of $j \in [n+1]$ gives a different residue class of t, and hence that of the indeterminates, with none common to two or more classes. Consequently, for a sufficiently large enough $\ell(\lambda)$ (larger than $n+1$), $J(\lambda)$ has enough columns that we are able to hit every residue class before cycling through them again. Therefore we can group the columns based on the residue class of $t$ into $n+1$ separate blocks by a finite number of column operations, which would not change the singularity of the matrix and hence not affect the probability of $det(J(\lambda))$ going to zero. 
+% Now let us vary $j$ itself, the residue class of $t$ is determined by the expression $(j-(k+1))$ which directly varies with $j$ with a phase shift of $k+1$. Thus every different value of $j \in [n+1]$ gives a different residue class of t, and hence that of the indeterminates, with none common to two or more classes. Consequently, for a sufficiently large enough $\ell(\lambda)$ (larger than $n+1$), $J(\lambda)$ has enough columns that we are able to hit every residue class before cycling through them again. Therefore we can group the columns based on the residue class of $t$ into $n+1$ separate blocks by a finite number of column operations, which would not change the singularity of the matrix and hence not affect the probability of $det(J(\lambda))$ going to zero.
 %
 % To ensure that each block is a slant matrix by itself, recognize that $ t= (n+1)\cdot(k-i+1) + (j-(k+1))$. This implies that $t$ strictly increases with $j$. Hence we can order columns belonging to the same residue class by strictly increasing $j$ which gives us a slant block for each residue class. $J(\lambda)$ is thus made up of slant blocks and is therefore a multislant matrix.
 \end{proof}
@@ -1492,14 +1511,15 @@ Having proved Theorem~\ref{thm.n.staircase}, we can see that for $n=1$
 we have
 $P(s_{\lambda} \longmapsto 0) = \dfrac{1}{q}$, and for $n=2$ we have
 $P(s_{\lambda} \longmapsto 0) = \dfrac{q^2+q-1}{q^3}$
-recovering Theorem 6.5 and Conjecture 10.1 from Anzis et al \cite{Anzis18}.
+recovering Theorem 6.5 and proving Conjecture 10.1 from Anzis et al. \cite{Anzis18}.
 
 
 \section{Conjugating the skew partition}
 
-Next, we shall prove a general result that generalizes \cite[Corollary
-3.3]{Anzis18}:\footnote{Recall that $\lambda^{t}$ denotes the conjugate of a
-partition $\lambda$.}
+Next, we shall prove a general result that generalizes
+\cite[Corollary 3.3]{Anzis18}.
+Recall that $\lambda^{t}$ denotes the conjugate of a
+partition $\lambda$.
 
 \begin{theorem}
 \label{thm.transpose}Let $\lambda/\mu$ be a skew partition. Let $a\in
@@ -1508,159 +1528,29 @@ partition $\lambda$.}
 P\left(  s_{\lambda/\mu}\mapsto a\right)  =P\left(  s_{\lambda^{t}/\mu^{t}%
 }\mapsto a\right)  .
 \]
-
 \end{theorem}
 
-We will derive this from a more general result. First, we introduce a notation:
-
-\begin{definition}
-A ring endomorphism $\beta:\mathcal{P}\rightarrow\mathcal{P}$ will be called
-\emph{friendly} if for each positive integer $n$, the image $\beta\left(
-h_{n}\right)  $ can be written as a polynomial in $h_{1},h_{2},\ldots,h_{n}$.
-\end{definition}
+The following observation will aid in the proof.
 
 \begin{proposition}
-\label{prop.friendly-aut}Let $\beta:\mathcal{P}\rightarrow\mathcal{P}$ be a
-ring automorphism such that both $\beta$ and $\beta^{-1}$ are friendly. Let
-$f\in\mathcal{P}$ and $a\in\mathbb{F}_{q}$. Then,%
-\[
-P\left(  f\mapsto a\right)  =P\left(  \beta\left(  f\right)  \mapsto a\right)
-.
-\]
-
+\label{prop.eval}
+Let $f \in \Lambda_{\le N} := \mathbb{Z}\left[  h_{1},h_{2},\ldots, h_N\right]$ and  $a \in \mathbb{F}_q$.
+Then
+\begin{equation}
+\label{e prop eval}
+P\left(  f\mapsto a\right)  =
+\dfrac{\left(  \text{\# of ring homomorphisms  $\Lambda_{\le N} \to \mathbb{F}_q$
+that send  $f$ to  $a$} \right)  }{q^N}
+\end{equation}
 \end{proposition}
-
 \begin{proof}
-[Proof of Proposition \ref{prop.friendly-aut}.] Choose $N\in\mathbb{N}$ such
-that $f$ only involves the indeterminates $h_{1},h_{2},\ldots,h_{N}$. Thus, we
-can write $f$ as $f\left(  h_{1},h_{2},\ldots,h_{N}\right)  $.
-
-Let $\Lambda_{\leq N}$ be the subring of $\Lambda$ generated by $h_{1}%
-,h_{2},\ldots,h_{N}$. Hence, our choice of $N$ guarantees that $f\in
-\Lambda_{\leq N}$. The definition of $P\left(  f\mapsto a\right)  $ yields%
-\begin{equation}
-P\left(  f\mapsto a\right)  :=\dfrac{\left(  \text{\# of }\left(  z_{1}%
-,z_{2},\ldots,z_{N}\right)  \in\mathbb{F}_{q}^{N}\mid f\left(  z_{1}%
-,z_{2},\ldots,z_{N}\right)  =a\right)  }{\left(  \text{\# of all }\left(
-z_{1},z_{2},\ldots,z_{N}\right)  \in\mathbb{F}_{q}^{N}\right)  }%
-.\label{pf.prop.friendly-aut.P1}%
-\end{equation}
-
-
-However, $\mathcal{P}_{\leq N}$ is the polynomial ring over $\mathbb{Z}$ in
-the indeterminates $h_{1},h_{2},\ldots,h_{N}$ (since $h_{1},h_{2},\ldots
-,h_{N}$ are algebraically independent by definition). Hence, by the universal
-property of polynomial rings, for each $N$-tuple $\left(  z_{1},z_{2}%
+By the universal property of polynomial rings, for each $N$-tuple $\left(  z_{1},z_{2}%
 ,\ldots,z_{N}\right)  \in\mathbb{F}_{q}^{N}$, there exists a unique ring
-homomorphism $\varphi:\mathcal{P}_{\leq N}\rightarrow\mathbb{F}_{q}$ that
-sends these indeterminates $h_{1},h_{2},\ldots,h_{N}$ to $z_{1},z_{2}%
-,\ldots,z_{N}$, respectively. In other words, the map%
-\begin{align*}
-\left\{  \text{ring homomorphisms }\varphi:\mathcal{P}_{\leq N}\rightarrow
-\mathbb{F}_{q}\right\}    & \rightarrow\mathbb{F}_{q}^{N},\\
-\varphi & \mapsto\left(  \varphi\left(  h_{1}\right)  ,\varphi\left(
-h_{2}\right)  ,\ldots,\varphi\left(  h_{N}\right)  \right)
-\end{align*}
-is a bijection. It restricts to a bijection
-\begin{align*}
-& \text{from }\left\{  \text{ring homomorphisms }\varphi:\mathcal{P}_{\leq
-N}\rightarrow\mathbb{F}_{q}\ \mid\ \varphi\left(  f\right)  =a\right\}  \\
-& \text{to }\left\{  \left(  z_{1},z_{2},\ldots,z_{N}\right)  \in
-\mathbb{F}_{q}^{N}\ \mid\ f\left(  z_{1},z_{2},\ldots,z_{N}\right)
-=a\right\}
-\end{align*}
-(because for any ring homomorphism $\varphi:\mathcal{P}_{\leq N}%
-\rightarrow\mathbb{F}_{q}$, we have the equality
-$\varphi\left(  f\right)  =f\left(
-\varphi\left(  h_{1}\right)  ,\varphi\left(  h_{2}\right)  ,\ldots
-,\varphi\left(  h_{N}\right)  \right)  $). Hence, by the bijection principle,%
-\begin{align}
-& \left(  \text{\# of ring homomorphisms }\varphi:\mathcal{P}_{\leq
-N}\rightarrow\mathbb{F}_{q}\ \mid\ \varphi\left(  f\right)  =a\right)
-\nonumber\\
-& =\left(  \text{\# of }\left(  z_{1},z_{2},\ldots,z_{N}\right)  \in
-\mathbb{F}_{q}^{N}\mid f\left(  z_{1},z_{2},\ldots,z_{N}\right)  =a\right)
-.\label{pf.prop.friendly-aut.1}%
-\end{align}
-
-
-Since $\beta$ is friendly, it is easily seen that $\beta\left(  \Lambda_{\leq
-N}\right)  \subseteq\Lambda_{\leq N}$. Therefore, we can restrict $\beta$ to
-the subring $\Lambda_{\leq N}$ of $\Lambda$, thus obtaining a ring
-endomorphism $\beta_{N}:\Lambda_{\leq N}\rightarrow\Lambda_{\leq N}$.
-Likewise, we can obtain an endomorphism $\left(  \beta^{-1}\right)
-_{N}:\Lambda_{\leq N}\rightarrow\Lambda_{\leq N}$ by restricting $\beta^{-1}$
-to $\Lambda_{\leq N}$ (since $\beta^{-1}$ is friendly). These two restricted
-endomorphisms $\beta_{N}$ and $\left(  \beta^{-1}\right)  _{N}$ are mutually
-inverse, and thus are automorphisms.
-
-Now, let $g=\beta\left(  f\right)  $. From $f\in\Lambda_{\leq N}$, we obtain
-$\beta\left(  f\right)  \in\beta\left(  \Lambda_{\leq N}\right)
-\subseteq\Lambda_{\leq N}$, so that $g=\beta\left(  f\right)  \in\Lambda_{\leq
-N}$. In other words, the polynomial $g$ only involves the indeterminates
-$h_{1},h_{2},\ldots,h_{N}$. Therefore, the same argument that gave us
-(\ref{pf.prop.friendly-aut.1}) can be applied to $g$ instead of $f$, and this
-yields%
-\begin{align}
-& \left(  \text{\# of ring homomorphisms }\varphi:\mathcal{P}_{\leq
-N}\rightarrow\mathbb{F}_{q}\ \mid\ \varphi\left(  g\right)  =a\right)
-\nonumber\\
-& =\left(  \text{\# of }\left(  z_{1},z_{2},\ldots,z_{N}\right)  \in
-\mathbb{F}_{q}^{N}\mid g\left(  z_{1},z_{2},\ldots,z_{N}\right)  =a\right)
-.\label{pf.prop.friendly-aut.2}%
-\end{align}
-Likewise, the same argument that gave us (\ref{pf.prop.friendly-aut.P1})
-yields%
-\begin{equation}
-P\left(  g\mapsto a\right)  :=\dfrac{\left(  \text{\# of }\left(  z_{1}%
-,z_{2},\ldots,z_{N}\right)  \in\mathbb{F}_{q}^{N}\mid g\left(  z_{1}%
-,z_{2},\ldots,z_{N}\right)  =a\right)  }{\left(  \text{\# of all }\left(
-z_{1},z_{2},\ldots,z_{N}\right)  \in\mathbb{F}_{q}^{N}\right)  }%
-.\label{pf.prop.friendly-aut.P2}%
-\end{equation}
-
-
-However, $\beta_{N}$ is a ring automorphism of $\Lambda_{\leq N}$, and
-satisfies $g=\beta\left(  f\right)  =\beta_{N}\left(  f\right)  $ (since
-$\beta_{N}$ is a restriction of $\beta$). Thus, there is a bijection%
-\begin{align*}
-& \left\{  \text{ring homomorphisms }\varphi:\mathcal{P}_{\leq N}%
-\rightarrow\mathbb{F}_{q}\ \mid\ \varphi\left(  g\right)  =a\right\}  \\
-& \mapsto\left\{  \text{ring homomorphisms }\varphi:\mathcal{P}_{\leq
-N}\rightarrow\mathbb{F}_{q}\ \mid\ \varphi\left(  f\right)  =a\right\}
-\end{align*}
-given by $\varphi\mapsto\varphi\circ\beta_{N}$ (its inverse sends $\varphi$ to
-$\varphi\circ\left(  \beta_{N}\right)  ^{-1}$). Hence, by the bijection
-principle, we have%
-\begin{align*}
-& \left(  \text{\# of ring homomorphisms }\varphi:\mathcal{P}_{\leq
-N}\rightarrow\mathbb{F}_{q}\ \mid\ \varphi\left(  g\right)  =a\right)  \\
-& =\left(  \text{\# of ring homomorphisms }\varphi:\mathcal{P}_{\leq
-N}\rightarrow\mathbb{F}_{q}\ \mid\ \varphi\left(  f\right)  =a\right)  .
-\end{align*}
-In other words, the left hand sides of the equalities
-(\ref{pf.prop.friendly-aut.2}) and (\ref{pf.prop.friendly-aut.1}) are equal.
-Therefore, so are their right hand sides. In other words,%
-\begin{align*}
-& \left(  \text{\# of }\left(  z_{1},z_{2},\ldots,z_{N}\right)  \in
-\mathbb{F}_{q}^{N}\mid g\left(  z_{1},z_{2},\ldots,z_{N}\right)  =a\right)
-\\
-& =\left(  \text{\# of }\left(  z_{1},z_{2},\ldots,z_{N}\right)  \in
-\mathbb{F}_{q}^{N}\mid f\left(  z_{1},z_{2},\ldots,z_{N}\right)  =a\right)  .
-\end{align*}
-Thus, the right hand sides of the equalities (\ref{pf.prop.friendly-aut.P2})
-and (\ref{pf.prop.friendly-aut.P1}) are equal. Hence, so are their left hand
-sides. In other words,%
-\[
-P\left(  g\mapsto a\right)  =P\left(  f\mapsto a\right)  .
-\]
-In view of $g=\beta\left(  f\right)  $, this rewrites as $P\left(
-\beta\left(  f\right)  \mapsto a\right)  =P\left(  f\mapsto a\right)  $. Thus,
-Proposition \ref{prop.friendly-aut}.
-
-
+homomorphism $\varphi:\Lambda_{\leq N}\rightarrow\mathbb{F}_{q}$ that
+sends the indeterminates $h_{1},h_{2},\ldots,h_{N}$ to $z_{1},z_{2}
+,\ldots,z_{N}$, respectively. Hence the right side of \eqref{e prop eval}
+agrees with the definition of $P\left(  f\mapsto a\right)$.
 \end{proof}
-
 
 
 \begin{proof}
@@ -1677,26 +1567,36 @@ the \emph{fundamental involution}) defined by setting
 \[
 \omega\left(  h_{n}\right)  =e_{n}\qquad\text{for all }n\geq1.
 \]
-Since $e_{n}$ can be written as a polynomial in $h_{1},h_{2},\ldots,h_{n}$
-(for example, this follows from the Jacobi--Trudi identity, which yields
+Now, the elementary symmetric function $e_{n}$ can be written as a polynomial in $h_{1},h_{2},\ldots,h_{n}$,
+which follows, for example, from the Jacobi--Trudi identity: 
 $e_{n}=s_{\left(  1^{n}\right)  }=\det\left(  h_{1+i-j}\right)  _{1\leq i\leq
-n,\ 1\leq j\leq n}$), we thus conclude that this automorphism $\omega$ is
-friendly. Its inverse $\omega^{-1}=\omega$ is friendly as well (since $\omega$
-is involutive).
+n,\ 1\leq j\leq n}$. Applying  $\omega$ to this, 
+$h_{n}$ can likewise be written as a polynomial in $e_{1},e_{2},\ldots,e_{n}$.
+Thus
+\begin{align}
+\Lambda_{\le N} \, = &\  \big\{\text{subring of $\Lambda$ generated by $h_1, \dots, h_N$} \big\} \\
+            = &\  \big\{\text{subring of $\Lambda$ generated by $e_1, \dots, e_N$} \big\},
+\end{align}
+and $\omega$ restricts to an involutive ring automorphism
+ $\omega_N \colon \Lambda_{\le N} \to \Lambda_{\le N}$.
 
-Hence, Proposition \ref{prop.friendly-aut} (applied to $\beta=\omega$ and
-$f=s_{\lambda/\mu}$) yields%
-\begin{equation}
-P\left(  s_{\lambda/\mu}\mapsto a\right)  =P\left(  \omega\left(
-s_{\lambda/\mu}\right)  \mapsto a\right)  .\label{pf.thm.transpose.1}%
-\end{equation}
-
-
-It is furthermore well-known (\cite[Theorem 7.15.6]{EC2} or \cite[(5.6)]%
-{Macdonald}) that $\omega\left(  s_{\lambda/\mu}\right)  =s_{\lambda^{t}%
-/\mu^{t}}$. In light of this, we can rewrite (\ref{pf.thm.transpose.1}) as
+Now given a skew Schur function  $s_{\lambda/\mu}$, choose  $N$ such that
+$s_{\lambda/\mu} \in \Lambda_{\le N}$.  Since $\omega\left(  s_{\lambda/\mu}\right)
+=s_{\lambda^{t} /\mu^{t}}$ (see, e.g., \cite[Theorem 7.15.6]{EC2} or \cite[(5.6)]{Macdonald}),
+$\omega_N\left(  s_{\lambda/\mu}\right) =s_{\lambda^{t} /\mu^{t}}$ as well.
+We thus have the following map which is a bijection since 
+$\omega_N$ is an automorphism:
+\begin{align}
+& \left(  \text{ring homomorphisms  $\Lambda_{\le N} \to \mathbb{F}_q$
+that send  $s_{\lambda^{t} /\mu^{t}}$ to  $a$} \right)  \\
+\to & \left(  \text{ring homomorphisms  $\Lambda_{\le N} \to \mathbb{F}_q$
+that send  $s_{\lambda /\mu}$ to  $a$} \right)  \\
+& \varphi \mapsto \varphi \circ \omega_N.
+\end{align}
+Hence by Proposition \ref{prop.eval},
 $P\left(  s_{\lambda/\mu}\mapsto a\right)  =P\left(  s_{\lambda^{t}/\mu^{t}%
-}\mapsto a\right)  $. This proves Theorem \ref{thm.transpose}.
+}\mapsto a\right) $.
+%This proves Theorem \ref{thm.transpose}.
 \end{proof}
 
 
@@ -1745,9 +1645,9 @@ P(s_{\lambda} \longmapsto 0) =
 \end{cases}
 \]
 \end{statement}
- 
+
 \begin{statement}
-\textbf{(ii)} Let $p \leq n$ and $k \geq n+1$. Then, 
+\textbf{(ii)} Let $p \leq n$ and $k \geq n+1$. Then,
 \[
 P(s_{\lambda} \longmapsto 0) = 1- \prod_{i=1}^{n} \left(  1-\dfrac{1}{q^{i}}\right) .
 \]
@@ -1769,7 +1669,7 @@ In this section, we move our attention to a particular class of skew partitions 
 \begin{definition}
 A skew partition $\lambda/\mu$ is \emph{connected} if the interior of the Young diagram of $\lambda/\mu$ (regarded as the union of its boxes) is connected.
 
-A \emph{ribbon} is a connected skew partition $\lambda/\mu$ whose Young diagram does not contain any $2 \times 2$ block of boxes. 
+A \emph{ribbon} is a connected skew partition $\lambda/\mu$ whose Young diagram does not contain any $2 \times 2$ block of boxes.
 \end{definition}
 
 
@@ -1785,7 +1685,7 @@ A \emph{ribbon} is a connected skew partition $\lambda/\mu$ whose Young diagram 
 % \end{ytableau}
 % \]
 
-% In this example, $Y$ is not connected. If $Y$ had a cell to the immediate left of $D$ and to the immediate top of $G$, this diagram would become connected. It is also easy to see that cells A,B,E,F form a $2$x$2$ block. 
+% In this example, $Y$ is not connected. If $Y$ had a cell to the immediate left of $D$ and to the immediate top of $G$, this diagram would become connected. It is also easy to see that cells A,B,E,F form a $2$x$2$ block.
 % \end{example}
 
 
@@ -1824,7 +1724,7 @@ Of the three skew partitions below, only the first is a ribbon, since \textbf{(i
 
 % \emph{(i)}  The Young diagram of a ribbon characterised by $\lambda/\mu= (8,6,4,4)/(5,3,3)$. \\
 % \emph{(ii)}  The Young diagram of a skew partition characterised by $\lambda/\mu= (8,7,5,4)/(5,4,3)$. This is not a ribbon because of the $2$x$2$ block in the first two rows. \\
-% \emph{(iii)}  The Young diagram of a skew partition characterised by $\lambda/\mu= (8,6,4,3)/(5,3,3)$. This is not a ribbon because the third and fourth rows are disconnected. 
+% \emph{(iii)}  The Young diagram of a skew partition characterised by $\lambda/\mu= (8,6,4,3)/(5,3,3)$. This is not a ribbon because the third and fourth rows are disconnected.
 
 \end{example}
 
@@ -1835,7 +1735,7 @@ Let us revisit the Jacobi--Trudi identity. For the ribbon  $\lambda/\mu= (8,6,4,
 J(\lambda/\mu)
 = % = s_{(8,6,4,4)/ (5,3,3)} =
 \begin{pmatrix}
-h_3 & h_6 & h_7 & h_{11} \\ 
+h_3 & h_6 & h_7 & h_{11} \\
 1 & h_3 & h_4 & h_8 \\
 0 & 1 & h_1 & h_5 \\
 0 & 0 & 1 & h_4
@@ -1846,7 +1746,7 @@ h_3 & h_6 & h_7 & h_{11} \\
 % \label{rem.flush}
 % Let $\lambda/\mu$ be a skew partition with at least one cell. Let $\alpha/\beta$ be another ribbon with $\beta \subseteq \alpha$,  that is obtained from
 % $\lambda/\mu$ by a parallel translations of the Young diagram upwards and leftwards, and satisfies $\alpha_{1}>\beta_{1}$ and
-% $\ell\left(  \alpha\right)  >\ell\left(  \beta\right) $. Then 
+% $\ell\left(  \alpha\right)  >\ell\left(  \beta\right) $. Then
 
 % \[
 % s_{\lambda/\mu}=s_{\alpha/\beta}
@@ -1900,7 +1800,7 @@ h_3 & h_6 & h_7 & h_{11} \\
 % \end{definition}
 
 % \begin{example}
-% Consider the matrix 
+% Consider the matrix
 % \[
 % \left(
 % \begin{array}
@@ -1913,21 +1813,21 @@ h_3 & h_6 & h_7 & h_{11} \\
 % \right)
 % \]
 
-% This is an upper Hessenberg matrix since $a_{1,3},a_{1,4}$ and $a_{2,4}$ are all $0$. 
+% This is an upper Hessenberg matrix since $a_{1,3},a_{1,4}$ and $a_{2,4}$ are all $0$.
 % \end{example}
 
 \begin{lemma}
 \label{lemma.Hessenberg}
-Let $\lambda= (\lambda_1, \lambda_2, \ldots, \lambda_{\ell})$  and $\mu= (\mu_1, \mu_2, \ldots, \mu_{\ell}) \subseteq \lambda$ be two partitions such that $\lambda/\mu$ is a ribbon. 
+Let $\lambda= (\lambda_1, \lambda_2, \ldots, \lambda_{\ell})$  and $\mu= (\mu_1, \mu_2, \ldots, \mu_{\ell}) \subseteq \lambda$ be two partitions such that $\lambda/\mu$ is a ribbon.
 Suppose that $\lambda_1> \mu_1$ and $\lambda_\ell > \mu_\ell = 0$.\\
- 
+
 The Jacobi--Trudi matrix $J(\lambda/\mu)$ of the ribbon $\lambda/\mu$ has the following properties
 (where the notation $\tup{J(\lambda/\mu)}_{i,j}$ means the $\tup{i,j}$-th entry of this matrix):
 
 \begin{statement}
 \textbf{(i)} We have $J(\lambda/\mu)_{j+1,j}=1$ for each $j \in [\ell-1]$.
 \end{statement}
- 
+
 \begin{statement}
 \textbf{(ii)} We have $J(\lambda/\mu)_{i,j}=0$ whenever
 $i, j \in [\ell]$ satisfy $i > j+1$.
