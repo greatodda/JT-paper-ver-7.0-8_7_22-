@@ -118,7 +118,6 @@
 \newcommand{\calF}{\mathcal{F}}
 \newcommand{\calP}{\mathcal{P}}
 \newcommand{\Fq}{\mathbb{F}_q}
-\newcommand{\IN}{\ive{N}}
 \renewcommand{\leq}{\leqslant}
 \renewcommand{\geq}{\geqslant}
 \renewcommand{\subset}{\subseteq}
@@ -942,7 +941,8 @@ actually be a particular case of Theorem \ref{thm.multislant.prob} below.)
 Now, we claim the following:
 
 \begin{theorem}
-\label{thm.multislant.prob}Let $M$ be a multislant matrix that is square. Let
+\label{thm.multislant.prob}Let $M$ be a multislant matrix that is square and
+nontrivial. Let
 $\left(  i,j,\ell\right)  $ be the signature of $M$, and let $k=i+j+\ell$ be
 the number of blocks of $M$. Then,%
 \begin{equation}
@@ -1045,7 +1045,7 @@ replaced by a new block, which has type 0.
 \end{lemma}
 
 \begin{proof}
-[Proof idea.]First, we sketch the argument; then, we will track it on an example.
+First, we sketch the argument; then, we will track it on an example.
 
 The block $A_{i}$ has at least as many columns as the block $A_{j}$, and thus
 has at most as many full paradiagonals as the block $A_{j}$ (since the two
@@ -1176,7 +1176,7 @@ M^{j\rightarrow v}\right)  .
 \end{lemma}
 
 \begin{proof}
-[Proof idea.]Consider the bottom element of $A_{j}$; this is an indeterminate
+Consider the bottom element of $A_{j}$; this is an indeterminate
 (since $A_{j}$ has type X). When we substitute a random element of $\Fq$ for
 each of the indeterminates appearing in $M$, this indeterminate becomes an
 element of $\Fq$. More precisely, for each $v\in \Fq$, this indeterminate becomes
@@ -1203,7 +1203,7 @@ M^{\prime}\right)  $.
 \end{lemma}
 
 \begin{proof}
-[Proof idea.]\textbf{(a)} When we pass from $M$ to $M^{\prime}$, each block of
+\textbf{(a)} When we pass from $M$ to $M^{\prime}$, each block of
 type 0 becomes a block of type X (since it loses a row and thus loses its
 bottommost full paradiagonal, which consisted of zeroes). The strange block
 either remains a block of type 1 (if it had more than one column), or
@@ -1211,6 +1211,7 @@ disappears entirely (if it didn't). These account for all blocks of
 $M^{\prime}$. Thus, the matrix $M^{\prime}$ is a multislant matrix of
 signature $\left(  k-1,0,1\right)  $ or $\left(  k-1,0,0\right)  $ (depending
 on whether the strange block had more than one column or not).
+\medskip
 
 \textbf{(b)} The bottom row of $M$ has only one nonzero entry, which is the
 bottom element of the strange block. Since the strange block has type 1, this
@@ -1225,7 +1226,8 @@ M=\operatorname*{SiPr}\left(  M^{\prime}\right)  $.
 \begin{proof}
 [Proof of Theorem \ref{thm.multislant.prob}.]Induct on the size of the
 matrix $M$. Inside that induction step, make a strong induction on $2i+\ell$.
-So let us consider a multislant matrix $M$ that is square and has signature
+So let us consider a multislant matrix $M$ that is square and nonempty and
+has signature
 $\left(  i,j,\ell\right)  $. Let $k=i+j+\ell$ be its number of blocks. We must
 prove the equality (\ref{eq.thm.multislant.prob.eq}). We are in one of the
 following four cases:
@@ -1435,11 +1437,9 @@ of signature $(p, n-p, 1)$.
 (See Definition~\ref{def.multislant} for the definition of the signature.)
 \end{lemma}
 
-% TODO: Remark on $n > k-1$.
-
 \begin{proof}
 By definition,
-$\lambda = (p+(k-1)n, p+(k-2)n, \ldots, p+n, p)$.
+$\lambda = (p+(k-1)n,\ p+(k-2)n,\ \ldots,\ p+n,\ p)$.
 Thus, $\lambda_i = p + (k-i)n$ for each $i \in [k]$.
 
 Define a $k\times k$-matrix $M = \tup{M_{i,j}}_{i,j\in[k]}$
@@ -1451,6 +1451,8 @@ M_{i,j} = \lambda_{i}-i+j
 \]
 Thus, $J(\lambda) = \left( h_{M_{i,j}} \right)_{i,j \in [k]}$.
 
+We observe that any two entries lying in the same column
+of $M$ are congruent modulo $n+1$.
 For each index $q \leq n+1$,
 the columns $q,\ q+(n+1),\ q+2(n+1),\ \ldots$ of $M$
 contain exactly the entries of $M$ that are congruent to $M_{q,q} = \lambda_q$ modulo $n+1$.
