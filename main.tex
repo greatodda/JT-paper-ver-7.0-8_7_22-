@@ -182,7 +182,7 @@ Let $\mathbb{F}_q$ be a finite field.
 % 0 & 1 & z_{1}
 % \end{pmatrix} =0 ,
 % \]
-% where $z_{1},z_{2},z_{3}$ are elements of $\mathbb{F}_{q}$ chosen
+% where $z_{1},z_{2},z_{3}$ are elements of $\Fq$ chosen
 % at random (uniformly and independently).
 % This probability is $\dfrac{1}{q}$, as can easily be checked by hand.
 % It is less obvious that this property generalizes to $n\times n$-matrices formed like the matrix above (i.e., Toeplitz matrices with distinct indeterminates on and above the main diagonal, $1$s just below the main diagonal, and $0$s further below).
@@ -276,7 +276,7 @@ We also prove a certain symmetry property (Theorem~\ref{thm.transpose}) for the 
 
 \section{\label{sec.def}Notations and background}
 
-Fix a finite field $\mathbb{F}_{q}$. Consider the polynomial ring
+Fix a finite field $\Fq$. Consider the polynomial ring
 \[
 \mathcal{P} := \mathbb{Z}\left[  h_{1},h_{2},h_{3},\ldots\right]
 \]
@@ -284,16 +284,16 @@ in countably many indeterminates $h_{1},h_{2},h_{3},\ldots$.
 
 \begin{definition}
 \label{def.mapstozero}
-For any $f\in\mathcal{P}$ and $a\in\mathbb{F}_{q}$,
+For any $f\in\mathcal{P}$ and $a\in \Fq$,
 let $N\in\mathbb{N}$ be such that $f$ only
 involves the indeterminates $h_{1},h_{2},\ldots,h_{N}$.
 Define the \emph{probability of $f$ evaluating to $a$}
 to be the rational number
 \[
 P\left(  f\mapsto a\right)  :=\dfrac{\left(  \text{\# of }\left(  z_{1}%
-,z_{2},\ldots,z_{N}\right)  \in\mathbb{F}_{q}^{N} \mid f\left(
+,z_{2},\ldots,z_{N}\right)  \in \Fq^{N} \mid f\left(
 z_{1},z_{2},\ldots,z_{N}\right)  =a\right)  }{\left(  \text{\# of all }\left(
-z_{1},z_{2},\ldots,z_{N}\right)  \in\mathbb{F}_{q}^{N}\right)  }.
+z_{1},z_{2},\ldots,z_{N}\right)  \in \Fq^{N}\right)  }.
 \]
 \end{definition}
 
@@ -720,8 +720,8 @@ e & f
 \end{definition}
 
 \begin{definition}
-\label{def.slant}
-A \emph{slant matrix} means a tall Toeplitz matrix of the form%
+\label{def.slant} A \emph{slant matrix} means a tall Toeplitz matrix of the
+form%
 \[
 \left(
 \begin{array}
@@ -740,8 +740,7 @@ u_{0} & \ddots & u_{2} & \vdots\\
 where
 
 \begin{itemize}
-\item each asterisk (``$\ast$'') is an element
-of $\Fq$;
+\item each asterisk (``$\ast$'') is an element of $\Fq$;
 
 \item $u_{1},u_{2},\ldots,u_{m}$ are $m$ distinct indeterminates; and
 
@@ -759,8 +758,8 @@ has \emph{type 1} if $u_{0}\in \Fq\setminus\left\{  0\right\}  $.
 Thus, in a slant matrix,
 
 \begin{itemize}
-\item all attic entries are elements of $\Fq$ and are equal along each
-paradiagonal (but can differ between different paradiagonals);
+\item all attic entries are indeterminates or elements of $\Fq$,
+and are equal along each paradiagonal (but can differ between different paradiagonals);
 
 \item all basement entries are $0$;
 
@@ -779,7 +778,7 @@ For example, the matrices%
 \left(
 \begin{array}
 [c]{ccc}%
-z & 2 & 7\\
+z & 2 & w\\
 y & z & 2\\
 x & y & z\\
 & x & y\\
@@ -796,7 +795,7 @@ y & z\\
 \right)  ,\ \ \ \left(
 \begin{array}
 [c]{cccc}%
-z & 3 & 1 & 2\\
+z & 3 & 1 & w\\
 y & z & 3 & 1\\
 4 & y & z & 3\\
 & 4 & y & z\\
@@ -805,7 +804,7 @@ y & z & 3 & 1\\
 \end{array}
 \right)
 \]
-(where $x,y,z$ are three distinct indeterminates) are slant matrices of type
+(where $x,y,z,w$ are three distinct indeterminates) are slant matrices of type
 X, type 0 and type 1, respectively (assuming that $4\neq0$ in $\Fq$).
 
 \begin{definition}
@@ -849,13 +848,12 @@ x & z\\
 \right)  $ are not.
 
 \begin{definition}
-\label{def.multislant}
-A \emph{multislant matrix} means a matrix $M$ of the form $\left(  A_{1}\mid
-A_{2}\mid\cdots\mid A_{k}\right)  $, where $A_{1},A_{2},\ldots,A_{k}$ are
-pairwise disjoint slant matrices with the same number of rows. In this case,
-the slant matrices $A_{1},A_{2},\ldots,A_{k}$ are called the \emph{blocks} of
-$M$. Moreover, the \emph{signature} of $M$ is defined to be the triple
-$\left(  i,j,\ell\right)  $, where
+\label{def.multislant} A \emph{multislant matrix} means a matrix $M$ of the
+form $\left(  A_{1}\mid A_{2}\mid\cdots\mid A_{k}\right)  $, where
+$A_{1},A_{2},\ldots,A_{k}$ are pairwise disjoint slant matrices with the same
+number of rows. In this case, the slant matrices $A_{1},A_{2},\ldots,A_{k}$
+are called the \emph{blocks} of $M$. Moreover, the \emph{signature} of $M$ is
+defined to be the triple $\left(  i,j,\ell\right)  $, where
 
 \begin{itemize}
 \item $i$ is the number of blocks of $M$ that have type X,
@@ -873,7 +871,7 @@ For example, the matrix%
 \left(
 \begin{array}
 [c]{ccccccccccccc}%
-z & 1 & 0 & 4 & w & 3 & 3 & e & 0 & t & 3 & 4 & 9\\
+z & 1 & 0 & p & w & 3 & 3 & e & 0 & t & 3 & 4 & 9\\
 y & z & 1 & 0 & v & w & 3 & d & e & s & t & 3 & 4\\
 0 & y & z & 1 & u & v & w & c & d & 3 & s & t & 3\\
 & 0 & y & z & 1 & u & v & b & c &  & 3 & s & t\\
@@ -884,8 +882,9 @@ y & z & 1 & 0 & v & w & 3 & d & e & s & t & 3 & 4\\
 \]
 (where all letters are distinct indeterminates) is a multislant matrix with
 four blocks. The signature of this multislant matrix is $\left(  1,1,2\right)
-$ if $3\neq0$ in $\Fq$ (since it has $1$ block of type X, $1$ block of type 0
-and $2$ blocks of type 1), and is $\left(  1,2,1\right)  $ if $3=0$ in $\Fq$.
+$ if $3\neq0$ in $\Fq$ (since it has $1$ block of type X, $1$ block
+of type 0 and $2$ blocks of type 1), and is $\left(  1,2,1\right)  $ if $3=0$
+in $\Fq$.
 
 Note that the (empty) $0\times0$-matrix is a multislant matrix (with $0$
 blocks and signature $\left(  0,0,0\right)  $), but not a slant matrix. We
@@ -894,10 +893,10 @@ recall that the determinant of this $0\times0$-matrix is $1$ (by definition).
 \begin{definition}
 \label{def.SiPr}Let $M$ be a multislant matrix that is square. The
 \emph{singular probability} of $M$ is defined to be the probability that $\det
-M$ becomes $0$ if we substitute a random element of $\Fq$ for each of the
-indeterminates appearing in $M$. (Here, the random elements of $\Fq$ are meant
-to be chosen uniformly and independently.) The singular probability of $M$
-will be denoted by $\operatorname*{SiPr}M$.
+M$ becomes $0$ if we substitute a random element of $\Fq$ for each
+of the indeterminates appearing in $M$. (Here, the random elements of
+$\Fq$ are meant to be chosen uniformly and independently.) The
+singular probability of $M$ will be denoted by $\operatorname*{SiPr}M$.
 \end{definition}
 
 For example, if $M$ is the multislant matrix $\left(
@@ -909,8 +908,8 @@ a & b & x\\
 \end{array}
 \right)  $ (for four distinct indeterminates $a,b,x,y$), then the singular
 probability $\operatorname*{SiPr}M$ of $M$ is the probability that four
-(uniformly and independently) random elements $\alpha,\beta,\xi,\theta$ of $\Fq$
-satisfy $\det\left(
+(uniformly and independently) random elements $\alpha,\beta,\xi,\theta$ of
+$\Fq$ satisfy $\det\left(
 \begin{array}
 [c]{ccc}%
 \beta & 3 & \theta\\
@@ -934,17 +933,17 @@ set $\gamma_{0}=1$.
 \end{definition}
 
 It is well-known that $\gamma_{k}=\left\vert \operatorname*{GL}\nolimits_{k-1}%
-\left(  \Fq\right)  \right\vert /\left\vert \operatorname*{M}\nolimits_{k-1}%
-\left(  \Fq\right)  \right\vert $ for every positive integer $k$. (But this will
-actually be a particular case of Theorem \ref{thm.multislant.prob} below.)
+\left(  \Fq\right)  \right\vert /\left\vert \operatorname*{M}%
+\nolimits_{k-1}\left(  \Fq\right)  \right\vert $ for every positive
+integer $k$. (But this will actually be a particular case of Theorem
+\ref{thm.multislant.prob} below.)
 
 Now, we claim the following:
 
 \begin{theorem}
 \label{thm.multislant.prob}Let $M$ be a multislant matrix that is square and
-nontrivial. Let
-$\left(  i,j,\ell\right)  $ be the signature of $M$, and let $k=i+j+\ell$ be
-the number of blocks of $M$. Then,%
+nontrivial. Let $\left(  i,j,\ell\right)  $ be the signature of $M$, and let
+$k=i+j+\ell$ be the number of blocks of $M$. Then,%
 \begin{equation}
 \operatorname*{SiPr}M=1-\gamma_{k}\left(  1-\dfrac{0^{\ell}}{q^{i}}\right)  .
 \label{eq.thm.multislant.prob.eq}%
@@ -971,21 +970,21 @@ $\operatorname*{SiPr}M=1-\gamma_{k}\left(  1-\dfrac{1}{q^{i}}\right)  $.
 \end{itemize}
 
 Theorem \ref{thm.multislant.prob} is proved by induction, based on a few
-lemmas. We need a notation:
+lemmas. First, we need some more notations:
 
 \begin{definition}
 Let $A$ be a slant matrix. Let $u_{0}$ be the bottommost entry in the last
 column of $A$. Thus, $u_{0}$ is either an indeterminate (if $A$ has type X) or
-$0$ (if $A$ has type 0) or a nonzero element of $\Fq$ (if $A$ has type 1).
-Moreover, the bottommost full paradiagonal of $A$ is $\left(  u_{0}%
-,u_{0},\ldots,u_{0}\right)  $.
+$0$ (if $A$ has type 0) or a nonzero element of $\Fq$ (if $A$ has
+type 1). Moreover, the bottommost full paradiagonal of $A$ is $\left(
+u_{0},u_{0},\ldots,u_{0}\right)  $.
 
 \textbf{(a)} We call $u_{0}$ the \emph{bottom element} of $A$.
 
-\textbf{(b)} For any $v\in \Fq$, we let $A^{\rightarrow v}$ denote the result of
-replacing all entries on the bottommost full paradiagonal of $A$ by $v$. Thus,
-$A^{\rightarrow v}$ is a slant matrix of type 0 if $v=0$, and otherwise is a
-slant matrix of type 1.
+\textbf{(b)} For any $v\in\Fq$, we let $A^{\rightarrow v}$ denote
+the result of replacing all entries on the bottommost full paradiagonal of $A$
+by $v$. Thus, $A^{\rightarrow v}$ is a slant matrix of type 0 if $v=0$, and
+otherwise is a slant matrix of type 1.
 \end{definition}
 
 For example, if $A=\left(
@@ -1023,15 +1022,36 @@ y & z & 3\\
 \]
 
 
+\begin{definition}
+\textbf{(a)} A slant matrix is said to be \emph{strict} if all its attic
+entries are elements of $\Fq$ (rather than indeterminates).
+
+\textbf{(b)} A multislant matrix is said to be \emph{strict} if all its blocks
+are strict.
+\end{definition}
+
+For example, the multislant matrix $\left(
+\begin{array}
+[c]{cccccc}%
+z & t & 2 & v & 1 & s\\
+y & z & t & u & v & r\\
+x & y & z & w & u & q\\
+& x & y & 1 & w & p\\
+&  & x &  & 1 & 0
+\end{array}
+\right)  $ is not strict, since its first block has the indeterminate $t$ in
+its attic; replacing this indeterminate $t$ by any constant element of
+$\Fq$ would make this matrix strict.
+
 Now, we can state the lemmas that will help us prove Theorem
 \ref{thm.multislant.prob} by induction:
 
 \begin{lemma}
-\label{lem.multislant.red11}Let $M$ be a multislant matrix that is square.
-Assume that $M$ has at least two blocks of type 1. Let $A_{i}$ and $A_{j}$ be
-two blocks of $M$ that have type 1, with $i\neq j$. Assume that the block
-$A_{i}$ has at least as many columns as the block $A_{j}$. Then, there is a
-multislant matrix $M^{\prime}$ with the following properties:
+\label{lem.multislant.red11}Let $M$ be a strict multislant matrix that is
+square. Assume that $M$ has at least two blocks of type 1. Let $A_{i}$ and
+$A_{j}$ be two blocks of $M$ that have type 1, with $i\neq j$. Assume that the
+block $A_{i}$ has at least as many columns as the block $A_{j}$. Then, there
+is a strict multislant matrix $M^{\prime}$ with the following properties:
 
 \begin{itemize}
 \item The matrix $M^{\prime}$ is square and has the same size as $M$.
@@ -1054,24 +1074,22 @@ indeterminates as the block $A_{j}$ (since both blocks have type 1, so their
 number of indeterminates equals their number of full paradiagonals minus $1$).
 Now, from each column of $A_{j}$, we subtract a scalar multiple of the
 corresponding column of $A_{i}$\ \ \ \ \footnote{Here, we are counting the
-columns of a block from the right. That is, the ``corresponding column''
-of the $3$-rd-to-last column of
-$A_{j}$ is the $3$-rd-to-last column of $A_{i}$. The reason why this
-``corresponding column'' always exists is
-that the block $A_{i}$ has at least as many columns as the block $A_{j}$.}
-(choosing the scalar factor in such a way that the subtraction will turn the
-bottommost full paradiagonal of $A_{j}$ into $\left(  0,0,\ldots,0\right)  $).
-As a result of this subtraction, the indeterminates in $A_{j}$ are replaced by
-``quasi-indeterminates'' (i.e., differences
-of the form ``indeterminate minus a scalar'' or
-``indeterminate minus a scalar multiple of another
+columns of a block from the right. That is, the ``corresponding column'' of
+the $3$-rd-to-last column of $A_{j}$ is the $3$-rd-to-last column of $A_{i}$.
+The reason why this ``corresponding column'' always exists is that the block
+$A_{i}$ has at least as many columns as the block $A_{j}$.} (choosing the
+scalar factor in such a way that the subtraction will turn the bottommost full
+paradiagonal of $A_{j}$ into $\left(  0,0,\ldots,0\right)  $). As a result of
+this subtraction, the indeterminates in $A_{j}$ are replaced by
+``quasi-indeterminates'' (i.e., differences of the form ``indeterminate minus
+a scalar'' or ``indeterminate minus a scalar multiple of another
 indeterminate''). However, these ``quasi-indeterminates'' are still uniformly
-independently
-distributed over $\Fq$ when we evaluate our probability, and we can apply a
-change of variables to transform them back into distinct indeterminates; as a
-result, the block $A_{j}$ once again becomes a slant matrix, but now one of
-type 0 (since its bottommost full paradiagonal is $\left(  0,0,\ldots
-,0\right)  $). The full matrix obtained is $M^{\prime}$.
+independently distributed over $\Fq$ when we evaluate our
+probability, and we can apply a change of variables to transform them back
+into distinct indeterminates; as a result, the block $A_{j}$ once again
+becomes a slant matrix, but now one of type 0 (since its bottommost full
+paradiagonal is $\left(  0,0,\ldots,0\right)  $). The full matrix obtained is
+$M^{\prime}$.
 
 Here is an example: Assume that
 \[
@@ -1141,10 +1159,11 @@ a & b & 2 & y & z\\
 \end{array}
 \right)  ;
 \]
-this is our matrix $M^{\prime}$. It is again a multislant matrix, and it
-differs from $M$ only in that the block $A_{j}$ has been replaced by a block
-of type 0. Since our column operations have left the determinant unchanged, we
-have $\operatorname*{SiPr}M=\operatorname*{SiPr}\left(  M^{\prime}\right)  $.
+this is our matrix $M^{\prime}$. It is again a strict multislant matrix, and
+it differs from $M$ only in that the block $A_{j}$ has been replaced by a
+block of type 0. Since our column operations have left the determinant
+unchanged, we have $\operatorname*{SiPr}M=\operatorname*{SiPr}\left(
+M^{\prime}\right)  $.
 
 Note how we used that the block $A_{i}$ has at least as many columns as the
 block $A_{j}$ (indeed, this ensured that each column of $A_{j}$ had a
@@ -1152,35 +1171,37 @@ corresponding column of $A_{i}$ to subtract from it), and also how we used
 that the block $A_{i}$ has at most as many indeterminates as the block $A_{j}$
 (indeed, this ensured that after the subtraction of columns, the
 indeterminates from $A_{i}$ got subtracted only from indeterminates in $A_{j}%
-$, rather than from the attic entries).
+$, rather than from the attic entries). Moreover, the strictness of $M$
+ensures that we have not subtracted any indeterminates from any constants.
 
 The example we have just analyzed was representative of the general case. If
 $M$ has more blocks besides $A_{i}$ and $A_{j}$, then these extra blocks are
 left untouched by the subtractions and do not interfere with the argument. If
 the bottom elements of $A_{i}$ and $A_{j}$ are not $1$ but other nonzero
-elements of $\Fq$, then we will have to subtract nontrivial scalar multiples of
-columns of $A_{j}$ rather than subtracting these columns directly, but the
-argument will not essentially change.
+elements of $\Fq$, then we will have to subtract nontrivial scalar
+multiples of columns of $A_{j}$ rather than subtracting these columns
+directly, but the argument will not essentially change.
 \end{proof}
 
 \begin{lemma}
 \label{lem.multislant.redX}Let $M$ be a multislant matrix that is square. Let
-$A_{j}$ be a block of $M$ that has type X. For any $v\in \Fq$, we let
-$M^{j\rightarrow v}$ be the multislant matrix obtained from $M$ by replacing
-the block $A_{j}$ by $A_{j}^{\rightarrow v}$. Then,
+$A_{j}$ be a block of $M$ that has type X. For any $v\in\Fq$, we
+let $M^{j\rightarrow v}$ be the multislant matrix obtained from $M$ by
+replacing the block $A_{j}$ by $A_{j}^{\rightarrow v}$. Then,
 \[
-\operatorname*{SiPr}M=\dfrac{1}{q}\sum_{v\in \Fq}\operatorname*{SiPr}\left(
-M^{j\rightarrow v}\right)  .
+\operatorname*{SiPr}M=\dfrac{1}{q}\sum_{v\in\Fq}%
+\operatorname*{SiPr}\left(  M^{j\rightarrow v}\right)  .
 \]
 
 \end{lemma}
 
 \begin{proof}
-Consider the bottom element of $A_{j}$; this is an indeterminate
-(since $A_{j}$ has type X). When we substitute a random element of $\Fq$ for
-each of the indeterminates appearing in $M$, this indeterminate becomes an
-element of $\Fq$. More precisely, for each $v\in \Fq$, this indeterminate becomes
-$v$ with probability $\dfrac{1}{q}$. Thus, the claim follows.
+Consider the bottom element of $A_{j}$; this is an indeterminate (since
+$A_{j}$ has type X). When we substitute a random element of $\Fq$
+for each of the indeterminates appearing in $M$, this indeterminate becomes an
+element of $\Fq$. More precisely, for each $v\in\Fq$,
+this indeterminate becomes $v$ with probability $\dfrac{1}{q}$. Thus, the
+claim follows.
 \end{proof}
 
 \begin{lemma}
@@ -1188,11 +1209,10 @@ $v$ with probability $\dfrac{1}{q}$. Thus, the claim follows.
 has $k$ blocks and signature $\left(  0,k-1,1\right)  $.
 
 Thus, all but one blocks of $M$ have type 0, whereas the remaining block has
-type 1. Let us refer to the latter block as the ``strange
-block''. Let $M^{\prime}$ be the matrix obtained from $M$ by
-removing the bottommost row of $M$ and the rightmost column of the strange
-block. (Note that this will cause the strange block to disappear entirely if
-it had only one column.) Then:
+type 1. Let us refer to the latter block as the ``strange block''. Let
+$M^{\prime}$ be the matrix obtained from $M$ by removing the bottommost row of
+$M$ and the rightmost column of the strange block. (Note that this will cause
+the strange block to disappear entirely if it had only one column.) Then:
 
 \textbf{(a)} The matrix $M^{\prime}$ is again a multislant matrix of signature
 $\left(  k-1,0,1\right)  $ or $\left(  k-1,0,0\right)  $ (depending on whether
@@ -1203,34 +1223,48 @@ M^{\prime}\right)  $.
 \end{lemma}
 
 \begin{proof}
-\textbf{(a)} When we pass from $M$ to $M^{\prime}$, each block of
-type 0 becomes a block of type X (since it loses a row and thus loses its
-bottommost full paradiagonal, which consisted of zeroes). The strange block
-either remains a block of type 1 (if it had more than one column), or
-disappears entirely (if it didn't). These account for all blocks of
-$M^{\prime}$. Thus, the matrix $M^{\prime}$ is a multislant matrix of
-signature $\left(  k-1,0,1\right)  $ or $\left(  k-1,0,0\right)  $ (depending
-on whether the strange block had more than one column or not).
-\medskip
+\textbf{(a)} When we pass from $M$ to $M^{\prime}$, each block of type 0
+becomes a block of type X (since it loses a row and thus loses its bottommost
+full paradiagonal, which consisted of zeroes). The strange block either
+remains a block of type 1 (if it had more than one column), or disappears
+entirely (if it didn't). These account for all blocks of $M^{\prime}$. Thus,
+the matrix $M^{\prime}$ is a multislant matrix of signature $\left(
+k-1,0,1\right)  $ or $\left(  k-1,0,0\right)  $ (depending on whether the
+strange block had more than one column or not). \medskip
 
 \textbf{(b)} The bottom row of $M$ has only one nonzero entry, which is the
 bottom element of the strange block. Since the strange block has type 1, this
-bottom element must be some nonzero element $v\in \Fq$. Thus, expanding the
-determinant of $M$ along the bottom row yields $\det M=\pm v\det\left(
-M^{\prime}\right)  $ (since $v$ is the only nonzero entry in the bottom row of
-$M$). Since $v$ is nonzero, this yields that $\det M$ vanishes exactly when
-$\det\left(  M^{\prime}\right)  $ vanishes. Hence, $\operatorname*{SiPr}%
-M=\operatorname*{SiPr}\left(  M^{\prime}\right)  $.
+bottom element must be some nonzero element $v\in\Fq$. Thus,
+expanding the determinant of $M$ along the bottom row yields $\det M=\pm
+v\det\left(  M^{\prime}\right)  $ (since $v$ is the only nonzero entry in the
+bottom row of $M$). Since $v$ is nonzero, this yields that $\det M$ vanishes
+exactly when $\det\left(  M^{\prime}\right)  $ vanishes. Hence,
+$\operatorname*{SiPr}M=\operatorname*{SiPr}\left(  M^{\prime}\right)  $.
 \end{proof}
 
 \begin{proof}
-[Proof of Theorem \ref{thm.multislant.prob}.]Induct on the size of the
-matrix $M$. Inside that induction step, make a strong induction on $2i+\ell$.
-So let us consider a multislant matrix $M$ that is square and nonempty and
-has signature
-$\left(  i,j,\ell\right)  $. Let $k=i+j+\ell$ be its number of blocks. We must
-prove the equality (\ref{eq.thm.multislant.prob.eq}). We are in one of the
-following four cases:
+[Proof of Theorem \ref{thm.multislant.prob}.]Induct on the size of the matrix
+$M$. Inside that induction step, make a strong induction on $2i+\ell$. So let
+us consider a multislant matrix $M$ that is square and nonempty and has
+signature $\left(  i,j,\ell\right)  $. Let $k=i+j+\ell$ be its number of
+blocks. We must prove the equality (\ref{eq.thm.multislant.prob.eq}).
+
+We WLOG assume that the multislant matrix $M$ is strict.\footnote{Indeed,
+assume that (\ref{eq.thm.multislant.prob.eq}) is proved in the case when $M$
+is strict. In other words, $\operatorname*{SiPr}M=1-\gamma_{k}\left(
+1-\dfrac{0^{\ell}}{q^{i}}\right)  $ whenever $M$ is strict. Now, let $M$ be
+arbitrary (not necessarily strict). We shall refer to the indeterminates that
+appear as attic entries in the blocks of $M$ as \emph{attic variables}. If we
+substitute a random element of $\Fq$ for each of the attic
+variables, then the matrix $M$ becomes strict, and thus (by our assumption)
+$\operatorname*{SiPr}M$ becomes $1-\gamma_{k}\left(  1-\dfrac{0^{\ell}}{q^{i}%
+}\right)  $. Hence, $\operatorname*{SiPr}M$ also equals $1-\gamma_{k}\left(
+1-\dfrac{0^{\ell}}{q^{i}}\right)  $ before these substitutions. In other
+words, (\ref{eq.thm.multislant.prob.eq}) holds for arbitrary $M$. This shows
+that \textquotedblleft$M$ is strict\textquotedblright\ is indeed a WLOG
+assumption.}
+
+We are in one of the following four cases:
 
 \textit{Case 1:} The matrix $M$ has at least one block of type X.
 
@@ -1247,14 +1281,15 @@ Let us first consider Case 1. In this case, the matrix $M$ has at least one
 block of type X. Let $A_{j}$ be this block. Thus, Lemma
 \ref{lem.multislant.redX} yields%
 \begin{equation}
-\operatorname*{SiPr}M=\dfrac{1}{q}\sum_{v\in \Fq}\operatorname*{SiPr}\left(
-M^{j\rightarrow v}\right)  , \label{pf.thm.multislant.prob.c1.1}%
+\operatorname*{SiPr}M=\dfrac{1}{q}\sum_{v\in\Fq}%
+\operatorname*{SiPr}\left(  M^{j\rightarrow v}\right)  ,
+\label{pf.thm.multislant.prob.c1.1}%
 \end{equation}
 where $M^{j\rightarrow v}$ is defined as in Lemma \ref{lem.multislant.redX}.
-Now, for any nonzero $v\in \Fq$, the matrix $M^{j\rightarrow v}$ has signature
-$\left(  i-1,j,\ell+1\right)  $ (since it is obtained from $M$ by replacing
-the type-X block $A_{j}$ by a type-1 block) and still has $k$ blocks, and thus
-satisfies%
+Now, for any nonzero $v\in\Fq$, the matrix $M^{j\rightarrow v}$ has
+signature $\left(  i-1,j,\ell+1\right)  $ (since it is obtained from $M$ by
+replacing the type-X block $A_{j}$ by a type-1 block) and still has $k$
+blocks, and thus satisfies%
 \[
 \operatorname*{SiPr}\left(  M^{j\rightarrow v}\right)  =1-\gamma_{k}\left(
 1-\dfrac{0^{\ell+1}}{q^{i-1}}\right)
@@ -1276,13 +1311,14 @@ block $A_{j}$ by a type-0 block) and still has $k$ blocks, and thus satisfies%
 (by the induction hypothesis of our strong induction, since $2\left(
 i-1\right)  +\ell<2i+\ell$). Now, (\ref{pf.thm.multislant.prob.c1.1}) becomes%
 \begin{align*}
-\operatorname*{SiPr}M  &  =\dfrac{1}{q}\sum_{v\in \Fq}\operatorname*{SiPr}%
-\left(  M^{j\rightarrow v}\right)  =\dfrac{1}{q}\left(  \operatorname*{SiPr}%
-\left(  M^{j\rightarrow0}\right)  +\sum_{\substack{v\in \Fq;\\v\neq
-0}}\operatorname*{SiPr}\left(  M^{j\rightarrow v}\right)  \right) \\
+\operatorname*{SiPr}M  &  =\dfrac{1}{q}\sum_{v\in\Fq}%
+\operatorname*{SiPr}\left(  M^{j\rightarrow v}\right)  =\dfrac{1}{q}\left(
+\operatorname*{SiPr}\left(  M^{j\rightarrow0}\right)  +\sum_{\substack{v\in
+\Fq;\\v\neq0}}\operatorname*{SiPr}\left(  M^{j\rightarrow
+v}\right)  \right) \\
 &  =\dfrac{1}{q}\left(  \left(  1-\gamma_{k}\left(  1-\dfrac{0^{\ell}}%
-{q^{i-1}}\right)  \right)  +\sum_{\substack{v\in \Fq;\\v\neq0}}\left(
-1-\gamma_{k}\right)  \right) \\
+{q^{i-1}}\right)  \right)  +\sum_{\substack{v\in\Fq;\\v\neq
+0}}\left(  1-\gamma_{k}\right)  \right) \\
 &  \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \left(  \text{by
 (\ref{pf.thm.multislant.prob.c1.3}) and (\ref{pf.thm.multislant.prob.c1.2}%
 )}\right) \\
@@ -1305,7 +1341,7 @@ We assumed that $M$ has more than $1$ block of type 1. Thus, $M$ has at least
 two distinct blocks of type 1. Let these two blocks be $A_{i}$ and $A_{j}$,
 labelled in such a way that the block $A_{i}$ has at least as many columns as
 the block $A_{j}$. Thus, Lemma \ref{lem.multislant.red11} yields that there is
-a multislant matrix $M^{\prime}$ with the following properties:
+a strict multislant matrix $M^{\prime}$ with the following properties:
 
 \begin{itemize}
 \item The matrix $M^{\prime}$ is square and has the same size as $M$.
@@ -1341,16 +1377,15 @@ thus $\left(  \underbrace{i}_{=0},\underbrace{j}_{=k-1},\underbrace{\ell}%
 _{=1}\right)  =\left(  0,k-1,1\right)  $. Thus, the matrix $M$ has signature
 $\left(  0,k-1,1\right)  $. Hence, all but one blocks of $M$ have type 0,
 whereas the remaining block has type 1. Let us refer to the latter block as
-the ``strange block''. Let $M^{\prime}$ be the
-matrix obtained from $M$ by removing the bottommost row of $M$ and the
-rightmost column of the strange block. (Note that this will cause the strange
-block to disappear entirely if it had only one column.) Then, Lemma
-\ref{lem.multislant.red01} \textbf{(a)} yields that the matrix $M^{\prime}$ is
-again a multislant matrix of signature $\left(  k-1,0,1\right)  $ or $\left(
-k-1,0,0\right)  $ (depending on whether the strange block had more than one
-column or not). Furthermore, Lemma \ref{lem.multislant.red01} \textbf{(b)}
-yields that $\operatorname*{SiPr}M=\operatorname*{SiPr}\left(  M^{\prime
-}\right)  $.
+the ``strange block''. Let $M^{\prime}$ be the matrix obtained from $M$ by
+removing the bottommost row of $M$ and the rightmost column of the strange
+block. (Note that this will cause the strange block to disappear entirely if
+it had only one column.) Then, Lemma \ref{lem.multislant.red01} \textbf{(a)}
+yields that the matrix $M^{\prime}$ is again a multislant matrix of signature
+$\left(  k-1,0,1\right)  $ or $\left(  k-1,0,0\right)  $ (depending on whether
+the strange block had more than one column or not). Furthermore, Lemma
+\ref{lem.multislant.red01} \textbf{(b)} yields that $\operatorname*{SiPr}%
+M=\operatorname*{SiPr}\left(  M^{\prime}\right)  $.
 
 We WLOG assume that $M$ is not a $1\times1$-matrix (because if $M$ is a
 $1\times1$-matrix, then it is easy to see that $k=1$ and $M=\left(
@@ -1377,8 +1412,8 @@ on whether the strange block had more than one column or not). Since this
 matrix $M^{\prime}$ has smaller size than $M$, we can thus use the induction
 hypothesis (of our first induction) to see that%
 \begin{align*}
-&\operatorname*{SiPr}\left(  M^{\prime}\right)  \\
- &  =%
+&  \operatorname*{SiPr}\left(  M^{\prime}\right) \\
+&  =%
 \begin{cases}
 1-\gamma_{k}\left(  1-\dfrac{0^{1}}{q^{k-1}}\right)  , & \text{if the strange
 block had more than one column};\\
@@ -1531,7 +1566,7 @@ partition $\lambda$.
 
 \begin{theorem}
 \label{thm.transpose}Let $\lambda/\mu$ be a skew partition. Let $a\in
-\mathbb{F}_{q}$. Then,
+\Fq$. Then,
 \[
 P\left(  s_{\lambda/\mu}\mapsto a\right)  =P\left(  s_{\lambda^{t}/\mu^{t}%
 }\mapsto a\right)  .
@@ -1554,8 +1589,8 @@ that send  $f$ to  $a$} \right)  }{q^N}.
 \end{proposition}
 \begin{proof}
 By the universal property of polynomial rings, for each $N$-tuple $\left(  z_{1},z_{2}%
-,\ldots,z_{N}\right)  \in\mathbb{F}_{q}^{N}$, there exists a unique ring
-homomorphism $\varphi:\Lambda_{\leq N}\rightarrow\mathbb{F}_{q}$ that
+,\ldots,z_{N}\right)  \in\Fq^{N}$, there exists a unique ring
+homomorphism $\varphi:\Lambda_{\leq N}\rightarrow\Fq$ that
 sends the indeterminates $h_{1},h_{2},\ldots,h_{N}$ to $z_{1},z_{2}
 ,\ldots,z_{N}$, respectively. Thus, the $N$-tuples in
 $\Fq^N$ are in bijection with the ring homomorphisms
@@ -1628,7 +1663,7 @@ h_{n}\right)  $ can be written as a polynomial in $h_{1},h_{2},\ldots,h_{n}$.
 \begin{proposition}
 \label{prop.friendly-aut}Let $\beta:\mathcal{P}\rightarrow\mathcal{P}$ be a
 ring automorphism such that both $\beta$ and $\beta^{-1}$ are friendly. Let
-$f\in\mathcal{P}$ and $a\in\mathbb{F}_{q}$. Then,%
+$f\in\mathcal{P}$ and $a\in\Fq$. Then,%
 \[
 P\left(  f\mapsto a\right)  =P\left(  \beta\left(  f\right)  \mapsto a\right)
 .
@@ -1646,9 +1681,9 @@ Let $\Lambda_{\leq N}$ be the subring of $\Lambda$ generated by $h_{1}%
 \Lambda_{\leq N}$. The definition of $P\left(  f\mapsto a\right)  $ yields%
 \begin{equation}
 P\left(  f\mapsto a\right)  :=\dfrac{\left(  \text{\# of }\left(  z_{1}%
-,z_{2},\ldots,z_{N}\right)  \in\mathbb{F}_{q}^{N}\mid f\left(  z_{1}%
+,z_{2},\ldots,z_{N}\right)  \in\Fq^{N}\mid f\left(  z_{1}%
 ,z_{2},\ldots,z_{N}\right)  =a\right)  }{\left(  \text{\# of all }\left(
-z_{1},z_{2},\ldots,z_{N}\right)  \in\mathbb{F}_{q}^{N}\right)  }%
+z_{1},z_{2},\ldots,z_{N}\right)  \in\Fq^{N}\right)  }%
 .\label{pf.prop.friendly-aut.P1}%
 \end{equation}
 
@@ -1657,35 +1692,35 @@ However, $\mathcal{P}_{\leq N}$ is the polynomial ring over $\mathbb{Z}$ in
 the indeterminates $h_{1},h_{2},\ldots,h_{N}$ (since $h_{1},h_{2},\ldots
 ,h_{N}$ are algebraically independent by definition). Hence, by the universal
 property of polynomial rings, for each $N$-tuple $\left(  z_{1},z_{2}%
-,\ldots,z_{N}\right)  \in\mathbb{F}_{q}^{N}$, there exists a unique ring
-homomorphism $\varphi:\mathcal{P}_{\leq N}\rightarrow\mathbb{F}_{q}$ that
+,\ldots,z_{N}\right)  \in\Fq^{N}$, there exists a unique ring
+homomorphism $\varphi:\mathcal{P}_{\leq N}\rightarrow\Fq$ that
 sends these indeterminates $h_{1},h_{2},\ldots,h_{N}$ to $z_{1},z_{2}%
 ,\ldots,z_{N}$, respectively. In other words, the map%
 \begin{align*}
 \left\{  \text{ring homomorphisms }\varphi:\mathcal{P}_{\leq N}\rightarrow
-\mathbb{F}_{q}\right\}    & \rightarrow\mathbb{F}_{q}^{N},\\
+\Fq\right\}    & \rightarrow\Fq^{N},\\
 \varphi & \mapsto\left(  \varphi\left(  h_{1}\right)  ,\varphi\left(
 h_{2}\right)  ,\ldots,\varphi\left(  h_{N}\right)  \right)
 \end{align*}
 is a bijection. It restricts to a bijection
 \begin{align*}
 & \text{from }\left\{  \text{ring homomorphisms }\varphi:\mathcal{P}_{\leq
-N}\rightarrow\mathbb{F}_{q}\ \mid\ \varphi\left(  f\right)  =a\right\}  \\
+N}\rightarrow\Fq\ \mid\ \varphi\left(  f\right)  =a\right\}  \\
 & \text{to }\left\{  \left(  z_{1},z_{2},\ldots,z_{N}\right)  \in
-\mathbb{F}_{q}^{N}\ \mid\ f\left(  z_{1},z_{2},\ldots,z_{N}\right)
+\Fq^{N}\ \mid\ f\left(  z_{1},z_{2},\ldots,z_{N}\right)
 =a\right\}
 \end{align*}
 (because for any ring homomorphism $\varphi:\mathcal{P}_{\leq N}%
-\rightarrow\mathbb{F}_{q}$, we have the equality
+\rightarrow\Fq$, we have the equality
 $\varphi\left(  f\right)  =f\left(
 \varphi\left(  h_{1}\right)  ,\varphi\left(  h_{2}\right)  ,\ldots
 ,\varphi\left(  h_{N}\right)  \right)  $). Hence, by the bijection principle,%
 \begin{align}
 & \left(  \text{\# of ring homomorphisms }\varphi:\mathcal{P}_{\leq
-N}\rightarrow\mathbb{F}_{q}\ \mid\ \varphi\left(  f\right)  =a\right)
+N}\rightarrow\Fq\ \mid\ \varphi\left(  f\right)  =a\right)
 \nonumber\\
 & =\left(  \text{\# of }\left(  z_{1},z_{2},\ldots,z_{N}\right)  \in
-\mathbb{F}_{q}^{N}\mid f\left(  z_{1},z_{2},\ldots,z_{N}\right)  =a\right)
+\Fq^{N}\mid f\left(  z_{1},z_{2},\ldots,z_{N}\right)  =a\right)
 .\label{pf.prop.friendly-aut.1}%
 \end{align}
 
@@ -1709,19 +1744,19 @@ $h_{1},h_{2},\ldots,h_{N}$. Therefore, the same argument that gave us
 yields%
 \begin{align}
 & \left(  \text{\# of ring homomorphisms }\varphi:\mathcal{P}_{\leq
-N}\rightarrow\mathbb{F}_{q}\ \mid\ \varphi\left(  g\right)  =a\right)
+N}\rightarrow\Fq\ \mid\ \varphi\left(  g\right)  =a\right)
 \nonumber\\
 & =\left(  \text{\# of }\left(  z_{1},z_{2},\ldots,z_{N}\right)  \in
-\mathbb{F}_{q}^{N}\mid g\left(  z_{1},z_{2},\ldots,z_{N}\right)  =a\right)
+\Fq^{N}\mid g\left(  z_{1},z_{2},\ldots,z_{N}\right)  =a\right)
 .\label{pf.prop.friendly-aut.2}%
 \end{align}
 Likewise, the same argument that gave us (\ref{pf.prop.friendly-aut.P1})
 yields%
 \begin{equation}
 P\left(  g\mapsto a\right)  :=\dfrac{\left(  \text{\# of }\left(  z_{1}%
-,z_{2},\ldots,z_{N}\right)  \in\mathbb{F}_{q}^{N}\mid g\left(  z_{1}%
+,z_{2},\ldots,z_{N}\right)  \in\Fq^{N}\mid g\left(  z_{1}%
 ,z_{2},\ldots,z_{N}\right)  =a\right)  }{\left(  \text{\# of all }\left(
-z_{1},z_{2},\ldots,z_{N}\right)  \in\mathbb{F}_{q}^{N}\right)  }%
+z_{1},z_{2},\ldots,z_{N}\right)  \in\Fq^{N}\right)  }%
 .\label{pf.prop.friendly-aut.P2}%
 \end{equation}
 
@@ -1731,28 +1766,28 @@ satisfies $g=\beta\left(  f\right)  =\beta_{N}\left(  f\right)  $ (since
 $\beta_{N}$ is a restriction of $\beta$). Thus, there is a bijection%
 \begin{align*}
 & \left\{  \text{ring homomorphisms }\varphi:\mathcal{P}_{\leq N}%
-\rightarrow\mathbb{F}_{q}\ \mid\ \varphi\left(  g\right)  =a\right\}  \\
+\rightarrow\Fq\ \mid\ \varphi\left(  g\right)  =a\right\}  \\
 & \mapsto\left\{  \text{ring homomorphisms }\varphi:\mathcal{P}_{\leq
-N}\rightarrow\mathbb{F}_{q}\ \mid\ \varphi\left(  f\right)  =a\right\}
+N}\rightarrow\Fq\ \mid\ \varphi\left(  f\right)  =a\right\}
 \end{align*}
 given by $\varphi\mapsto\varphi\circ\beta_{N}$ (its inverse sends $\varphi$ to
 $\varphi\circ\left(  \beta_{N}\right)  ^{-1}$). Hence, by the bijection
 principle, we have%
 \begin{align*}
 & \left(  \text{\# of ring homomorphisms }\varphi:\mathcal{P}_{\leq
-N}\rightarrow\mathbb{F}_{q}\ \mid\ \varphi\left(  g\right)  =a\right)  \\
+N}\rightarrow\Fq\ \mid\ \varphi\left(  g\right)  =a\right)  \\
 & =\left(  \text{\# of ring homomorphisms }\varphi:\mathcal{P}_{\leq
-N}\rightarrow\mathbb{F}_{q}\ \mid\ \varphi\left(  f\right)  =a\right)  .
+N}\rightarrow\Fq\ \mid\ \varphi\left(  f\right)  =a\right)  .
 \end{align*}
 In other words, the left hand sides of the equalities
 (\ref{pf.prop.friendly-aut.2}) and (\ref{pf.prop.friendly-aut.1}) are equal.
 Therefore, so are their right hand sides. In other words,%
 \begin{align*}
 & \left(  \text{\# of }\left(  z_{1},z_{2},\ldots,z_{N}\right)  \in
-\mathbb{F}_{q}^{N}\mid g\left(  z_{1},z_{2},\ldots,z_{N}\right)  =a\right)
+\Fq^{N}\mid g\left(  z_{1},z_{2},\ldots,z_{N}\right)  =a\right)
 \\
 & =\left(  \text{\# of }\left(  z_{1},z_{2},\ldots,z_{N}\right)  \in
-\mathbb{F}_{q}^{N}\mid f\left(  z_{1},z_{2},\ldots,z_{N}\right)  =a\right)  .
+\Fq^{N}\mid f\left(  z_{1},z_{2},\ldots,z_{N}\right)  =a\right)  .
 \end{align*}
 Thus, the right hand sides of the equalities (\ref{pf.prop.friendly-aut.P2})
 and (\ref{pf.prop.friendly-aut.P1}) are equal. Hence, so are their left hand
@@ -2085,7 +2120,7 @@ Hence, we cannot have $\lambda_{j+1}>\mu_{j}+1$. Therefore, $\lambda_{j+1}\leq \
 \begin{theorem}
 \label{thm.ribbon}
 Let $\lambda/\mu$ be a ribbon, and recall that $s_{\lambda/\mu}$ is the corresponding Schur function.
-Let $a\in \mathbb{F}_{q}$.
+Let $a\in \Fq$.
 Then,
 \[
 P(s_{\lambda/\mu} \longmapsto a) = 1/q.
@@ -2117,7 +2152,7 @@ exactly one value of $z_N \in \Fq$ that satisfies
 $s_{\lambda / \mu } \tup{z_1, z_2, \ldots, z_{N}} = a$.
 In other words, we have
 \[
-\left(  \text{\# of }\left(  z_{1},z_{2},\ldots,z_{N}\right)  \in\mathbb{F}_{q}^{N}
+\left(  \text{\# of }\left(  z_{1},z_{2},\ldots,z_{N}\right)  \in\Fq^{N}
 \ \mid\ (-1)^{n+1} z_N + g( z_1, z_2, \ldots,z_{N-1}) =a\right)
 = q^{N-1}.
 \]
@@ -2126,9 +2161,9 @@ From Definition \ref{def.mapstozero}, we have
 \begin{align*}
 P\left(  s_{\lambda / \mu }\mapsto a\right)
 &=\dfrac{\left(  \text{\# of }\left(  z_{1}%
-,z_{2},\ldots,z_{N}\right)  \in\mathbb{F}_{q}^{N}\text{ such that } s_{\lambda / \mu } \left(
+,z_{2},\ldots,z_{N}\right)  \in\Fq^{N}\text{ such that } s_{\lambda / \mu } \left(
 z_{1},z_{2},\ldots,z_{N}\right)  =a\right)  }{\left(  \text{\# of all }\left(
-z_{1},z_{2},\ldots,z_{N}\right)  \in\mathbb{F}_{q}^{N}\right)  }\\
+z_{1},z_{2},\ldots,z_{N}\right)  \in\Fq^{N}\right)  }\\
 \\
 &=\dfrac{q^{N-1}}{q^N} =\dfrac{1}{q} .
 \end{align*}
