@@ -310,8 +310,8 @@ elements.
 
 We can identify the polynomial ring
 $\mathcal{P}=\mathbb{Z}\left[  h_{1},h_{2},h_{3},\ldots\right]  $
-with the ring $\Lambda$ of ``symmetric
-functions'', which are in fact symmetric formal power series in
+with the ring $\Lambda$ of ``\emph{symmetric
+functions}'', which are in fact symmetric formal power series in
 countably many indeterminates $x_{1},x_{2},x_{3},\ldots$
 having bounded degree (see \cite[Section 7.1]{EC2} or
 \cite[Section I.2]{Macdonald}).
@@ -473,8 +473,10 @@ $J\tup{\lambda}$, after each $h_i$ has been specialized to $z_i$.
 
 \section{\label{sec.mulslant}Multislant matrices and $p$-shifted $n$-staircases}
 
-The first type of partition that we will study are $p$-shifted $n$-staircases (which can be more commonly thought of partitions whose entries form an arithmetic progression).
-Here is their definition:
+The first type of partition that we will study are $p$-shifted $n$-staircases.
+These are precisely the partitions whose entries form a non-constant
+arithmetic progression.
+Explicitly, they are defined as follows:
 
 \begin{definition}
 Let $p > 0$, $n > 0$ and $k \geq 0$ be integers.
@@ -499,7 +501,7 @@ The name, of course, refers to the shape of the Young diagram.
 % \]
 
 %\end{definition}
-Anzis et al. \cite{Anzis18} conjectured that a $2$-shifted $2$-staircase $\lambda$ satisfies $P(s_{\lambda} \longmapsto 0) = \dfrac{q^2+q -1}{q^3}$. We prove this result and generalize it to arbitrary $n$ and $p$:
+Anzis et al. \cite{Anzis18} conjectured that a $2$-shifted $2$-staircase $\lambda$ satisfies $P(s_{\lambda} \mapsto 0) = \dfrac{q^2+q -1}{q^3}$. We prove this result and generalize it to arbitrary $n$ and $p$:
 
 \begin{theorem}
 \label{thm.n.staircase}
@@ -510,7 +512,7 @@ length $k$ (for given $p > 0$, $n > 0$ and $k \geq 0$).
 \begin{statement}
 \textbf{(i)} Assume that $k < n+1$ (with $p$ arbitrary). Then,
 \[
-P(s_{\lambda} \longmapsto 0) =
+P(s_{\lambda} \mapsto 0) =
 1 -
 \begin{cases}
 \prod_{i=1}^{k-1} \left(  1-\dfrac{1}{q^{i}}\right) ,
@@ -524,7 +526,7 @@ P(s_{\lambda} \longmapsto 0) =
 \begin{statement}
 \textbf{(ii)} Assume that $p \leq n$ and $k \geq n+1$. Then,
 \[
-P(s_{\lambda} \longmapsto 0) = 1- \prod_{i=1}^{n} \left(  1-\dfrac{1}{q^{i}}\right) .
+P(s_{\lambda} \mapsto 0) = 1- \prod_{i=1}^{n} \left(  1-\dfrac{1}{q^{i}}\right) .
 \]
 \end{statement}
 \end{theorem}
@@ -532,14 +534,14 @@ P(s_{\lambda} \longmapsto 0) = 1- \prod_{i=1}^{n} \left(  1-\dfrac{1}{q^{i}}\rig
 \begin{conjecture}
 \label{bigoutwardstaircases}
 Let $\lambda$ be the $p$-shifted $n$-staircase of length
-$k \geq n+1$ and $p > n$.  Then,
+$k \geq n+1$ with $p > n$.  Then,
 \[
-P(s_{\lambda} \longmapsto 0) = 1-\prod_{i=1}^{n+1} \left(  1-\dfrac{1}{q^{i}}\right).
+P(s_{\lambda} \mapsto 0) = 1-\prod_{i=1}^{n+1} \left(  1-\dfrac{1}{q^{i}}\right).
 \]
 \end{conjecture}
 
 
-Theorem \ref{thm.n.staircase} and Conjecture \ref{bigoutwardstaircases} together encompass the whole class of $p$-shifted $n$-staircases. We note that none of the four expressions for $P(s_{\lambda} \longmapsto 0)$ depend on $p$.
+Theorem \ref{thm.n.staircase} and Conjecture \ref{bigoutwardstaircases} together encompass the whole class of $p$-shifted $n$-staircases. We note that none of the four expressions for $P(s_{\lambda} \mapsto 0)$ depend on $p$.
 Theorem \ref{thm.n.staircase} \textbf{(ii)} restates Theorem \ref{thm.n.staircase-intro} from the introduction.
 
 The right hand side of Theorem~\ref{thm.n.staircase} \textbf{(ii)}
@@ -1537,7 +1539,7 @@ Hence, Theorem \ref{thm.multislant.prob} yields
 = 1 - \prod_{i=1}^{n} \left(  1-\dfrac{1}{q^{i}}\right)
 \]
 (by definition of $\gamma_{n+1}$).
-Since $P(s_{\lambda} \longmapsto 0) = \operatorname*{SiPr}\tup{J\tup{\lambda}}$,
+Since $P(s_{\lambda} \mapsto 0) = \operatorname*{SiPr}\tup{J\tup{\lambda}}$,
 this is precisely the claim of Theorem~\ref{thm.n.staircase} \textbf{(ii)}.
 \end{proof}
 
@@ -1552,8 +1554,8 @@ a particular case of \cite[Theorem 1]{Haglund}.}).
 
 Having proved Theorem~\ref{thm.n.staircase}, we can see that for $n=1$
 we have
-$P(s_{\lambda} \longmapsto 0) = \dfrac{1}{q}$, and for $n=2$ we have
-$P(s_{\lambda} \longmapsto 0) = \dfrac{q^2+q-1}{q^3}$
+$P(s_{\lambda} \mapsto 0) = \dfrac{1}{q}$, and for $n=2$ we have
+$P(s_{\lambda} \mapsto 0) = \dfrac{q^2+q-1}{q^3}$
 recovering Theorem 6.5 and proving Conjecture 10.1 from Anzis et al. \cite{Anzis18}.
 
 
@@ -1877,7 +1879,7 @@ Let $\lambda$ be a block staircase.
 \begin{statement}
 \textbf{(i)} Let $k < n+1$ (with $p$ arbitrary). Then,
 \[
-P(s_{\lambda} \longmapsto 0) =
+P(s_{\lambda} \mapsto 0) =
 1 -
 \begin{cases}
 \prod_{i=1}^{k-1} \left(  1-\dfrac{1}{q^{i}}\right) ,
@@ -1891,16 +1893,16 @@ P(s_{\lambda} \longmapsto 0) =
 \begin{statement}
 \textbf{(ii)} Let $p \leq n$ and $k \geq n+1$. Then,
 \[
-P(s_{\lambda} \longmapsto 0) = 1- \prod_{i=1}^{n} \left(  1-\dfrac{1}{q^{i}}\right) .
+P(s_{\lambda} \mapsto 0) = 1- \prod_{i=1}^{n} \left(  1-\dfrac{1}{q^{i}}\right) .
 \]
 \end{statement}
 \end{corollary}
 
 \begin{conjecture}
 \label{bigoutwardblockstaircases}
-Let $\lambda$ be a block staircase with $k \geq n+1$ and $p > n$.  Then,
+Let $\lambda$ be a block staircase with $k \geq n+1$ with $p > n$.  Then,
 \[
-P(s_{\lambda} \longmapsto 0) = 1-\prod_{i=1}^{n+1} \left(  1-\dfrac{1}{q^{i}}\right).
+P(s_{\lambda} \mapsto 0) = 1-\prod_{i=1}^{n+1} \left(  1-\dfrac{1}{q^{i}}\right).
 \]
 \end{conjecture}
 
@@ -1996,7 +1998,7 @@ h_3 & h_6 & h_7 & h_{11} \\
 
 % This follows from the definition of a of Young diagram since the diagrams of $\alpha/\beta$ and $\lambda/\mu$ differ by only a parallel translation. Thus,
 
-% \[P(s_{\lambda/\mu} \longmapsto 0) =  P(s_{\alpha/\beta} \longmapsto 0)\]
+% \[P(s_{\lambda/\mu} \mapsto 0) =  P(s_{\alpha/\beta} \mapsto 0)\]
 
 % \end{remark}
 
@@ -2123,12 +2125,12 @@ Let $\lambda/\mu$ be a ribbon, and recall that $s_{\lambda/\mu}$ is the correspo
 Let $a\in \Fq$.
 Then,
 \[
-P(s_{\lambda/\mu} \longmapsto a) = 1/q.
+P(s_{\lambda/\mu} \mapsto a) = 1/q.
 \]
 \end{theorem}
 
 \begin{proof}
-By Remark \ref{flushremark}, the skew Schur function indexed by a skew partition $\lambda / \mu$ is unchanged when the diagram of $\lambda / \mu$ is translated. We can therefore assume that the diagram of $\lambda / \mu$ has been translated as far as possible to the northwest -- i.e., that we have $\lambda_1> \mu_1$ and $\lambda_\ell > \mu_\ell =0$, where $\ell$ is the length of $\lambda$.\\
+By Remark \ref{flushremark}, the skew Schur function $s_{\lambda / \mu}$ is unchanged when the diagram of $\lambda / \mu$ is translated. We can therefore assume that the diagram of $\lambda / \mu$ has been translated as far as possible to the northwest -- i.e., that we have $\lambda_1> \mu_1$ and $\lambda_\ell > \mu_\ell =0$, where $\ell$ is the length of $\lambda$.\\
 
 Consider the submatrix of $J(\lambda/\mu)$ obtained by removing the first row and the last column of the matrix.
 By Lemma \ref{lemma.Hessenberg} \textbf{(i)} and \textbf{(ii)}, this submatrix is upper-triangular with diagonal $1, 1, \ldots, 1$, so that its determinant is $1$.
