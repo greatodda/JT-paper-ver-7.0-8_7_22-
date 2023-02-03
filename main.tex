@@ -443,8 +443,15 @@ When $\mu = \varnothing$, we denote the matrix $J(\lambda/\mu)$ and the skew Sch
 
 \begin{remark}
 \label{flushremark}
-If $\mathcal{P}$ is viewed as the ring of the symmetric functions, then the skew Schur function $s_{\lambda/\mu}$ is often defined as a sum of monomials, one corresponding to each \emph{semistandard tableau} of shape $\lambda / \mu$ (that is, each filling of the diagram of $\lambda/\mu$ by positive integers which weakly increase down the rows and strictly increase down the columns). With this definition, \eqref{eq.def-slm} is a theorem, known as the \emph{first Jacobi--Trudi identity} (see, e.g., \cite[Theorem 7.16.1]{EC2}).
-However, for our purposes, it is most convenient to take \eqref{eq.def-slm} as the definition of $s_{\lambda/\mu}$.
+If $\mathcal{P}$ is viewed as the ring of the symmetric functions, then the skew Schur function $s_{\lambda/\mu}$ is often defined combinatorially as follows: 
+a \emph{semistandard tableau} of shape $\lambda / \mu$ is a filling of the diagram of $\lambda/\mu$ by positive integers which weakly increase across rows and strictly increase down columns.
+Then $s_{\lambda/\mu}$ is the sum of monomials  $\mathbf{x}^T = {\prod\nolimits_{i}} \, x_i^{\text{\# of i's in T}}$ over all semistandard tableaux  $T$ of shape $\lambda / \mu$.
+With this definition, \eqref{eq.def-slm} is a theorem, known as the \emph{first Jacobi--Trudi identity} (see, e.g., \cite[Theorem 7.16.1]{EC2}).
+We have chosen to take \eqref{eq.def-slm} as the definition of $s_{\lambda/\mu}$ since we will 
+only need the combinatorial description of $s_{\lambda/\mu}$ in minor way in later proofs.
+%
+%If $\mathcal{P}$ is viewed as the ring of the symmetric functions, then the skew Schur function $s_{\lambda/\mu}$ is often defined as a sum of monomials, one corresponding to each \emph{semistandard tableau} of shape $\lambda / \mu$ (that is, each filling of the diagram of $\lambda/\mu$ by positive integers which weakly increase down the rows and strictly increase down the columns). With this definition, \eqref{eq.def-slm} is a theorem, known as the \emph{first Jacobi--Trudi identity} (see, e.g., \cite[Theorem 7.16.1]{EC2}).
+%However, for our purposes, it is most convenient to take \eqref{eq.def-slm} as the definition of $s_{\lambda/\mu}$.
 \end{remark}
 
 For example, if $\lambda$ is the partition $(7,4,1)$ as in Example \ref{ydiagexample}, then the Schur function $s_\lambda$ is given by
@@ -698,7 +705,7 @@ f & e & d
 \end{array}
 \right)  $ for some $a,b,c,d,e,f$.
 
-\textbf{(e)} The entries $a_{i,j}$ of $A$ will $i<j$ will be called the
+\textbf{(e)} The entries $a_{i,j}$ of $A$ with $i<j$ will be called the
 \emph{attic entries} of $A$. For example, the only attic entry of the matrix
 $\left(
 \begin{array}
@@ -742,7 +749,7 @@ u_{0} & \ddots & u_{2} & \vdots\\
 where
 
 \begin{itemize}
-\item each asterisk (``$\ast$'') is an element of $\Fq$;
+\item each asterisk (``$\ast$'') is an indeterminate or element of $\Fq$;
 
 \item $u_{1},u_{2},\ldots,u_{m}$ are $m$ distinct indeterminates; and
 
@@ -1617,9 +1624,9 @@ the \emph{fundamental involution}) defined by setting
 \omega\left(  h_{n}\right)  =e_{n}\qquad\text{for all }n\geq1.
 \]
 Now, the elementary symmetric function $e_{n}$ can be written as a polynomial in $h_{1},h_{2},\ldots,h_{n}$,
-which follows, for example, from the Jacobi--Trudi identity: 
+which follows, for example, from the Jacobi--Trudi identity:
 $e_{n}=s_{\left(  1^{n}\right)  }=\det\left(  h_{1+i-j}\right)  _{1\leq i\leq
-n,\ 1\leq j\leq n}$. Applying  $\omega$ to this, we see that 
+n,\ 1\leq j\leq n}$. Applying  $\omega$ to this, we see that
 $h_{n}$ can likewise be written as a polynomial in $e_{1},e_{2},\ldots,e_{n}$.
 Thus
 \begin{align*}
@@ -1640,7 +1647,7 @@ that send  $s_{\lambda^{t} /\mu^{t}}$ to  $a$} \right)  \\
 \to & \left(  \text{ring homomorphisms  $\Lambda_{\le N} \to \mathbb{F}_q$
 that send  $s_{\lambda /\mu}$ to  $a$} \right)
 \end{align*}
-that sends each 
+that sends each
 $\varphi$ to $\varphi \circ \omega_N$.
 This map is furthermore a bijection, since $\omega_N$ is an automorphism.
 Hence, the number of ring homomorphisms  $\Lambda_{\le N} \to \mathbb{F}_q$
