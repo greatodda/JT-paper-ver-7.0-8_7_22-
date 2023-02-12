@@ -760,7 +760,10 @@ where
 \item $u_{1},u_{2},\ldots,u_{m}$ are $m$ distinct indeterminates; and
 
 \item $u_{0}$ is either an indeterminate distinct from $u_{1},u_{2}%
-,\ldots,u_{m}$ or an element of $\Fq$.
+,\ldots,u_{m}$ or an element of $\Fq$;
+
+\item none of the indeterminates among the attic entries appears on any
+full paradiagonal.
 \end{itemize}
 
 We require $m\geq0$, and we require that the matrix have at least one column.
@@ -785,7 +788,8 @@ paradiagonal are equal);
 possibly on the bottommost full paradiagonal, whose entry can also be an
 element of $\Fq$;
 
-\item indeterminates on distinct full paradiagonals are distinct.
+\item indeterminates on any two distinct paradiagonals are distinct, except
+possibly if both of them are in the attic (i.e., on non-full paradiagonals).
 \end{itemize}
 
 For example, the matrices%
