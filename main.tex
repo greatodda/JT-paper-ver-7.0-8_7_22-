@@ -13,7 +13,6 @@
 \usepackage[breaklinks=True]{hyperref}
 \usepackage[sc]{mathpazo}
 \usepackage[T1]{fontenc}
-\usepackage{tikz}
 \usepackage{needspace}
 \usepackage{tabls}
 %TCIDATA{OutputFilter=latex2.dll}
@@ -27,7 +26,6 @@
 %BeginMSIPreambleData
 \providecommand{\U}[1]{\protect\rule{.1in}{.1in}}
 %EndMSIPreambleData
-\usetikzlibrary{arrows}
 \newcounter{exer}
 \theoremstyle{definition}
 \newtheorem{theo}{Theorem}[section]
@@ -370,6 +368,8 @@ The \emph{conjugate} $\lambda^t$ of a partition $\lambda$ is defined to be the p
 
 Example \ref{ydiagexample} below shows the construction of a Young diagram for the partition $\lambda = (7,4,1)$ and its conjugate. Note that the number of boxes in any row is the corresponding part of $\lambda$. Since a partition is a weakly decreasing sequence, the number of boxes in a row decreases as we go down the diagram.
 
+\Needspace{10pc}
+
 \begin{example}
 \label{ydiagexample}
 The conjugate of $\lambda = (7,4,1)$ is $\lambda^t =(3,2,2,2,1,1,1)$.
@@ -444,11 +444,11 @@ When $\mu = \varnothing$, we denote the matrix $J(\lambda/\mu)$ and the skew Sch
 \begin{remark}
 \label{flushremark}
 If $\mathcal{P}$ is viewed as the ring of the symmetric functions, then the skew Schur function $s_{\lambda/\mu}$ is often defined combinatorially as follows: 
-a \emph{semistandard tableau} of shape $\lambda / \mu$ is a filling of the diagram of $\lambda/\mu$ by positive integers which weakly increase across rows and strictly increase down columns.
-Then $s_{\lambda/\mu}$ is the sum of monomials  $\mathbf{x}^T = {\prod\nolimits_{i}} \, x_i^{\text{\# of i's in T}}$ over all semistandard tableaux  $T$ of shape $\lambda / \mu$.
+A \emph{semistandard tableau} of shape $\lambda / \mu$ is a filling of the Young diagram of $\lambda/\mu$ by positive integers which weakly increase along rows and strictly increase down columns.
+Then $s_{\lambda/\mu}$ is the sum of monomials  $\mathbf{x}_T = {\prod\nolimits_{i}} \, x_i^{\text{\# of $i$'s in }T}$ over all semistandard tableaux  $T$ of shape $\lambda / \mu$.
 With this definition, \eqref{eq.def-slm} is a theorem, known as the \emph{first Jacobi--Trudi identity} (see, e.g., \cite[Theorem 7.16.1]{EC2}).
 We have chosen to take \eqref{eq.def-slm} as the definition of $s_{\lambda/\mu}$ since we will 
-only need the combinatorial description of $s_{\lambda/\mu}$ in minor way in later proofs.
+only need the combinatorial description of $s_{\lambda/\mu}$ in a minor way in later proofs.
 %
 %If $\mathcal{P}$ is viewed as the ring of the symmetric functions, then the skew Schur function $s_{\lambda/\mu}$ is often defined as a sum of monomials, one corresponding to each \emph{semistandard tableau} of shape $\lambda / \mu$ (that is, each filling of the diagram of $\lambda/\mu$ by positive integers which weakly increase down the rows and strictly increase down the columns). With this definition, \eqref{eq.def-slm} is a theorem, known as the \emph{first Jacobi--Trudi identity} (see, e.g., \cite[Theorem 7.16.1]{EC2}).
 %However, for our purposes, it is most convenient to take \eqref{eq.def-slm} as the definition of $s_{\lambda/\mu}$.
@@ -553,7 +553,9 @@ Theorem \ref{thm.n.staircase} \textbf{(ii)} restates Theorem \ref{thm.n.staircas
 
 The right hand side of Theorem~\ref{thm.n.staircase} \textbf{(ii)}
 % (and of Theorem \ref{thm.multislant.prob} later on)
-is the probability of a random $n\times n$-matrix being singular over $\mathbb{F}_q$. To prove this result, we will prove a more general result which encompasses this one by setting up the machinery for a new type of matrix that is given by the evaluation of Jacobi--Trudi determinants for $n$-staircase partitions.
+is the probability of a random $n\times n$-matrix being singular over $\mathbb{F}_q$.
+% To prove this result, we will prove a more general result which encompasses this one by setting up the machinery for a new type of matrix that is given by the evaluation of Jacobi--Trudi determinants for $n$-staircase partitions.
+To prove Theorem~\ref{thm.n.staircase} \textbf{(ii)}, we will establish a more general result about a certain kind of structured matrices split into Toeplitz blocks.
 Theorem~\ref{thm.n.staircase} \textbf{(i)} can be proved similarly to our proof of Theorem~\ref{thm.n.staircase} \textbf{(ii)} below,
 but is also fairly easy to check directly, since all indeterminates
 in the matrix $J\tup{\lambda}$ are distinct (and all entries of this
@@ -728,6 +730,10 @@ e & f
 \right)  $ is $e$.
 \end{definition}
 
+In a tall matrix, the attic entries are the entries above the topmost
+full paradiagonal, whereas the basement entries are the entries below
+the bottommost full paradiagonal.
+
 \begin{definition}
 \label{def.slant} A \emph{slant matrix} means a tall Toeplitz matrix of the
 form%
@@ -749,7 +755,7 @@ u_{0} & \ddots & u_{2} & \vdots\\
 where
 
 \begin{itemize}
-\item each asterisk (``$\ast$'') is an indeterminate or element of $\Fq$;
+\item each asterisk (``$\ast$'') is an indeterminate or an element of $\Fq$;
 
 \item $u_{1},u_{2},\ldots,u_{m}$ are $m$ distinct indeterminates; and
 
@@ -813,7 +819,7 @@ y & z & 3 & 1\\
 \end{array}
 \right)
 \]
-(where $x,y,z,w$ are three distinct indeterminates) are slant matrices of type
+(where $x,y,z,w$ are four distinct indeterminates) are slant matrices of type
 X, type 0 and type 1, respectively (assuming that $4\neq0$ in $\Fq$).
 
 \begin{definition}
@@ -1074,17 +1080,20 @@ replaced by a new block, which has type 0.
 \end{lemma}
 
 \begin{proof}
-First, we sketch the argument; then, we will track it on an example.
+First, we sketch the argument; then, we will illustrate it on an example.
 
 The block $A_{i}$ has at least as many columns as the block $A_{j}$, and thus
 has at most as many full paradiagonals as the block $A_{j}$ (since the two
 blocks have the same height). Thus, the block $A_{i}$ has at most as many
-indeterminates as the block $A_{j}$ (since both blocks have type 1, so their
+indeterminates as the block $A_{j}$ (since both blocks have type 1 and
+are strict, so their
 number of indeterminates equals their number of full paradiagonals minus $1$).
+
 Now, from each column of $A_{j}$, we subtract a scalar multiple of the
 corresponding column of $A_{i}$\ \ \ \ \footnote{Here, we are counting the
 columns of a block from the right. That is, the ``corresponding column'' of
-the $3$-rd-to-last column of $A_{j}$ is the $3$-rd-to-last column of $A_{i}$.
+the $3$-rd-from-the-right column of $A_{j}$ is the $3$-rd-from-the-right
+column of $A_{i}$.
 The reason why this ``corresponding column'' always exists is that the block
 $A_{i}$ has at least as many columns as the block $A_{j}$.} (choosing the
 scalar factor in such a way that the subtraction will turn the bottommost full
@@ -1097,7 +1106,11 @@ independently distributed over $\Fq$ when we evaluate our
 probability, and we can apply a change of variables to transform them back
 into distinct indeterminates; as a result, the block $A_{j}$ once again
 becomes a slant matrix, but now one of type 0 (since its bottommost full
-paradiagonal is $\left(  0,0,\ldots,0\right)  $). The full matrix obtained is
+paradiagonal is $\left(  0,0,\ldots,0\right)  $).
+
+Thus we have transformed the block $A_j$ into a new block, which is a slant
+matrix of type 0. All other blocks of $M$ remain as they were in $M$.
+The full matrix obtained through these transformations is called
 $M^{\prime}$.
 
 Here is an example: Assume that
@@ -1136,10 +1149,10 @@ x & y\\
 \right)  ,
 \]
 both being of type 1. Now, we do what we said we would do: From each column of
-$A_{j}$, we subtract a scalar multiple of the respective column of $A_{i}$. In
+$A_{j}$, we subtract a scalar multiple of the corresponding column of $A_{i}$. In
 this case, the necessary scalar factor is $1$ (since both $A_{i}$ and $A_{j}$
 have bottom elements $1$), so we are just subtracting from each column of
-$A_{j}$ the respective column of $A_{i}$. The resulting matrix is%
+$A_{j}$ the corresponding column of $A_{i}$. The resulting matrix is%
 \[
 \widetilde{M}=\left(
 \begin{array}
@@ -1152,6 +1165,8 @@ a & b & 2 & y-b & z-2\\
 \end{array}
 \right)  .
 \]
+Note that the entries $x-a$, $y-b$ and $z-2$ in this matrix are
+``quasi-indeterminates'', whereas the $5-3$ is just a constant.
 If we now perform a change of variables that substitutes $x$, $y$ and $z$ for
 $x-a$, $y-b$ and $z-2$ in this matrix (we can do this without changing the
 singular probability, since these are independent indeterminates), then we
@@ -1171,7 +1186,8 @@ a & b & 2 & y & z\\
 this is our matrix $M^{\prime}$. It is again a strict multislant matrix, and
 it differs from $M$ only in that the block $A_{j}$ has been replaced by a
 block of type 0. Since our column operations have left the determinant
-unchanged, we have $\operatorname*{SiPr}M=\operatorname*{SiPr}\left(
+unchanged (and our substitutions have left the singular probability
+unchanged), we have $\operatorname*{SiPr}M=\operatorname*{SiPr}\left(
 M^{\prime}\right)  $.
 
 Note how we used that the block $A_{i}$ has at least as many columns as the
@@ -1210,7 +1226,7 @@ $A_{j}$ has type X). When we substitute a random element of $\Fq$
 for each of the indeterminates appearing in $M$, this indeterminate becomes an
 element of $\Fq$. More precisely, for each $v\in\Fq$,
 this indeterminate becomes $v$ with probability $\dfrac{1}{q}$. Thus, the
-claim follows.
+claim follows from the law of total probability.
 \end{proof}
 
 \begin{lemma}
@@ -1234,7 +1250,9 @@ M^{\prime}\right)  $.
 \begin{proof}
 \textbf{(a)} When we pass from $M$ to $M^{\prime}$, each block of type 0
 becomes a block of type X (since it loses a row and thus loses its bottommost
-full paradiagonal, which consisted of zeroes). The strange block either
+full paradiagonal, which consisted of zeroes\footnote{and it has at least two
+full paradiagonals, since it has more rows than columns}).
+The strange block either
 remains a block of type 1 (if it had more than one column), or disappears
 entirely (if it didn't). These account for all blocks of $M^{\prime}$. Thus,
 the matrix $M^{\prime}$ is a multislant matrix of signature $\left(
@@ -1253,12 +1271,13 @@ $\operatorname*{SiPr}M=\operatorname*{SiPr}\left(  M^{\prime}\right)  $.
 
 \begin{proof}
 [Proof of Theorem \ref{thm.multislant.prob}.]Induct on the size of the matrix
-$M$. Inside that induction step, make a strong induction on $2i+\ell$. So let
+$M$. Inside that induction step, apply strong induction on $2i+\ell$. So let
 us consider a multislant matrix $M$ that is square and nonempty and has
 signature $\left(  i,j,\ell\right)  $. Let $k=i+j+\ell$ be its number of
 blocks. We must prove the equality (\ref{eq.thm.multislant.prob.eq}).
 
-We WLOG assume that the multislant matrix $M$ is strict.\footnote{Indeed,
+Without loss of generality, we assume that the multislant matrix $M$ is
+strict.\footnote{Indeed,
 assume that (\ref{eq.thm.multislant.prob.eq}) is proved in the case when $M$
 is strict. In other words, $\operatorname*{SiPr}M=1-\gamma_{k}\left(
 1-\dfrac{0^{\ell}}{q^{i}}\right)  $ whenever $M$ is strict. Now, let $M$ be
@@ -1270,8 +1289,8 @@ $\operatorname*{SiPr}M$ becomes $1-\gamma_{k}\left(  1-\dfrac{0^{\ell}}{q^{i}%
 }\right)  $. Hence, $\operatorname*{SiPr}M$ also equals $1-\gamma_{k}\left(
 1-\dfrac{0^{\ell}}{q^{i}}\right)  $ before these substitutions. In other
 words, (\ref{eq.thm.multislant.prob.eq}) holds for arbitrary $M$. This shows
-that \textquotedblleft$M$ is strict\textquotedblright\ is indeed a WLOG
-assumption.}
+that \textquotedblleft$M$ is strict\textquotedblright\ can indeed be assumed
+without loss of generality.}
 
 We are in one of the following four cases:
 
