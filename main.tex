@@ -204,9 +204,11 @@ each $i = 2, 3, \ldots, k$ (see \cite[Proposition 1.2]{Anzis18}).
 In more complicated situations, the probability can be less well-behaved,
 although Anzis et al. prove \cite[Corollary 5.2]{Anzis18} that it is
 always greater or equal to $\dfrac{1}{q}$ and conjecture
-\cite[Conjecture 5.10]{Anzis18} that it is always less or equal to
-$1 - \abs{\operatorname{GL}_k\tup{\Fq}} / q^{k^2}
-= 1 - \prod_{i=1}^k \tup{1 - \dfrac{1}{q^i}}$.
+\cite[Conjecture 5.10]{Anzis18} that it is always less than or equal to
+\[
+1 - \abs{\operatorname{GL}_k\tup{\Fq}} / q^{k^2}
+= 1 - \prod_{i=1}^k \tup{1 - \dfrac{1}{q^i}} .
+\]
 
 The main result of the present paper is a formula for this probability
 in yet another case (proved in \S\ \ref{sec.mulslant}):
@@ -304,7 +306,7 @@ $h_i\tup{x_1, x_2, x_3, \ldots}
 x_{j_1} x_{j_2} \cdots x_{j_i} \in \Lambda$.
 In this paper, we will not actually use the $x_i$.
 However, we will use some of the structure of $\Lambda$, in
-particular the omega involution $\omega : \Lambda \to \Lambda$
+particular the omega involution $\omega \colon \Lambda \to \Lambda$
 (see, e.g., \cite[Section 7.6]{EC2} or \cite[(I.2.7)]{Macdonald}).
 
 \begin{definition}
@@ -334,7 +336,7 @@ It is denoted by $\ell\tup{\lambda}$.
 \begin{definition}
 The \emph{Young diagram} $Y\tup{\lambda}$ of a partition
 $\lambda = \left(\lambda_1, \lambda_2, \ldots, \lambda_k\right)$
-is a table of irregular shape.
+is a table (not necessarily of rectangular shape).
 Its boxes (also known as cells) are arranged in
 $k$ left-justified rows, with the $i$-th row (counted from the top)
 having $\lambda_i$ boxes. (Thus, the total number of boxes
@@ -403,7 +405,7 @@ The \emph{skew diagram} $Y\tup{\lambda / \mu}$ of a skew partition $\lambda / \m
 Any partition $\lambda$ is identified with the skew partition $\lambda / \varnothing$, where $\varnothing := \tup{0,0,0,\ldots}$ is the \emph{empty partition}.
 \end{definition}
 
-We shall now define the Jacobi--Trudi matrix of a skew partition. Our definition is more restrictive than \cite[Definition 2.3]{Anzis18}:
+We shall now define the Jacobi--Trudi matrix of a skew partition (generalizing \cite[Definition 2.3]{Anzis18}):
 
 \begin{definition}[Jacobi--Trudi matrix; skew Schur function]
 \label{Jacobi--Trudi Identity}
@@ -464,7 +466,10 @@ $J\tup{\lambda}$, after each $h_i$ has been specialized to $z_i$.
 
 \section{\label{sec.mulslant}Multislant matrices and $p$-shifted $n$-staircases}
 
-The first type of partition that we will study are $p$-shifted $n$-staircases.
+\subsection{$p$-shifted $n$-staircases}
+
+The first type of partitions that we will study are the
+$p$-shifted $n$-staircases.
 These are precisely the partitions whose entries form a non-constant
 arithmetic progression.
 Explicitly, they are defined as follows:
@@ -490,8 +495,8 @@ The name, of course, refers to the shape of the Young diagram.
 % \[
 % \lambda = (nk, n(k-1), n(k-2), \ldots,2n, n) .
 % \]
-
 %\end{definition}
+
 Anzis et al. \cite{Anzis18} conjectured that a $2$-shifted $2$-staircase $\lambda$ satisfies $P(s_{\lambda} \mapsto 0) = \dfrac{q^2+q -1}{q^3}$. We prove this result and generalize it to arbitrary $n$ and $p$:
 
 \begin{theorem}
@@ -539,8 +544,9 @@ The right hand side of Theorem~\ref{thm.n.staircase} \textbf{(ii)}
 % (and of Theorem \ref{thm.multislant.prob} later on)
 is the probability of a random $n\times n$-matrix being singular over $\mathbb{F}_q$.
 % To prove this result, we will prove a more general result which encompasses this one by setting up the machinery for a new type of matrix that is given by the evaluation of Jacobi--Trudi determinants for $n$-staircase partitions.
-To prove Theorem~\ref{thm.n.staircase} \textbf{(ii)}, we will establish a more general result about a certain kind of structured matrices split into Toeplitz blocks.
-Theorem~\ref{thm.n.staircase} \textbf{(i)} can be proved similarly to our proof of Theorem~\ref{thm.n.staircase} \textbf{(ii)} below,
+
+We shall prove Theorem~\ref{thm.n.staircase} \textbf{(ii)} in Subsection \ref{subsec.proof-shifted-staircase}. This proof will rely on a more general result about a certain kind of structured matrices split into Toeplitz blocks, which we shall establish in Subsection \ref{subsec.multislant.multislant}.
+Theorem~\ref{thm.n.staircase} \textbf{(i)} can be proved similarly,
 but is also fairly easy to check directly, since all indeterminates
 in the matrix $J\tup{\lambda}$ are distinct (and all entries of this
 matrix are indeterminates, except for some possible $0$'s and $1$'s
@@ -548,8 +554,7 @@ in the last row).
 % From our proof of Lemma \ref{multistair}, we can recognize that the columns of $J(\lambda)$ are partitioned via residue classes modulo $n+1$ with columns corresponding to two different residue classes having no mutual indeterminates. It is easy to see that for $\ell(\lambda) < n+1$, $J(\lambda)$ does not achieve columns corresponding to all residue classes thus giving us lesser slant blocks than we would expect.
 
 
-
-\subsection{Multislant matrices}
+\subsection{\label{subsec.multislant.multislant}Multislant matrices}
 
 We let $\mathbb{N}$ denote the set $\left\{  0,1,2,\ldots\right\}  $. We let
 $\left[  n\right]  =\left\{  1,2,\ldots,n\right\}  $ for each $n\in\mathbb{N}$.
@@ -634,11 +639,17 @@ with zero. For example, $\left(
 A $u\times v$-matrix is said to be \emph{tall} if $u\geq v$.
 \end{definition}
 
+We shall now define a notion of ``Toeplitz matrices'' tailored to
+our needs. (In the literature, Toeplitz matrices are usually square
+and sometimes infinite, whereas ours will be finite but usually
+non-square. Apart from these differences, our notion agrees with
+the standard one.)
+
 \begin{definition}
 Let $A=\left(  a_{i,j}\right)  _{1\leq i\leq u,\ 1\leq j\leq v}$ be a $u\times
 v$-matrix.
 
-\textbf{(a)} For each $k\in\mathbb{Z}$, the $k$\emph{-th paradiagonal} of $A$
+\textbf{(a)} For each $k\in\mathbb{Z}$, the \emph{$k$-th paradiagonal} of $A$
 will mean the list of all entries $a_{i,j}$ of $A$ with $i-j=k$. (These
 entries are listed in the order of increasing $i$, or, equivalently, in the
 order of increasing $j$.)
@@ -940,6 +951,11 @@ It is well-known that $\gamma_{k}=\left\vert \operatorname*{GL}\nolimits_{k-1}%
 \nolimits_{k-1}\left(  \Fq\right)  \right\vert $ for every positive
 integer $k$. (But this will actually be a particular case of Theorem
 \ref{thm.multislant.prob} below.)
+
+Note that using the notations of $q$-calculus (specifically, the
+$q$-Pochhammer symbol $\tup{a;\ q}_n$ as defined, e.g., in
+\cite[\S 1.2]{Johnson2020}), we can rewrite the definition of $\gamma_k$ as
+$\gamma_k = \tup{1/q;\ 1/q}_{k-1}$.
 
 Now, we claim the following:
 
@@ -1403,7 +1419,8 @@ the strange block had more than one column or not). Furthermore, Lemma
 \ref{lem.multislant.red01} \textbf{(b)} yields that $\operatorname*{SiPr}%
 M=\operatorname*{SiPr}\left(  M^{\prime}\right)  $.
 
-We WLOG assume that $M$ is not a $1\times1$-matrix (because if $M$ is a
+Without loss of generality, we assume that $M$ is not a $1\times1$-matrix
+(because if $M$ is a
 $1\times1$-matrix, then it is easy to see that $k=1$ and $M=\left(
 \begin{array}
 [c]{c}%
@@ -1475,7 +1492,7 @@ is proved.
 \end{proof}
 
 
-\subsection{Proof of Theorem \ref{thm.n.staircase} (ii)}
+\subsection{\label{subsec.proof-shifted-staircase}Proof of Theorem \ref{thm.n.staircase} (ii)}
 
 We shall now apply Theorem \ref{thm.multislant.prob} to Jacobi--Trudi matrices of $p$-shifted $n$-staircases.
 
@@ -1576,7 +1593,8 @@ recovering Theorem 6.5 and proving Conjecture 10.1 from Anzis et al. \cite{Anzis
 \section{Conjugating the skew partition}
 
 Next, we shall prove a general result that generalizes
-\cite[Corollary 3.3]{Anzis18}.
+\cite[Corollary 3.3]{Anzis18} from partitions to skew
+partitions.
 Recall that $\lambda^{t}$ denotes the conjugate of a
 partition $\lambda$.
 
@@ -1606,7 +1624,7 @@ that send  $f$ to  $a$} \right)  }{q^N}.
 \begin{proof}
 By the universal property of polynomial rings, for each $N$-tuple $\left(  z_{1},z_{2}%
 ,\ldots,z_{N}\right)  \in\Fq^{N}$, there exists a unique ring
-homomorphism $\varphi:\Lambda_{\leq N}\rightarrow\Fq$ that
+homomorphism $\varphi \colon \Lambda_{\leq N}\rightarrow\Fq$ that
 sends the indeterminates $h_{1},h_{2},\ldots,h_{N}$ to $z_{1},z_{2}
 ,\ldots,z_{N}$, respectively. Thus, the $N$-tuples in
 $\Fq^N$ are in bijection with the ring homomorphisms
@@ -1625,7 +1643,7 @@ elementary symmetric function.
 From the theory of symmetric functions (\cite[\S 7.6]{EC2} or \cite[(2.7)]%
 {Macdonald}), it is known that there is an involutive\footnote{A map is said
 to be \emph{involutive} if it is its own inverse.} ring automorphism
-$\omega:\Lambda\rightarrow\Lambda$ (known as the \emph{omega involution} or as
+$\omega \colon \Lambda\rightarrow\Lambda$ (known as the \emph{omega involution} or as
 the \emph{fundamental involution}) defined by setting
 \[
 \omega\left(  h_{n}\right)  =e_{n}\qquad\text{for all }n\geq1.
@@ -1671,13 +1689,13 @@ $P\left(  s_{\lambda/\mu}\mapsto a\right)  =P\left(  s_{\lambda^{t}/\mu^{t}%
 We will derive this from a more general result. First, we introduce a notation:
 
 \begin{definition}
-A ring endomorphism $\beta:\mathcal{P}\rightarrow\mathcal{P}$ will be called
+A ring endomorphism $\beta \colon \mathcal{P}\rightarrow\mathcal{P}$ will be called
 \emph{friendly} if for each positive integer $n$, the image $\beta\left(
 h_{n}\right)  $ can be written as a polynomial in $h_{1},h_{2},\ldots,h_{n}$.
 \end{definition}
 
 \begin{proposition}
-\label{prop.friendly-aut}Let $\beta:\mathcal{P}\rightarrow\mathcal{P}$ be a
+\label{prop.friendly-aut}Let $\beta \colon \mathcal{P}\rightarrow\mathcal{P}$ be a
 ring automorphism such that both $\beta$ and $\beta^{-1}$ are friendly. Let
 $f\in\mathcal{P}$ and $a\in\Fq$. Then,%
 \[
@@ -1709,30 +1727,30 @@ the indeterminates $h_{1},h_{2},\ldots,h_{N}$ (since $h_{1},h_{2},\ldots
 ,h_{N}$ are algebraically independent by definition). Hence, by the universal
 property of polynomial rings, for each $N$-tuple $\left(  z_{1},z_{2}%
 ,\ldots,z_{N}\right)  \in\Fq^{N}$, there exists a unique ring
-homomorphism $\varphi:\mathcal{P}_{\leq N}\rightarrow\Fq$ that
+homomorphism $\varphi \colon \mathcal{P}_{\leq N}\rightarrow\Fq$ that
 sends these indeterminates $h_{1},h_{2},\ldots,h_{N}$ to $z_{1},z_{2}%
 ,\ldots,z_{N}$, respectively. In other words, the map%
 \begin{align*}
-\left\{  \text{ring homomorphisms }\varphi:\mathcal{P}_{\leq N}\rightarrow
+\left\{  \text{ring homomorphisms }\varphi \colon \mathcal{P}_{\leq N}\rightarrow
 \Fq\right\}    & \rightarrow\Fq^{N},\\
 \varphi & \mapsto\left(  \varphi\left(  h_{1}\right)  ,\varphi\left(
 h_{2}\right)  ,\ldots,\varphi\left(  h_{N}\right)  \right)
 \end{align*}
 is a bijection. It restricts to a bijection
 \begin{align*}
-& \text{from }\left\{  \text{ring homomorphisms }\varphi:\mathcal{P}_{\leq
+& \text{from }\left\{  \text{ring homomorphisms }\varphi \colon \mathcal{P}_{\leq
 N}\rightarrow\Fq\ \mid\ \varphi\left(  f\right)  =a\right\}  \\
 & \text{to }\left\{  \left(  z_{1},z_{2},\ldots,z_{N}\right)  \in
 \Fq^{N}\ \mid\ f\left(  z_{1},z_{2},\ldots,z_{N}\right)
 =a\right\}
 \end{align*}
-(because for any ring homomorphism $\varphi:\mathcal{P}_{\leq N}%
+(because for any ring homomorphism $\varphi \colon \mathcal{P}_{\leq N}%
 \rightarrow\Fq$, we have the equality
 $\varphi\left(  f\right)  =f\left(
 \varphi\left(  h_{1}\right)  ,\varphi\left(  h_{2}\right)  ,\ldots
 ,\varphi\left(  h_{N}\right)  \right)  $). Hence, by the bijection principle,%
 \begin{align}
-& \left(  \text{\# of ring homomorphisms }\varphi:\mathcal{P}_{\leq
+& \left(  \text{\# of ring homomorphisms }\varphi \colon \mathcal{P}_{\leq
 N}\rightarrow\Fq\ \mid\ \varphi\left(  f\right)  =a\right)
 \nonumber\\
 & =\left(  \text{\# of }\left(  z_{1},z_{2},\ldots,z_{N}\right)  \in
@@ -1744,9 +1762,9 @@ N}\rightarrow\Fq\ \mid\ \varphi\left(  f\right)  =a\right)
 Since $\beta$ is friendly, it is easily seen that $\beta\left(  \Lambda_{\leq
 N}\right)  \subseteq\Lambda_{\leq N}$. Therefore, we can restrict $\beta$ to
 the subring $\Lambda_{\leq N}$ of $\Lambda$, thus obtaining a ring
-endomorphism $\beta_{N}:\Lambda_{\leq N}\rightarrow\Lambda_{\leq N}$.
+endomorphism $\beta_{N} \colon \Lambda_{\leq N}\rightarrow\Lambda_{\leq N}$.
 Likewise, we can obtain an endomorphism $\left(  \beta^{-1}\right)
-_{N}:\Lambda_{\leq N}\rightarrow\Lambda_{\leq N}$ by restricting $\beta^{-1}$
+_{N} \colon \Lambda_{\leq N}\rightarrow\Lambda_{\leq N}$ by restricting $\beta^{-1}$
 to $\Lambda_{\leq N}$ (since $\beta^{-1}$ is friendly). These two restricted
 endomorphisms $\beta_{N}$ and $\left(  \beta^{-1}\right)  _{N}$ are mutually
 inverse, and thus are automorphisms.
@@ -1759,7 +1777,7 @@ $h_{1},h_{2},\ldots,h_{N}$. Therefore, the same argument that gave us
 (\ref{pf.prop.friendly-aut.1}) can be applied to $g$ instead of $f$, and this
 yields%
 \begin{align}
-& \left(  \text{\# of ring homomorphisms }\varphi:\mathcal{P}_{\leq
+& \left(  \text{\# of ring homomorphisms }\varphi \colon \mathcal{P}_{\leq
 N}\rightarrow\Fq\ \mid\ \varphi\left(  g\right)  =a\right)
 \nonumber\\
 & =\left(  \text{\# of }\left(  z_{1},z_{2},\ldots,z_{N}\right)  \in
@@ -1781,18 +1799,18 @@ However, $\beta_{N}$ is a ring automorphism of $\Lambda_{\leq N}$, and
 satisfies $g=\beta\left(  f\right)  =\beta_{N}\left(  f\right)  $ (since
 $\beta_{N}$ is a restriction of $\beta$). Thus, there is a bijection%
 \begin{align*}
-& \left\{  \text{ring homomorphisms }\varphi:\mathcal{P}_{\leq N}%
+& \left\{  \text{ring homomorphisms }\varphi \colon \mathcal{P}_{\leq N}%
 \rightarrow\Fq\ \mid\ \varphi\left(  g\right)  =a\right\}  \\
-& \mapsto\left\{  \text{ring homomorphisms }\varphi:\mathcal{P}_{\leq
+& \mapsto\left\{  \text{ring homomorphisms }\varphi \colon \mathcal{P}_{\leq
 N}\rightarrow\Fq\ \mid\ \varphi\left(  f\right)  =a\right\}
 \end{align*}
 given by $\varphi\mapsto\varphi\circ\beta_{N}$ (its inverse sends $\varphi$ to
 $\varphi\circ\left(  \beta_{N}\right)  ^{-1}$). Hence, by the bijection
 principle, we have%
 \begin{align*}
-& \left(  \text{\# of ring homomorphisms }\varphi:\mathcal{P}_{\leq
+& \left(  \text{\# of ring homomorphisms }\varphi \colon \mathcal{P}_{\leq
 N}\rightarrow\Fq\ \mid\ \varphi\left(  g\right)  =a\right)  \\
-& =\left(  \text{\# of ring homomorphisms }\varphi:\mathcal{P}_{\leq
+& =\left(  \text{\# of ring homomorphisms }\varphi \colon \mathcal{P}_{\leq
 N}\rightarrow\Fq\ \mid\ \varphi\left(  f\right)  =a\right)  .
 \end{align*}
 In other words, the left hand sides of the equalities
@@ -1829,7 +1847,7 @@ elementary symmetric function.
 From the theory of symmetric functions (\cite[\S 7.6]{EC2} or \cite[(2.7)]%
 {Macdonald}), it is known that there is an involutive\footnote{A map is said
 to be \emph{involutive} if it is its own inverse.} ring automorphism
-$\omega:\Lambda\rightarrow\Lambda$ (known as the \emph{omega involution} or as
+$\omega \colon \Lambda\rightarrow\Lambda$ (known as the \emph{omega involution} or as
 the \emph{fundamental involution}) defined by setting
 \[
 \omega\left(  h_{n}\right)  =e_{n}\qquad\text{for all }n\geq1.
