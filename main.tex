@@ -226,6 +226,7 @@ vanishing is
 1- \prod_{i=1}^{n} \left(  1-\dfrac{1}{q^{i}}\right) .
 \]
 \end{theorem}
+
 Mysteriously, the right hand side here is also the probability of a completely random generic $n\times n$-determinant vanishing.
 
 % Theorem~\ref{thm.n.staircase-intro} is
@@ -239,6 +240,8 @@ class of determinants with similar structures (determinants of
 what we call ``multislant matrices'').
 
 Theorem~\ref{thm.n.staircase-intro} proves and generalizes \cite[Conjecture 10.1]{Anzis18} (and also confirms the upper bound conjecture \cite[Conjecture 5.10]{Anzis18} for the class of partitions covered by this theorem).
+
+Theorem~\ref{thm.n.staircase-intro} will be proved as part \textbf{(ii)} of Theorem~\ref{thm.n.staircase} further below. Part \textbf{(i)} of the same theorem will provide a similar answer in the case when $k < n+1$. The case $p > n$ appears to give rise to a similar formula for the vanishing probability (Conjecture~\ref{bigoutwardstaircases}), but one we have been unable to prove.
 \\
 
 A crucial motivation for studying the determinants of these Jacobi--Trudi matrices
@@ -257,6 +260,10 @@ A question often asked is whether the number of $\Fq$-valued points has the form
 
 We note that the values of $\det\tup{ J_{\lambda_1, \lambda_2, \ldots, \lambda_k}\tup{z_1, z_2, z_3, \ldots} }$ are not equidistributed in $\Fq$ in general, even when the value $0$ is taken with probability $\dfrac{1}{q}$. For example, equidistribution is satisfied in the hook case (\cite[Proposition 1.2]{Anzis18}) but not in the rectangle case (\cite[Lemma 9.3]{Anzis18}). Generalizing the hook case, we show that equidistribution holds for \emph{ribbons} (a class of skew partitions).
 We also prove a certain symmetry property (Theorem~\ref{thm.transpose}) for the probabilities of our determinants taking certain values.
+
+\subsubsection*{Acknowledgments}
+
+We thank the referees for helpful comments that improved the clarity of the present paper.
 
 \section{\label{sec.def}Notations and background}
 
@@ -545,13 +552,16 @@ The right hand side of Theorem~\ref{thm.n.staircase} \textbf{(ii)}
 is the probability of a random $n\times n$-matrix being singular over $\mathbb{F}_q$.
 % To prove this result, we will prove a more general result which encompasses this one by setting up the machinery for a new type of matrix that is given by the evaluation of Jacobi--Trudi determinants for $n$-staircase partitions.
 
-We shall prove Theorem~\ref{thm.n.staircase} \textbf{(ii)} in Subsection \ref{subsec.proof-shifted-staircase}. This proof will rely on a more general result about a certain kind of structured matrices split into Toeplitz blocks, which we shall establish in Subsection \ref{subsec.multislant.multislant}.
+We shall prove Theorem~\ref{thm.n.staircase} \textbf{(ii)} in Subsection \ref{subsec.proof-shifted-staircase}. This proof will rely on a more general result about a certain kind of structured matrices (consisting of rectangular Toeplitz blocks glued together along their vertical sides), which we call \emph{multislant matrices}, and which are defined in Definition~\ref{def.multislant} below. These matrices exhibit a well-behaved recursive structure, which allows us to explicitly compute the probability for their determinants to vanish (Theorem~\ref{thm.multislant.prob}). Having done that, we will be able to prove Theorem~\ref{thm.n.staircase} \textbf{(ii)} by identifying the appropriate Jacobi--Trudi matrix $J\tup{\lambda}$ as a multislant matrix after permuting its columns (Lemma~\ref{multistair}).
+
 Theorem~\ref{thm.n.staircase} \textbf{(i)} can be proved similarly,
 but is also fairly easy to check directly, since all indeterminates
 in the matrix $J\tup{\lambda}$ are distinct (and all entries of this
 matrix are indeterminates, except for some possible $0$'s and $1$'s
 in the last row).
 % From our proof of Lemma \ref{multistair}, we can recognize that the columns of $J(\lambda)$ are partitioned via residue classes modulo $n+1$ with columns corresponding to two different residue classes having no mutual indeterminates. It is easy to see that for $\ell(\lambda) < n+1$, $J(\lambda)$ does not achieve columns corresponding to all residue classes thus giving us lesser slant blocks than we would expect.
+
+We have so far been unable to adapt this type of reasoning to Conjecture~\ref{bigoutwardstaircases}; it appears to require a looser notion of ``multislant matrices'', which no longer lends itself to an easy computation of the vanishing probability.
 
 
 \subsection{\label{subsec.multislant.multislant}Multislant matrices}

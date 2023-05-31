@@ -1,0 +1,35 @@
+We thank both referees for their highly helpful responses! We have made most of the changes suggested. Here are some responses to specific points.
+
+REFEREE 1
+
+> 4. Page 7 Conjecture 3.3. It's a bit surprising that this is a conjecture. Could you please say more about why this case is particularly hard or why the framework cannot be used?
+
+We tried, but it is not easy to say something meaningful here beyond "it does not work".
+
+> 5. Page 14. The example M is not strict for your explanation of Lemma 3.15.
+
+Why not? Are we missing something?
+
+> 6. Page 17 line -1. Delete "by a straightforward computation". I think it's already clear enough.
+
+It's meant to prevent the reader from looking up in a vain search of what is being used.
+
+REFEREE 2
+
+> 1. Might be useful to mention what the Lang–Weil estimate and the Schwarz–Zippel bounds tell us about the probability that
+det Jλ is 0.
+
+Lang-Weil, in the form I know it, is a tad too abstract and asymptotic to give something concrete here ("there exist some constants such that..."). Schwartz-Zippel yields that the vanishing probability for s_\lambda is at most \ell(\lambda)/q; this already appears in Lemma 5.3 of the Anzis/Chen/Gao/Kim/Li/Patrias paper. This bound is a far cry from the values we have been able to prove.
+
+> 3. p. 5: Before Definition 2.9, you say your definition is more restrictive than [1, Definition 2.3]. In what way? Mention this in the paper.
+
+Good catch -- it was actually less, not more restrictive!
+
+> 6. p. 9: In Definition 3.7 you write “the matrix have at least”. Here “have” should be “has”.
+
+Subjunctive mood.
+
+> 10. p. 21: In beginning of section 4 you say you generalize Corollary 3.3 of [1], but you don’t say what this corollary says. Please describe the corollary.
+
+Now saying "that generalizes [1, Corollary 3.3] from partitions to skew partitions". This should hopefully explain what that corollary is saying.
+
