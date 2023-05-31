@@ -176,7 +176,7 @@ Let $\mathbb{F}_q$ be a finite field.
 A \emph{Jacobi--Trudi matrix} is a matrix of the form
 \begin{align*}
 J_{\lambda_1, \lambda_2, \ldots, \lambda_k}\tup{z_1, z_2, z_3, \ldots}
-&:=
+& := 
 \left(  z_{\lambda_{i}-i+j}\right)_{1\leq i\leq k,\ 1\leq j\leq k}
 \\
 &= \begin{pmatrix}
@@ -269,7 +269,7 @@ We thank the referees for helpful comments that improved the clarity of the pres
 
 Fix a finite field $\Fq$. Consider the polynomial ring
 \[
-\mathcal{P} := \mathbb{Z}\left[  h_{1},h_{2},h_{3},\ldots\right]
+\mathcal{P}  :=  \mathbb{Z}\left[  h_{1},h_{2},h_{3},\ldots\right]
 \]
 in countably many indeterminates $h_{1},h_{2},h_{3},\ldots$.
 
@@ -281,7 +281,7 @@ involves the indeterminates $h_{1},h_{2},\ldots,h_{N}$.
 Define the \emph{probability of $f$ evaluating to $a$}
 to be the rational number
 \[
-P\left(  f\mapsto a\right)  :=\dfrac{\left(  \text{\# of }\left(  z_{1}%
+P\left(  f\mapsto a\right)   := \dfrac{\left(  \text{\# of }\left(  z_{1}%
 ,z_{2},\ldots,z_{N}\right)  \in \Fq^{N} \mid f\left(
 z_{1},z_{2},\ldots,z_{N}\right)  =a\right)  }{\left(  \text{\# of all }\left(
 z_{1},z_{2},\ldots,z_{N}\right)  \in \Fq^{N}\right)  }.
@@ -394,7 +394,7 @@ $Y(\lambda)$ & & $Y(\lambda^t)$ \\
 
 \begin{definition}
 If $\lambda = \tup{\lambda_1, \lambda_2, \ldots, \lambda_k}$ is
-a partition, then we set $\lambda_i := 0$ for each $i > k$.
+a partition, then we set $\lambda_i  :=  0$ for each $i > k$.
 Thus, the partition $\lambda$ is identified with the infinite
 weakly decreasing
 sequence $\tup{\lambda_1, \lambda_2, \lambda_3, \ldots}$
@@ -404,33 +404,51 @@ whose entries stabilize at $0$.
 A generalization of partitions are \emph{skew partitions}.
 
 \begin{definition}
+
+\begin{enumerate}
+
+\item[\textbf{(a)}]
 A \emph{skew partition} is a pair of partitions $(\lambda, \mu)$ such that $Y\tup{\mu} \subseteq Y\tup{\lambda}$ (or, equivalently, such that $\mu_i \leq \lambda_i$ for each $i \geq 1$); it is denoted by $\lambda / \mu$.
 We shall also use the shorthand $\mu \subseteq \lambda$ for the condition $Y\tup{\mu} \subseteq Y\tup{\lambda}$ here.
 
+\item[\textbf{(b)}]
 The \emph{skew diagram} $Y\tup{\lambda / \mu}$ of a skew partition $\lambda / \mu$ is defined as the set-theoretic difference $Y\tup{\lambda} \setminus Y\tup{\mu}$ of the Young diagrams of $\lambda$ and $\mu$: the set of boxes that belong to the diagram of $\lambda$ but not to that of $\mu$.
 
-Any partition $\lambda$ is identified with the skew partition $\lambda / \varnothing$, where $\varnothing := \tup{0,0,0,\ldots}$ is the \emph{empty partition}.
+\item[\textbf{(c)}]
+Any partition $\lambda$ is identified with the skew partition $\lambda / \varnothing$, where $\varnothing  :=  \tup{0,0,0,\ldots}$ is the \emph{empty partition}.
+
+\end{enumerate}
+
 \end{definition}
 
 We shall now define the Jacobi--Trudi matrix of a skew partition (generalizing \cite[Definition 2.3]{Anzis18}):
 
 \begin{definition}[Jacobi--Trudi matrix; skew Schur function]
 \label{Jacobi--Trudi Identity}
+
+\begin{enumerate}
+
+\item[\textbf{(a)}]
 Let $\lambda / \mu$ be a skew partition, and let $k = \ell\tup{\lambda}$.
 Define the \emph{Jacobi--Trudi matrix} of $\lambda/\mu$ to be the $k \times k$-matrix
 \[
-J(\lambda/\mu) := \tup{ h_{\lambda_i-\mu_j - i + j} }_{1\leq i\leq k,\ 1\leq j\leq k}
+J(\lambda/\mu)  :=  \tup{ h_{\lambda_i-\mu_j - i + j} }_{1\leq i\leq k,\ 1\leq j\leq k}
 \in \mathcal{P}^{k\times k} .
 \]
-Here, we set $h_0 := 1$ and $h_m := 0$ for all $m < 0$.
+Here, we set $h_0  :=  1$ and $h_m  :=  0$ for all $m < 0$.
 
+\item[\textbf{(b)}]
 The \emph{skew Schur function} of $\lambda/\mu$ is defined to be
 \begin{align}
-   s_{\lambda/\mu} := \det \tup{ J(\lambda/\mu) } \  \in \mathcal{P} .
+   s_{\lambda/\mu}  :=  \det \tup{ J(\lambda/\mu) } \  \in \mathcal{P} .
 \label{eq.def-slm}
 \end{align}
 
+\item[\textbf{(c)}]
 When $\mu = \varnothing$, we denote the matrix $J(\lambda/\mu)$ and the skew Schur function $s_{\lambda/\mu}$ as $J(\lambda)$ and $s_\lambda$, respectively.
+
+\end{enumerate}
+
 \end{definition}
 
 
@@ -512,8 +530,10 @@ Anzis et al. \cite{Anzis18} conjectured that a $2$-shifted $2$-staircase $\lambd
 Let $\lambda$ be the $p$-shifted $n$-staircase of
 length $k$ (for given $p > 0$, $n > 0$ and $k \geq 0$).
 
-\begin{statement}
-\textbf{(i)} Assume that $k < n+1$ (with $p$ arbitrary). Then,
+\begin{enumerate}
+
+\item[\textbf{(i)}]
+Assume that $k < n+1$ (with $p$ arbitrary). Then,
 \[
 P(s_{\lambda} \mapsto 0) =
 1 -
@@ -524,14 +544,15 @@ P(s_{\lambda} \mapsto 0) =
 & \text{ if } p > k-1.
 \end{cases}
 \]
-\end{statement}
 
-\begin{statement}
-\textbf{(ii)} Assume that $p \leq n$ and $k \geq n+1$. Then,
+\item[\textbf{(ii)}]
+Assume that $p \leq n$ and $k \geq n+1$. Then,
 \[
 P(s_{\lambda} \mapsto 0) = 1- \prod_{i=1}^{n} \left(  1-\dfrac{1}{q^{i}}\right) .
 \]
-\end{statement}
+
+\end{enumerate}
+
 \end{theorem}
 
 \begin{conjecture}
@@ -659,7 +680,11 @@ the standard one.)
 Let $A=\left(  a_{i,j}\right)  _{1\leq i\leq u,\ 1\leq j\leq v}$ be a $u\times
 v$-matrix.
 
-\textbf{(a)} For each $k\in\mathbb{Z}$, the \emph{$k$-th paradiagonal} of $A$
+\begin{enumerate}
+
+\item[\textbf{(a)}]
+
+For each $k\in\mathbb{Z}$, the \emph{$k$-th paradiagonal} of $A$
 will mean the list of all entries $a_{i,j}$ of $A$ with $i-j=k$. (These
 entries are listed in the order of increasing $i$, or, equivalently, in the
 order of increasing $j$.)
@@ -680,7 +705,8 @@ e & f
 \]
 
 
-\textbf{(b)} A paradiagonal of $A$ is said to be \emph{full} if it has $v$ entries.
+\item[\textbf{(b)}]
+A paradiagonal of $A$ is said to be \emph{full} if it has $v$ entries.
 
 For example, the full paradiagonals of the matrix $\left(
 \begin{array}
@@ -692,12 +718,14 @@ e & f
 \right)  $ are $\left(  a,d\right)  $ and $\left(  c,f\right)  $. Note that a
 matrix that is not tall does not have any full paradiagonals.
 
-\textbf{(c)} If $u\geq v$, then the $\left(  u-v\right)  $-th paradiagonal of
+\item[\textbf{(c)}]
+If $u\geq v$, then the $\left(  u-v\right)  $-th paradiagonal of
 a $u\times v$-matrix $A$ will also be called the \emph{bottommost full
 paradiagonal} of $A$. (It is indeed full and is indeed the bottommost of the
 full paradiagonals of $A$.)
 
-\textbf{(d)} The matrix $A$ is said to be \emph{Toeplitz} if each of its
+\item[\textbf{(d)}]
+The matrix $A$ is said to be \emph{Toeplitz} if each of its
 paradiagonals consists of equal entries (i.e., if any two entries that belong
 to the same paradiagonal are equal).
 
@@ -712,7 +740,8 @@ f & e & d
 \end{array}
 \right)  $ for some $a,b,c,d,e,f$.
 
-\textbf{(e)} The entries $a_{i,j}$ of $A$ with $i<j$ will be called the
+\item[\textbf{(e)}]
+The entries $a_{i,j}$ of $A$ with $i<j$ will be called the
 \emph{attic entries} of $A$. For example, the only attic entry of the matrix
 $\left(
 \begin{array}
@@ -723,7 +752,8 @@ e & f
 \end{array}
 \right)  $ is $b$.
 
-\textbf{(f)} The entries $a_{i,j}$ of $A$ will $i>j+u-v$ will be called the
+\item[\textbf{(f)}]
+The entries $a_{i,j}$ of $A$ will $i>j+u-v$ will be called the
 \emph{basement entries} of $A$. For example, the only basement entry of the
 matrix $\left(
 \begin{array}
@@ -733,6 +763,9 @@ c & d\\
 e & f
 \end{array}
 \right)  $ is $e$.
+
+\end{enumerate}
+
 \end{definition}
 
 In a tall matrix, the attic entries are the entries above the topmost
@@ -949,7 +982,7 @@ First, we need a notation:
 \begin{definition}
 \label{def.gammak}For each positive integer $k$, we set%
 \[
-\gamma_{k}:=\left(  1-\dfrac{1}{q^{k-1}}\right)  \left(  1-\dfrac{1}{q^{k-2}%
+\gamma_{k} := \left(  1-\dfrac{1}{q^{k-1}}\right)  \left(  1-\dfrac{1}{q^{k-2}%
 }\right)  \cdots\left(  1-\dfrac{1}{q^{1}}\right)  .
 \]
 Thus, in particular, $\gamma_{1}=1$ and $\gamma_{2}=1-\dfrac{1}{q}$. We also
@@ -1008,12 +1041,19 @@ $0$ (if $A$ has type 0) or a nonzero element of $\Fq$ (if $A$ has
 type 1). Moreover, the bottommost full paradiagonal of $A$ is $\left(
 u_{0},u_{0},\ldots,u_{0}\right)  $.
 
-\textbf{(a)} We call $u_{0}$ the \emph{bottom element} of $A$.
+\begin{enumerate}
 
-\textbf{(b)} For any $v\in\Fq$, we let $A^{\rightarrow v}$ denote
+\item[\textbf{(a)}]
+We call $u_{0}$ the \emph{bottom element} of $A$.
+
+\item[\textbf{(b)}]
+For any $v\in\Fq$, we let $A^{\rightarrow v}$ denote
 the result of replacing all entries on the bottommost full paradiagonal of $A$
 by $v$. Thus, $A^{\rightarrow v}$ is a slant matrix of type 0 if $v=0$, and
 otherwise is a slant matrix of type 1.
+
+\end{enumerate}
+
 \end{definition}
 
 For example, if $A=\left(
@@ -1052,11 +1092,19 @@ y & z & 3\\
 
 
 \begin{definition}
-\textbf{(a)} A slant matrix is said to be \emph{strict} if all its attic
+
+\begin{enumerate}
+
+\item[\textbf{(a)}]
+A slant matrix is said to be \emph{strict} if all its attic
 entries are elements of $\Fq$ (rather than indeterminates).
 
-\textbf{(b)} A multislant matrix is said to be \emph{strict} if all its blocks
+\item[\textbf{(b)}]
+A multislant matrix is said to be \emph{strict} if all its blocks
 are strict.
+
+\end{enumerate}
+
 \end{definition}
 
 For example, the multislant matrix $\left(
@@ -1253,12 +1301,19 @@ $M^{\prime}$ be the matrix obtained from $M$ by removing the bottommost row of
 $M$ and the rightmost column of the strange block. (Note that this will cause
 the strange block to disappear entirely if it had only one column.) Then:
 
-\textbf{(a)} The matrix $M^{\prime}$ is again a multislant matrix of signature
+\begin{enumerate}
+
+\item[\textbf{(a)}]
+The matrix $M^{\prime}$ is again a multislant matrix of signature
 $\left(  k-1,0,1\right)  $ or $\left(  k-1,0,0\right)  $ (depending on whether
 the strange block had more than one column or not).
 
-\textbf{(b)} We have $\operatorname*{SiPr}M=\operatorname*{SiPr}\left(
+\item[\textbf{(b)}]
+We have $\operatorname*{SiPr}M=\operatorname*{SiPr}\left(
 M^{\prime}\right)  $.
+
+\end{enumerate}
+
 \end{lemma}
 
 \begin{proof}
@@ -1622,7 +1677,7 @@ The following observation will aid in the proof.
 
 \begin{proposition}
 \label{prop.eval}
-Let $f \in \Lambda_{\le N} := \mathbb{Z}\left[  h_{1},h_{2},\ldots, h_N\right]$ and  $a \in \mathbb{F}_q$.
+Let $f \in \Lambda_{\le N}  :=  \mathbb{Z}\left[  h_{1},h_{2},\ldots, h_N\right]$ and  $a \in \mathbb{F}_q$.
 Then
 \begin{equation}
 \label{e prop eval}
@@ -1724,7 +1779,7 @@ Let $\Lambda_{\leq N}$ be the subring of $\Lambda$ generated by $h_{1}%
 ,h_{2},\ldots,h_{N}$. Hence, our choice of $N$ guarantees that $f\in
 \Lambda_{\leq N}$. The definition of $P\left(  f\mapsto a\right)  $ yields%
 \begin{equation}
-P\left(  f\mapsto a\right)  :=\dfrac{\left(  \text{\# of }\left(  z_{1}%
+P\left(  f\mapsto a\right)  = \dfrac{\left(  \text{\# of }\left(  z_{1}%
 ,z_{2},\ldots,z_{N}\right)  \in\Fq^{N}\mid f\left(  z_{1}%
 ,z_{2},\ldots,z_{N}\right)  =a\right)  }{\left(  \text{\# of all }\left(
 z_{1},z_{2},\ldots,z_{N}\right)  \in\Fq^{N}\right)  }%
@@ -1797,7 +1852,7 @@ N}\rightarrow\Fq\ \mid\ \varphi\left(  g\right)  =a\right)
 Likewise, the same argument that gave us (\ref{pf.prop.friendly-aut.P1})
 yields%
 \begin{equation}
-P\left(  g\mapsto a\right)  :=\dfrac{\left(  \text{\# of }\left(  z_{1}%
+P\left(  g\mapsto a\right) = \dfrac{\left(  \text{\# of }\left(  z_{1}%
 ,z_{2},\ldots,z_{N}\right)  \in\Fq^{N}\mid g\left(  z_{1}%
 ,z_{2},\ldots,z_{N}\right)  =a\right)  }{\left(  \text{\# of all }\left(
 z_{1},z_{2},\ldots,z_{N}\right)  \in\Fq^{N}\right)  }%
@@ -1918,8 +1973,10 @@ and obtain the following corollary and conjecture:
 
 Let $\lambda$ be a block staircase.
 
-\begin{statement}
-\textbf{(i)} Let $k < n+1$ (with $p$ arbitrary). Then,
+\begin{enumerate}
+
+\item[\textbf{(i)}]
+Let $k < n+1$ (with $p$ arbitrary). Then,
 \[
 P(s_{\lambda} \mapsto 0) =
 1 -
@@ -1930,14 +1987,15 @@ P(s_{\lambda} \mapsto 0) =
 & \text{ if } p > k-1.
 \end{cases}
 \]
-\end{statement}
 
-\begin{statement}
-\textbf{(ii)} Let $p \leq n$ and $k \geq n+1$. Then,
+\item[\textbf{(ii)}]
+Let $p \leq n$ and $k \geq n+1$. Then,
 \[
 P(s_{\lambda} \mapsto 0) = 1- \prod_{i=1}^{n} \left(  1-\dfrac{1}{q^{i}}\right) .
 \]
-\end{statement}
+
+\end{enumerate}
+
 \end{corollary}
 
 \begin{conjecture}
@@ -2110,18 +2168,20 @@ Suppose that $\lambda_1> \mu_1$ and $\lambda_\ell > \mu_\ell = 0$.\\
 The Jacobi--Trudi matrix $J(\lambda/\mu)$ of the ribbon $\lambda/\mu$ has the following properties
 (where the notation $\tup{J(\lambda/\mu)}_{i,j}$ means the $\tup{i,j}$-th entry of this matrix):
 
-\begin{statement}
-\textbf{(i)} We have $J(\lambda/\mu)_{j+1,j}=1$ for each $j \in [\ell-1]$.
-\end{statement}
+\begin{enumerate}
 
-\begin{statement}
-\textbf{(ii)} We have $J(\lambda/\mu)_{i,j}=0$ whenever
+\item[\textbf{(i)}]
+We have $J(\lambda/\mu)_{j+1,j}=1$ for each $j \in [\ell-1]$.
+
+\item[\textbf{(ii)}]
+We have $J(\lambda/\mu)_{i,j}=0$ whenever
 $i, j \in [\ell]$ satisfy $i > j+1$.
-\end{statement}
 
-\begin{statement}
-\textbf{(iii)} Let $N= \lambda_\ell -\mu_l-1+\ell$. The upper right entry of $J(\lambda/\mu)$ is $h_N$ and the remaining entries of $J(\lambda/\mu)$ lie in $\mathbb{Z}\left[  h_{1},h_{2},h_{3},\ldots, h_{N-1}\right]$.
-\end{statement}
+\item[\textbf{(iii)}]
+Let $N= \lambda_\ell -\mu_l-1+\ell$. The upper right entry of $J(\lambda/\mu)$ is $h_N$ and the remaining entries of $J(\lambda/\mu)$ lie in $\mathbb{Z}\left[  h_{1},h_{2},h_{3},\ldots, h_{N-1}\right]$.
+
+\end{enumerate}
+
 \end{lemma}
 
 \begin{remark}
