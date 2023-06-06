@@ -25,7 +25,6 @@
 %BeginMSIPreambleData
 \providecommand{\U}[1]{\protect\rule{.1in}{.1in}}
 %EndMSIPreambleData
-\newcounter{exer}
 \theoremstyle{definition}
 \newtheorem{theo}{Theorem}[section]
 \newenvironment{theorem}[1][]
@@ -55,14 +54,6 @@
 \newenvironment{convention}[1][]
 {\begin{conv}[#1]\begin{leftbar}}
 {\end{leftbar}\end{conv}}
-\newtheorem{quest}[theo]{Question}
-\newenvironment{question}[1][]
-{\begin{quest}[#1]\begin{leftbar}}
-{\end{leftbar}\end{quest}}
-\newtheorem{warn}[theo]{Warning}
-\newenvironment{conclusion}[1][]
-{\begin{warn}[#1]\begin{leftbar}}
-{\end{leftbar}\end{warn}}
 \newtheorem{conj}[theo]{Conjecture}
 \newenvironment{conjecture}[1][]
 {\begin{conj}[#1]\begin{leftbar}}
@@ -71,25 +62,15 @@
 \newenvironment{example}[1][]
 {\begin{exam}[#1]\begin{leftbar}}
 {\end{leftbar}\end{exam}}
-\newtheorem{exmp}[exer]{Exercise}
-\newenvironment{exercise}[1][]
-{\begin{exmp}[#1]\begin{leftbar}}
-{\end{leftbar}\end{exmp}}
 \newenvironment{statement}{\begin{quote}}{\end{quote}}
-\newenvironment{fineprint}{\begin{small}}{\end{small}}
 \iffalse
 \newenvironment{proof}[1][Proof]{\noindent\textbf{#1.} }{\ \rule{0.5em}{0.5em}}
 \newenvironment{convention}[1][Convention]{\noindent\textbf{#1.} }{\ \rule{0.5em}{0.5em}}
-\newenvironment{question}[1][Question]{\noindent\textbf{#1.} }{\ \rule{0.5em}{0.5em}}
 \fi
 \let\sumnonlimits\sum
 \let\prodnonlimits\prod
-\let\cupnonlimits\bigcup
-\let\capnonlimits\bigcap
 \renewcommand{\sum}{\sumnonlimits\limits}
 \renewcommand{\prod}{\prodnonlimits\limits}
-\renewcommand{\bigcup}{\cupnonlimits\limits}
-\renewcommand{\bigcap}{\capnonlimits\limits}
 \setlength\tablinesep{3pt}
 \setlength\arraylinesep{3pt}
 \setlength\extrarulesep{3pt}
@@ -97,30 +78,14 @@
 \setlength\textwidth{14.8cm}
 \newenvironment{verlong}{}{}
 \newenvironment{vershort}{}{}
-\newenvironment{noncompile}{}{}
 \excludecomment{verlong}
 \includecomment{vershort}
-\excludecomment{noncompile}
-\newcommand{\defn}[1]{{\color{darkred}\emph{#1}}}
-\newcommand{\CC}{\mathbb{C}}
-\newcommand{\RR}{\mathbb{R}}
-\newcommand{\QQ}{\mathbb{Q}}
 \newcommand{\NN}{\mathbb{N}}
-\newcommand{\ZZ}{\mathbb{Z}}
-\newcommand{\set}[1]{\left\{ #1 \right\}}
 \newcommand{\abs}[1]{\left| #1 \right|}
 \newcommand{\tup}[1]{\left( #1 \right)}
-\newcommand{\ive}[1]{\left[ #1 \right]}
-\newcommand{\floor}[1]{\left\lfloor #1 \right\rfloor}
-\newcommand{\calF}{\mathcal{F}}
-\newcommand{\calP}{\mathcal{P}}
 \newcommand{\Fq}{\mathbb{F}_q}
 \renewcommand{\leq}{\leqslant}
 \renewcommand{\geq}{\geqslant}
-\renewcommand{\subset}{\subseteq}
-\iffalse
-\fi
-\definecolor{grey}{rgb}{0.52, 0.52, 0.51}
 \newtheoremstyle{plainsl}
 {8pt plus 2pt minus 4pt}
 {8pt plus 2pt minus 4pt}
@@ -152,6 +117,10 @@ verifying and generalizing one of their conjectures.
 More generally, we compute the probability of the determinant vanishing for a class of matrices (``multislant matrices'') made of Toeplitz blocks with certain properties.
 
 We furthermore show that the determinant of a skew Jacobi-Trudi matrix is equidistributed across the finite field if the skew partition is a ribbon.
+
+\bigskip\noindent\textbf{Keywords:} Jacobi--Trudi matrices, Schur functions, finite fields, determinants, Toeplitz matrices.
+
+\bigskip\noindent\textbf{MSC classes (2020 Mathematics Subject Classification):} 05E05, 15B05, 11T06, 11C20.
 
 \section{\label{sec.introduction}Introduction}
 
@@ -593,7 +562,6 @@ $\left[  n\right]  =\left\{  1,2,\ldots,n\right\}  $ for each $n\in\mathbb{N}$.
 All matrices appearing in the following are over $\Fq$ or over
 polynomial rings over $\Fq$.
 
-% \begin{noncompile}
 % If $A$ is a $u\times v$-matrix, then $\operatorname{col}_{i}A$ shall denote
 % the $i$-th column of $A$ for each $i\in\left[  u\right]  $.
 
@@ -614,7 +582,6 @@ polynomial rings over $\Fq$.
 % A_{k}\right)  ,\ldots,\operatorname{col}_{m_{k}}\left(  A_{k}\right)
 % \end{align*}
 % (from left to right).
-% \end{noncompile}
 
 \begin{definition}
 Let $A_{1},A_{2},\ldots,A_{k}$ be finitely many matrices with the same number
@@ -1687,7 +1654,8 @@ that send  $f$ to  $a$} \right)  }{q^N}.
 \end{equation}
 \end{proposition}
 \begin{proof}
-By the universal property of polynomial rings, for each $N$-tuple $\left(  z_{1},z_{2}%
+By the universal property of polynomial rings, we know that
+for each $N$-tuple $\left(  z_{1},z_{2}%
 ,\ldots,z_{N}\right)  \in\Fq^{N}$, there exists a unique ring
 homomorphism $\varphi \colon \Lambda_{\leq N}\rightarrow\Fq$ that
 sends the indeterminates $h_{1},h_{2},\ldots,h_{N}$ to $z_{1},z_{2}
@@ -2050,7 +2018,7 @@ Of the three skew partitions below, only the first is a ribbon, since \textbf{(i
 \begin{minipage}[t]{0.30\textwidth}
 \begin{center}
 % \ydiagram{5+3,4+3,3+2,4}
-\ydiagram[*(grey!30) ]{5+2,5+2}
+\ydiagram[*(gray!30) ]{5+2,5+2}
 *[*(white)]{5+3,4+3,3+2,4}
 
 \textbf{(ii)}\vphantom{$\int^a$}
@@ -2059,7 +2027,7 @@ Of the three skew partitions below, only the first is a ribbon, since \textbf{(i
 \begin{minipage}[t]{0.30\textwidth}
 \begin{center}
 % \ydiagram{5+3,3+3,3+1,3}
-\ydiagram[*(grey!30) ]{0,0,3+1,2+1}
+\ydiagram[*(gray!30) ]{0,0,3+1,2+1}
 *[*(white)]{5+3,3+3,3+1,3}
 
 \textbf{(iii)}\vphantom{$\int^a$}
@@ -2077,7 +2045,8 @@ Of the three skew partitions below, only the first is a ribbon, since \textbf{(i
 Let us revisit the Jacobi--Trudi identity. For the ribbon  $\lambda/\mu= (8,6,4,4)/(5,3,3)$ in Example \ref{ribbontableaux} (i), we can write down $J(\lambda/\mu)$ as follows:
 \begin{align*}
 J(\lambda/\mu)
-= % = s_{(8,6,4,4)/ (5,3,3)} =
+% = s_{(8,6,4,4)/ (5,3,3)}
+=
 \begin{pmatrix}
 h_3 & h_6 & h_7 & h_{11} \\
 1 & h_3 & h_4 & h_8 \\
