@@ -425,7 +425,11 @@ When $\mu = \varnothing$, we denote the matrix $J(\lambda/\mu)$ and the skew Sch
 \label{flushremark}
 If $\mathcal{P}$ is viewed as the ring of the symmetric functions, then the skew Schur function $s_{\lambda/\mu}$ is often defined combinatorially as follows: 
 A \emph{semistandard tableau} of shape $\lambda / \mu$ is a filling of the Young diagram of $\lambda/\mu$ by positive integers which weakly increase along rows and strictly increase down columns.
-Then $s_{\lambda/\mu}$ is the sum of monomials  $\mathbf{x}_T = {\prod\nolimits_{i}} \, x_i^{\text{\# of $i$'s in }T}$ over all semistandard tableaux  $T$ of shape $\lambda / \mu$.
+Then $s_{\lambda/\mu}$ is the sum of monomials
+\[
+\mathbf{x}_T = \prod_{i=1}^{\infty} x_i^{\text{\# of $i$'s in }T}
+\]
+over all semistandard tableaux $T$ of shape $\lambda / \mu$.
 With this definition, \eqref{eq.def-slm} is a theorem, known as the \emph{first Jacobi--Trudi identity} (see, e.g., \cite[Theorem 7.16.1]{EC2}).
 We have chosen to take \eqref{eq.def-slm} as the definition of $s_{\lambda/\mu}$ since we will 
 only need the combinatorial description of $s_{\lambda/\mu}$ in a minor way in later proofs.
@@ -1495,12 +1499,14 @@ block had more than one column};\\
 (\ref{pf.thm.multislant.prob.c3.gamma-rec})}\right)  .
 \end{align*}
 Hence,%
-\[
-\operatorname*{SiPr}M=\operatorname*{SiPr}\left(  M^{\prime}\right)
-=1-\gamma_{k}=1-\gamma_{k}\left(  1-\dfrac{0^{\ell}}{q^{i}}\right)
+\begin{align*}
+\operatorname*{SiPr}M
+&=\operatorname*{SiPr}\left(  M^{\prime}\right)
+=1-\gamma_{k} \\
+&=1-\gamma_{k}\left(  1-\dfrac{0^{\ell}}{q^{i}}\right)
 \ \ \ \ \ \ \ \ \ \ \left(  \text{since }\ell=1\text{ and thus }0^{\ell
 }=0\right)  .
-\]
+\end{align*}
 Thus, (\ref{eq.thm.multislant.prob.eq}) has been proven in Case 3.
 
 Let us finally consider Case 4. In this case, the matrix $M$ has no block of
@@ -2042,7 +2048,7 @@ Of the three skew partitions below, only the first is a ribbon, since \textbf{(i
 
 
 
-Let us revisit the Jacobi--Trudi identity. For the ribbon  $\lambda/\mu= (8,6,4,4)/(5,3,3)$ in Example \ref{ribbontableaux} (i), we can write down $J(\lambda/\mu)$ as follows:
+Let us revisit Jacobi--Trudi matrices. For the ribbon  $\lambda/\mu= (8,6,4,4)/(5,3,3)$ in Example \ref{ribbontableaux} (i), we can write down $J(\lambda/\mu)$ as follows:
 \begin{align*}
 J(\lambda/\mu)
 % = s_{(8,6,4,4)/ (5,3,3)}
