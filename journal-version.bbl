@@ -1,0 +1,64 @@
+\begin{thebibliography}{10}
+
+\bibitem{Anzis18}
+Ben Anzis, Shuli Chen, Yibo Gao, Jesse Kim, Zhaoqi Li, and Rebecca Patrias.
+\newblock Jacobi-{T}rudi determinants over finite fields.
+\newblock {\em Annals of Combinatorics}, 22(1):447--489, 2018.
+
+\bibitem{Belkale2003}
+Prakash Belkale and Patrick Brosnan.
+\newblock Matroids, motives, and a conjecture of {K}ontsevich.
+\newblock {\em Duke Mathematical Journal}, 116(1), January 2003.
+
+\bibitem{dwivedi2021rank}
+Omesh~Dhar Dwivedi and Darij Grinberg.
+\newblock On the rank of hankel matrices over finite fields.
+\newblock {\em Linear Algebra Appl.}, 641:156--181, May 2022.
+
+\bibitem{Elkies}
+Noam~D. Elkies.
+\newblock On finite sequences satisfying linear recursions.
+\newblock {\em New York Journal of Mathematics}, 8, 2002.
+
+\bibitem{Haglund}
+James Haglund.
+\newblock $q$-rook polynomials and matrices over finite fields.
+\newblock {\em Advances in Applied Mathematics}, 20(4):450--487, May 1998.
+
+\bibitem{Johnson2020}
+Warren~P. Johnson.
+\newblock {\em An introduction to $q$-analysis}.
+\newblock American Mathematical Society, 2020.
+
+\bibitem{Kontsevich}
+Maxim Kontsevich.
+\newblock Gelfand seminar talk, {R}utgers univ., 1997.
+
+\bibitem{Macdonald}
+Ian~G. Macdonald.
+\newblock {\em Symmetric Functions and Hall Polynomials}.
+\newblock Oxford Science Publications, 2 edition, 1998.
+
+\bibitem{RPStan}
+Richard~P. Stanley.
+\newblock Spanning trees and a conjecture of {K}ontsevich.
+\newblock {\em Annals of Combinatorics}, 2(4):351--363, December 1998.
+
+\bibitem{EC2}
+Richard~P. Stanley.
+\newblock {\em Enumerative Combinatorics: Volume 2}.
+\newblock Cambridge University Press, 2001.
+
+\bibitem{Stembridge}
+John~R. Stembridge.
+\newblock Counting points on varieties over finite fields related to a
+  conjecture of {K}ontsevich.
+\newblock {\em Annals of Combinatorics}, 2:365--385, 1998.
+
+\bibitem{Weil}
+Andre Weil.
+\newblock Numbers of solutions of equations in finite fields.
+\newblock {\em Bulletin of the American Mathematical Society}, 55:497--508,
+  1949.
+
+\end{thebibliography}

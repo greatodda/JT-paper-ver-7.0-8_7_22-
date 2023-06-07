@@ -1,148 +1,44 @@
-\documentclass[numbers=enddot,12pt,final,onecolumn,notitlepage]{scrartcl}%
-\usepackage[headsepline,footsepline,manualmark]{scrlayer-scrpage}
+\documentclass{elsarticle}
 \usepackage{amssymb}
 \usepackage{amsmath}
 \usepackage{amsthm}
-\usepackage{framed}
-\usepackage{comment}
 \usepackage{ytableau}
-\usepackage[maxbibnames=99,backend=bibtex]{biblatex}
-\addbibresource{hecke.bib}
 \usepackage{color}
-\usepackage[breaklinks=True]{hyperref}
-\usepackage[sc]{mathpazo}
-\usepackage[T1]{fontenc}
-\usepackage{needspace}
 \usepackage{tabls}
-%TCIDATA{OutputFilter=latex2.dll}
-%TCIDATA{Version=5.50.0.2960}
-%TCIDATA{LastRevised=Saturday, September 11, 2021 22:01:11}
-%TCIDATA{SuppressPackageManagement}
-%TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
-%TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
-%TCIDATA{BibliographyScheme=Manual}
-%TCIDATA{Language=American English}
-%BeginMSIPreambleData
-\providecommand{\U}[1]{\protect\rule{.1in}{.1in}}
-%EndMSIPreambleData
-\newcounter{exer}
+\theoremstyle{theorem}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{conjecture}[theorem]{Conjecture}
 \theoremstyle{definition}
-\newtheorem{theo}{Theorem}[section]
-\newenvironment{theorem}[1][]
-{\begin{theo}[#1]\begin{leftbar}}
-{\end{leftbar}\end{theo}}
-\newtheorem{lem}[theo]{Lemma}
-\newenvironment{lemma}[1][]
-{\begin{lem}[#1]\begin{leftbar}}
-{\end{leftbar}\end{lem}}
-\newtheorem{prop}[theo]{Proposition}
-\newenvironment{proposition}[1][]
-{\begin{prop}[#1]\begin{leftbar}}
-{\end{leftbar}\end{prop}}
-\newtheorem{defi}[theo]{Definition}
-\newenvironment{definition}[1][]
-{\begin{defi}[#1]\begin{leftbar}}
-{\end{leftbar}\end{defi}}
-\newtheorem{remk}[theo]{Remark}
-\newenvironment{remark}[1][]
-{\begin{remk}[#1]\begin{leftbar}}
-{\end{leftbar}\end{remk}}
-\newtheorem{coro}[theo]{Corollary}
-\newenvironment{corollary}[1][]
-{\begin{coro}[#1]\begin{leftbar}}
-{\end{leftbar}\end{coro}}
-\newtheorem{conv}[theo]{Convention}
-\newenvironment{convention}[1][]
-{\begin{conv}[#1]\begin{leftbar}}
-{\end{leftbar}\end{conv}}
-\newtheorem{quest}[theo]{Question}
-\newenvironment{question}[1][]
-{\begin{quest}[#1]\begin{leftbar}}
-{\end{leftbar}\end{quest}}
-\newtheorem{warn}[theo]{Warning}
-\newenvironment{conclusion}[1][]
-{\begin{warn}[#1]\begin{leftbar}}
-{\end{leftbar}\end{warn}}
-\newtheorem{conj}[theo]{Conjecture}
-\newenvironment{conjecture}[1][]
-{\begin{conj}[#1]\begin{leftbar}}
-{\end{leftbar}\end{conj}}
-\newtheorem{exam}[theo]{Example}
-\newenvironment{example}[1][]
-{\begin{exam}[#1]\begin{leftbar}}
-{\end{leftbar}\end{exam}}
-\newtheorem{exmp}[exer]{Exercise}
-\newenvironment{exercise}[1][]
-{\begin{exmp}[#1]\begin{leftbar}}
-{\end{leftbar}\end{exmp}}
-\newenvironment{statement}{\begin{quote}}{\end{quote}}
-\newenvironment{fineprint}{\begin{small}}{\end{small}}
-\iffalse
-\newenvironment{proof}[1][Proof]{\noindent\textbf{#1.} }{\ \rule{0.5em}{0.5em}}
-\newenvironment{convention}[1][Convention]{\noindent\textbf{#1.} }{\ \rule{0.5em}{0.5em}}
-\newenvironment{question}[1][Question]{\noindent\textbf{#1.} }{\ \rule{0.5em}{0.5em}}
-\fi
-\let\sumnonlimits\sum
-\let\prodnonlimits\prod
-\let\cupnonlimits\bigcup
-\let\capnonlimits\bigcap
-\renewcommand{\sum}{\sumnonlimits\limits}
-\renewcommand{\prod}{\prodnonlimits\limits}
-\renewcommand{\bigcup}{\cupnonlimits\limits}
-\renewcommand{\bigcap}{\capnonlimits\limits}
-\setlength\tablinesep{3pt}
-\setlength\arraylinesep{3pt}
-\setlength\extrarulesep{3pt}
-\setlength\textheight{22.5cm}
-\setlength\textwidth{14.8cm}
-\newenvironment{verlong}{}{}
-\newenvironment{vershort}{}{}
-\newenvironment{noncompile}{}{}
-\excludecomment{verlong}
-\includecomment{vershort}
-\excludecomment{noncompile}
-\newcommand{\defn}[1]{{\color{darkred}\emph{#1}}}
-\newcommand{\CC}{\mathbb{C}}
-\newcommand{\RR}{\mathbb{R}}
-\newcommand{\QQ}{\mathbb{Q}}
-\newcommand{\NN}{\mathbb{N}}
-\newcommand{\ZZ}{\mathbb{Z}}
-\newcommand{\set}[1]{\left\{ #1 \right\}}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{convention}[theorem]{Convention}
+\newtheorem{example}[theorem]{Example}
 \newcommand{\abs}[1]{\left| #1 \right|}
 \newcommand{\tup}[1]{\left( #1 \right)}
-\newcommand{\ive}[1]{\left[ #1 \right]}
-\newcommand{\floor}[1]{\left\lfloor #1 \right\rfloor}
-\newcommand{\calF}{\mathcal{F}}
-\newcommand{\calP}{\mathcal{P}}
 \newcommand{\Fq}{\mathbb{F}_q}
-\renewcommand{\leq}{\leqslant}
-\renewcommand{\geq}{\geqslant}
-\renewcommand{\subset}{\subseteq}
-\iffalse
-\fi
-\definecolor{grey}{rgb}{0.52, 0.52, 0.51}
-\newtheoremstyle{plainsl}
-{8pt plus 2pt minus 4pt}
-{8pt plus 2pt minus 4pt}
-{\slshape}
-{0pt}
-{\bfseries}
-{.}
-{5pt plus 1pt minus 1pt}
-{}
-\theoremstyle{plainsl}
-\ihead{Multislant matrices and Jacobi--Trudi determinants over finite fields}
-\ohead{page \thepage}
-\cfoot{}
 \begin{document}
 
 \title{Multislant matrices and Jacobi--Trudi determinants over finite fields}
-\author{Omesh Dhar Dwivedi, Jonah Blasiak, Darij Grinberg}
-\date{February 13, 2023}
-\maketitle
 
-\textbf{Abstract.}
-%note: remove \cite when pasting abstract into arxiv, but keep in the .tex file
+\author[1]{Jonah Blasiak}
+\ead{jblasiak@gmail.com}
+\author[2]{Omesh Dhar Dwivedi}
+\ead{odd23@drexel.edu}
+\author[3]{Darij Grinberg\corref{cor3}}
+\ead{darijgrinberg@gmail.com}
+\cortext[cor3]{Corresponding author}
+\affiliation[1,2,3]{organization={Drexel University},
+addressline={15 S 33rd Street},
+postcode={19104 PA},
+city={Philadelphia},
+country={USA}}
+
+\date{June 5, 2023}
+
+\begin{abstract}
 The problem of counting the $\mathbb{F}_q$-valued points of a variety has been well-studied from algebro-geometric, topological, and combinatorial perspectives.  We explore a combinatorially flavored version of this problem studied by Anzis et al. \cite{Anzis18}, which is similar to work of Kontsevich \cite{Kontsevich}, Elkies \cite{Elkies}, and Haglund \cite{Haglund}.
 
 Anzis et al. considered the question: what is the probability that the determinant of a Jacobi-Trudi matrix vanishes if the variables are chosen uniformly at random from a finite field?
@@ -152,6 +48,20 @@ verifying and generalizing one of their conjectures.
 More generally, we compute the probability of the determinant vanishing for a class of matrices (``multislant matrices'') made of Toeplitz blocks with certain properties.
 
 We furthermore show that the determinant of a skew Jacobi-Trudi matrix is equidistributed across the finite field if the skew partition is a ribbon.
+\end{abstract}
+
+\begin{highlights}
+\item Jacobi--Trudi matrices are matrices consisting of indeterminates and constants, structured in the same pattern as seen in the Jacobi--Trudi formula for Schur functions. They generalize Toeplitz matrices.
+\item We study the probability for a given Jacobi--Trudi matrix to become singular if its indeterminates are replaced by random elements of a finite field $\mathbb{F}_q$.
+\item In a class of cases (``shifted staircases''), we show an explicit formula for this probability, resolving an open problem by Anzis et al. We also generalize some results of theirs and propose a new conjecture.
+\end{highlights}
+
+\begin{keyword}
+Jacobi--Trudi matrices \sep Schur functions \sep finite fields \sep determinants \sep Toeplitz matrices
+\MSC[2020] 05E05 \sep 15B05 \sep 11T06 \sep 11C20
+\end{keyword}
+
+\maketitle
 
 \section{\label{sec.introduction}Introduction}
 
@@ -176,7 +86,7 @@ Let $\mathbb{F}_q$ be a finite field.
 A \emph{Jacobi--Trudi matrix} is a matrix of the form
 \begin{align*}
 J_{\lambda_1, \lambda_2, \ldots, \lambda_k}\tup{z_1, z_2, z_3, \ldots}
-&:=
+& := 
 \left(  z_{\lambda_{i}-i+j}\right)_{1\leq i\leq k,\ 1\leq j\leq k}
 \\
 &= \begin{pmatrix}
@@ -269,7 +179,7 @@ We thank the referees for helpful comments that improved the clarity of the pres
 
 Fix a finite field $\Fq$. Consider the polynomial ring
 \[
-\mathcal{P} := \mathbb{Z}\left[  h_{1},h_{2},h_{3},\ldots\right]
+\mathcal{P}  :=  \mathbb{Z}\left[  h_{1},h_{2},h_{3},\ldots\right]
 \]
 in countably many indeterminates $h_{1},h_{2},h_{3},\ldots$.
 
@@ -281,7 +191,7 @@ involves the indeterminates $h_{1},h_{2},\ldots,h_{N}$.
 Define the \emph{probability of $f$ evaluating to $a$}
 to be the rational number
 \[
-P\left(  f\mapsto a\right)  :=\dfrac{\left(  \text{\# of }\left(  z_{1}%
+P\left(  f\mapsto a\right)   := \dfrac{\left(  \text{\# of }\left(  z_{1}%
 ,z_{2},\ldots,z_{N}\right)  \in \Fq^{N} \mid f\left(
 z_{1},z_{2},\ldots,z_{N}\right)  =a\right)  }{\left(  \text{\# of all }\left(
 z_{1},z_{2},\ldots,z_{N}\right)  \in \Fq^{N}\right)  }.
@@ -361,7 +271,7 @@ The \emph{conjugate} $\lambda^t$ of a partition $\lambda$ is defined to be the p
 
 Example \ref{ydiagexample} below shows the construction of a Young diagram for the partition $\lambda = (7,4,1)$ and its conjugate. Note that the number of boxes in any row is the corresponding part of $\lambda$. Since a partition is a weakly decreasing sequence, the number of boxes in a row decreases as we go down the diagram.
 
-\Needspace{10pc}
+% \Needspace{10pc}
 
 \begin{example}
 \label{ydiagexample}
@@ -394,7 +304,7 @@ $Y(\lambda)$ & & $Y(\lambda^t)$ \\
 
 \begin{definition}
 If $\lambda = \tup{\lambda_1, \lambda_2, \ldots, \lambda_k}$ is
-a partition, then we set $\lambda_i := 0$ for each $i > k$.
+a partition, then we set $\lambda_i  :=  0$ for each $i > k$.
 Thus, the partition $\lambda$ is identified with the infinite
 weakly decreasing
 sequence $\tup{\lambda_1, \lambda_2, \lambda_3, \ldots}$
@@ -404,33 +314,51 @@ whose entries stabilize at $0$.
 A generalization of partitions are \emph{skew partitions}.
 
 \begin{definition}
+
+\begin{enumerate}
+
+\item[\textbf{(a)}]
 A \emph{skew partition} is a pair of partitions $(\lambda, \mu)$ such that $Y\tup{\mu} \subseteq Y\tup{\lambda}$ (or, equivalently, such that $\mu_i \leq \lambda_i$ for each $i \geq 1$); it is denoted by $\lambda / \mu$.
 We shall also use the shorthand $\mu \subseteq \lambda$ for the condition $Y\tup{\mu} \subseteq Y\tup{\lambda}$ here.
 
+\item[\textbf{(b)}]
 The \emph{skew diagram} $Y\tup{\lambda / \mu}$ of a skew partition $\lambda / \mu$ is defined as the set-theoretic difference $Y\tup{\lambda} \setminus Y\tup{\mu}$ of the Young diagrams of $\lambda$ and $\mu$: the set of boxes that belong to the diagram of $\lambda$ but not to that of $\mu$.
 
-Any partition $\lambda$ is identified with the skew partition $\lambda / \varnothing$, where $\varnothing := \tup{0,0,0,\ldots}$ is the \emph{empty partition}.
+\item[\textbf{(c)}]
+Any partition $\lambda$ is identified with the skew partition $\lambda / \varnothing$, where $\varnothing  :=  \tup{0,0,0,\ldots}$ is the \emph{empty partition}.
+
+\end{enumerate}
+
 \end{definition}
 
 We shall now define the Jacobi--Trudi matrix of a skew partition (generalizing \cite[Definition 2.3]{Anzis18}):
 
 \begin{definition}[Jacobi--Trudi matrix; skew Schur function]
 \label{Jacobi--Trudi Identity}
+
+\begin{enumerate}
+
+\item[\textbf{(a)}]
 Let $\lambda / \mu$ be a skew partition, and let $k = \ell\tup{\lambda}$.
 Define the \emph{Jacobi--Trudi matrix} of $\lambda/\mu$ to be the $k \times k$-matrix
 \[
-J(\lambda/\mu) := \tup{ h_{\lambda_i-\mu_j - i + j} }_{1\leq i\leq k,\ 1\leq j\leq k}
+J(\lambda/\mu)  :=  \tup{ h_{\lambda_i-\mu_j - i + j} }_{1\leq i\leq k,\ 1\leq j\leq k}
 \in \mathcal{P}^{k\times k} .
 \]
-Here, we set $h_0 := 1$ and $h_m := 0$ for all $m < 0$.
+Here, we set $h_0  :=  1$ and $h_m  :=  0$ for all $m < 0$.
 
+\item[\textbf{(b)}]
 The \emph{skew Schur function} of $\lambda/\mu$ is defined to be
 \begin{align}
-   s_{\lambda/\mu} := \det \tup{ J(\lambda/\mu) } \  \in \mathcal{P} .
+   s_{\lambda/\mu}  :=  \det \tup{ J(\lambda/\mu) } \  \in \mathcal{P} .
 \label{eq.def-slm}
 \end{align}
 
+\item[\textbf{(c)}]
 When $\mu = \varnothing$, we denote the matrix $J(\lambda/\mu)$ and the skew Schur function $s_{\lambda/\mu}$ as $J(\lambda)$ and $s_\lambda$, respectively.
+
+\end{enumerate}
+
 \end{definition}
 
 
@@ -512,26 +440,29 @@ Anzis et al. \cite{Anzis18} conjectured that a $2$-shifted $2$-staircase $\lambd
 Let $\lambda$ be the $p$-shifted $n$-staircase of
 length $k$ (for given $p > 0$, $n > 0$ and $k \geq 0$).
 
-\begin{statement}
-\textbf{(i)} Assume that $k < n+1$ (with $p$ arbitrary). Then,
+\begin{enumerate}
+
+\item[\textbf{(i)}]
+Assume that $k < n+1$ (with $p$ arbitrary). Then,
 \[
 P(s_{\lambda} \mapsto 0) =
 1 -
 \begin{cases}
-\prod_{i=1}^{k-1} \left(  1-\dfrac{1}{q^{i}}\right) ,
+\prod\limits_{i=1}^{k-1} \left(  1-\dfrac{1}{q^{i}}\right) ,
 & \text{ if } p \leq k-1; \\
-\prod_{i=1}^{k} \left(  1-\dfrac{1}{q^{i}}\right) ,
+\prod\limits_{i=1}^{k} \left(  1-\dfrac{1}{q^{i}}\right) ,
 & \text{ if } p > k-1.
 \end{cases}
 \]
-\end{statement}
 
-\begin{statement}
-\textbf{(ii)} Assume that $p \leq n$ and $k \geq n+1$. Then,
+\item[\textbf{(ii)}]
+Assume that $p \leq n$ and $k \geq n+1$. Then,
 \[
 P(s_{\lambda} \mapsto 0) = 1- \prod_{i=1}^{n} \left(  1-\dfrac{1}{q^{i}}\right) .
 \]
-\end{statement}
+
+\end{enumerate}
+
 \end{theorem}
 
 \begin{conjecture}
@@ -572,7 +503,6 @@ $\left[  n\right]  =\left\{  1,2,\ldots,n\right\}  $ for each $n\in\mathbb{N}$.
 All matrices appearing in the following are over $\Fq$ or over
 polynomial rings over $\Fq$.
 
-% \begin{noncompile}
 % If $A$ is a $u\times v$-matrix, then $\operatorname{col}_{i}A$ shall denote
 % the $i$-th column of $A$ for each $i\in\left[  u\right]  $.
 
@@ -593,7 +523,6 @@ polynomial rings over $\Fq$.
 % A_{k}\right)  ,\ldots,\operatorname{col}_{m_{k}}\left(  A_{k}\right)
 % \end{align*}
 % (from left to right).
-% \end{noncompile}
 
 \begin{definition}
 Let $A_{1},A_{2},\ldots,A_{k}$ be finitely many matrices with the same number
@@ -659,7 +588,11 @@ the standard one.)
 Let $A=\left(  a_{i,j}\right)  _{1\leq i\leq u,\ 1\leq j\leq v}$ be a $u\times
 v$-matrix.
 
-\textbf{(a)} For each $k\in\mathbb{Z}$, the \emph{$k$-th paradiagonal} of $A$
+\begin{enumerate}
+
+\item[\textbf{(a)}]
+
+For each $k\in\mathbb{Z}$, the \emph{$k$-th paradiagonal} of $A$
 will mean the list of all entries $a_{i,j}$ of $A$ with $i-j=k$. (These
 entries are listed in the order of increasing $i$, or, equivalently, in the
 order of increasing $j$.)
@@ -680,7 +613,8 @@ e & f
 \]
 
 
-\textbf{(b)} A paradiagonal of $A$ is said to be \emph{full} if it has $v$ entries.
+\item[\textbf{(b)}]
+A paradiagonal of $A$ is said to be \emph{full} if it has $v$ entries.
 
 For example, the full paradiagonals of the matrix $\left(
 \begin{array}
@@ -692,12 +626,14 @@ e & f
 \right)  $ are $\left(  a,d\right)  $ and $\left(  c,f\right)  $. Note that a
 matrix that is not tall does not have any full paradiagonals.
 
-\textbf{(c)} If $u\geq v$, then the $\left(  u-v\right)  $-th paradiagonal of
+\item[\textbf{(c)}]
+If $u\geq v$, then the $\left(  u-v\right)  $-th paradiagonal of
 a $u\times v$-matrix $A$ will also be called the \emph{bottommost full
 paradiagonal} of $A$. (It is indeed full and is indeed the bottommost of the
 full paradiagonals of $A$.)
 
-\textbf{(d)} The matrix $A$ is said to be \emph{Toeplitz} if each of its
+\item[\textbf{(d)}]
+The matrix $A$ is said to be \emph{Toeplitz} if each of its
 paradiagonals consists of equal entries (i.e., if any two entries that belong
 to the same paradiagonal are equal).
 
@@ -712,7 +648,8 @@ f & e & d
 \end{array}
 \right)  $ for some $a,b,c,d,e,f$.
 
-\textbf{(e)} The entries $a_{i,j}$ of $A$ with $i<j$ will be called the
+\item[\textbf{(e)}]
+The entries $a_{i,j}$ of $A$ with $i<j$ will be called the
 \emph{attic entries} of $A$. For example, the only attic entry of the matrix
 $\left(
 \begin{array}
@@ -723,7 +660,8 @@ e & f
 \end{array}
 \right)  $ is $b$.
 
-\textbf{(f)} The entries $a_{i,j}$ of $A$ will $i>j+u-v$ will be called the
+\item[\textbf{(f)}]
+The entries $a_{i,j}$ of $A$ will $i>j+u-v$ will be called the
 \emph{basement entries} of $A$. For example, the only basement entry of the
 matrix $\left(
 \begin{array}
@@ -733,6 +671,9 @@ c & d\\
 e & f
 \end{array}
 \right)  $ is $e$.
+
+\end{enumerate}
+
 \end{definition}
 
 In a tall matrix, the attic entries are the entries above the topmost
@@ -949,7 +890,7 @@ First, we need a notation:
 \begin{definition}
 \label{def.gammak}For each positive integer $k$, we set%
 \[
-\gamma_{k}:=\left(  1-\dfrac{1}{q^{k-1}}\right)  \left(  1-\dfrac{1}{q^{k-2}%
+\gamma_{k} := \left(  1-\dfrac{1}{q^{k-1}}\right)  \left(  1-\dfrac{1}{q^{k-2}%
 }\right)  \cdots\left(  1-\dfrac{1}{q^{1}}\right)  .
 \]
 Thus, in particular, $\gamma_{1}=1$ and $\gamma_{2}=1-\dfrac{1}{q}$. We also
@@ -1008,12 +949,19 @@ $0$ (if $A$ has type 0) or a nonzero element of $\Fq$ (if $A$ has
 type 1). Moreover, the bottommost full paradiagonal of $A$ is $\left(
 u_{0},u_{0},\ldots,u_{0}\right)  $.
 
-\textbf{(a)} We call $u_{0}$ the \emph{bottom element} of $A$.
+\begin{enumerate}
 
-\textbf{(b)} For any $v\in\Fq$, we let $A^{\rightarrow v}$ denote
+\item[\textbf{(a)}]
+We call $u_{0}$ the \emph{bottom element} of $A$.
+
+\item[\textbf{(b)}]
+For any $v\in\Fq$, we let $A^{\rightarrow v}$ denote
 the result of replacing all entries on the bottommost full paradiagonal of $A$
 by $v$. Thus, $A^{\rightarrow v}$ is a slant matrix of type 0 if $v=0$, and
 otherwise is a slant matrix of type 1.
+
+\end{enumerate}
+
 \end{definition}
 
 For example, if $A=\left(
@@ -1052,11 +1000,19 @@ y & z & 3\\
 
 
 \begin{definition}
-\textbf{(a)} A slant matrix is said to be \emph{strict} if all its attic
+
+\begin{enumerate}
+
+\item[\textbf{(a)}]
+A slant matrix is said to be \emph{strict} if all its attic
 entries are elements of $\Fq$ (rather than indeterminates).
 
-\textbf{(b)} A multislant matrix is said to be \emph{strict} if all its blocks
+\item[\textbf{(b)}]
+A multislant matrix is said to be \emph{strict} if all its blocks
 are strict.
+
+\end{enumerate}
+
 \end{definition}
 
 For example, the multislant matrix $\left(
@@ -1253,12 +1209,19 @@ $M^{\prime}$ be the matrix obtained from $M$ by removing the bottommost row of
 $M$ and the rightmost column of the strange block. (Note that this will cause
 the strange block to disappear entirely if it had only one column.) Then:
 
-\textbf{(a)} The matrix $M^{\prime}$ is again a multislant matrix of signature
+\begin{enumerate}
+
+\item[\textbf{(a)}]
+The matrix $M^{\prime}$ is again a multislant matrix of signature
 $\left(  k-1,0,1\right)  $ or $\left(  k-1,0,0\right)  $ (depending on whether
 the strange block had more than one column or not).
 
-\textbf{(b)} We have $\operatorname*{SiPr}M=\operatorname*{SiPr}\left(
+\item[\textbf{(b)}]
+We have $\operatorname*{SiPr}M=\operatorname*{SiPr}\left(
 M^{\prime}\right)  $.
+
+\end{enumerate}
+
 \end{lemma}
 
 \begin{proof}
@@ -1473,12 +1436,14 @@ block had more than one column};\\
 (\ref{pf.thm.multislant.prob.c3.gamma-rec})}\right)  .
 \end{align*}
 Hence,%
-\[
-\operatorname*{SiPr}M=\operatorname*{SiPr}\left(  M^{\prime}\right)
-=1-\gamma_{k}=1-\gamma_{k}\left(  1-\dfrac{0^{\ell}}{q^{i}}\right)
+\begin{align*}
+\operatorname*{SiPr}M
+&=\operatorname*{SiPr}\left(  M^{\prime}\right)
+=1-\gamma_{k} \\
+&=1-\gamma_{k}\left(  1-\dfrac{0^{\ell}}{q^{i}}\right)
 \ \ \ \ \ \ \ \ \ \ \left(  \text{since }\ell=1\text{ and thus }0^{\ell
 }=0\right)  .
-\]
+\end{align*}
 Thus, (\ref{eq.thm.multislant.prob.eq}) has been proven in Case 3.
 
 Let us finally consider Case 4. In this case, the matrix $M$ has no block of
@@ -1617,12 +1582,11 @@ P\left(  s_{\lambda/\mu}\mapsto a\right)  =P\left(  s_{\lambda^{t}/\mu^{t}%
 \]
 \end{theorem}
 
-\begin{vershort}
 The following observation will aid in the proof.
 
 \begin{proposition}
 \label{prop.eval}
-Let $f \in \Lambda_{\le N} := \mathbb{Z}\left[  h_{1},h_{2},\ldots, h_N\right]$ and  $a \in \mathbb{F}_q$.
+Let $f \in \Lambda_{\le N}  :=  \mathbb{Z}\left[  h_{1},h_{2},\ldots, h_N\right]$ and  $a \in \mathbb{F}_q$.
 Then
 \begin{equation}
 \label{e prop eval}
@@ -1632,7 +1596,8 @@ that send  $f$ to  $a$} \right)  }{q^N}.
 \end{equation}
 \end{proposition}
 \begin{proof}
-By the universal property of polynomial rings, for each $N$-tuple $\left(  z_{1},z_{2}%
+By the universal property of polynomial rings, we know that
+for each $N$-tuple $\left(  z_{1},z_{2}%
 ,\ldots,z_{N}\right)  \in\Fq^{N}$, there exists a unique ring
 homomorphism $\varphi \colon \Lambda_{\leq N}\rightarrow\Fq$ that
 sends the indeterminates $h_{1},h_{2},\ldots,h_{N}$ to $z_{1},z_{2}
@@ -1693,197 +1658,6 @@ $P\left(  s_{\lambda/\mu}\mapsto a\right)  =P\left(  s_{\lambda^{t}/\mu^{t}%
 }\mapsto a\right) $.
 %This proves Theorem \ref{thm.transpose}.
 \end{proof}
-\end{vershort}
-
-\begin{verlong}
-We will derive this from a more general result. First, we introduce a notation:
-
-\begin{definition}
-A ring endomorphism $\beta \colon \mathcal{P}\rightarrow\mathcal{P}$ will be called
-\emph{friendly} if for each positive integer $n$, the image $\beta\left(
-h_{n}\right)  $ can be written as a polynomial in $h_{1},h_{2},\ldots,h_{n}$.
-\end{definition}
-
-\begin{proposition}
-\label{prop.friendly-aut}Let $\beta \colon \mathcal{P}\rightarrow\mathcal{P}$ be a
-ring automorphism such that both $\beta$ and $\beta^{-1}$ are friendly. Let
-$f\in\mathcal{P}$ and $a\in\Fq$. Then,%
-\[
-P\left(  f\mapsto a\right)  =P\left(  \beta\left(  f\right)  \mapsto a\right)
-.
-\]
-
-\end{proposition}
-
-\begin{proof}
-[Proof of Proposition \ref{prop.friendly-aut}.] Choose $N\in\mathbb{N}$ such
-that $f$ only involves the indeterminates $h_{1},h_{2},\ldots,h_{N}$. Thus, we
-can write $f$ as $f\left(  h_{1},h_{2},\ldots,h_{N}\right)  $.
-
-Let $\Lambda_{\leq N}$ be the subring of $\Lambda$ generated by $h_{1}%
-,h_{2},\ldots,h_{N}$. Hence, our choice of $N$ guarantees that $f\in
-\Lambda_{\leq N}$. The definition of $P\left(  f\mapsto a\right)  $ yields%
-\begin{equation}
-P\left(  f\mapsto a\right)  :=\dfrac{\left(  \text{\# of }\left(  z_{1}%
-,z_{2},\ldots,z_{N}\right)  \in\Fq^{N}\mid f\left(  z_{1}%
-,z_{2},\ldots,z_{N}\right)  =a\right)  }{\left(  \text{\# of all }\left(
-z_{1},z_{2},\ldots,z_{N}\right)  \in\Fq^{N}\right)  }%
-.\label{pf.prop.friendly-aut.P1}%
-\end{equation}
-
-
-However, $\mathcal{P}_{\leq N}$ is the polynomial ring over $\mathbb{Z}$ in
-the indeterminates $h_{1},h_{2},\ldots,h_{N}$ (since $h_{1},h_{2},\ldots
-,h_{N}$ are algebraically independent by definition). Hence, by the universal
-property of polynomial rings, for each $N$-tuple $\left(  z_{1},z_{2}%
-,\ldots,z_{N}\right)  \in\Fq^{N}$, there exists a unique ring
-homomorphism $\varphi \colon \mathcal{P}_{\leq N}\rightarrow\Fq$ that
-sends these indeterminates $h_{1},h_{2},\ldots,h_{N}$ to $z_{1},z_{2}%
-,\ldots,z_{N}$, respectively. In other words, the map%
-\begin{align*}
-\left\{  \text{ring homomorphisms }\varphi \colon \mathcal{P}_{\leq N}\rightarrow
-\Fq\right\}    & \rightarrow\Fq^{N},\\
-\varphi & \mapsto\left(  \varphi\left(  h_{1}\right)  ,\varphi\left(
-h_{2}\right)  ,\ldots,\varphi\left(  h_{N}\right)  \right)
-\end{align*}
-is a bijection. It restricts to a bijection
-\begin{align*}
-& \text{from }\left\{  \text{ring homomorphisms }\varphi \colon \mathcal{P}_{\leq
-N}\rightarrow\Fq\ \mid\ \varphi\left(  f\right)  =a\right\}  \\
-& \text{to }\left\{  \left(  z_{1},z_{2},\ldots,z_{N}\right)  \in
-\Fq^{N}\ \mid\ f\left(  z_{1},z_{2},\ldots,z_{N}\right)
-=a\right\}
-\end{align*}
-(because for any ring homomorphism $\varphi \colon \mathcal{P}_{\leq N}%
-\rightarrow\Fq$, we have the equality
-$\varphi\left(  f\right)  =f\left(
-\varphi\left(  h_{1}\right)  ,\varphi\left(  h_{2}\right)  ,\ldots
-,\varphi\left(  h_{N}\right)  \right)  $). Hence, by the bijection principle,%
-\begin{align}
-& \left(  \text{\# of ring homomorphisms }\varphi \colon \mathcal{P}_{\leq
-N}\rightarrow\Fq\ \mid\ \varphi\left(  f\right)  =a\right)
-\nonumber\\
-& =\left(  \text{\# of }\left(  z_{1},z_{2},\ldots,z_{N}\right)  \in
-\Fq^{N}\mid f\left(  z_{1},z_{2},\ldots,z_{N}\right)  =a\right)
-.\label{pf.prop.friendly-aut.1}%
-\end{align}
-
-
-Since $\beta$ is friendly, it is easily seen that $\beta\left(  \Lambda_{\leq
-N}\right)  \subseteq\Lambda_{\leq N}$. Therefore, we can restrict $\beta$ to
-the subring $\Lambda_{\leq N}$ of $\Lambda$, thus obtaining a ring
-endomorphism $\beta_{N} \colon \Lambda_{\leq N}\rightarrow\Lambda_{\leq N}$.
-Likewise, we can obtain an endomorphism $\left(  \beta^{-1}\right)
-_{N} \colon \Lambda_{\leq N}\rightarrow\Lambda_{\leq N}$ by restricting $\beta^{-1}$
-to $\Lambda_{\leq N}$ (since $\beta^{-1}$ is friendly). These two restricted
-endomorphisms $\beta_{N}$ and $\left(  \beta^{-1}\right)  _{N}$ are mutually
-inverse, and thus are automorphisms.
-
-Now, let $g=\beta\left(  f\right)  $. From $f\in\Lambda_{\leq N}$, we obtain
-$\beta\left(  f\right)  \in\beta\left(  \Lambda_{\leq N}\right)
-\subseteq\Lambda_{\leq N}$, so that $g=\beta\left(  f\right)  \in\Lambda_{\leq
-N}$. In other words, the polynomial $g$ only involves the indeterminates
-$h_{1},h_{2},\ldots,h_{N}$. Therefore, the same argument that gave us
-(\ref{pf.prop.friendly-aut.1}) can be applied to $g$ instead of $f$, and this
-yields%
-\begin{align}
-& \left(  \text{\# of ring homomorphisms }\varphi \colon \mathcal{P}_{\leq
-N}\rightarrow\Fq\ \mid\ \varphi\left(  g\right)  =a\right)
-\nonumber\\
-& =\left(  \text{\# of }\left(  z_{1},z_{2},\ldots,z_{N}\right)  \in
-\Fq^{N}\mid g\left(  z_{1},z_{2},\ldots,z_{N}\right)  =a\right)
-.\label{pf.prop.friendly-aut.2}%
-\end{align}
-Likewise, the same argument that gave us (\ref{pf.prop.friendly-aut.P1})
-yields%
-\begin{equation}
-P\left(  g\mapsto a\right)  :=\dfrac{\left(  \text{\# of }\left(  z_{1}%
-,z_{2},\ldots,z_{N}\right)  \in\Fq^{N}\mid g\left(  z_{1}%
-,z_{2},\ldots,z_{N}\right)  =a\right)  }{\left(  \text{\# of all }\left(
-z_{1},z_{2},\ldots,z_{N}\right)  \in\Fq^{N}\right)  }%
-.\label{pf.prop.friendly-aut.P2}%
-\end{equation}
-
-
-However, $\beta_{N}$ is a ring automorphism of $\Lambda_{\leq N}$, and
-satisfies $g=\beta\left(  f\right)  =\beta_{N}\left(  f\right)  $ (since
-$\beta_{N}$ is a restriction of $\beta$). Thus, there is a bijection%
-\begin{align*}
-& \left\{  \text{ring homomorphisms }\varphi \colon \mathcal{P}_{\leq N}%
-\rightarrow\Fq\ \mid\ \varphi\left(  g\right)  =a\right\}  \\
-& \mapsto\left\{  \text{ring homomorphisms }\varphi \colon \mathcal{P}_{\leq
-N}\rightarrow\Fq\ \mid\ \varphi\left(  f\right)  =a\right\}
-\end{align*}
-given by $\varphi\mapsto\varphi\circ\beta_{N}$ (its inverse sends $\varphi$ to
-$\varphi\circ\left(  \beta_{N}\right)  ^{-1}$). Hence, by the bijection
-principle, we have%
-\begin{align*}
-& \left(  \text{\# of ring homomorphisms }\varphi \colon \mathcal{P}_{\leq
-N}\rightarrow\Fq\ \mid\ \varphi\left(  g\right)  =a\right)  \\
-& =\left(  \text{\# of ring homomorphisms }\varphi \colon \mathcal{P}_{\leq
-N}\rightarrow\Fq\ \mid\ \varphi\left(  f\right)  =a\right)  .
-\end{align*}
-In other words, the left hand sides of the equalities
-(\ref{pf.prop.friendly-aut.2}) and (\ref{pf.prop.friendly-aut.1}) are equal.
-Therefore, so are their right hand sides. In other words,%
-\begin{align*}
-& \left(  \text{\# of }\left(  z_{1},z_{2},\ldots,z_{N}\right)  \in
-\Fq^{N}\mid g\left(  z_{1},z_{2},\ldots,z_{N}\right)  =a\right)
-\\
-& =\left(  \text{\# of }\left(  z_{1},z_{2},\ldots,z_{N}\right)  \in
-\Fq^{N}\mid f\left(  z_{1},z_{2},\ldots,z_{N}\right)  =a\right)  .
-\end{align*}
-Thus, the right hand sides of the equalities (\ref{pf.prop.friendly-aut.P2})
-and (\ref{pf.prop.friendly-aut.P1}) are equal. Hence, so are their left hand
-sides. In other words,%
-\[
-P\left(  g\mapsto a\right)  =P\left(  f\mapsto a\right)  .
-\]
-In view of $g=\beta\left(  f\right)  $, this rewrites as $P\left(
-\beta\left(  f\right)  \mapsto a\right)  =P\left(  f\mapsto a\right)  $. Thus,
-Proposition \ref{prop.friendly-aut}.
-
-
-\end{proof}
-
-
-
-\begin{proof}
-[Proof of Theorem \ref{thm.transpose}.] Let us identify $\mathcal{P}$ with
-$\Lambda$ as in \S \ \ref{sec.def}. For each positive integer $n$, let
-$e_{n}=s_{\left(  1^{n}\right)  }\in\Lambda=\mathcal{P}$ be the $n$-th
-elementary symmetric function.
-
-From the theory of symmetric functions (\cite[\S 7.6]{EC2} or \cite[(2.7)]%
-{Macdonald}), it is known that there is an involutive\footnote{A map is said
-to be \emph{involutive} if it is its own inverse.} ring automorphism
-$\omega \colon \Lambda\rightarrow\Lambda$ (known as the \emph{omega involution} or as
-the \emph{fundamental involution}) defined by setting
-\[
-\omega\left(  h_{n}\right)  =e_{n}\qquad\text{for all }n\geq1.
-\]
-Since $e_{n}$ can be written as a polynomial in $h_{1},h_{2},\ldots,h_{n}$
-(for example, this follows from the Jacobi--Trudi identity, which yields
-$e_{n}=s_{\left(  1^{n}\right)  }=\det\left(  h_{1+i-j}\right)  _{1\leq i\leq
-n,\ 1\leq j\leq n}$), we thus conclude that this automorphism $\omega$ is
-friendly. Its inverse $\omega^{-1}=\omega$ is friendly as well (since $\omega$
-is involutive).
-
-Hence, Proposition \ref{prop.friendly-aut} (applied to $\beta=\omega$ and
-$f=s_{\lambda/\mu}$) yields%
-\begin{equation}
-P\left(  s_{\lambda/\mu}\mapsto a\right)  =P\left(  \omega\left(
-s_{\lambda/\mu}\right)  \mapsto a\right)  .\label{pf.thm.transpose.1}%
-\end{equation}
-
-
-It is furthermore well-known (\cite[Theorem 7.15.6]{EC2} or \cite[(5.6)]%
-{Macdonald}) that $\omega\left(  s_{\lambda/\mu}\right)  =s_{\lambda^{t}%
-/\mu^{t}}$. In light of this, we can rewrite (\ref{pf.thm.transpose.1}) as
-$P\left(  s_{\lambda/\mu}\mapsto a\right)  =P\left(  s_{\lambda^{t}/\mu^{t}%
-}\mapsto a\right)  $. This proves Theorem \ref{thm.transpose}.
-\end{proof}
-\end{verlong}
 
 
 \section{Block Staircases}
@@ -1892,11 +1666,16 @@ Using Theorem~\ref{thm.transpose}, we can extend our results on
 $p$-shifted $n$-staircases to their conjugates. These conjugates can
 be described independently.
 We will use the \emph{exponential notation} for partitions, i.e.,
-we will write $\lambda =((c_1)^{a_1}, (c_2)^{a_2}, \ldots, (c_k)^{a_k})$
-as a shorthand for $\lambda = ( \underbrace{c_1,c_1,\ldots,c_1}_{a_1
+\begin{align*}
+\text{ we will write } &
+\lambda =((c_1)^{a_1}, (c_2)^{a_2}, \ldots, (c_k)^{a_k})
+\\
+\text{ as a shorthand for } &
+\lambda = ( \underbrace{c_1,c_1,\ldots,c_1}_{a_1
 \text{ times}},  \underbrace{c_2,c_2,\ldots,c_2}_{a_2
 \text{ times}}, \ldots, \underbrace{c_k,c_k,\ldots,c_k}_{a_k
-\text{ times}})$.
+\text{ times}}) .
+\end{align*}
 
 \begin{definition}
 Let $p > 0$, $n > 0$ and $k \geq 0$ be integers.
@@ -1918,26 +1697,29 @@ and obtain the following corollary and conjecture:
 
 Let $\lambda$ be a block staircase.
 
-\begin{statement}
-\textbf{(i)} Let $k < n+1$ (with $p$ arbitrary). Then,
+\begin{enumerate}
+
+\item[\textbf{(i)}]
+Let $k < n+1$ (with $p$ arbitrary). Then,
 \[
 P(s_{\lambda} \mapsto 0) =
 1 -
 \begin{cases}
-\prod_{i=1}^{k-1} \left(  1-\dfrac{1}{q^{i}}\right) ,
+\prod\limits_{i=1}^{k-1} \left(  1-\dfrac{1}{q^{i}}\right) ,
 & \text{ if } p \leq k-1; \\
-\prod_{i=1}^{k} \left(  1-\dfrac{1}{q^{i}}\right) ,
+\prod\limits_{i=1}^{k} \left(  1-\dfrac{1}{q^{i}}\right) ,
 & \text{ if } p > k-1.
 \end{cases}
 \]
-\end{statement}
 
-\begin{statement}
-\textbf{(ii)} Let $p \leq n$ and $k \geq n+1$. Then,
+\item[\textbf{(ii)}]
+Let $p \leq n$ and $k \geq n+1$. Then,
 \[
 P(s_{\lambda} \mapsto 0) = 1- \prod_{i=1}^{n} \left(  1-\dfrac{1}{q^{i}}\right) .
 \]
-\end{statement}
+
+\end{enumerate}
+
 \end{corollary}
 
 \begin{conjecture}
@@ -1992,7 +1774,7 @@ Of the three skew partitions below, only the first is a ribbon, since \textbf{(i
 \begin{minipage}[t]{0.30\textwidth}
 \begin{center}
 % \ydiagram{5+3,4+3,3+2,4}
-\ydiagram[*(grey!30) ]{5+2,5+2}
+\ydiagram[*(gray!30) ]{5+2,5+2}
 *[*(white)]{5+3,4+3,3+2,4}
 
 \textbf{(ii)}\vphantom{$\int^a$}
@@ -2001,7 +1783,7 @@ Of the three skew partitions below, only the first is a ribbon, since \textbf{(i
 \begin{minipage}[t]{0.30\textwidth}
 \begin{center}
 % \ydiagram{5+3,3+3,3+1,3}
-\ydiagram[*(grey!30) ]{0,0,3+1,2+1}
+\ydiagram[*(gray!30) ]{0,0,3+1,2+1}
 *[*(white)]{5+3,3+3,3+1,3}
 
 \textbf{(iii)}\vphantom{$\int^a$}
@@ -2016,10 +1798,11 @@ Of the three skew partitions below, only the first is a ribbon, since \textbf{(i
 
 
 
-Let us revisit the Jacobi--Trudi identity. For the ribbon  $\lambda/\mu= (8,6,4,4)/(5,3,3)$ in Example \ref{ribbontableaux} (i), we can write down $J(\lambda/\mu)$ as follows:
+Let us revisit Jacobi--Trudi matrices. For the ribbon  $\lambda/\mu= (8,6,4,4)/(5,3,3)$ in Example \ref{ribbontableaux} (i), we can write down $J(\lambda/\mu)$ as follows:
 \begin{align*}
 J(\lambda/\mu)
-= % = s_{(8,6,4,4)/ (5,3,3)} =
+% = s_{(8,6,4,4)/ (5,3,3)}
+=
 \begin{pmatrix}
 h_3 & h_6 & h_7 & h_{11} \\
 1 & h_3 & h_4 & h_8 \\
@@ -2110,18 +1893,20 @@ Suppose that $\lambda_1> \mu_1$ and $\lambda_\ell > \mu_\ell = 0$.\\
 The Jacobi--Trudi matrix $J(\lambda/\mu)$ of the ribbon $\lambda/\mu$ has the following properties
 (where the notation $\tup{J(\lambda/\mu)}_{i,j}$ means the $\tup{i,j}$-th entry of this matrix):
 
-\begin{statement}
-\textbf{(i)} We have $J(\lambda/\mu)_{j+1,j}=1$ for each $j \in [\ell-1]$.
-\end{statement}
+\begin{enumerate}
 
-\begin{statement}
-\textbf{(ii)} We have $J(\lambda/\mu)_{i,j}=0$ whenever
+\item[\textbf{(i)}]
+We have $J(\lambda/\mu)_{j+1,j}=1$ for each $j \in [\ell-1]$.
+
+\item[\textbf{(ii)}]
+We have $J(\lambda/\mu)_{i,j}=0$ whenever
 $i, j \in [\ell]$ satisfy $i > j+1$.
-\end{statement}
 
-\begin{statement}
-\textbf{(iii)} Let $N= \lambda_\ell -\mu_l-1+\ell$. The upper right entry of $J(\lambda/\mu)$ is $h_N$ and the remaining entries of $J(\lambda/\mu)$ lie in $\mathbb{Z}\left[  h_{1},h_{2},h_{3},\ldots, h_{N-1}\right]$.
-\end{statement}
+\item[\textbf{(iii)}]
+Let $N= \lambda_\ell -\mu_l-1+\ell$. The upper right entry of $J(\lambda/\mu)$ is $h_N$ and the remaining entries of $J(\lambda/\mu)$ lie in $\mathbb{Z}\left[  h_{1},h_{2},h_{3},\ldots, h_{N-1}\right]$.
+
+\end{enumerate}
+
 \end{lemma}
 
 \begin{remark}
@@ -2217,7 +2002,7 @@ z_{1},z_{2},\ldots,z_{N}\right)  \in\Fq^{N}\right)  }\\
 
 
 
-\printbibliography
+\bibliographystyle{plain}
+\bibliography{hecke}
+
 \end{document}
-
-
