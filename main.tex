@@ -8,7 +8,6 @@
 \usepackage{ytableau}
 \usepackage[maxbibnames=99,backend=bibtex]{biblatex}
 \addbibresource{hecke.bib}
-\usepackage{color}
 \usepackage[breaklinks=True]{hyperref}
 \usepackage[sc]{mathpazo}
 \usepackage[T1]{fontenc}
@@ -62,15 +61,10 @@
 \newenvironment{example}[1][]
 {\begin{exam}[#1]\begin{leftbar}}
 {\end{leftbar}\end{exam}}
-\newenvironment{statement}{\begin{quote}}{\end{quote}}
 \iffalse
 \newenvironment{proof}[1][Proof]{\noindent\textbf{#1.} }{\ \rule{0.5em}{0.5em}}
 \newenvironment{convention}[1][Convention]{\noindent\textbf{#1.} }{\ \rule{0.5em}{0.5em}}
 \fi
-\let\sumnonlimits\sum
-\let\prodnonlimits\prod
-\renewcommand{\sum}{\sumnonlimits\limits}
-\renewcommand{\prod}{\prodnonlimits\limits}
 \setlength\tablinesep{3pt}
 \setlength\arraylinesep{3pt}
 \setlength\extrarulesep{3pt}
@@ -80,22 +74,11 @@
 \newenvironment{vershort}{}{}
 \excludecomment{verlong}
 \includecomment{vershort}
-\newcommand{\NN}{\mathbb{N}}
 \newcommand{\abs}[1]{\left| #1 \right|}
 \newcommand{\tup}[1]{\left( #1 \right)}
 \newcommand{\Fq}{\mathbb{F}_q}
 \renewcommand{\leq}{\leqslant}
 \renewcommand{\geq}{\geqslant}
-\newtheoremstyle{plainsl}
-{8pt plus 2pt minus 4pt}
-{8pt plus 2pt minus 4pt}
-{\slshape}
-{0pt}
-{\bfseries}
-{.}
-{5pt plus 1pt minus 1pt}
-{}
-\theoremstyle{plainsl}
 \ihead{Multislant matrices and Jacobi--Trudi determinants over finite fields}
 \ohead{page \thepage}
 \cfoot{}
@@ -488,7 +471,7 @@ The name, of course, refers to the shape of the Young diagram.
 
 % \begin{definition}
 % \label{nstaircasedef}
-% Fix $n,k \in \NN$.
+% Fix $n,k \in \mathbb{N}$.
 % We define the \emph{$n$-staircase} of length $k$ to be the partition
 % \[
 % \lambda = (nk, n(k-1), n(k-2), \ldots,2n, n) .
@@ -511,9 +494,9 @@ Assume that $k < n+1$ (with $p$ arbitrary). Then,
 P(s_{\lambda} \mapsto 0) =
 1 -
 \begin{cases}
-\prod_{i=1}^{k-1} \left(  1-\dfrac{1}{q^{i}}\right) ,
+\prod\limits_{i=1}^{k-1} \left(  1-\dfrac{1}{q^{i}}\right) ,
 & \text{ if } p \leq k-1; \\
-\prod_{i=1}^{k} \left(  1-\dfrac{1}{q^{i}}\right) ,
+\prod\limits_{i=1}^{k} \left(  1-\dfrac{1}{q^{i}}\right) ,
 & \text{ if } p > k-1.
 \end{cases}
 \]
@@ -1955,9 +1938,9 @@ Let $k < n+1$ (with $p$ arbitrary). Then,
 P(s_{\lambda} \mapsto 0) =
 1 -
 \begin{cases}
-\prod_{i=1}^{k-1} \left(  1-\dfrac{1}{q^{i}}\right) ,
+\prod\limits_{i=1}^{k-1} \left(  1-\dfrac{1}{q^{i}}\right) ,
 & \text{ if } p \leq k-1; \\
-\prod_{i=1}^{k} \left(  1-\dfrac{1}{q^{i}}\right) ,
+\prod\limits_{i=1}^{k} \left(  1-\dfrac{1}{q^{i}}\right) ,
 & \text{ if } p > k-1.
 \end{cases}
 \]
